@@ -1,0 +1,18 @@
+﻿@page "/lang"
+@*@layout LoginLayout*@
+@inherits RadzenDh5.Pages.LanguagePickerComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+@using Microsoft.AspNetCore.Identity;
+@using RadzenDh5.Models
+@using Microsoft.AspNetCore.Authorization
+
+@inject BlazorApp1.Data.PageService pageService;
+
+
+<span>【@Culture】</span>
+
+<RadzenDropDown Data="@(new[] { new { Text="EN", Value="en-US" },new { Text="TW", Value="zh-CHT" },new { Text="CN", Value="zh-CHS" },new { Text="TH", Value="th-TH" }})" style="margin-right: 8px; margin-top: 4px" TextProperty="Text" @bind-Value="@Culture" ValueProperty="Value" Name="Dropdown1" Change="@Dropdown1Change">
+</RadzenDropDown>

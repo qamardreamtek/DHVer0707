@@ -1,0 +1,444 @@
+{
+  "components": [
+    {
+      "components": [
+        {
+          "class": "justify-content-start align-items-center",
+          "components": [
+            {
+              "class": "col-6 d-flex align-items-center",
+              "components": [
+                {
+                  "events": {
+                    "click": [
+                      {
+                        "code": "await InvokeAsync(() => { sidebar0.Toggle(); });",
+                        "type": "execute"
+                      },
+                      {
+                        "code": "await InvokeAsync(() => { body0.Toggle(); });",
+                        "type": "execute"
+                      }
+                    ]
+                  },
+                  "name": "sidebar-toggle0",
+                  "type": "sidebar-toggle"
+                },
+                {
+                  "name": "label0",
+                  "text": "RadzenDH5",
+                  "type": "label"
+                }
+              ],
+              "name": "leftCol",
+              "type": "col"
+            },
+            {
+              "class": "col-6 text-right",
+              "components": [
+                {
+                  "data": "@(new[] { new { Text=\"Chinese (Simplified)\", Value=\"zh-CHS\" },new { Text=\"Chinese (Traditional)\", Value=\"zh-CHT\" },new { Text=\"English - United States\", Value=\"en-US\" },new { Text=\"Thai - Thailand\", Value=\"th-TH\" }})",
+                  "events": {
+                    "change": [
+                      {
+                        "code": "var redirect = new Uri(UriHelper.Uri).GetComponents(UriComponents.PathAndQuery | UriComponents.Fragment, UriFormat.UriEscaped);",
+                        "type": "execute"
+                      },
+                      {
+                        "code": "var query = $\"?culture={Uri.EscapeDataString((string)args)}&redirectUri={redirect}\";",
+                        "type": "execute"
+                      },
+                      {
+                        "code": "UriHelper.NavigateTo(\"/Culture/SetCulture\" + query, forceLoad: true);",
+                        "type": "execute"
+                      }
+                    ]
+                  },
+                  "style": {
+                    "marginRight": "8px",
+                    "marginTop": "4px"
+                  },
+                  "textProperty": "Text",
+                  "type": "dropdown",
+                  "value": "${Culture}",
+                  "valueProperty": "Value",
+                  "valueType": "string"
+                }
+              ],
+              "name": "rightCol",
+              "type": "col"
+            }
+          ],
+          "name": "headerRow",
+          "type": "row"
+        }
+      ],
+      "name": "header0",
+      "type": "header"
+    },
+    {
+      "components": [
+        {
+          "name": "main",
+          "type": "content-container"
+        }
+      ],
+      "name": "body0",
+      "type": "body"
+    },
+    {
+      "components": [
+        {
+          "items": [
+            {
+              "icon": "wysiwyg",
+              "path": "welcome",
+              "text": "Welcome"
+            },
+            {
+              "icon": "tab",
+              "items": [
+                {
+                  "icon": "loyalty",
+                  "path": "P010",
+                  "text": "P010 G/R Palletizing",
+                  "visible": "${Security.IsInRole(\"P010\")}"
+                },
+                {
+                  "icon": "loyalty",
+                  "path": "P020",
+                  "text": "P020 Stock allocation for delivery(multiple orders)",
+                  "visible": "${Security.IsInRole(\"P020\")}"
+                },
+                {
+                  "icon": "loyalty",
+                  "path": "P030",
+                  "text": "P030 Stock allocation for delivery(One line item)",
+                  "visible": "${Security.IsInRole(\"P030\")}"
+                },
+                {
+                  "icon": "loyalty",
+                  "path": "P040",
+                  "text": "P040 Allocated Delivery Confirm/Cancel",
+                  "visible": "${Security.IsInRole(\"P040\")}"
+                },
+                {
+                  "icon": "loyalty",
+                  "path": "P050",
+                  "text": "P050 Picking order confirmation / cancellation",
+                  "visible": "${Security.IsInRole(\"P050\")}"
+                },
+                {
+                  "icon": "loyalty",
+                  "path": "P060",
+                  "text": "P060 Storage Transfer Out",
+                  "visible": "${Security.IsInRole(\"P060\")}"
+                },
+                {
+                  "icon": "loyalty",
+                  "path": "P070",
+                  "text": "P070 Pallet Inventory Adjustment",
+                  "visible": "${Security.IsInRole(\"P070\")}"
+                },
+                {
+                  "icon": "loyalty",
+                  "path": "P080",
+                  "text": "P080 Inventory Transfer",
+                  "visible": "${Security.IsInRole(\"P080\")}"
+                },
+                {
+                  "icon": "loyalty",
+                  "path": "P090",
+                  "text": "P090 Palletizing of empty pallets",
+                  "visible": "${Security.IsInRole(\"P090\")}"
+                },
+                {
+                  "icon": "loyalty",
+                  "path": "P100",
+                  "text": "P100 Transfer the empty pallets out.",
+                  "visible": "${Security.IsInRole(\"P100\")}"
+                }
+              ],
+              "text": "P000 Process Executing",
+              "visible": "${Security.IsInRole(\"P000\")}"
+            },
+            {
+              "icon": "tab",
+              "items": [
+                {
+                  "icon": "loyalty",
+                  "path": "M010",
+                  "text": "M010 Article Basic Data Maintain",
+                  "visible": "${Security.IsInRole(\"M010\")}"
+                },
+                {
+                  "icon": "loyalty",
+                  "path": "M020",
+                  "text": "M020 GTIN Basic Data Maintain",
+                  "visible": "${Security.IsInRole(\"M020\")}"
+                },
+                {
+                  "icon": "loyalty",
+                  "path": "M030",
+                  "text": "M030 Storage Unit Type Basic Data Maintain",
+                  "visible": "${Security.IsInRole(\"M030\")}"
+                },
+                {
+                  "icon": "loyalty",
+                  "path": "M040",
+                  "text": "M040 Transfer Requirement Data Maintain",
+                  "visible": "${Security.IsInRole(\"M040\")}"
+                },
+                {
+                  "icon": "loyalty",
+                  "path": "M050",
+                  "text": "M050 Delivery Order Data Maintain",
+                  "visible": "${Security.IsInRole(\"M050\")}"
+                },
+                {
+                  "icon": "loyalty",
+                  "path": "M060",
+                  "text": "M060 Physical Inventory Count Data Maintain",
+                  "visible": "${Security.IsInRole(\"M060\")}"
+                },
+                {
+                  "icon": "loyalty",
+                  "path": "M070",
+                  "text": "M070 AS/RS Transfer command maintenance",
+                  "visible": "${Security.IsInRole(\"M070\")}"
+                },
+                {
+                  "icon": "loyalty",
+                  "path": "M080",
+                  "text": "M080 Inventory Data Maintain",
+                  "visible": "${Security.IsInRole(\"M080\")}"
+                },
+                {
+                  "icon": "loyalty",
+                  "path": "M090",
+                  "text": "M090 Location Usage Status Maintain",
+                  "visible": "${Security.IsInRole(\"M090\")}"
+                }
+              ],
+              "text": "M000 Data Maintenance",
+              "visible": "${Security.IsInRole(\"M000\")}"
+            },
+            {
+              "icon": "tab",
+              "items": [
+                {
+                  "icon": "loyalty",
+                  "path": "C010",
+                  "text": "C010 Physical Inventory Count",
+                  "visible": "${Security.IsInRole(\"C010\")}"
+                },
+                {
+                  "icon": "loyalty",
+                  "path": "C020",
+                  "text": "C020 Physical Inventory Count(SAP)",
+                  "visible": "${Security.IsInRole(\"C020\")}"
+                },
+                {
+                  "icon": "loyalty",
+                  "path": "C030",
+                  "text": "C030 Physical Inventory Count Record",
+                  "visible": "${Security.IsInRole(\"C030\")}"
+                },
+                {
+                  "icon": "loyalty",
+                  "path": "C040",
+                  "text": "C040 PIC Difference Adjustment",
+                  "visible": "${Security.IsInRole(\"C040\")}"
+                }
+              ],
+              "text": "C000 Physical Inventory Count",
+              "visible": "${Security.IsInRole(\"C000\")}"
+            },
+            {
+              "icon": "tab",
+              "items": [
+                {
+                  "icon": "loyalty",
+                  "path": "Q010",
+                  "text": "Q010 Article Basic Data Query",
+                  "visible": "${Security.IsInRole(\"Q010\")}"
+                },
+                {
+                  "icon": "loyalty",
+                  "path": "Q020",
+                  "text": "Q020 GTIN Basic Data Query",
+                  "visible": "${Security.IsInRole(\"Q020\")}"
+                },
+                {
+                  "icon": "loyalty",
+                  "path": "Q030",
+                  "text": "Q030 Storage Unit Type Basic Data Query",
+                  "visible": "${Security.IsInRole(\"Q030\")}"
+                },
+                {
+                  "icon": "loyalty",
+                  "path": "Q040",
+                  "text": "Q040 Transfer Requirement Data Query",
+                  "visible": "${Security.IsInRole(\"Q040\")}"
+                },
+                {
+                  "icon": "loyalty",
+                  "path": "Q050",
+                  "text": "Q050 Delivery Order Data Query",
+                  "visible": "${Security.IsInRole(\"Q050\")}"
+                },
+                {
+                  "icon": "loyalty",
+                  "path": "Q060",
+                  "text": "Q060 Physical Inventory Count Data Query",
+                  "visible": "${Security.IsInRole(\"Q060\")}"
+                },
+                {
+                  "icon": "loyalty",
+                  "path": "Q070",
+                  "text": "Q070 AS/RS Transfer Command Query",
+                  "visible": "${Security.IsInRole(\"Q070\")}"
+                },
+                {
+                  "icon": "loyalty",
+                  "path": "Q080",
+                  "text": "Q080 Inventory Data Query",
+                  "visible": "${Security.IsInRole(\"Q080\")}"
+                },
+                {
+                  "icon": "loyalty",
+                  "path": "Q090",
+                  "text": "Q090 Location Usage Status Query",
+                  "visible": "${Security.IsInRole(\"Q090\")}"
+                },
+                {
+                  "icon": "loyalty",
+                  "path": "Q100",
+                  "text": "Q100 Location Status Query",
+                  "visible": "${Security.IsInRole(\"Q100\")}"
+                }
+              ],
+              "text": "Q000 Data Inquire",
+              "visible": "${Security.IsInRole(\"Q000\")}"
+            },
+            {
+              "icon": "tab",
+              "items": [
+                {
+                  "icon": "loyalty",
+                  "path": "S010",
+                  "text": "S010 User Basic Data Maintain",
+                  "visible": "${Security.IsInRole(\"S010\")}"
+                },
+                {
+                  "icon": "loyalty",
+                  "path": "S020",
+                  "text": "S020 Group Basic Data Maintain",
+                  "visible": "${Security.IsInRole(\"S020\")}"
+                },
+                {
+                  "icon": "loyalty",
+                  "path": "S030",
+                  "text": "S030 Program List Basic Data Maintain",
+                  "visible": "${Security.IsInRole(\"S030\")}"
+                },
+                {
+                  "icon": "loyalty",
+                  "path": "S040",
+                  "text": "S040 Group User Data Maintain",
+                  "visible": "${Security.IsInRole(\"S040\")}"
+                },
+                {
+                  "icon": "loyalty",
+                  "path": "S050",
+                  "text": "S050 Program Authorization by Group",
+                  "visible": "${Security.IsInRole(\"S050\")}"
+                },
+                {
+                  "icon": "loyalty",
+                  "path": "S060",
+                  "text": "S060 Program Authorization by User",
+                  "visible": "${Security.IsInRole(\"S060\")}"
+                },
+                {
+                  "icon": "loyalty",
+                  "path": "S070",
+                  "text": "S070 Code Data Maintain",
+                  "visible": "${Security.IsInRole(\"S070\")}"
+                },
+                {
+                  "icon": "loyalty",
+                  "path": "S080",
+                  "text": "S080 User Login Password Change",
+                  "visible": "${Security.IsInRole(\"S080\")}"
+                }
+              ],
+              "text": "S000 System Setting",
+              "visible": "${Security.IsInRole(\"S000\")}"
+            },
+            {
+              "icon": "login",
+              "path": "login",
+              "text": "Login"
+            },
+            {
+              "icon": "admin_panel_settings",
+              "items": [
+                {
+                  "icon": "supervised_user_circle",
+                  "path": "application-users",
+                  "text": "Application Users"
+                },
+                {
+                  "icon": "sync_alt",
+                  "path": "syncidentity",
+                  "text": "同步[用戶][群組][程式]到ASP.NET [Users][Roles]"
+                }
+              ],
+              "text": "ASP.NET Identity",
+              "visible": "${Security.IsInRole(\"Admin\")}"
+            },
+            {
+              "icon": "exit_to_app",
+              "path": "profile",
+              "text": "Logout"
+            }
+          ],
+          "name": "panelmenu0",
+          "style": {
+            "height": "100%"
+          },
+          "type": "panelmenu"
+        }
+      ],
+      "name": "sidebar0",
+      "type": "sidebar"
+    },
+    {
+      "components": [
+        {
+          "name": "footerText",
+          "text": "RadzenDH5, Copyright Ⓒ 2021",
+          "type": "label"
+        }
+      ],
+      "name": "footer0",
+      "type": "footer"
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "Culture",
+        "type": "set",
+        "value": "\"\"",
+        "valueType": "string"
+      },
+      {
+        "code": "Culture = await JSRuntime.InvokeAsync<string>(\"Radzen.getCulture\");",
+        "type": "execute"
+      }
+    ]
+  },
+  "name": "Main"
+}

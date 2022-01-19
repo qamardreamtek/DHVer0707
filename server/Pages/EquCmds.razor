@@ -1,0 +1,80 @@
+﻿@page "/equ-cmds"
+@layout MainLayout
+@inherits RadzenDh5.Pages.EquCmdsComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+@using Microsoft.AspNetCore.Identity;
+@using RadzenDh5.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+@inject Microsoft.Extensions.Localization.IStringLocalizer<EquCmds> L
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H3" Text="@L["pageTitle.Text"]">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="@L["Create"]" Click="@Button0Click">
+        </RadzenButton>
+        <RadzenSplitButton Icon="get_app" style="margin-left: 10px; margin-bottom: 10px" Text="@L["splitbutton0.Text"]" Click="@Splitbutton0Click">
+          <ChildContent>
+            <RadzenSplitButtonItem Text="@L["splitbutton0.excel.Text"]" Value="xlsx">
+            </RadzenSplitButtonItem>
+            <RadzenSplitButtonItem Text="@L["splitbutton0.csv.Text"]" Value="csv">
+            </RadzenSplitButtonItem>
+          </ChildContent>
+        </RadzenSplitButton>
+        <RadzenGrid @ref="grid0" AllowFiltering="true" FilterMode="FilterMode.Advanced" AllowPaging="true" AllowSorting="true" Data="@getEquCmdsResult" TItem="RadzenDh5.Models.Mark10Sqlexpress04.EquCmd" RowSelect="@Grid0RowSelect">
+          <Columns>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.EquCmd" Property="CmdSno" Title="@L["grid0.CmdSno.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.EquCmd" Property="EquNo" Title="@L["grid0.EquNo.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.EquCmd" Property="CmdMode" Title="@L["grid0.CmdMode.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.EquCmd" Property="CmdSts" Title="@L["grid0.CmdSts.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.EquCmd" Property="Source" Title="@L["grid0.Source.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.EquCmd" Property="Destination" Title="@L["grid0.Destination.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.EquCmd" Property="LocSize" Title="@L["grid0.LocSize.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.EquCmd" Property="Priority" Title="@L["grid0.Priority.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.EquCmd" Property="RCVDT" Title="@L["grid0.RCVDT.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.EquCmd" Property="ACTDT" Title="@L["grid0.ACTDT.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.EquCmd" Property="CSTPresenceDT" Title="@L["grid0.CSTPresenceDT.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.EquCmd" Property="ENDDT" Title="@L["grid0.ENDDT.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.EquCmd" Property="CompleteCode" Title="@L["grid0.CompleteCode.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.EquCmd" Property="CompleteIndex" Title="@L["grid0.CompleteIndex.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.EquCmd" Property="CarNo" Title="@L["grid0.CarNo.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.EquCmd" Property="ReNewFlag" Title="@L["grid0.ReNewFlag.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.EquCmd" Property="FromInfo" Title="@L["grid0.FromInfo.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.EquCmd" Property="PLT_ID" Title="@L["grid0.PLT_ID.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.EquCmd" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+              <Template Context="radzenDh5ModelsMark10Sqlexpress04EquCmd">
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, radzenDh5ModelsMark10Sqlexpress04EquCmd))" @onclick:stopPropagation="true">
+                </RadzenButton>
+              </Template>
+            </RadzenGridColumn>
+          </Columns>
+        </RadzenGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

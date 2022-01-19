@@ -1,0 +1,222 @@
+﻿@page "/add-prog-wrt"
+@layout MainLayout
+@inherits RadzenDh5.Pages.AddProgWrtComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+@using Microsoft.AspNetCore.Identity;
+@using RadzenDh5.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+@inject Microsoft.Extensions.Localization.IStringLocalizer<AddProgWrt> L
+<RadzenContent Container="main">
+  <ChildContent>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm Data="@progwrt" Visible="@(progwrt != null)" TItem="RadzenDh5.Models.Mark10Sqlexpress04.ProgWrt" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["USER_ID"]" Component="USER_ID" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+    
+
+                  <RadzenDropDown AllowClear="true" TValue="string" @bind-Value="@(progwrt.USER_ID)" Name="USER_ID"
+                                  Data=@( AppDb.UserMsts.Select(c => new { CustomerID = c.USER_ID, CompanyName = c.USER_ID }))
+                                  TextProperty="CompanyName" ValueProperty="CustomerID" />
+
+
+
+                  <RadzenRequiredValidator Component="USER_ID" Text="@L["USER_IDRequiredValidator.Text"]" style="position: absolute">
+                  </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["PROG_ID"]" Component="PROG_ID" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+            
+
+                  <RadzenDropDown AllowClear="true" TValue="string" @bind-Value="@(progwrt.PROG_ID)" Name="PROG_ID"
+                                  Data=@(AppDb.ProgMsts.Where( c=> !AppDb.ProgWrts.Where(u=>u.USER_ID == progwrt.USER_ID )
+                                         .Select(z =>z.PROG_ID).Contains(c.PROG_ID))
+                                  .Select(c=> new { CustomerID = c.PROG_ID, CompanyName = c.PROG_ID }))
+
+
+                 TextProperty="CompanyName" ValueProperty="CustomerID"  />
+
+ <RadzenRequiredValidator Component="PROG_ID" Text="@L["PROG_IDRequiredValidator.Text"]" style="position: absolute">
+ </RadzenRequiredValidator>
+</div>
+</div>
+
+
+                      @*<div style="margin-bottom: 1rem" class="row">
+          <div class="col-md-3">
+            <RadzenLabel Text="@L["QUERY_WRT"]" Component="QUERY_WRT" style="width: 100%">
+            </RadzenLabel>
+          </div>
+          <div class="col-md-9">
+            <RadzenTextBox MaxLength="1" style="display: block; width: 100%" @bind-Value="@(progwrt.QUERY_WRT)" Name="QUERY_WRT">
+            </RadzenTextBox>
+            <RadzenRequiredValidator Component="QUERY_WRT" Text="@L["QUERY_WRTRequiredValidator.Text"]" style="position: absolute">
+            </RadzenRequiredValidator>
+          </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+          <div class="col-md-3">
+            <RadzenLabel Text="@L["PRINT_WRT"]" Component="PRINT_WRT" style="width: 100%">
+            </RadzenLabel>
+          </div>
+          <div class="col-md-9">
+            <RadzenTextBox MaxLength="1" style="display: block; width: 100%" @bind-Value="@(progwrt.PRINT_WRT)" Name="PRINT_WRT">
+            </RadzenTextBox>
+            <RadzenRequiredValidator Component="PRINT_WRT" Text="@L["PRINT_WRTRequiredValidator.Text"]" style="position: absolute">
+            </RadzenRequiredValidator>
+          </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+          <div class="col-md-3">
+            <RadzenLabel Text="@L["IMPORT_WRT"]" Component="IMPORT_WRT" style="width: 100%">
+            </RadzenLabel>
+          </div>
+          <div class="col-md-9">
+            <RadzenTextBox MaxLength="1" style="display: block; width: 100%" @bind-Value="@(progwrt.IMPORT_WRT)" Name="IMPORT_WRT">
+            </RadzenTextBox>
+            <RadzenRequiredValidator Component="IMPORT_WRT" Text="@L["IMPORT_WRTRequiredValidator.Text"]" style="position: absolute">
+            </RadzenRequiredValidator>
+          </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+          <div class="col-md-3">
+            <RadzenLabel Text="@L["EXPORT_WRT"]" Component="EXPORT_WRT" style="width: 100%">
+            </RadzenLabel>
+          </div>
+          <div class="col-md-9">
+            <RadzenTextBox MaxLength="1" style="display: block; width: 100%" @bind-Value="@(progwrt.EXPORT_WRT)" Name="EXPORT_WRT">
+            </RadzenTextBox>
+            <RadzenRequiredValidator Component="EXPORT_WRT" Text="@L["EXPORT_WRTRequiredValidator.Text"]" style="position: absolute">
+            </RadzenRequiredValidator>
+          </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+          <div class="col-md-3">
+            <RadzenLabel Text="@L["UPDATE_WRT"]" Component="UPDATE_WRT" style="width: 100%">
+            </RadzenLabel>
+          </div>
+          <div class="col-md-9">
+            <RadzenTextBox MaxLength="1" style="display: block; width: 100%" @bind-Value="@(progwrt.UPDATE_WRT)" Name="UPDATE_WRT">
+            </RadzenTextBox>
+            <RadzenRequiredValidator Component="UPDATE_WRT" Text="@L["UPDATE_WRTRequiredValidator.Text"]" style="position: absolute">
+            </RadzenRequiredValidator>
+          </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+          <div class="col-md-3">
+            <RadzenLabel Text="@L["DELETE_WRT"]" Component="DELETE_WRT" style="width: 100%">
+            </RadzenLabel>
+          </div>
+          <div class="col-md-9">
+            <RadzenTextBox MaxLength="1" style="display: block; width: 100%" @bind-Value="@(progwrt.DELETE_WRT)" Name="DELETE_WRT">
+            </RadzenTextBox>
+            <RadzenRequiredValidator Component="DELETE_WRT" Text="@L["DELETE_WRTRequiredValidator.Text"]" style="position: absolute">
+            </RadzenRequiredValidator>
+          </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+          <div class="col-md-3">
+            <RadzenLabel Text="@L["APPROVE_WRT"]" Component="APPROVE_WRT" style="width: 100%">
+            </RadzenLabel>
+          </div>
+          <div class="col-md-9">
+            <RadzenTextBox MaxLength="1" style="display: block; width: 100%" @bind-Value="@(progwrt.APPROVE_WRT)" Name="APPROVE_WRT">
+            </RadzenTextBox>
+            <RadzenRequiredValidator Component="APPROVE_WRT" Text="@L["APPROVE_WRTRequiredValidator.Text"]" style="position: absolute">
+            </RadzenRequiredValidator>
+          </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+          <div class="col-md-3">
+            <RadzenLabel Text="@L["ENABLE"]" Component="ENABLE" style="width: 100%">
+            </RadzenLabel>
+          </div>
+          <div class="col-md-9">
+            <RadzenTextBox MaxLength="1" style="width: 100%" @bind-Value="@(progwrt.ENABLE)" Name="ENABLE" >
+            </RadzenTextBox>
+          </div>
+        </div>*@
+                      @*<div style="margin-bottom: 1rem" class="row">
+          <div class="col-md-3">
+            <RadzenLabel Text="@L["REMARK"]" Component="REMARK" style="width: 100%">
+            </RadzenLabel>
+          </div>
+          <div class="col-md-9">
+            <RadzenTextBox style="width: 100%" @bind-Value="@(progwrt.REMARK)" Name="REMARK">
+            </RadzenTextBox>
+          </div>
+        </div>*@
+                      @*<div style="margin-bottom: 1rem" class="row">
+          <div class="col-md-3">
+            <RadzenLabel Text="@L["TRN_USER"]" Component="TRN_USER" style="width: 100%">
+            </RadzenLabel>
+          </div>
+          <div class="col-md-9">
+            <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(progwrt.TRN_USER)" ReadOnly="true" Name="TRN_USER">
+            </RadzenTextBox>
+            <RadzenRequiredValidator Component="TRN_USER" Text="@L["TRN_USERRequiredValidator.Text"]" style="position: absolute">
+            </RadzenRequiredValidator>
+          </div>
+        </div>*@
+                      @*<div style="margin-bottom: 1rem" class="row">
+          <div class="col-md-3">
+            <RadzenLabel Text="@L["TRN_DATE"]" Component="TRN_DATE" style="width: 100%">
+            </RadzenLabel>
+          </div>
+          <div class="col-md-9">
+            <RadzenTextBox MaxLength="20" style="width: 100%" @bind-Value="@(progwrt.TRN_DATE)" ReadOnly="true" Name="TRN_DATE">
+            </RadzenTextBox>
+          </div>
+        </div>*@
+                      @*<div style="margin-bottom: 1rem" class="row">
+          <div class="col-md-3">
+            <RadzenLabel Text="@L["CRT_USER"]" Component="CRT_USER" style="width: 100%">
+            </RadzenLabel>
+          </div>
+          <div class="col-md-9">
+            <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(progwrt.CRT_USER)" ReadOnly="true" Name="CRT_USER">
+            </RadzenTextBox>
+            <RadzenRequiredValidator Component="CRT_USER" Text="@L["CRT_USERRequiredValidator.Text"]" style="position: absolute">
+            </RadzenRequiredValidator>
+          </div>
+        </div>*@
+                      @*<div style="margin-bottom: 1rem" class="row">
+          <div class="col-md-3">
+            <RadzenLabel Text="@L["CRT_DATE"]" Component="CRT_DATE" style="width: 100%">
+            </RadzenLabel>
+          </div>
+          <div class="col-md-9">
+            <RadzenTextBox MaxLength="20" style="width: 100%" @bind-Value="@(progwrt.CRT_DATE)" ReadOnly="true" Name="CRT_DATE">
+            </RadzenTextBox>
+          </div>
+        </div>*@
+                      <div class="row">
+                          <div class="col offset-sm-3">
+                              <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="@L["Save"]" ButtonStyle="ButtonStyle.Primary">
+                              </RadzenButton>
+                              <RadzenButton ButtonStyle="ButtonStyle.Light" style="margin-left: 1rem" Text="@L["Cancel"]" Click="@Button2Click">
+                              </RadzenButton>
+                          </div>
+                      </div>
+</ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

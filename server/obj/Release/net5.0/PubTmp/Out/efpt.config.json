@@ -1,0 +1,87 @@
+﻿{
+   "CodeGenerationMode": 0,
+   "ContextClassName": "DHDBContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": "DHData",
+   "OutputPath": "DHModels",
+   "ProjectRootNamespace": "RadzenDh5",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "[dbo].[AspNetRoles]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AspNetUserRoles]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AspNetUsers]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[GROUP_DTL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[GROUP_MST]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[GROUP_WRT]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PROG_MST]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PROG_WRT]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[USER_MST]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[V_PROG_CAT]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[V_PROG_UNIT]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[v_table_list]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[V_USER_PROG_BY_GROUP]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[v_user_role]",
+         "ObjectType": 3
+      }
+   ],
+   "UiHint": "MARK10\\SQLEXPRESS04.DHDB",
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": false,
+   "UseHandleBars": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseNoConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSpatial": false
+}

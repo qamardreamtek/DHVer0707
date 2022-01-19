@@ -1,0 +1,23 @@
+﻿{
+  "intItem1": 632,
+  "intItem2": 636,
+  "intItem3": 640,
+  "intItem4": 644,
+  "intItem5": 648,
+  "intItem6": 652,
+  "intItem7": 656,
+  "intItem8": 662,
+  "intItem9": 670,
+  "intItem10": 674,
+  "id": "S080",
+  "item1": "Change of user login password",
+  "item2": "Change the specified user login system password",
+  "item3": "System administrator or user",
+  "item4": "Basic data of existing users<br>",
+  "item5": "User ID, original password, new password",
+  "item6": "Update user password",
+  "item7": "If the change fails or the password requirements do not match, the system will prompt an error message;",
+  "item8": "Enter user ID, original password and new password and click Change",
+  "item9": "After setting the password, you need to log in the system again to take effect.",
+  "item10": ""
+}

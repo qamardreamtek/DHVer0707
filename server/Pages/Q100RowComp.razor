@@ -1,0 +1,209 @@
+﻿@*@page "/Q100A"*@
+
+@using System.Linq;
+@using Microsoft.Data.SqlClient;
+@using Microsoft.EntityFrameworkCore;
+
+
+@inject RadzenDh5.Data.Mark10Sqlexpress04Context AppDb
+<RadzenTabs style="height: 280px">
+    <Tabs>
+        <RadzenTabsItem Text="@Show_ROW_NUM">
+            <div class="row" style="font-family:monospace;margin-bottom:4px;">
+
+
+                <a style="background-color:#ffffff; color:#000000;">&nbsp; N:@SetRadzenLabel() &nbsp;</a>&nbsp;
+
+                <a style="background-color:#0000ff; color:#ffffff;">&nbsp; E:@E &nbsp;</a>&nbsp;
+
+                <a style="background-color:#00ff00; color:#000000;">&nbsp; S:@S &nbsp;</a>&nbsp;
+                <a style="background-color:#00bfff; color:#ff0000;">&nbsp; I:@I &nbsp;</a>&nbsp;
+                <a style="background-color:#ffff00; color:#ff0000;">&nbsp; O:@O &nbsp;</a>&nbsp;
+                <a style="background-color:#800080; color:#ffffff;">&nbsp; C:@C &nbsp;</a>&nbsp;
+                <a style="background-color:#a52a2a; color:#ffffff;">&nbsp; P:@P &nbsp;</a>&nbsp;
+                <a style="background-color:#000000; color:#ffff00;">&nbsp; X:@X &nbsp;</a>&nbsp;
+                <a style="background-color:#ff0000; color:#ffff00;">&nbsp; F:@F &nbsp;</a>
+            </div>
+
+            <table class="gridtable">
+
+                <tr>
+                    <th></th>
+                    @for (int i = 1; i <= 98; i++)
+                    {
+
+
+                        @if (i < 10)
+                        {
+                            <th style="font-size:75%">0@(i)</th>
+
+                        }
+                        else
+                        {
+                            <th style="font-size:75%">@i</th>
+
+                        }
+
+                    }
+                </tr>
+
+                @for (int i = 12; i >= 1; i--)
+                {
+                    <tr>
+
+
+                        @if (i < 10)
+                        {
+                            <th style="font-size:75%">0@(i)</th>
+
+                        }
+                        else
+                        {
+                            <th style="font-size:75%">@i</th>
+
+                        }
+                        @foreach (var x in getRowLvl(@ROW_NUM, i))
+                        {
+                            switch (x.LOC_STS)
+                            {
+                                case "N": //空储位 White and Black
+                                    <td style="background-color:#ffffff; color:#000000;text-align:center">@x.LOC_STS</td>
+                                    if (x.LOC_SIZE == "H")
+                                        N_H = N_H + 1;
+                                    else if (x.LOC_SIZE == "L")
+                                        N_L = N_L + 1;
+                                    break;
+                                case "S": //庫存储位 Lime and Black
+                                    <td style="background-color:#00ff00; color:#000000;text-align:center">@x.LOC_STS</td>
+                                    S = S + 1;
+                                    break;
+                                case "E": //空托盤 Blue and White
+                                    <td style="background-color:#0000ff; color:#ffffff;text-align:center">@x.LOC_STS</td>
+                                    E = E + 1;
+                                    break;
+                                case "I": //入庫預約 DeepSkyBlue and Red
+                                    <td style="background-color:#00bfff; color:#ff0000;text-align:center">@x.LOC_STS</td>
+                                    I = I + 1;
+                                    break;
+                                case "O": //出庫預約 Yellow and Red
+                                    <td style="background-color:#ffff00; color:#ff0000;text-align:center">@x.LOC_STS</td>
+                                    O = O + 1;
+                                    break;
+                                case "C": //盤點預約 Purple and White
+                                    <td style="background-color:#800080; color:#ffffff;text-align:center">@x.LOC_STS</td>
+                                    C = C + 1;
+                                    break;
+                                case "P": //盤點待調帳 Brown and White
+                                    <td style="background-color:#a52a2a; color:#ffffff;text-align:center">@x.LOC_STS</td>
+                                    P = P + 1;
+                                    break;
+                                case "X": //禁用 Black and Yellow
+                                    <td style="background-color:#000000; color:#ffff00;text-align:center">@x.LOC_STS</td>
+                                    X = X + 1;
+                                    break;
+                                case "F": //異常储位 Red and Yellow
+                                    <td style="background-color:#ff0000; color:#ffff00;text-align:center">@x.LOC_STS</td>
+                                    F = F + 1;
+                                    break;
+                                default:
+                                    <td>@x.LOC_STS</td>
+                                    break;
+                            }
+                        }
+                    </tr>
+                }
+
+            </table>
+
+
+        </RadzenTabsItem>
+    </Tabs>
+</RadzenTabs>
+
+
+
+
+@code {
+    [Parameter]
+    public int ROW_NUM { get; set; }
+
+
+    // 這是之前為了和 MLASRS 一致所設計的,
+    // 按 05/28, Lane1 对应的是ROW:01,02,以此类推
+    public string Show_ROW_NUM { get; set; }
+
+    public IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.LocMst> getLocMstsResult;
+
+    public int colSelect;
+    private int N_H, N_L, S, E, I, O, C, P, X, F = 0;
+
+    protected override void OnInitialized()
+    {
+//        Show_ROW_NUM = "ROW:0" + (ROW_NUM - 1);
+        Show_ROW_NUM = "ROW:0" + (ROW_NUM);
+
+
+
+        for (int i = 12; i >= 1; i--)
+        {
+            foreach (var x in getRowLvl(ROW_NUM, i))
+            {
+                switch (x.LOC_STS)
+                {
+                    case "N": //空储位 White and Black
+                        if (x.LOC_SIZE == "H")
+                            N_H = N_H + 1;
+                        else if (x.LOC_SIZE == "L")
+                            N_L = N_L + 1;
+                        break;
+                    case "S": //庫存储位 Lime and Black
+                        S = S + 1;
+                        break;
+                    case "E": //空托盤 Blue and White
+                        E = E + 1;
+                        break;
+                    case "I": //入庫預約 DeepSkyBlue and Red
+                        I = I + 1;
+                        break;
+                    case "O": //出庫預約 Yellow and Red
+                        O = O + 1;
+                        break;
+                    case "C": //盤點預約 Purple and White
+                        C = C + 1;
+                        break;
+                    case "P": //盤點待調帳 Brown and White
+                        P = P + 1;
+                        break;
+                    case "X": //禁用 Black and Yellow
+                        X = X + 1;
+                        break;
+                    case "F": //異常储位 Red and Yellow
+                        F = F + 1;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+    }
+
+    IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.LocMst> getRowLvl(int row, int lvl)
+    {
+        decimal decRow = Convert.ToDecimal(row);
+        decimal decLvl = Convert.ToDecimal(lvl);
+
+        var result = AppDb.LocMsts.Where(x => x.ROW_X == decRow && x.LVL_Z == decLvl).Take(100).ToList();
+        return result;
+    }
+
+    void OnChange(int? value, string name)
+    {
+        //    console.Log($"{name} value changed to {value}");
+    }
+
+    private object SetRadzenLabel()
+    {
+        return N_L + "/" + N_H;
+    }
+}

@@ -1,0 +1,66 @@
+﻿@page "/add-sno-ctl"
+@layout MainLayout
+@inherits RadzenDh5.Pages.AddSnoCtlComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+@using Microsoft.AspNetCore.Identity;
+@using RadzenDh5.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+@inject Microsoft.Extensions.Localization.IStringLocalizer<AddSnoCtl> L
+<RadzenContent Container="main">
+  <ChildContent>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm Data="@snoctl" Visible="@(snoctl != null)" TItem="RadzenDh5.Models.Mark10Sqlexpress04.SnoCtl" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["SNO_TYPE"]" Component="SNO_TYPE" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="10" style="display: block; width: 100%" @bind-Value="@(snoctl.SNO_TYPE)" Name="SNO_TYPE">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="SNO_TYPE" Text="@L["SNO_TYPERequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["SNO"]" Component="SNO" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(snoctl.SNO)" Name="SNO">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["TRN_DATE"]" Component="TRN_DATE" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="8" style="width: 100%" @bind-Value="@(snoctl.TRN_DATE)" ReadOnly="true" Name="TRN_DATE">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col offset-sm-3">
+                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="@L["Save"]" ButtonStyle="ButtonStyle.Primary">
+                </RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Light" style="margin-left: 1rem" Text="@L["Cancel"]" Click="@Button2Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

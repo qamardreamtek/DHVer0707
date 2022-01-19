@@ -1,0 +1,313 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Equ Trn Logs"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "icon": "add_circle_outline",
+                  "name": "button0",
+                  "style": {
+                    "marginBottom": "10px"
+                  },
+                  "text": "Add",
+                  "type": "button",
+                  "events": {
+                    "click": [
+                      {
+                        "path": "add-equ-trn-log",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await grid0.Reload();",
+                            "type": "execute"
+                          },
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "events": {
+                    "click": [
+                      {
+                        "condition": "${event?.Value == \"csv\"}",
+                        "fileName": "Equ Trn Logs",
+                        "name": "MARK10_SQLEXPRESS04.getEquTrnLogs",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "TrnDT,CmdSno,EquNo,CmdMode,CmdSts,Source,Destination,LocSize,CompleteCode,CompleteIndex,CarNo,TrnUserID,TrnDesc"
+                          }
+                        ],
+                        "type": "export"
+                      },
+                      {
+                        "condition": "${event == null || event.Value == \"xlsx\"}",
+                        "fileName": "Equ Trn Logs",
+                        "format": "xlsx",
+                        "name": "MARK10_SQLEXPRESS04.getEquTrnLogs",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "TrnDT,CmdSno,EquNo,CmdMode,CmdSts,Source,Destination,LocSize,CompleteCode,CompleteIndex,CarNo,TrnUserID,TrnDesc"
+                          }
+                        ],
+                        "type": "export"
+                      }
+                    ]
+                  },
+                  "icon": "get_app",
+                  "items": [
+                    {
+                      "icon": "",
+                      "text": "Excel",
+                      "value": "xlsx"
+                    },
+                    {
+                      "icon": "",
+                      "text": "CSV",
+                      "value": "csv"
+                    }
+                  ],
+                  "name": "splitbutton0",
+                  "style": {
+                    "marginLeft": "10px",
+                    "marginBottom": "10px"
+                  },
+                  "text": "Export",
+                  "type": "splitbutton"
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "filterMode": "advanced",
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getEquTrnLogsResult}",
+                  "events": {
+                    "loadData": [],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "TrnDT",
+                            "value": "${event.TrnDT}"
+                          },
+                          {
+                            "name": "CmdSno",
+                            "value": "${event.CmdSno}"
+                          },
+                          {
+                            "name": "EquNo",
+                            "value": "${event.EquNo}"
+                          },
+                          {
+                            "name": "CmdMode",
+                            "value": "${event.CmdMode}"
+                          }
+                        ],
+                        "path": "edit-equ-trn-log",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "TrnDT",
+                      "title": "Trn DT"
+                    },
+                    {
+                      "property": "CmdSno",
+                      "title": "Cmd Sno"
+                    },
+                    {
+                      "property": "EquNo",
+                      "title": "Equ No"
+                    },
+                    {
+                      "property": "CmdMode",
+                      "title": "Cmd Mode"
+                    },
+                    {
+                      "property": "CmdSts",
+                      "title": "Cmd Sts"
+                    },
+                    {
+                      "property": "Source",
+                      "title": "Source"
+                    },
+                    {
+                      "property": "Destination",
+                      "title": "Destination"
+                    },
+                    {
+                      "property": "LocSize",
+                      "title": "Loc Size"
+                    },
+                    {
+                      "property": "CompleteCode",
+                      "title": "Complete Code"
+                    },
+                    {
+                      "property": "CompleteIndex",
+                      "title": "Complete Index"
+                    },
+                    {
+                      "property": "CarNo",
+                      "title": "Car No"
+                    },
+                    {
+                      "property": "TrnUserID",
+                      "title": "Trn User ID"
+                    },
+                    {
+                      "property": "TrnDesc",
+                      "title": "Trn Desc"
+                    },
+                    {
+                      "filterable": false,
+                      "sortable": false,
+                      "width": "70px",
+                      "textAlign": "center",
+                      "template": [
+                        {
+                          "attributes": [
+                            {
+                              "name": "@onclick:stopPropagation",
+                              "value": true
+                            }
+                          ],
+                          "buttonStyle": "danger",
+                          "icon": "close",
+                          "name": "gridDeleteButton",
+                          "text": "",
+                          "size": "sm",
+                          "type": "button",
+                          "events": {
+                            "click": [
+                              {
+                                "condition": "await DialogService.Confirm(\"Are you sure you want to delete this record?\") == true",
+                                "error": [
+                                  {
+                                    "detail": "Unable to delete EquTrnLog",
+                                    "severity": "error",
+                                    "summary": "Error",
+                                    "type": "notify"
+                                  }
+                                ],
+                                "name": "MARK10_SQLEXPRESS04.deleteEquTrnLog",
+                                "parameters": [
+                                  {
+                                    "name": "TrnDT",
+                                    "value": "${data.TrnDT}"
+                                  },
+                                  {
+                                    "name": "CmdSno",
+                                    "value": "${data.CmdSno}"
+                                  },
+                                  {
+                                    "name": "EquNo",
+                                    "value": "${data.EquNo}"
+                                  },
+                                  {
+                                    "name": "CmdMode",
+                                    "value": "${data.CmdMode}"
+                                  }
+                                ],
+                                "then": [
+                                  {
+                                    "code": "await grid0.Reload();",
+                                    "condition": "result != null",
+                                    "type": "execute"
+                                  }
+                                ],
+                                "type": "invoke"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "RadzenDh5.Models.Mark10Sqlexpress04.EquTrnLog"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "MARK10_SQLEXPRESS04.getEquTrnLogs",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getEquTrnLogsResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.EquTrnLog>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Equ Trn Logs",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

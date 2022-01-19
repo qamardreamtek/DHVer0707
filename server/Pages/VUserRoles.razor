@@ -1,0 +1,44 @@
+﻿@page "/v-user-roles"
+@layout MainLayout
+@inherits RadzenDh5.Pages.VUserRolesComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+@using Microsoft.AspNetCore.Identity;
+@using RadzenDh5.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+@inject Microsoft.Extensions.Localization.IStringLocalizer<VUserRoles> L
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H3" Text="@L["pageTitle.Text"]">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenSplitButton Icon="get_app" style="margin-left: 0px; margin-bottom: 10px" Text="@L["splitbutton0.Text"]" Click="@Splitbutton0Click">
+          <ChildContent>
+            <RadzenSplitButtonItem Text="@L["splitbutton0.excel.Text"]" Value="xlsx">
+            </RadzenSplitButtonItem>
+            <RadzenSplitButtonItem Text="@L["splitbutton0.csv.Text"]" Value="csv">
+            </RadzenSplitButtonItem>
+          </ChildContent>
+        </RadzenSplitButton>
+        <RadzenGrid @ref="grid0" AllowFiltering="true" FilterMode="FilterMode.Advanced" AllowPaging="true" AllowSorting="true" Data="@getVUserRolesResult" TItem="RadzenDh5.Models.Mark10Sqlexpress04.VUserRole">
+          <Columns>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.VUserRole" Property="UserId" Title="@L["grid0.UserId.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.VUserRole" Property="UserName" Title="@L["grid0.UserName.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.VUserRole" Property="RoleId" Title="@L["grid0.RoleId.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.VUserRole" Property="RoleName" Title="@L["grid0.RoleName.Title"]">
+            </RadzenGridColumn>
+          </Columns>
+        </RadzenGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

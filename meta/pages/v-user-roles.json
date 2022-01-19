@@ -1,0 +1,156 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "V User Roles"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "events": {
+                    "click": [
+                      {
+                        "condition": "${event?.Value == \"csv\"}",
+                        "fileName": "V User Roles",
+                        "name": "MARK10_SQLEXPRESS04.getVUserRoles",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "UserId,UserName,RoleId,RoleName"
+                          }
+                        ],
+                        "type": "export"
+                      },
+                      {
+                        "condition": "${event == null || event.Value == \"xlsx\"}",
+                        "fileName": "V User Roles",
+                        "format": "xlsx",
+                        "name": "MARK10_SQLEXPRESS04.getVUserRoles",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "UserId,UserName,RoleId,RoleName"
+                          }
+                        ],
+                        "type": "export"
+                      }
+                    ]
+                  },
+                  "icon": "get_app",
+                  "items": [
+                    {
+                      "icon": "",
+                      "text": "Excel",
+                      "value": "xlsx"
+                    },
+                    {
+                      "icon": "",
+                      "text": "CSV",
+                      "value": "csv"
+                    }
+                  ],
+                  "name": "splitbutton0",
+                  "style": {
+                    "marginLeft": "0px",
+                    "marginBottom": "10px"
+                  },
+                  "text": "Export",
+                  "type": "splitbutton"
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "filterMode": "advanced",
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getVUserRolesResult}",
+                  "events": {
+                    "loadData": []
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "UserId",
+                      "title": "User Id"
+                    },
+                    {
+                      "property": "UserName",
+                      "title": "User Name"
+                    },
+                    {
+                      "property": "RoleId",
+                      "title": "Role Id"
+                    },
+                    {
+                      "property": "RoleName",
+                      "title": "Role Name"
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "RadzenDh5.Models.Mark10Sqlexpress04.VUserRole"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "MARK10_SQLEXPRESS04.getVUserRoles",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getVUserRolesResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.VUserRole>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "V User Roles",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

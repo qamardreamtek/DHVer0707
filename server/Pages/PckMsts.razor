@@ -1,0 +1,88 @@
+﻿@page "/pck-msts"
+@layout MainLayout
+@inherits RadzenDh5.Pages.PckMstsComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+@using Microsoft.AspNetCore.Identity;
+@using RadzenDh5.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+@inject Microsoft.Extensions.Localization.IStringLocalizer<PckMsts> L
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H3" Text="@L["pageTitle.Text"]">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="@L["Create"]" Click="@Button0Click">
+        </RadzenButton>
+        <RadzenSplitButton Icon="get_app" style="margin-left: 10px; margin-bottom: 10px" Text="@L["splitbutton0.Text"]" Click="@Splitbutton0Click">
+          <ChildContent>
+            <RadzenSplitButtonItem Text="@L["splitbutton0.excel.Text"]" Value="xlsx">
+            </RadzenSplitButtonItem>
+            <RadzenSplitButtonItem Text="@L["splitbutton0.csv.Text"]" Value="csv">
+            </RadzenSplitButtonItem>
+          </ChildContent>
+        </RadzenSplitButton>
+        <RadzenGrid @ref="grid0" AllowFiltering="true" FilterMode="FilterMode.Advanced" AllowPaging="true" AllowSorting="true" Data="@getPckMstsResult" TItem="RadzenDh5.Models.Mark10Sqlexpress04.PckMst" RowSelect="@Grid0RowSelect">
+          <Columns>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.PckMst" Property="WHSE_NO" Title="@L["grid0.WHSE_NO.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.PckMst" Property="PCK_NO" Title="@L["grid0.PCK_NO.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.PckMst" Property="PCK_TYPE" Title="@L["grid0.PCK_TYPE.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.PckMst" Property="STGE_TYPE" Title="@L["grid0.STGE_TYPE.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.PckMst" Property="STGE_BIN" Title="@L["grid0.STGE_BIN.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.PckMst" Property="SU_ID" Title="@L["grid0.SU_ID.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.PckMst" Property="SU_TYPE" Title="@L["grid0.SU_TYPE.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.PckMst" Property="LOC_NO" Title="@L["grid0.LOC_NO.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.PckMst" Property="CMD_DATE" Title="@L["grid0.CMD_DATE.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.PckMst" Property="CMD_SNO" Title="@L["grid0.CMD_SNO.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.PckMst" Property="STN_NO" Title="@L["grid0.STN_NO.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.PckMst" Property="START_DATE" Title="@L["grid0.START_DATE.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.PckMst" Property="END_DATE" Title="@L["grid0.END_DATE.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.PckMst" Property="PCK_USER" Title="@L["grid0.PCK_USER.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.PckMst" Property="PCK_DATE" Title="@L["grid0.PCK_DATE.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.PckMst" Property="PCK_STS" Title="@L["grid0.PCK_STS.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.PckMst" Property="APPROVE_IND" Title="@L["grid0.APPROVE_IND.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.PckMst" Property="REMARK" Title="@L["grid0.REMARK.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.PckMst" Property="TRN_USER" Title="@L["grid0.TRN_USER.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.PckMst" Property="TRN_DATE" Title="@L["grid0.TRN_DATE.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.PckMst" Property="CRT_USER" Title="@L["grid0.CRT_USER.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.PckMst" Property="CRT_DATE" Title="@L["grid0.CRT_DATE.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.PckMst" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+              <Template Context="radzenDh5ModelsMark10Sqlexpress04PckMst">
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, radzenDh5ModelsMark10Sqlexpress04PckMst))" @onclick:stopPropagation="true">
+                </RadzenButton>
+              </Template>
+            </RadzenGridColumn>
+          </Columns>
+        </RadzenGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

@@ -1,0 +1,38 @@
+﻿
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+@inherits RadzenDh5.Pages.Q100CoreComponent
+@inject Microsoft.Extensions.Localization.IStringLocalizer<MainLayout> L
+<DhAppHeadingAuthMsgOpt IsShowAuth=@IsShowAuth AuthMsg="@AuthMsg" Culture="@Culture" DhUser="@DhUser" DhUsername="@DhUsername"
+                        PROG_ID="@PROG_ID" PROG_NAME_BY_CULTURE="@PROG_NAME_BY_CULTURE"
+                        progWrt="@progWrt" progMst="@progMst" GoodMsg="@GoodMsg" ErrMsg="@ErrMsg" />
+
+<RadzenTabs RenderMode="TabRenderMode.Client" id="RadzenTabs_Q100_Q100Core_20210607_220828" @bind-SelectedIndex=@selectedTabIndex Change=@OnTabChange style="height: 880px" >
+    <Tabs>
+        <RadzenTabsItem Text="Lane 1">
+
+            <Q100RowComp ROW_NUM="1"></Q100RowComp>
+
+            <Q100RowComp ROW_NUM="2"></Q100RowComp>
+        </RadzenTabsItem>
+        <RadzenTabsItem Text="Lane 2">
+
+            <Q100RowComp ROW_NUM="3"></Q100RowComp>
+
+            <Q100RowComp ROW_NUM="4"></Q100RowComp>
+        </RadzenTabsItem>
+
+        <RadzenTabsItem Text="Lane 3">
+
+            <Q100RowComp ROW_NUM="5"></Q100RowComp>
+
+            <Q100RowComp ROW_NUM="6"></Q100RowComp>
+        </RadzenTabsItem>
+        <RadzenTabsItem Text="Lane 4">
+
+            <Q100RowComp ROW_NUM="7"></Q100RowComp>
+
+            <Q100RowComp ROW_NUM="8"></Q100RowComp>
+        </RadzenTabsItem>
+    </Tabs>
+</RadzenTabs>

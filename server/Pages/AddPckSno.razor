@@ -1,0 +1,380 @@
+﻿@page "/add-pck-sno"
+@layout MainLayout
+@inherits RadzenDh5.Pages.AddPckSnoComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+@using Microsoft.AspNetCore.Identity;
+@using RadzenDh5.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+@inject Microsoft.Extensions.Localization.IStringLocalizer<AddPckSno> L
+<RadzenContent Container="main">
+  <ChildContent>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm Data="@pcksno" Visible="@(pcksno != null)" TItem="RadzenDh5.Models.Mark10Sqlexpress04.PckSno" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["WHSE_NO"]" Component="WHSE_NO" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="10" style="display: block; width: 100%" @bind-Value="@(pcksno.WHSE_NO)" Name="WHSE_NO">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="WHSE_NO" Text="@L["WHSE_NORequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["PCK_NO"]" Component="PCK_NO" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="30" style="display: block; width: 100%" @bind-Value="@(pcksno.PCK_NO)" Name="PCK_NO">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="PCK_NO" Text="@L["PCK_NORequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["PCK_LINE"]" Component="PCK_LINE" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="10" style="display: block; width: 100%" @bind-Value="@(pcksno.PCK_LINE)" Name="PCK_LINE">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="PCK_LINE" Text="@L["PCK_LINERequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["SU_ID"]" Component="SU_ID" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="20" style="display: block; width: 100%" @bind-Value="@(pcksno.SU_ID)" Name="SU_ID">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="SU_ID" Text="@L["SU_IDRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["SU_ID_TO"]" Component="SU_ID_TO" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="20" style="width: 100%" @bind-Value="@(pcksno.SU_ID_TO)" Name="SU_ID_TO">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["SU_TYPE"]" Component="SU_TYPE" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="10" style="display: block; width: 100%" @bind-Value="@(pcksno.SU_TYPE)" Name="SU_TYPE">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="SU_TYPE" Text="@L["SU_TYPERequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["LOC_NO"]" Component="LOC_NO" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(pcksno.LOC_NO)" Name="LOC_NO">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="LOC_NO" Text="@L["LOC_NORequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["PLANT"]" Component="PLANT" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="10" style="display: block; width: 100%" @bind-Value="@(pcksno.PLANT)" Name="PLANT">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="PLANT" Text="@L["PLANTRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["STGE_LOC"]" Component="STGE_LOC" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="10" style="display: block; width: 100%" @bind-Value="@(pcksno.STGE_LOC)" Name="STGE_LOC">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="STGE_LOC" Text="@L["STGE_LOCRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["SKU_NO"]" Component="SKU_NO" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="30" style="display: block; width: 100%" @bind-Value="@(pcksno.SKU_NO)" Name="SKU_NO">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="SKU_NO" Text="@L["SKU_NORequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["BATCH_NO"]" Component="BATCH_NO" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="30" style="width: 100%" @bind-Value="@(pcksno.BATCH_NO)" Name="BATCH_NO">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["STK_CAT"]" Component="STK_CAT" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="10" style="display: block; width: 100%" @bind-Value="@(pcksno.STK_CAT)" Name="STK_CAT">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="STK_CAT" Text="@L["STK_CATRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["STK_SPECIAL_IND"]" Component="STK_SPECIAL_IND" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="1" style="width: 100%" @bind-Value="@(pcksno.STK_SPECIAL_IND)" Name="STK_SPECIAL_IND">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["STK_SPECIAL_NO"]" Component="STK_SPECIAL_NO" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="30" style="width: 100%" @bind-Value="@(pcksno.STK_SPECIAL_NO)" Name="STK_SPECIAL_NO">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["IN_SNO"]" Component="IN_SNO" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(pcksno.IN_SNO)" Name="IN_SNO">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="IN_SNO" Text="@L["IN_SNORequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["IN_NO"]" Component="IN_NO" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="30" style="display: block; width: 100%" @bind-Value="@(pcksno.IN_NO)" Name="IN_NO">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="IN_NO" Text="@L["IN_NORequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["IN_LINE"]" Component="IN_LINE" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="10" style="display: block; width: 100%" @bind-Value="@(pcksno.IN_LINE)" Name="IN_LINE">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="IN_LINE" Text="@L["IN_LINERequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["ALO_NO"]" Component="ALO_NO" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="30" style="display: block; width: 100%" @bind-Value="@(pcksno.ALO_NO)" Name="ALO_NO">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="ALO_NO" Text="@L["ALO_NORequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["ALO_LINE"]" Component="ALO_LINE" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="10" style="display: block; width: 100%" @bind-Value="@(pcksno.ALO_LINE)" Name="ALO_LINE">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="ALO_LINE" Text="@L["ALO_LINERequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["GTIN_UNIT"]" Component="GTIN_UNIT" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="10" style="display: block; width: 100%" @bind-Value="@(pcksno.GTIN_UNIT)" Name="GTIN_UNIT">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="GTIN_UNIT" Text="@L["GTIN_UNITRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["GTIN_ALO_QTY"]" Component="GTIN_ALO_QTY" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="display: block; width: 100%" @bind-Value="@(pcksno.GTIN_ALO_QTY)" Name="GTIN_ALO_QTY">
+                </RadzenNumeric>
+                <RadzenRequiredValidator Component="GTIN_ALO_QTY" Text="@L["GTIN_ALO_QTYRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["GTIN_FIN_QTY"]" Component="GTIN_FIN_QTY" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="display: block; width: 100%" @bind-Value="@(pcksno.GTIN_FIN_QTY)" Name="GTIN_FIN_QTY">
+                </RadzenNumeric>
+                <RadzenRequiredValidator Component="GTIN_FIN_QTY" Text="@L["GTIN_FIN_QTYRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["SKU_UNIT"]" Component="SKU_UNIT" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="10" style="display: block; width: 100%" @bind-Value="@(pcksno.SKU_UNIT)" Name="SKU_UNIT">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="SKU_UNIT" Text="@L["SKU_UNITRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["SKU_ALO_QTY"]" Component="SKU_ALO_QTY" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="display: block; width: 100%" @bind-Value="@(pcksno.SKU_ALO_QTY)" Name="SKU_ALO_QTY">
+                </RadzenNumeric>
+                <RadzenRequiredValidator Component="SKU_ALO_QTY" Text="@L["SKU_ALO_QTYRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["SKU_FIN_QTY"]" Component="SKU_FIN_QTY" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="display: block; width: 100%" @bind-Value="@(pcksno.SKU_FIN_QTY)" Name="SKU_FIN_QTY">
+                </RadzenNumeric>
+                <RadzenRequiredValidator Component="SKU_FIN_QTY" Text="@L["SKU_FIN_QTYRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["REMARK"]" Component="REMARK" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox style="width: 100%" @bind-Value="@(pcksno.REMARK)" Name="REMARK">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["TRN_USER"]" Component="TRN_USER" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(pcksno.TRN_USER)" ReadOnly="true" Name="TRN_USER">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="TRN_USER" Text="@L["TRN_USERRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["TRN_DATE"]" Component="TRN_DATE" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="20" style="width: 100%" @bind-Value="@(pcksno.TRN_DATE)" ReadOnly="true" Name="TRN_DATE">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["CRT_USER"]" Component="CRT_USER" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(pcksno.CRT_USER)" ReadOnly="true" Name="CRT_USER">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="CRT_USER" Text="@L["CRT_USERRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["CRT_DATE"]" Component="CRT_DATE" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="20" style="width: 100%" @bind-Value="@(pcksno.CRT_DATE)" ReadOnly="true" Name="CRT_DATE">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col offset-sm-3">
+                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="@L["Save"]" ButtonStyle="ButtonStyle.Primary">
+                </RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Light" style="margin-left: 1rem" Text="@L["Cancel"]" Click="@Button2Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

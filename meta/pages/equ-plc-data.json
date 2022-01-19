@@ -1,0 +1,265 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Equ Plc Data"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "icon": "add_circle_outline",
+                  "name": "button0",
+                  "style": {
+                    "marginBottom": "10px"
+                  },
+                  "text": "Add",
+                  "type": "button",
+                  "events": {
+                    "click": [
+                      {
+                        "path": "add-equ-plc-datum",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await grid0.Reload();",
+                            "type": "execute"
+                          },
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "events": {
+                    "click": [
+                      {
+                        "condition": "${event?.Value == \"csv\"}",
+                        "fileName": "Equ Plc Data",
+                        "name": "MARK10_SQLEXPRESS04.getEquPlcData",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "EquNo,SerialNo,EquType,EquPlcData,TrnDT"
+                          }
+                        ],
+                        "type": "export"
+                      },
+                      {
+                        "condition": "${event == null || event.Value == \"xlsx\"}",
+                        "fileName": "Equ Plc Data",
+                        "format": "xlsx",
+                        "name": "MARK10_SQLEXPRESS04.getEquPlcData",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "EquNo,SerialNo,EquType,EquPlcData,TrnDT"
+                          }
+                        ],
+                        "type": "export"
+                      }
+                    ]
+                  },
+                  "icon": "get_app",
+                  "items": [
+                    {
+                      "icon": "",
+                      "text": "Excel",
+                      "value": "xlsx"
+                    },
+                    {
+                      "icon": "",
+                      "text": "CSV",
+                      "value": "csv"
+                    }
+                  ],
+                  "name": "splitbutton0",
+                  "style": {
+                    "marginLeft": "10px",
+                    "marginBottom": "10px"
+                  },
+                  "text": "Export",
+                  "type": "splitbutton"
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "filterMode": "advanced",
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getEquPlcDataResult}",
+                  "events": {
+                    "loadData": [],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "EquNo",
+                            "value": "${event.EquNo}"
+                          },
+                          {
+                            "name": "SerialNo",
+                            "value": "${event.SerialNo}"
+                          }
+                        ],
+                        "path": "edit-equ-plc-datum",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "EquNo",
+                      "title": "Equ No"
+                    },
+                    {
+                      "property": "SerialNo",
+                      "title": "Serial No"
+                    },
+                    {
+                      "property": "EquType",
+                      "title": "Equ Type"
+                    },
+                    {
+                      "property": "EquPlcData",
+                      "title": "Equ Plc Data"
+                    },
+                    {
+                      "property": "TrnDT",
+                      "title": "Trn DT"
+                    },
+                    {
+                      "filterable": false,
+                      "sortable": false,
+                      "width": "70px",
+                      "textAlign": "center",
+                      "template": [
+                        {
+                          "attributes": [
+                            {
+                              "name": "@onclick:stopPropagation",
+                              "value": true
+                            }
+                          ],
+                          "buttonStyle": "danger",
+                          "icon": "close",
+                          "name": "gridDeleteButton",
+                          "text": "",
+                          "size": "sm",
+                          "type": "button",
+                          "events": {
+                            "click": [
+                              {
+                                "condition": "await DialogService.Confirm(\"Are you sure you want to delete this record?\") == true",
+                                "error": [
+                                  {
+                                    "detail": "Unable to delete EquPlcDatum",
+                                    "severity": "error",
+                                    "summary": "Error",
+                                    "type": "notify"
+                                  }
+                                ],
+                                "name": "MARK10_SQLEXPRESS04.deleteEquPlcDatum",
+                                "parameters": [
+                                  {
+                                    "name": "EquNo",
+                                    "value": "${data.EquNo}"
+                                  },
+                                  {
+                                    "name": "SerialNo",
+                                    "value": "${data.SerialNo}"
+                                  }
+                                ],
+                                "then": [
+                                  {
+                                    "code": "await grid0.Reload();",
+                                    "condition": "result != null",
+                                    "type": "execute"
+                                  }
+                                ],
+                                "type": "invoke"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "RadzenDh5.Models.Mark10Sqlexpress04.EquPlcDatum"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "MARK10_SQLEXPRESS04.getEquPlcData",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getEquPlcDataResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.EquPlcDatum>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Equ Plc Data",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

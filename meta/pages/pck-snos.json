@@ -1,0 +1,373 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Pck Snos"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "icon": "add_circle_outline",
+                  "name": "button0",
+                  "style": {
+                    "marginBottom": "10px"
+                  },
+                  "text": "Add",
+                  "type": "button",
+                  "events": {
+                    "click": [
+                      {
+                        "path": "add-pck-sno",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await grid0.Reload();",
+                            "type": "execute"
+                          },
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "events": {
+                    "click": [
+                      {
+                        "condition": "${event?.Value == \"csv\"}",
+                        "fileName": "Pck Snos",
+                        "name": "MARK10_SQLEXPRESS04.getPckSnos",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "WHSE_NO,PCK_NO,PCK_LINE,SU_ID,SU_ID_TO,SU_TYPE,LOC_NO,PLANT,STGE_LOC,SKU_NO,BATCH_NO,STK_CAT,STK_SPECIAL_IND,STK_SPECIAL_NO,IN_SNO,IN_NO,IN_LINE,ALO_NO,ALO_LINE,GTIN_UNIT,GTIN_ALO_QTY,GTIN_FIN_QTY,SKU_UNIT,SKU_ALO_QTY,SKU_FIN_QTY,REMARK,TRN_USER,TRN_DATE,CRT_USER,CRT_DATE"
+                          }
+                        ],
+                        "type": "export"
+                      },
+                      {
+                        "condition": "${event == null || event.Value == \"xlsx\"}",
+                        "fileName": "Pck Snos",
+                        "format": "xlsx",
+                        "name": "MARK10_SQLEXPRESS04.getPckSnos",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "WHSE_NO,PCK_NO,PCK_LINE,SU_ID,SU_ID_TO,SU_TYPE,LOC_NO,PLANT,STGE_LOC,SKU_NO,BATCH_NO,STK_CAT,STK_SPECIAL_IND,STK_SPECIAL_NO,IN_SNO,IN_NO,IN_LINE,ALO_NO,ALO_LINE,GTIN_UNIT,GTIN_ALO_QTY,GTIN_FIN_QTY,SKU_UNIT,SKU_ALO_QTY,SKU_FIN_QTY,REMARK,TRN_USER,TRN_DATE,CRT_USER,CRT_DATE"
+                          }
+                        ],
+                        "type": "export"
+                      }
+                    ]
+                  },
+                  "icon": "get_app",
+                  "items": [
+                    {
+                      "icon": "",
+                      "text": "Excel",
+                      "value": "xlsx"
+                    },
+                    {
+                      "icon": "",
+                      "text": "CSV",
+                      "value": "csv"
+                    }
+                  ],
+                  "name": "splitbutton0",
+                  "style": {
+                    "marginLeft": "10px",
+                    "marginBottom": "10px"
+                  },
+                  "text": "Export",
+                  "type": "splitbutton"
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "filterMode": "advanced",
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getPckSnosResult}",
+                  "events": {
+                    "loadData": [],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "WHSE_NO",
+                            "value": "${event.WHSE_NO}"
+                          },
+                          {
+                            "name": "PCK_NO",
+                            "value": "${event.PCK_NO}"
+                          },
+                          {
+                            "name": "IN_SNO",
+                            "value": "${event.IN_SNO}"
+                          }
+                        ],
+                        "path": "edit-pck-sno",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "WHSE_NO",
+                      "title": "WHSE NO"
+                    },
+                    {
+                      "property": "PCK_NO",
+                      "title": "PCK NO"
+                    },
+                    {
+                      "property": "PCK_LINE",
+                      "title": "PCK LINE"
+                    },
+                    {
+                      "property": "SU_ID",
+                      "title": "SU ID"
+                    },
+                    {
+                      "property": "SU_ID_TO",
+                      "title": "SU ID TO"
+                    },
+                    {
+                      "property": "SU_TYPE",
+                      "title": "SU TYPE"
+                    },
+                    {
+                      "property": "LOC_NO",
+                      "title": "LOC NO"
+                    },
+                    {
+                      "property": "PLANT",
+                      "title": "PLANT"
+                    },
+                    {
+                      "property": "STGE_LOC",
+                      "title": "STGE LOC"
+                    },
+                    {
+                      "property": "SKU_NO",
+                      "title": "SKU NO"
+                    },
+                    {
+                      "property": "BATCH_NO",
+                      "title": "BATCH NO"
+                    },
+                    {
+                      "property": "STK_CAT",
+                      "title": "STK CAT"
+                    },
+                    {
+                      "property": "STK_SPECIAL_IND",
+                      "title": "STK SPECIAL IND"
+                    },
+                    {
+                      "property": "STK_SPECIAL_NO",
+                      "title": "STK SPECIAL NO"
+                    },
+                    {
+                      "property": "IN_SNO",
+                      "title": "IN SNO"
+                    },
+                    {
+                      "property": "IN_NO",
+                      "title": "IN NO"
+                    },
+                    {
+                      "property": "IN_LINE",
+                      "title": "IN LINE"
+                    },
+                    {
+                      "property": "ALO_NO",
+                      "title": "ALO NO"
+                    },
+                    {
+                      "property": "ALO_LINE",
+                      "title": "ALO LINE"
+                    },
+                    {
+                      "property": "GTIN_UNIT",
+                      "title": "GTIN UNIT"
+                    },
+                    {
+                      "property": "GTIN_ALO_QTY",
+                      "title": "GTIN ALO QTY"
+                    },
+                    {
+                      "property": "GTIN_FIN_QTY",
+                      "title": "GTIN FIN QTY"
+                    },
+                    {
+                      "property": "SKU_UNIT",
+                      "title": "SKU UNIT"
+                    },
+                    {
+                      "property": "SKU_ALO_QTY",
+                      "title": "SKU ALO QTY"
+                    },
+                    {
+                      "property": "SKU_FIN_QTY",
+                      "title": "SKU FIN QTY"
+                    },
+                    {
+                      "property": "REMARK",
+                      "title": "REMARK"
+                    },
+                    {
+                      "property": "TRN_USER",
+                      "title": "TRN USER"
+                    },
+                    {
+                      "property": "TRN_DATE",
+                      "title": "TRN DATE"
+                    },
+                    {
+                      "property": "CRT_USER",
+                      "title": "CRT USER"
+                    },
+                    {
+                      "property": "CRT_DATE",
+                      "title": "CRT DATE"
+                    },
+                    {
+                      "filterable": false,
+                      "sortable": false,
+                      "width": "70px",
+                      "textAlign": "center",
+                      "template": [
+                        {
+                          "attributes": [
+                            {
+                              "name": "@onclick:stopPropagation",
+                              "value": true
+                            }
+                          ],
+                          "buttonStyle": "danger",
+                          "icon": "close",
+                          "name": "gridDeleteButton",
+                          "text": "",
+                          "size": "sm",
+                          "type": "button",
+                          "events": {
+                            "click": [
+                              {
+                                "condition": "await DialogService.Confirm(\"Are you sure you want to delete this record?\") == true",
+                                "error": [
+                                  {
+                                    "detail": "Unable to delete PckSno",
+                                    "severity": "error",
+                                    "summary": "Error",
+                                    "type": "notify"
+                                  }
+                                ],
+                                "name": "MARK10_SQLEXPRESS04.deletePckSno",
+                                "parameters": [
+                                  {
+                                    "name": "WHSE_NO",
+                                    "value": "${data.WHSE_NO}"
+                                  },
+                                  {
+                                    "name": "PCK_NO",
+                                    "value": "${data.PCK_NO}"
+                                  },
+                                  {
+                                    "name": "IN_SNO",
+                                    "value": "${data.IN_SNO}"
+                                  }
+                                ],
+                                "then": [
+                                  {
+                                    "code": "await grid0.Reload();",
+                                    "condition": "result != null",
+                                    "type": "execute"
+                                  }
+                                ],
+                                "type": "invoke"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "RadzenDh5.Models.Mark10Sqlexpress04.PckSno"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "MARK10_SQLEXPRESS04.getPckSnos",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getPckSnosResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.PckSno>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Pck Snos",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

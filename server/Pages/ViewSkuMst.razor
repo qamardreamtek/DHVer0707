@@ -1,0 +1,725 @@
+﻿@layout MainLayout
+@inherits RadzenDh5.Pages.ViewSkuMstComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+@using Microsoft.AspNetCore.Identity;
+@using RadzenDh5.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+@inject Microsoft.Extensions.Localization.IStringLocalizer<EditSkuMst> L
+<RadzenContent Container="main">
+  <ChildContent>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm TItem="RadzenDh5.Models.Mark10Sqlexpress04.SkuMst" Data="@skumst" Visible="@(skumst != null)" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("SKU_NO")  Component="SKU_NO" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="30" style="display: block; width: 100%" @bind-Value="@(skumst.SKU_NO)" Name="SKU_NO"> 
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="SKU_NO" Text="@L["SKU_NORequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("EAN13_NO")  Component="EAN13_NO" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="30" style="width: 100%" @bind-Value="@(skumst.EAN13_NO)" Name="EAN13_NO"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("SKU_NAME")  Component="SKU_NAME" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="50" style="width: 100%" @bind-Value="@(skumst.SKU_NAME)" Name="SKU_NAME"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("SKU_DESC")  Component="SKU_DESC" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="50" style="width: 100%" @bind-Value="@(skumst.SKU_DESC)" Name="SKU_DESC"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("SKU_BRAND")  Component="SKU_BRAND" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="width: 100%" @bind-Value="@(skumst.SKU_BRAND)" Name="SKU_BRAND"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("SKU_CAT")  Component="SKU_CAT" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="width: 100%" @bind-Value="@(skumst.SKU_CAT)" Name="SKU_CAT"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("SKU_TYPE")  Component="SKU_TYPE" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="width: 100%" @bind-Value="@(skumst.SKU_TYPE)" Name="SKU_TYPE"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("SKU_INDUSTRY")  Component="SKU_INDUSTRY" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="width: 100%" @bind-Value="@(skumst.SKU_INDUSTRY)" Name="SKU_INDUSTRY"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("SKU_GROUP")  Component="SKU_GROUP" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="width: 100%" @bind-Value="@(skumst.SKU_GROUP)" Name="SKU_GROUP"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("SKU_GROSS_WEIGHT")  Component="SKU_GROSS_WEIGHT" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenNumeric  ReadOnly="true" style="width: 100%" @bind-Value="@(skumst.SKU_GROSS_WEIGHT)" Name="SKU_GROSS_WEIGHT"> 
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("SKU_NET_WEIGHT")  Component="SKU_NET_WEIGHT" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenNumeric  ReadOnly="true" style="width: 100%" @bind-Value="@(skumst.SKU_NET_WEIGHT)" Name="SKU_NET_WEIGHT"> 
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("SKU_WEIGHT_UNIT")  Component="SKU_WEIGHT_UNIT" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="width: 100%" @bind-Value="@(skumst.SKU_WEIGHT_UNIT)" Name="SKU_WEIGHT_UNIT"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("SKU_VOLUME")  Component="SKU_VOLUME" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenNumeric  ReadOnly="true" style="width: 100%" @bind-Value="@(skumst.SKU_VOLUME)" Name="SKU_VOLUME"> 
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("SKU_VOLUME_UNIT")  Component="SKU_VOLUME_UNIT" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="width: 100%" @bind-Value="@(skumst.SKU_VOLUME_UNIT)" Name="SKU_VOLUME_UNIT"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("GTIN_NO")  Component="GTIN_NO" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="30" style="display: block; width: 100%" @bind-Value="@(skumst.GTIN_NO)" Name="GTIN_NO"> 
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="GTIN_NO" Text="@L["GTIN_NORequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("GTIN_CAT")  Component="GTIN_CAT" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="width: 100%" @bind-Value="@(skumst.GTIN_CAT)" Name="GTIN_CAT"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("SKU_LENGTH")  Component="SKU_LENGTH" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenNumeric  ReadOnly="true" style="width: 100%" @bind-Value="@(skumst.SKU_LENGTH)" Name="SKU_LENGTH"> 
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("SKU_WIDTH")  Component="SKU_WIDTH" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenNumeric  ReadOnly="true" style="width: 100%" @bind-Value="@(skumst.SKU_WIDTH)" Name="SKU_WIDTH"> 
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("SKU_HEIGHT")  Component="SKU_HEIGHT" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenNumeric  ReadOnly="true" style="width: 100%" @bind-Value="@(skumst.SKU_HEIGHT)" Name="SKU_HEIGHT"> 
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("SKU_DIM_UNIT")  Component="SKU_DIM_UNIT" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="width: 100%" @bind-Value="@(skumst.SKU_DIM_UNIT)" Name="SKU_DIM_UNIT"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("SKU_UNIT")  Component="SKU_UNIT" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="width: 100%" @bind-Value="@(skumst.SKU_UNIT)" Name="SKU_UNIT"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("SKU_BATCH")  Component="SKU_BATCH" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="1" style="width: 100%" @bind-Value="@(skumst.SKU_BATCH)" Name="SKU_BATCH"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("SKU_LOC_SIZE")  Component="SKU_LOC_SIZE" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="1" style="width: 100%" @bind-Value="@(skumst.SKU_LOC_SIZE)" Name="SKU_LOC_SIZE"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("SKU_LOC_HOT")  Component="SKU_LOC_HOT" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="1" style="width: 100%" @bind-Value="@(skumst.SKU_LOC_HOT)" Name="SKU_LOC_HOT"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("MIN_SHELF_LIFE")  Component="MIN_SHELF_LIFE" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenNumeric  ReadOnly="true" style="width: 100%" @bind-Value="@(skumst.MIN_SHELF_LIFE)" Name="MIN_SHELF_LIFE"> 
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("MAX_SHELF_LIFE")  Component="MAX_SHELF_LIFE" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenNumeric  ReadOnly="true" style="width: 100%" @bind-Value="@(skumst.MAX_SHELF_LIFE)" Name="MAX_SHELF_LIFE"> 
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("VALID_DATE_FROM")  Component="VALID_DATE_FROM" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="20" style="width: 100%" @bind-Value="@(skumst.VALID_DATE_FROM)" Name="VALID_DATE_FROM"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("VALID_DATE_TO")  Component="VALID_DATE_TO" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="20" style="width: 100%" @bind-Value="@(skumst.VALID_DATE_TO)" Name="VALID_DATE_TO"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("SKU_BLOCKED")  Component="SKU_BLOCKED" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="1" style="width: 100%" @bind-Value="@(skumst.SKU_BLOCKED)" Name="SKU_BLOCKED"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("SKU_SNO_IND")  Component="SKU_SNO_IND" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="1" style="width: 100%" @bind-Value="@(skumst.SKU_SNO_IND)" Name="SKU_SNO_IND"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("OLD_SKU_NO")  Component="OLD_SKU_NO" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="30" style="width: 100%" @bind-Value="@(skumst.OLD_SKU_NO)" Name="OLD_SKU_NO"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("STGE_CONDITION")  Component="STGE_CONDITION" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@(skumst.STGE_CONDITION)" Name="STGE_CONDITION"> 
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="STGE_CONDITION" Text="@L["STGE_CONDITIONRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("CAT_GROUP")  Component="CAT_GROUP" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@(skumst.CAT_GROUP)" Name="CAT_GROUP"> 
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="CAT_GROUP" Text="@L["CAT_GROUPRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("TP_GROUP")  Component="TP_GROUP" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="width: 100%" @bind-Value="@(skumst.TP_GROUP)" Name="TP_GROUP"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("DIVISION")  Component="DIVISION" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="width: 100%" @bind-Value="@(skumst.DIVISION)" Name="DIVISION"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("LABEL_TYPE")  Component="LABEL_TYPE" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="width: 100%" @bind-Value="@(skumst.LABEL_TYPE)" Name="LABEL_TYPE"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("LABEL_FORM")  Component="LABEL_FORM" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="width: 100%" @bind-Value="@(skumst.LABEL_FORM)" Name="LABEL_FORM"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("SOURCE_SUPPLY")  Component="SOURCE_SUPPLY" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="width: 100%" @bind-Value="@(skumst.SOURCE_SUPPLY)" Name="SOURCE_SUPPLY"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("SEASON")  Component="SEASON" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="20" style="width: 100%" @bind-Value="@(skumst.SEASON)" Name="SEASON"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("PRODUCT_HIERACHY")  Component="PRODUCT_HIERACHY" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="30" style="width: 100%" @bind-Value="@(skumst.PRODUCT_HIERACHY)" Name="PRODUCT_HIERACHY"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("CAD_IND")  Component="CAD_IND" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="width: 100%" @bind-Value="@(skumst.CAD_IND)" Name="CAD_IND"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("XSITE_STS")  Component="XSITE_STS" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="20" style="width: 100%" @bind-Value="@(skumst.XSITE_STS)" Name="XSITE_STS"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("XDISTR_STS")  Component="XDISTR_STS" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="width: 100%" @bind-Value="@(skumst.XDISTR_STS)" Name="XDISTR_STS"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("XSITE_DATE")  Component="XSITE_DATE" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="width: 100%" @bind-Value="@(skumst.XSITE_DATE)" Name="XSITE_DATE"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("XDISTR_DATE")  Component="XDISTR_DATE" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="width: 100%" @bind-Value="@(skumst.XDISTR_DATE)" Name="XDISTR_DATE"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("TAX_CLASSIFICATION")  Component="TAX_CLASSIFICATION" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="width: 100%" @bind-Value="@(skumst.TAX_CLASSIFICATION)" Name="TAX_CLASSIFICATION"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("CONTENT_UNIT")  Component="CONTENT_UNIT" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="width: 100%" @bind-Value="@(skumst.CONTENT_UNIT)" Name="CONTENT_UNIT"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("NET_CONTENT")  Component="NET_CONTENT" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenNumeric  ReadOnly="true" style="width: 100%" @bind-Value="@(skumst.NET_CONTENT)" Name="NET_CONTENT"> 
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("COMPARISON_PRICE")  Component="COMPARISON_PRICE" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenNumeric  ReadOnly="true" style="width: 100%" @bind-Value="@(skumst.COMPARISON_PRICE)" Name="COMPARISON_PRICE"> 
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("GROSS_CONTENT")  Component="GROSS_CONTENT" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenNumeric  ReadOnly="true" style="width: 100%" @bind-Value="@(skumst.GROSS_CONTENT)" Name="GROSS_CONTENT"> 
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("DANGEROUS_IND")  Component="DANGEROUS_IND" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="width: 100%" @bind-Value="@(skumst.DANGEROUS_IND)" Name="DANGEROUS_IND"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("BATCH_IND")  Component="BATCH_IND" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="width: 100%" @bind-Value="@(skumst.BATCH_IND)" Name="BATCH_IND"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("PERIOD_SLED")  Component="PERIOD_SLED" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="width: 100%" @bind-Value="@(skumst.PERIOD_SLED)" Name="PERIOD_SLED"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("ROUND_SLED")  Component="ROUND_SLED" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="width: 100%" @bind-Value="@(skumst.ROUND_SLED)" Name="ROUND_SLED"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("ASSOR_TYPE")  Component="ASSOR_TYPE" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="width: 100%" @bind-Value="@(skumst.ASSOR_TYPE)" Name="ASSOR_TYPE"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("WH_SKU_GROUP")  Component="WH_SKU_GROUP" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="width: 100%" @bind-Value="@(skumst.WH_SKU_GROUP)" Name="WH_SKU_GROUP"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("COUNTRY")  Component="COUNTRY" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="width: 100%" @bind-Value="@(skumst.COUNTRY)" Name="COUNTRY"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("LOAD_UNIT_GROUP")  Component="LOAD_UNIT_GROUP" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="width: 100%" @bind-Value="@(skumst.LOAD_UNIT_GROUP)" Name="LOAD_UNIT_GROUP"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("FREE_CHAR")  Component="FREE_CHAR" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="30" style="width: 100%" @bind-Value="@(skumst.FREE_CHAR)" Name="FREE_CHAR"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("ZMATERIAL")  Component="ZMATERIAL" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="100" style="width: 100%" @bind-Value="@(skumst.ZMATERIAL)" Name="ZMATERIAL"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("XPLANT_STS")  Component="XPLANT_STS" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="20" style="display: block; width: 100%" @bind-Value="@(skumst.XPLANT_STS)" Name="XPLANT_STS"> 
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="XPLANT_STS" Text="@L["XPLANT_STSRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("SOURCE")  Component="SOURCE" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="1" style="width: 100%" @bind-Value="@(skumst.SOURCE)" Name="SOURCE"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("APPROVE_IND")  Component="APPROVE_IND" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="1" style="width: 100%" @bind-Value="@(skumst.APPROVE_IND)" Name="APPROVE_IND"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("REMARK")  Component="REMARK" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" style="width: 100%" @bind-Value="@(skumst.REMARK)" Name="REMARK"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("TRN_USER")  Component="TRN_USER" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(skumst.TRN_USER)" ReadOnly="true" Name="TRN_USER">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="TRN_USER" Text="@L["TRN_USERRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("TRN_DATE")  Component="TRN_DATE" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="20" style="width: 100%" @bind-Value="@(skumst.TRN_DATE)" ReadOnly="true" Name="TRN_DATE">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("CRT_USER")  Component="CRT_USER" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(skumst.CRT_USER)" ReadOnly="true" Name="CRT_USER">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="CRT_USER" Text="@L["CRT_USERRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("CRT_DATE")  Component="CRT_DATE" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="20" style="width: 100%" @bind-Value="@(skumst.CRT_DATE)" ReadOnly="true" Name="CRT_DATE">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col offset-md-3">
+<RadzenButton Text="OK" Click="@Button2Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

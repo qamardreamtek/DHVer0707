@@ -1,0 +1,62 @@
+﻿@page "/group-msts"
+@layout MainLayout
+@inherits RadzenDh5.Pages.GroupMstsComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+@using Microsoft.AspNetCore.Identity;
+@using RadzenDh5.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+@inject Microsoft.Extensions.Localization.IStringLocalizer<MainLayout> L
+<DhAppHeadingAuthMsgOpt IsShowAuth=@IsShowAuth AuthMsg="@AuthMsg" Culture="@Culture" DhUser="@DhUser" DhUsername="@DhUsername"
+                        PROG_ID="@PROG_ID" PROG_NAME_BY_CULTURE="@PROG_NAME_BY_CULTURE"
+                        progWrt="@progWrt" progMst="@progMst" GoodMsg="@GoodMsg" ErrMsg="@ErrMsg" />
+
+<div class="row" id="btns_20210608_165731">
+<RadzenButton Style="margin-bottom:10px;margin-left:12px" Text =@Lang("Query") Click="@ButtonQueryClick" />
+<RadzenButton Style="margin-bottom:10px;margin-left:12px" Text =@Lang("Create") Click="@ButtonCreateClick" />
+<RadzenButton Style="margin-bottom:10px;margin-left:12px" Text =@Lang("Update") Click="@ButtonUpdateClick" />
+<RadzenButton Style="margin-bottom:10px;margin-left:12px" Text =@Lang("Delete") Click="@ButtonDeleteClick" />
+<RadzenButton Style="margin-bottom:10px;margin-left:12px" Text =@Lang("Refresh") Click="@ButtonRefreshClick" />
+</div>
+
+
+
+<div id="S020_filters_20210607_141847" class="row" style="margin-bottom:4px;">
+    <DhTextBox Label=@Lang("GROUP_ID")  MaxLength="20" style="display: block; width:100% " @bind-Value="@txtGROUP_ID" /> 
+    <DhTextBox Label=@Lang("GROUP_NAME")  MaxLength="20" style="display: block; width:100% " @bind-Value="@txtGROUP_NAME" /> 
+    <DhTextBox Label=@Lang("OWNER_NAME")  MaxLength="20" style="display: block; width:100% " @bind-Value="@txtOWNER_NAME" /> 
+</div>
+
+<RadzenGrid @ref="grid0" ColumnWidth="125px" AllowColumnResize="true" PagerPosition="PagerPosition.Top"
+            AllowFiltering="false" FilterMode="FilterMode.Advanced" AllowPaging="true" AllowSorting="false"
+            Data="@getGroupMstsResult" TItem="RadzenDh5.Models.Mark10Sqlexpress04.GroupMst" 
+            RowSelect="@Grid0RowSelect" RowDoubleClick="@Grid0RowDoubleClick">
+    <Columns>
+
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.GroupMst" Property="GROUP_ID" Title=@Lang("GROUP_ID")> 
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.GroupMst" Property="GROUP_NAME" Title=@Lang("GROUP_NAME")> 
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.GroupMst" Property="OWNER_ID" Title=@Lang("OWNER_ID")> 
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.GroupMst" Property="OWNER_NAME" Title=@Lang("OWNER_NAME")> 
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.GroupMst" Property="ENABLE" Title=@Lang("ENABLE")> 
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.GroupMst" Property="REMARK" Title=@Lang("REMARK")> 
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.GroupMst" Property="TRN_USER" Title=@Lang("TRN_USER")> 
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.GroupMst" Property="TRN_DATE" Title=@Lang("TRN_DATE")> 
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.GroupMst" Property="CRT_USER" Title=@Lang("CRT_USER")> 
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.GroupMst" Property="CRT_DATE" Title=@Lang("CRT_DATE")> 
+        </RadzenGridColumn>
+    </Columns>
+</RadzenGrid>

@@ -1,0 +1,23 @@
+﻿{
+  "intItem1": 688,
+  "intItem2": 692,
+  "intItem3": 696,
+  "intItem4": 700,
+  "intItem5": 704,
+  "intItem6": 708,
+  "intItem7": 712,
+  "intItem8": 718,
+  "intItem9": 728,
+  "intItem10": 732,
+  "id": "P020",
+  "item1": "Automatically allocates inventory storage for delivery order that shipping condition is not 20 or 90",
+  "item2": "Check if there are any delivery orders that are not automatically executed",
+  "item3": "Warehouse operator",
+  "item4": "SAP download related delivery data<br>",
+  "item5": "Executable Delivery Data",
+  "item6": "Picking data, updating Delivery data status",
+  "item7": "If there is no eligible Delivery data, the system will prompt to check that no Delivery information is available. The user can run the Data Inquire-> Q050 Delivery Order Data Query job to query the Delivery data and status; or select the specified Delivery No.",
+  "item8": "Enter the query conditions or select Delivery No and click Query to pick the Delivery header and detailed list.",
+  "item9": "AS/RS move out the pallet",
+  "item10": "This operation automatically allocates inventory based on logic such as FEFO & FIFO. This program is a backup, you can check whether there is a delivery order that is not automatically executed or not executed completely.<br>"
+}

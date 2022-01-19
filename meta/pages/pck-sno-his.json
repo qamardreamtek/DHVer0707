@@ -1,0 +1,268 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Pck Sno His"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "events": {
+                    "click": [
+                      {
+                        "condition": "${event?.Value == \"csv\"}",
+                        "fileName": "Pck Sno His",
+                        "name": "MARK10_SQLEXPRESS04.getPckSnoHis",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "WHSE_NO,PCK_NO,PCK_LINE,SU_ID,SU_ID_TO,SU_TYPE,LOC_NO,PLANT,STGE_LOC,SKU_NO,BATCH_NO,STK_CAT,STK_SPECIAL_IND,STK_SPECIAL_NO,IN_SNO,IN_NO,IN_LINE,ALO_NO,ALO_LINE,GTIN_UNIT,GTIN_ALO_QTY,GTIN_FIN_QTY,SKU_UNIT,SKU_ALO_QTY,SKU_FIN_QTY,REMARK,TRN_USER,TRN_DATE,CRT_USER,CRT_DATE,LOG_DATE,LOG_USER"
+                          }
+                        ],
+                        "type": "export"
+                      },
+                      {
+                        "condition": "${event == null || event.Value == \"xlsx\"}",
+                        "fileName": "Pck Sno His",
+                        "format": "xlsx",
+                        "name": "MARK10_SQLEXPRESS04.getPckSnoHis",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "WHSE_NO,PCK_NO,PCK_LINE,SU_ID,SU_ID_TO,SU_TYPE,LOC_NO,PLANT,STGE_LOC,SKU_NO,BATCH_NO,STK_CAT,STK_SPECIAL_IND,STK_SPECIAL_NO,IN_SNO,IN_NO,IN_LINE,ALO_NO,ALO_LINE,GTIN_UNIT,GTIN_ALO_QTY,GTIN_FIN_QTY,SKU_UNIT,SKU_ALO_QTY,SKU_FIN_QTY,REMARK,TRN_USER,TRN_DATE,CRT_USER,CRT_DATE,LOG_DATE,LOG_USER"
+                          }
+                        ],
+                        "type": "export"
+                      }
+                    ]
+                  },
+                  "icon": "get_app",
+                  "items": [
+                    {
+                      "icon": "",
+                      "text": "Excel",
+                      "value": "xlsx"
+                    },
+                    {
+                      "icon": "",
+                      "text": "CSV",
+                      "value": "csv"
+                    }
+                  ],
+                  "name": "splitbutton0",
+                  "style": {
+                    "marginLeft": "0px",
+                    "marginBottom": "10px"
+                  },
+                  "text": "Export",
+                  "type": "splitbutton"
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "filterMode": "advanced",
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getPckSnoHisResult}",
+                  "events": {
+                    "loadData": []
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "WHSE_NO",
+                      "title": "WHSE NO"
+                    },
+                    {
+                      "property": "PCK_NO",
+                      "title": "PCK NO"
+                    },
+                    {
+                      "property": "PCK_LINE",
+                      "title": "PCK LINE"
+                    },
+                    {
+                      "property": "SU_ID",
+                      "title": "SU ID"
+                    },
+                    {
+                      "property": "SU_ID_TO",
+                      "title": "SU ID TO"
+                    },
+                    {
+                      "property": "SU_TYPE",
+                      "title": "SU TYPE"
+                    },
+                    {
+                      "property": "LOC_NO",
+                      "title": "LOC NO"
+                    },
+                    {
+                      "property": "PLANT",
+                      "title": "PLANT"
+                    },
+                    {
+                      "property": "STGE_LOC",
+                      "title": "STGE LOC"
+                    },
+                    {
+                      "property": "SKU_NO",
+                      "title": "SKU NO"
+                    },
+                    {
+                      "property": "BATCH_NO",
+                      "title": "BATCH NO"
+                    },
+                    {
+                      "property": "STK_CAT",
+                      "title": "STK CAT"
+                    },
+                    {
+                      "property": "STK_SPECIAL_IND",
+                      "title": "STK SPECIAL IND"
+                    },
+                    {
+                      "property": "STK_SPECIAL_NO",
+                      "title": "STK SPECIAL NO"
+                    },
+                    {
+                      "property": "IN_SNO",
+                      "title": "IN SNO"
+                    },
+                    {
+                      "property": "IN_NO",
+                      "title": "IN NO"
+                    },
+                    {
+                      "property": "IN_LINE",
+                      "title": "IN LINE"
+                    },
+                    {
+                      "property": "ALO_NO",
+                      "title": "ALO NO"
+                    },
+                    {
+                      "property": "ALO_LINE",
+                      "title": "ALO LINE"
+                    },
+                    {
+                      "property": "GTIN_UNIT",
+                      "title": "GTIN UNIT"
+                    },
+                    {
+                      "property": "GTIN_ALO_QTY",
+                      "title": "GTIN ALO QTY"
+                    },
+                    {
+                      "property": "GTIN_FIN_QTY",
+                      "title": "GTIN FIN QTY"
+                    },
+                    {
+                      "property": "SKU_UNIT",
+                      "title": "SKU UNIT"
+                    },
+                    {
+                      "property": "SKU_ALO_QTY",
+                      "title": "SKU ALO QTY"
+                    },
+                    {
+                      "property": "SKU_FIN_QTY",
+                      "title": "SKU FIN QTY"
+                    },
+                    {
+                      "property": "REMARK",
+                      "title": "REMARK"
+                    },
+                    {
+                      "property": "TRN_USER",
+                      "title": "TRN USER"
+                    },
+                    {
+                      "property": "TRN_DATE",
+                      "title": "TRN DATE"
+                    },
+                    {
+                      "property": "CRT_USER",
+                      "title": "CRT USER"
+                    },
+                    {
+                      "property": "CRT_DATE",
+                      "title": "CRT DATE"
+                    },
+                    {
+                      "property": "LOG_DATE",
+                      "title": "LOG DATE"
+                    },
+                    {
+                      "property": "LOG_USER",
+                      "title": "LOG USER"
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "RadzenDh5.Models.Mark10Sqlexpress04.PckSnoHi"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "MARK10_SQLEXPRESS04.getPckSnoHis",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getPckSnoHisResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.PckSnoHi>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Pck Sno His",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

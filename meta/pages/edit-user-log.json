@@ -1,0 +1,519 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "type": "template-form",
+                  "name": "form0",
+                  "components": [
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Log Date",
+                              "component": "LOG_DATE",
+                              "name": "LOG_DATELabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 20,
+                              "type": "textbox",
+                              "name": "LOG_DATE",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${userlog.LOG_DATE}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "LOG_DATERequiredValidator",
+                              "component": "LOG_DATE",
+                              "text": "LOG_DATE is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Log Type",
+                              "component": "LOG_TYPE",
+                              "name": "LOG_TYPELabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 2,
+                              "type": "textbox",
+                              "name": "LOG_TYPE",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${userlog.LOG_TYPE}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "LOG_TYPERequiredValidator",
+                              "component": "LOG_TYPE",
+                              "text": "LOG_TYPE is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "User Id",
+                              "component": "USER_ID",
+                              "name": "USER_IDLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 20,
+                              "type": "textbox",
+                              "name": "USER_ID",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${userlog.USER_ID}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "USER_IDRequiredValidator",
+                              "component": "USER_ID",
+                              "text": "USER_ID is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Prog Id",
+                              "component": "PROG_ID",
+                              "name": "PROG_IDLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 10,
+                              "type": "textbox",
+                              "name": "PROG_ID",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${userlog.PROG_ID}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "PROG_IDRequiredValidator",
+                              "component": "PROG_ID",
+                              "text": "PROG_ID is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Prog Name",
+                              "component": "PROG_NAME",
+                              "name": "PROG_NAMELabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 100,
+                              "type": "textbox",
+                              "name": "PROG_NAME",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${userlog.PROG_NAME}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "PROG_NAMERequiredValidator",
+                              "component": "PROG_NAME",
+                              "text": "PROG_NAME is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Dept Name",
+                              "component": "DEPT_NAME",
+                              "name": "DEPT_NAMELabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 50,
+                              "type": "textbox",
+                              "name": "DEPT_NAME",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${userlog.DEPT_NAME}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "User Name",
+                              "component": "USER_NAME",
+                              "name": "USER_NAMELabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 50,
+                              "type": "textbox",
+                              "name": "USER_NAME",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${userlog.USER_NAME}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "USER_NAMERequiredValidator",
+                              "component": "USER_NAME",
+                              "text": "USER_NAME is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Remark",
+                              "component": "REMARK",
+                              "name": "REMARKLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "type": "textbox",
+                              "name": "REMARK",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${userlog.REMARK}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "type": "button",
+                              "buttonType": "submit",
+                              "icon": "save",
+                              "text": "Save",
+                              "buttonStyle": "primary"
+                            },
+                            {
+                              "type": "button",
+                              "buttonStyle": "light",
+                              "style": {
+                                "marginLeft": "1rem"
+                              },
+                              "text": "Cancel",
+                              "events": {
+                                "click": [
+                                  {
+                                    "type": "close-popup"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "events": {
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to update UserLog",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "MARK10_SQLEXPRESS04.updateUserLog",
+                        "parameters": [
+                          {
+                            "name": "LOG_DATE",
+                            "value": "${parameters.LOG_DATE}"
+                          },
+                          {
+                            "name": "LOG_TYPE",
+                            "value": "${parameters.LOG_TYPE}"
+                          },
+                          {
+                            "name": "USER_ID",
+                            "value": "${parameters.USER_ID}"
+                          },
+                          {
+                            "name": "PROG_ID",
+                            "value": "${parameters.PROG_ID}"
+                          },
+                          {
+                            "name": "UserLog",
+                            "value": "${userlog}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "close-popup",
+                            "result": "${userlog}",
+                            "condition": ""
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "itemType": "RadzenDh5.Models.Mark10Sqlexpress04.UserLog",
+                  "data": "${userlog}",
+                  "visible": "${userlog != null}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "MARK10_SQLEXPRESS04.getUserLogByLOG_DATEAndLOG_TYPEAndUSER_IDAndPROG_ID",
+        "parameters": [
+          {
+            "name": "LOG_DATE",
+            "value": "${parameters.LOG_DATE}"
+          },
+          {
+            "name": "LOG_TYPE",
+            "value": "${parameters.LOG_TYPE}"
+          },
+          {
+            "name": "USER_ID",
+            "value": "${parameters.USER_ID}"
+          },
+          {
+            "name": "PROG_ID",
+            "value": "${parameters.PROG_ID}"
+          }
+        ],
+        "then": [
+          {
+            "name": "userlog",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "RadzenDh5.Models.Mark10Sqlexpress04.UserLog"
+          }
+        ],
+        "error": [],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Edit User Log",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

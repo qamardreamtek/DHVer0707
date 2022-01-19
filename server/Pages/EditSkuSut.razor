@@ -1,0 +1,280 @@
+﻿@page "/edit-sku-sut/{WHSE_NO}/{SKU_NO}/{GTIN_UNIT}/{SU_TYPE}"
+@layout MainLayout
+@inherits RadzenDh5.Pages.EditSkuSutComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+@using Microsoft.AspNetCore.Identity;
+@using RadzenDh5.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+@inject Microsoft.Extensions.Localization.IStringLocalizer<EditSkuSut> L
+<RadzenContent Container="main">
+  <ChildContent>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm TItem="RadzenDh5.Models.Mark10Sqlexpress04.SkuSut" Data="@skusut" Visible="@(skusut != null)" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["WHSE_NO"]" Component="WHSE_NO" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="10" style="display: block; width: 100%" @bind-Value="@(skusut.WHSE_NO)" Name="WHSE_NO">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="WHSE_NO" Text="@L["WHSE_NORequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["SKU_NO"]" Component="SKU_NO" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="30" style="display: block; width: 100%" @bind-Value="@(skusut.SKU_NO)" Name="SKU_NO">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="SKU_NO" Text="@L["SKU_NORequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["SKU_NAME"]" Component="SKU_NAME" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="width: 100%" @bind-Value="@(skusut.SKU_NAME)" Name="SKU_NAME">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["SKU_DESC"]" Component="SKU_DESC" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="width: 100%" @bind-Value="@(skusut.SKU_DESC)" Name="SKU_DESC">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["SKU_UNIT"]" Component="SKU_UNIT" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="10" style="width: 100%" @bind-Value="@(skusut.SKU_UNIT)" Name="SKU_UNIT">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["SU_TYPE"]" Component="SU_TYPE" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="10" style="display: block; width: 100%" @bind-Value="@(skusut.SU_TYPE)" Name="SU_TYPE">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="SU_TYPE" Text="@L["SU_TYPERequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["SU_UNIT"]" Component="SU_UNIT" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="10" style="display: block; width: 100%" @bind-Value="@(skusut.SU_UNIT)" Name="SU_UNIT">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="SU_UNIT" Text="@L["SU_UNITRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["SU_LENGTH"]" Component="SU_LENGTH" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(skusut.SU_LENGTH)" Name="SU_LENGTH">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["SU_WIDTH"]" Component="SU_WIDTH" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(skusut.SU_WIDTH)" Name="SU_WIDTH">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["SU_HEIGHT"]" Component="SU_HEIGHT" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(skusut.SU_HEIGHT)" Name="SU_HEIGHT">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["SU_DIM_UNIT"]" Component="SU_DIM_UNIT" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="10" style="display: block; width: 100%" @bind-Value="@(skusut.SU_DIM_UNIT)" Name="SU_DIM_UNIT">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="SU_DIM_UNIT" Text="@L["SU_DIM_UNITRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["SKU_MAX_QTY"]" Component="SKU_MAX_QTY" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(skusut.SKU_MAX_QTY)" Name="SKU_MAX_QTY">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["GTIN_NO"]" Component="GTIN_NO" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="30" style="display: block; width: 100%" @bind-Value="@(skusut.GTIN_NO)" Name="GTIN_NO">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="GTIN_NO" Text="@L["GTIN_NORequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["GTIN_MAX_QTY"]" Component="GTIN_MAX_QTY" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(skusut.GTIN_MAX_QTY)" Name="GTIN_MAX_QTY">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["GTIN_LAYER"]" Component="GTIN_LAYER" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(skusut.GTIN_LAYER)" Name="GTIN_LAYER">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["GTIN_LAYER_QTY"]" Component="GTIN_LAYER_QTY" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(skusut.GTIN_LAYER_QTY)" Name="GTIN_LAYER_QTY">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["SOURCE"]" Component="SOURCE" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="1" style="width: 100%" @bind-Value="@(skusut.SOURCE)" Name="SOURCE">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["APPROVE_IND"]" Component="APPROVE_IND" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="1" style="width: 100%" @bind-Value="@(skusut.APPROVE_IND)" Name="APPROVE_IND">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["REMARK"]" Component="REMARK" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox style="width: 100%" @bind-Value="@(skusut.REMARK)" Name="REMARK">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["TRN_USER"]" Component="TRN_USER" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(skusut.TRN_USER)" ReadOnly="true" Name="TRN_USER">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="TRN_USER" Text="@L["TRN_USERRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["TRN_DATE"]" Component="TRN_DATE" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="20" style="width: 100%" @bind-Value="@(skusut.TRN_DATE)" ReadOnly="true" Name="TRN_DATE">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["CRT_USER"]" Component="CRT_USER" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(skusut.CRT_USER)" ReadOnly="true" Name="CRT_USER">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="CRT_USER" Text="@L["CRT_USERRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["CRT_DATE"]" Component="CRT_DATE" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="20" style="width: 100%" @bind-Value="@(skusut.CRT_DATE)" ReadOnly="true" Name="CRT_DATE">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col offset-sm-3">
+                <RadzenButton ButtonType="ButtonType.Submit"  Disabled="true"  Icon="save" Text="@L["Save"]" ButtonStyle="ButtonStyle.Primary">
+                </RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Light" style="margin-left: 1rem" Text="@L["Cancel"]" Click="@Button2Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

@@ -1,0 +1,800 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "type": "template-form",
+                  "name": "form0",
+                  "components": [
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "User Id",
+                              "component": "USER_ID",
+                              "name": "USER_IDLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 20,
+                              "type": "textbox",
+                              "name": "USER_ID",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${progwrt.USER_ID}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "USER_IDRequiredValidator",
+                              "component": "USER_ID",
+                              "text": "USER_ID is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Prog Id",
+                              "component": "PROG_ID",
+                              "name": "PROG_IDLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 10,
+                              "type": "textbox",
+                              "name": "PROG_ID",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${progwrt.PROG_ID}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "PROG_IDRequiredValidator",
+                              "component": "PROG_ID",
+                              "text": "PROG_ID is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Query Wrt",
+                              "component": "QUERY_WRT",
+                              "name": "QUERY_WRTLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 1,
+                              "type": "textbox",
+                              "name": "QUERY_WRT",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${progwrt.QUERY_WRT}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "QUERY_WRTRequiredValidator",
+                              "component": "QUERY_WRT",
+                              "text": "QUERY_WRT is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Print Wrt",
+                              "component": "PRINT_WRT",
+                              "name": "PRINT_WRTLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 1,
+                              "type": "textbox",
+                              "name": "PRINT_WRT",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${progwrt.PRINT_WRT}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "PRINT_WRTRequiredValidator",
+                              "component": "PRINT_WRT",
+                              "text": "PRINT_WRT is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Import Wrt",
+                              "component": "IMPORT_WRT",
+                              "name": "IMPORT_WRTLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 1,
+                              "type": "textbox",
+                              "name": "IMPORT_WRT",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${progwrt.IMPORT_WRT}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "IMPORT_WRTRequiredValidator",
+                              "component": "IMPORT_WRT",
+                              "text": "IMPORT_WRT is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Export Wrt",
+                              "component": "EXPORT_WRT",
+                              "name": "EXPORT_WRTLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 1,
+                              "type": "textbox",
+                              "name": "EXPORT_WRT",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${progwrt.EXPORT_WRT}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "EXPORT_WRTRequiredValidator",
+                              "component": "EXPORT_WRT",
+                              "text": "EXPORT_WRT is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Update Wrt",
+                              "component": "UPDATE_WRT",
+                              "name": "UPDATE_WRTLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 1,
+                              "type": "textbox",
+                              "name": "UPDATE_WRT",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${progwrt.UPDATE_WRT}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "UPDATE_WRTRequiredValidator",
+                              "component": "UPDATE_WRT",
+                              "text": "UPDATE_WRT is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Delete Wrt",
+                              "component": "DELETE_WRT",
+                              "name": "DELETE_WRTLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 1,
+                              "type": "textbox",
+                              "name": "DELETE_WRT",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${progwrt.DELETE_WRT}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "DELETE_WRTRequiredValidator",
+                              "component": "DELETE_WRT",
+                              "text": "DELETE_WRT is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Approve Wrt",
+                              "component": "APPROVE_WRT",
+                              "name": "APPROVE_WRTLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 1,
+                              "type": "textbox",
+                              "name": "APPROVE_WRT",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${progwrt.APPROVE_WRT}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "APPROVE_WRTRequiredValidator",
+                              "component": "APPROVE_WRT",
+                              "text": "APPROVE_WRT is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Enable",
+                              "component": "ENABLE",
+                              "name": "ENABLELabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 1,
+                              "type": "textbox",
+                              "name": "ENABLE",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${progwrt.ENABLE}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Remark",
+                              "component": "REMARK",
+                              "name": "REMARKLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "type": "textbox",
+                              "name": "REMARK",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${progwrt.REMARK}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Trn User",
+                              "component": "TRN_USER",
+                              "name": "TRN_USERLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 50,
+                              "type": "textbox",
+                              "name": "TRN_USER",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${progwrt.TRN_USER}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "TRN_USERRequiredValidator",
+                              "component": "TRN_USER",
+                              "text": "TRN_USER is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Trn Date",
+                              "component": "TRN_DATE",
+                              "name": "TRN_DATELabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 20,
+                              "type": "textbox",
+                              "name": "TRN_DATE",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${progwrt.TRN_DATE}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Crt User",
+                              "component": "CRT_USER",
+                              "name": "CRT_USERLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 50,
+                              "type": "textbox",
+                              "name": "CRT_USER",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${progwrt.CRT_USER}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "CRT_USERRequiredValidator",
+                              "component": "CRT_USER",
+                              "text": "CRT_USER is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Crt Date",
+                              "component": "CRT_DATE",
+                              "name": "CRT_DATELabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 20,
+                              "type": "textbox",
+                              "name": "CRT_DATE",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${progwrt.CRT_DATE}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "type": "button",
+                              "buttonType": "submit",
+                              "icon": "save",
+                              "text": "Save",
+                              "buttonStyle": "primary"
+                            },
+                            {
+                              "type": "button",
+                              "buttonStyle": "light",
+                              "style": {
+                                "marginLeft": "1rem"
+                              },
+                              "text": "Cancel",
+                              "events": {
+                                "click": [
+                                  {
+                                    "type": "close-popup"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "events": {
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to create new ProgWrt!",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "MARK10_SQLEXPRESS04.createProgWrt",
+                        "parameters": [
+                          {
+                            "name": "ProgWrt",
+                            "value": "${progwrt}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "close-popup",
+                            "result": "${progwrt}"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "data": "${progwrt}",
+                  "visible": "${progwrt != null}",
+                  "itemType": "RadzenDh5.Models.Mark10Sqlexpress04.ProgWrt"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "progwrt",
+        "type": "set",
+        "value": "new RadzenDh5.Models.Mark10Sqlexpress04.ProgWrt(){}",
+        "valueType": "RadzenDh5.Models.Mark10Sqlexpress04.ProgWrt"
+      }
+    ]
+  },
+  "name": "Add Prog Wrt",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

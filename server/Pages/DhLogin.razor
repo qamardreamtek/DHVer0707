@@ -1,0 +1,70 @@
+﻿@page "/dhlogin"
+@layout MainLayout
+@inherits RadzenDh5.Pages.DhLoginComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+@using Microsoft.AspNetCore.Identity;
+@using RadzenDh5.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+@inject Microsoft.Extensions.Localization.IStringLocalizer<MainLayout> L
+<RadzenContent Container="main">
+    <ChildContent>
+        <RadzenHeading Size="H3" Text="@L["同步 WES 用戶到 Asp.Net Core Identity"]">
+        </RadzenHeading>
+        <div class="row">
+            @*<div class="col-md-7">
+           USER
+            <RadzenTextBox @bind-Value="@user" Change=@(args => OnUserChange(args, "TextBox")) />
+            PASS
+            <RadzenTextBox @bind-Value="@pass" Change=@(args => OnPassChange(args, "TextBox")) />
+        </div>
+
+        <div class="col-md-7">
+            DH USER:  @localName
+
+        </div>*@
+
+
+            <div class="col-md-7">
+
+                <Radzen.Blazor.RadzenButton Text="Submit" Click="@ButtonSubmitClick"></Radzen.Blazor.RadzenButton>
+
+            
+                <table class="gridtable">
+
+                    @if (userMsts !=null)
+                    {
+
+                        @foreach (var x in userMsts)
+                        {
+                            <tr>
+                                <td>
+                                    @x.USER_ID
+                                </td>
+
+
+                                <td>
+                                    @(GetPlainPass(x.USER_PSWD))
+                                </td>
+                                <td>
+                                    @x.USER_PSWD
+                                </td>
+                                <td>
+                                    @(GetPlainPass(x.USER_PSWD).Length)
+                                </td>
+                            </tr>
+
+                        }
+                    }
+
+                </table>
+
+            </div>
+        </div>
+    </ChildContent>
+</RadzenContent>

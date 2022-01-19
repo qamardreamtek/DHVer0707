@@ -1,0 +1,40 @@
+﻿@page "/application-users"
+@layout MainLayout
+@inherits RadzenDh5.Pages.ApplicationUsersComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+@using Microsoft.AspNetCore.Identity;
+@using RadzenDh5.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+@inject Microsoft.Extensions.Localization.IStringLocalizer<ApplicationUsers> L
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H3" Text="@L["Application User"]">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="@L["Create"]" Click="@Button0Click">
+        </RadzenButton>
+        <RadzenGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@users" TItem="ApplicationUser" RowSelect="@Grid0RowSelect">
+          <Columns>
+            <RadzenGridColumn TItem="ApplicationUser" Property="UserName" Title="@L["UserName"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="ApplicationUser" Property="Email" Title="@L["Email"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="ApplicationUser" Filterable="false" Sortable="false" Width="70px">
+              <Template Context="applicationUser">
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, applicationUser))" @onclick:stopPropagation="true">
+                </RadzenButton>
+              </Template>
+            </RadzenGridColumn>
+          </Columns>
+        </RadzenGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

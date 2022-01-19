@@ -1,0 +1,358 @@
+﻿@page "/add-tx-log"
+@layout MainLayout
+@inherits RadzenDh5.Pages.AddTxLogComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+@using Microsoft.AspNetCore.Identity;
+@using RadzenDh5.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+@inject Microsoft.Extensions.Localization.IStringLocalizer<AddTxLog> L
+<RadzenContent Container="main">
+  <ChildContent>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm Data="@txlog" Visible="@(txlog != null)" TItem="RadzenDh5.Models.Mark10Sqlexpress04.TxLog" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["WHSE_NO"]" Component="WHSE_NO" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="10" style="display: block; width: 100%" @bind-Value="@(txlog.WHSE_NO)" Name="WHSE_NO">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="WHSE_NO" Text="@L["WHSE_NORequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["TX_NO"]" Component="TX_NO" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="30" style="display: block; width: 100%" @bind-Value="@(txlog.TX_NO)" Name="TX_NO">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="TX_NO" Text="@L["TX_NORequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["TX_LINE"]" Component="TX_LINE" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="10" style="display: block; width: 100%" @bind-Value="@(txlog.TX_LINE)" Name="TX_LINE">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="TX_LINE" Text="@L["TX_LINERequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["STGE_TYPE"]" Component="STGE_TYPE" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="10" style="display: block; width: 100%" @bind-Value="@(txlog.STGE_TYPE)" Name="STGE_TYPE">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="STGE_TYPE" Text="@L["STGE_TYPERequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["STGE_TYPE_TO"]" Component="STGE_TYPE_TO" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="10" style="display: block; width: 100%" @bind-Value="@(txlog.STGE_TYPE_TO)" Name="STGE_TYPE_TO">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="STGE_TYPE_TO" Text="@L["STGE_TYPE_TORequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["STGE_BIN"]" Component="STGE_BIN" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="20" style="display: block; width: 100%" @bind-Value="@(txlog.STGE_BIN)" Name="STGE_BIN">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="STGE_BIN" Text="@L["STGE_BINRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["STGE_BIN_TO"]" Component="STGE_BIN_TO" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="20" style="display: block; width: 100%" @bind-Value="@(txlog.STGE_BIN_TO)" Name="STGE_BIN_TO">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="STGE_BIN_TO" Text="@L["STGE_BIN_TORequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["SU_ID"]" Component="SU_ID" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="20" style="display: block; width: 100%" @bind-Value="@(txlog.SU_ID)" Name="SU_ID">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="SU_ID" Text="@L["SU_IDRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["SU_ID_TO"]" Component="SU_ID_TO" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="20" style="display: block; width: 100%" @bind-Value="@(txlog.SU_ID_TO)" Name="SU_ID_TO">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="SU_ID_TO" Text="@L["SU_ID_TORequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["LOC_NO"]" Component="LOC_NO" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="width: 100%" @bind-Value="@(txlog.LOC_NO)" Name="LOC_NO">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["PLANT"]" Component="PLANT" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="10" style="display: block; width: 100%" @bind-Value="@(txlog.PLANT)" Name="PLANT">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="PLANT" Text="@L["PLANTRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["STGE_LOC"]" Component="STGE_LOC" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="10" style="display: block; width: 100%" @bind-Value="@(txlog.STGE_LOC)" Name="STGE_LOC">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="STGE_LOC" Text="@L["STGE_LOCRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["SKU_NO"]" Component="SKU_NO" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="30" style="display: block; width: 100%" @bind-Value="@(txlog.SKU_NO)" Name="SKU_NO">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="SKU_NO" Text="@L["SKU_NORequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["BATCH_NO"]" Component="BATCH_NO" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="30" style="width: 100%" @bind-Value="@(txlog.BATCH_NO)" Name="BATCH_NO">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["STK_CAT"]" Component="STK_CAT" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="10" style="display: block; width: 100%" @bind-Value="@(txlog.STK_CAT)" Name="STK_CAT">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="STK_CAT" Text="@L["STK_CATRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["STK_SPECIAL_IND"]" Component="STK_SPECIAL_IND" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="1" style="width: 100%" @bind-Value="@(txlog.STK_SPECIAL_IND)" Name="STK_SPECIAL_IND">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["STK_SPECIAL_NO"]" Component="STK_SPECIAL_NO" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="30" style="width: 100%" @bind-Value="@(txlog.STK_SPECIAL_NO)" Name="STK_SPECIAL_NO">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["GTIN_UNIT"]" Component="GTIN_UNIT" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="10" style="display: block; width: 100%" @bind-Value="@(txlog.GTIN_UNIT)" Name="GTIN_UNIT">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="GTIN_UNIT" Text="@L["GTIN_UNITRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["GTIN_QTY"]" Component="GTIN_QTY" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="display: block; width: 100%" @bind-Value="@(txlog.GTIN_QTY)" Name="GTIN_QTY">
+                </RadzenNumeric>
+                <RadzenRequiredValidator Component="GTIN_QTY" Text="@L["GTIN_QTYRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["TX_USER"]" Component="TX_USER" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="width: 100%" @bind-Value="@(txlog.TX_USER)" Name="TX_USER">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["TX_DATE"]" Component="TX_DATE" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="20" style="width: 100%" @bind-Value="@(txlog.TX_DATE)" Name="TX_DATE">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["TX_STS"]" Component="TX_STS" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="1" style="width: 100%" @bind-Value="@(txlog.TX_STS)" Name="TX_STS">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["REMARK"]" Component="REMARK" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox style="width: 100%" @bind-Value="@(txlog.REMARK)" Name="REMARK">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["SOURCE"]" Component="SOURCE" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="1" style="width: 100%" @bind-Value="@(txlog.SOURCE)" Name="SOURCE">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["APPROVE_IND"]" Component="APPROVE_IND" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="1" style="width: 100%" @bind-Value="@(txlog.APPROVE_IND)" Name="APPROVE_IND">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["TRN_USER"]" Component="TRN_USER" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(txlog.TRN_USER)" ReadOnly="true" Name="TRN_USER">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="TRN_USER" Text="@L["TRN_USERRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["TRN_DATE"]" Component="TRN_DATE" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="20" style="width: 100%" @bind-Value="@(txlog.TRN_DATE)" ReadOnly="true" Name="TRN_DATE">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["CRT_USER"]" Component="CRT_USER" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(txlog.CRT_USER)" ReadOnly="true" Name="CRT_USER">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="CRT_USER" Text="@L["CRT_USERRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="@L["CRT_DATE"]" Component="CRT_DATE" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="20" style="width: 100%" @bind-Value="@(txlog.CRT_DATE)" ReadOnly="true" Name="CRT_DATE">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col offset-sm-3">
+                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="@L["Save"]" ButtonStyle="ButtonStyle.Primary">
+                </RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Light" style="margin-left: 1rem" Text="@L["Cancel"]" Click="@Button2Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

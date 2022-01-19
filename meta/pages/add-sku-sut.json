@@ -1,0 +1,1075 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "type": "template-form",
+                  "name": "form0",
+                  "components": [
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Whse No",
+                              "component": "WHSE_NO",
+                              "name": "WHSE_NOLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 10,
+                              "type": "textbox",
+                              "name": "WHSE_NO",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${skusut.WHSE_NO}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "WHSE_NORequiredValidator",
+                              "component": "WHSE_NO",
+                              "text": "WHSE_NO is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Sku No",
+                              "component": "SKU_NO",
+                              "name": "SKU_NOLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 30,
+                              "type": "textbox",
+                              "name": "SKU_NO",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${skusut.SKU_NO}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "SKU_NORequiredValidator",
+                              "component": "SKU_NO",
+                              "text": "SKU_NO is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Sku Name",
+                              "component": "SKU_NAME",
+                              "name": "SKU_NAMELabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 50,
+                              "type": "textbox",
+                              "name": "SKU_NAME",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${skusut.SKU_NAME}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Sku Desc",
+                              "component": "SKU_DESC",
+                              "name": "SKU_DESCLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 50,
+                              "type": "textbox",
+                              "name": "SKU_DESC",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${skusut.SKU_DESC}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Sku Unit",
+                              "component": "SKU_UNIT",
+                              "name": "SKU_UNITLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 10,
+                              "type": "textbox",
+                              "name": "SKU_UNIT",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${skusut.SKU_UNIT}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Su Type",
+                              "component": "SU_TYPE",
+                              "name": "SU_TYPELabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 10,
+                              "type": "textbox",
+                              "name": "SU_TYPE",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${skusut.SU_TYPE}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "SU_TYPERequiredValidator",
+                              "component": "SU_TYPE",
+                              "text": "SU_TYPE is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Su Unit",
+                              "component": "SU_UNIT",
+                              "name": "SU_UNITLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 10,
+                              "type": "textbox",
+                              "name": "SU_UNIT",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${skusut.SU_UNIT}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "SU_UNITRequiredValidator",
+                              "component": "SU_UNIT",
+                              "text": "SU_UNIT is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Su Length",
+                              "component": "SU_LENGTH",
+                              "name": "SU_LENGTHLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "decimal",
+                              "type": "numeric",
+                              "name": "SU_LENGTH",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${skusut.SU_LENGTH}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Su Width",
+                              "component": "SU_WIDTH",
+                              "name": "SU_WIDTHLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "decimal",
+                              "type": "numeric",
+                              "name": "SU_WIDTH",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${skusut.SU_WIDTH}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Su Height",
+                              "component": "SU_HEIGHT",
+                              "name": "SU_HEIGHTLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "decimal",
+                              "type": "numeric",
+                              "name": "SU_HEIGHT",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${skusut.SU_HEIGHT}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Su Dim Unit",
+                              "component": "SU_DIM_UNIT",
+                              "name": "SU_DIM_UNITLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 10,
+                              "type": "textbox",
+                              "name": "SU_DIM_UNIT",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${skusut.SU_DIM_UNIT}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "SU_DIM_UNITRequiredValidator",
+                              "component": "SU_DIM_UNIT",
+                              "text": "SU_DIM_UNIT is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Sku Max Qty",
+                              "component": "SKU_MAX_QTY",
+                              "name": "SKU_MAX_QTYLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "decimal",
+                              "type": "numeric",
+                              "name": "SKU_MAX_QTY",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${skusut.SKU_MAX_QTY}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Gtin No",
+                              "component": "GTIN_NO",
+                              "name": "GTIN_NOLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 30,
+                              "type": "textbox",
+                              "name": "GTIN_NO",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${skusut.GTIN_NO}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "GTIN_NORequiredValidator",
+                              "component": "GTIN_NO",
+                              "text": "GTIN_NO is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Gtin Max Qty",
+                              "component": "GTIN_MAX_QTY",
+                              "name": "GTIN_MAX_QTYLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "decimal",
+                              "type": "numeric",
+                              "name": "GTIN_MAX_QTY",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${skusut.GTIN_MAX_QTY}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Gtin Layer",
+                              "component": "GTIN_LAYER",
+                              "name": "GTIN_LAYERLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "decimal",
+                              "type": "numeric",
+                              "name": "GTIN_LAYER",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${skusut.GTIN_LAYER}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Gtin Layer Qty",
+                              "component": "GTIN_LAYER_QTY",
+                              "name": "GTIN_LAYER_QTYLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "decimal",
+                              "type": "numeric",
+                              "name": "GTIN_LAYER_QTY",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${skusut.GTIN_LAYER_QTY}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Source",
+                              "component": "SOURCE",
+                              "name": "SOURCELabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 1,
+                              "type": "textbox",
+                              "name": "SOURCE",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${skusut.SOURCE}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Approve Ind",
+                              "component": "APPROVE_IND",
+                              "name": "APPROVE_INDLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 1,
+                              "type": "textbox",
+                              "name": "APPROVE_IND",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${skusut.APPROVE_IND}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Remark",
+                              "component": "REMARK",
+                              "name": "REMARKLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "type": "textbox",
+                              "name": "REMARK",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${skusut.REMARK}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Trn User",
+                              "component": "TRN_USER",
+                              "name": "TRN_USERLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 50,
+                              "type": "textbox",
+                              "name": "TRN_USER",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${skusut.TRN_USER}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "TRN_USERRequiredValidator",
+                              "component": "TRN_USER",
+                              "text": "TRN_USER is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Trn Date",
+                              "component": "TRN_DATE",
+                              "name": "TRN_DATELabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 20,
+                              "type": "textbox",
+                              "name": "TRN_DATE",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${skusut.TRN_DATE}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Crt User",
+                              "component": "CRT_USER",
+                              "name": "CRT_USERLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 50,
+                              "type": "textbox",
+                              "name": "CRT_USER",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${skusut.CRT_USER}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "CRT_USERRequiredValidator",
+                              "component": "CRT_USER",
+                              "text": "CRT_USER is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Crt Date",
+                              "component": "CRT_DATE",
+                              "name": "CRT_DATELabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 20,
+                              "type": "textbox",
+                              "name": "CRT_DATE",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${skusut.CRT_DATE}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "type": "button",
+                              "buttonType": "submit",
+                              "icon": "save",
+                              "text": "Save",
+                              "buttonStyle": "primary"
+                            },
+                            {
+                              "type": "button",
+                              "buttonStyle": "light",
+                              "style": {
+                                "marginLeft": "1rem"
+                              },
+                              "text": "Cancel",
+                              "events": {
+                                "click": [
+                                  {
+                                    "type": "close-popup"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "events": {
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to create new SkuSut!",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "MARK10_SQLEXPRESS04.createSkuSut",
+                        "parameters": [
+                          {
+                            "name": "SkuSut",
+                            "value": "${skusut}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "close-popup",
+                            "result": "${skusut}"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "data": "${skusut}",
+                  "visible": "${skusut != null}",
+                  "itemType": "RadzenDh5.Models.Mark10Sqlexpress04.SkuSut"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "skusut",
+        "type": "set",
+        "value": "new RadzenDh5.Models.Mark10Sqlexpress04.SkuSut(){}",
+        "valueType": "RadzenDh5.Models.Mark10Sqlexpress04.SkuSut"
+      }
+    ]
+  },
+  "name": "Add Sku Sut",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

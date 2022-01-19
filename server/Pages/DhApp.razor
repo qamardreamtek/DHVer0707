@@ -1,0 +1,27 @@
+@page "/"
+@layout MainLayout
+@*@inherits RadzenDh5.Pages.UserMstsComponent*@
+
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+@using Microsoft.AspNetCore.Identity;
+@using RadzenDh5.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+<div class="row">
+    <div class="col-xl-12">
+        <RadzenTabs>
+            <Tabs>
+             
+         
+                <RadzenTabsItem Text="Menu">
+                    <M2></M2>
+                </RadzenTabsItem>
+            </Tabs>
+
+        </RadzenTabs>
+    </div>
+</div>

@@ -1,0 +1,457 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Out Dtls"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "icon": "add_circle_outline",
+                  "name": "button0",
+                  "style": {
+                    "marginBottom": "10px"
+                  },
+                  "text": "Add",
+                  "type": "button",
+                  "events": {
+                    "click": [
+                      {
+                        "path": "add-out-dtl",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await grid0.Reload();",
+                            "type": "execute"
+                          },
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "events": {
+                    "click": [
+                      {
+                        "condition": "${event?.Value == \"csv\"}",
+                        "fileName": "Out Dtls",
+                        "name": "MARK10_SQLEXPRESS04.getOutDtls",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "WHSE_NO,OUT_NO,OUT_LINE,PLANT,STGE_LOC,SKU_NO,BATCH_NO,STK_CAT,STK_SPECIAL_IND,STK_SPECIAL_NO,GTIN_UNIT,GTIN_NO,GTIN_NUMERATOR,GTIN_DENOMINATOR,GTIN_OUT_QTY,SKU_UNIT,SKU_OUT_QTY,GROSS_WEIGHT,NET_WEIGHT,WEIGHT_UNIT,VOLUME,VOLUME_UNIT,GTIN_DESC,DD_LINE,REQM_NO,REQM_LINE,DOC_NO,DOC_LINE,MOVM_TYPE,SKU_GROUP,TP_GROUP,CREATEUSER,CREATEDATE,CREATETIME,GTIN_ALO_QTY,GTIN_FIN_QTY,SKU_ALO_QTY,SKU_FIN_QTY,START_DATE,END_DATE,OUT_USER,OUT_DATE,OUT_LOC,OUT_STS,SOURCE,APPROVE_IND,REMARK,TRN_USER,TRN_DATE,CRT_USER,CRT_DATE"
+                          }
+                        ],
+                        "type": "export"
+                      },
+                      {
+                        "condition": "${event == null || event.Value == \"xlsx\"}",
+                        "fileName": "Out Dtls",
+                        "format": "xlsx",
+                        "name": "MARK10_SQLEXPRESS04.getOutDtls",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "WHSE_NO,OUT_NO,OUT_LINE,PLANT,STGE_LOC,SKU_NO,BATCH_NO,STK_CAT,STK_SPECIAL_IND,STK_SPECIAL_NO,GTIN_UNIT,GTIN_NO,GTIN_NUMERATOR,GTIN_DENOMINATOR,GTIN_OUT_QTY,SKU_UNIT,SKU_OUT_QTY,GROSS_WEIGHT,NET_WEIGHT,WEIGHT_UNIT,VOLUME,VOLUME_UNIT,GTIN_DESC,DD_LINE,REQM_NO,REQM_LINE,DOC_NO,DOC_LINE,MOVM_TYPE,SKU_GROUP,TP_GROUP,CREATEUSER,CREATEDATE,CREATETIME,GTIN_ALO_QTY,GTIN_FIN_QTY,SKU_ALO_QTY,SKU_FIN_QTY,START_DATE,END_DATE,OUT_USER,OUT_DATE,OUT_LOC,OUT_STS,SOURCE,APPROVE_IND,REMARK,TRN_USER,TRN_DATE,CRT_USER,CRT_DATE"
+                          }
+                        ],
+                        "type": "export"
+                      }
+                    ]
+                  },
+                  "icon": "get_app",
+                  "items": [
+                    {
+                      "icon": "",
+                      "text": "Excel",
+                      "value": "xlsx"
+                    },
+                    {
+                      "icon": "",
+                      "text": "CSV",
+                      "value": "csv"
+                    }
+                  ],
+                  "name": "splitbutton0",
+                  "style": {
+                    "marginLeft": "10px",
+                    "marginBottom": "10px"
+                  },
+                  "text": "Export",
+                  "type": "splitbutton"
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "filterMode": "advanced",
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getOutDtlsResult}",
+                  "events": {
+                    "loadData": [],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "WHSE_NO",
+                            "value": "${event.WHSE_NO}"
+                          },
+                          {
+                            "name": "OUT_NO",
+                            "value": "${event.OUT_NO}"
+                          },
+                          {
+                            "name": "OUT_LINE",
+                            "value": "${event.OUT_LINE}"
+                          }
+                        ],
+                        "path": "edit-out-dtl",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "WHSE_NO",
+                      "title": "WHSE NO"
+                    },
+                    {
+                      "property": "OUT_NO",
+                      "title": "OUT NO"
+                    },
+                    {
+                      "property": "OUT_LINE",
+                      "title": "OUT LINE"
+                    },
+                    {
+                      "property": "PLANT",
+                      "title": "PLANT"
+                    },
+                    {
+                      "property": "STGE_LOC",
+                      "title": "STGE LOC"
+                    },
+                    {
+                      "property": "SKU_NO",
+                      "title": "SKU NO"
+                    },
+                    {
+                      "property": "BATCH_NO",
+                      "title": "BATCH NO"
+                    },
+                    {
+                      "property": "STK_CAT",
+                      "title": "STK CAT"
+                    },
+                    {
+                      "property": "STK_SPECIAL_IND",
+                      "title": "STK SPECIAL IND"
+                    },
+                    {
+                      "property": "STK_SPECIAL_NO",
+                      "title": "STK SPECIAL NO"
+                    },
+                    {
+                      "property": "GTIN_UNIT",
+                      "title": "GTIN UNIT"
+                    },
+                    {
+                      "property": "GTIN_NO",
+                      "title": "GTIN NO"
+                    },
+                    {
+                      "property": "GTIN_NUMERATOR",
+                      "title": "GTIN NUMERATOR"
+                    },
+                    {
+                      "property": "GTIN_DENOMINATOR",
+                      "title": "GTIN DENOMINATOR"
+                    },
+                    {
+                      "property": "GTIN_OUT_QTY",
+                      "title": "GTIN OUT QTY"
+                    },
+                    {
+                      "property": "SKU_UNIT",
+                      "title": "SKU UNIT"
+                    },
+                    {
+                      "property": "SKU_OUT_QTY",
+                      "title": "SKU OUT QTY"
+                    },
+                    {
+                      "property": "GROSS_WEIGHT",
+                      "title": "GROSS WEIGHT"
+                    },
+                    {
+                      "property": "NET_WEIGHT",
+                      "title": "NET WEIGHT"
+                    },
+                    {
+                      "property": "WEIGHT_UNIT",
+                      "title": "WEIGHT UNIT"
+                    },
+                    {
+                      "property": "VOLUME",
+                      "title": "VOLUME"
+                    },
+                    {
+                      "property": "VOLUME_UNIT",
+                      "title": "VOLUME UNIT"
+                    },
+                    {
+                      "property": "GTIN_DESC",
+                      "title": "GTIN DESC"
+                    },
+                    {
+                      "property": "DD_LINE",
+                      "title": "DD LINE"
+                    },
+                    {
+                      "property": "REQM_NO",
+                      "title": "REQM NO"
+                    },
+                    {
+                      "property": "REQM_LINE",
+                      "title": "REQM LINE"
+                    },
+                    {
+                      "property": "DOC_NO",
+                      "title": "DOC NO"
+                    },
+                    {
+                      "property": "DOC_LINE",
+                      "title": "DOC LINE"
+                    },
+                    {
+                      "property": "MOVM_TYPE",
+                      "title": "MOVM TYPE"
+                    },
+                    {
+                      "property": "SKU_GROUP",
+                      "title": "SKU GROUP"
+                    },
+                    {
+                      "property": "TP_GROUP",
+                      "title": "TP GROUP"
+                    },
+                    {
+                      "property": "CREATEUSER",
+                      "title": "CREATEUSER"
+                    },
+                    {
+                      "property": "CREATEDATE",
+                      "title": "CREATEDATE"
+                    },
+                    {
+                      "property": "CREATETIME",
+                      "title": "CREATETIME"
+                    },
+                    {
+                      "property": "GTIN_ALO_QTY",
+                      "title": "GTIN ALO QTY"
+                    },
+                    {
+                      "property": "GTIN_FIN_QTY",
+                      "title": "GTIN FIN QTY"
+                    },
+                    {
+                      "property": "SKU_ALO_QTY",
+                      "title": "SKU ALO QTY"
+                    },
+                    {
+                      "property": "SKU_FIN_QTY",
+                      "title": "SKU FIN QTY"
+                    },
+                    {
+                      "property": "START_DATE",
+                      "title": "START DATE"
+                    },
+                    {
+                      "property": "END_DATE",
+                      "title": "END DATE"
+                    },
+                    {
+                      "property": "OUT_USER",
+                      "title": "OUT USER"
+                    },
+                    {
+                      "property": "OUT_DATE",
+                      "title": "OUT DATE"
+                    },
+                    {
+                      "property": "OUT_LOC",
+                      "title": "OUT LOC"
+                    },
+                    {
+                      "property": "OUT_STS",
+                      "title": "OUT STS"
+                    },
+                    {
+                      "property": "SOURCE",
+                      "title": "SOURCE"
+                    },
+                    {
+                      "property": "APPROVE_IND",
+                      "title": "APPROVE IND"
+                    },
+                    {
+                      "property": "REMARK",
+                      "title": "REMARK"
+                    },
+                    {
+                      "property": "TRN_USER",
+                      "title": "TRN USER"
+                    },
+                    {
+                      "property": "TRN_DATE",
+                      "title": "TRN DATE"
+                    },
+                    {
+                      "property": "CRT_USER",
+                      "title": "CRT USER"
+                    },
+                    {
+                      "property": "CRT_DATE",
+                      "title": "CRT DATE"
+                    },
+                    {
+                      "filterable": false,
+                      "sortable": false,
+                      "width": "70px",
+                      "textAlign": "center",
+                      "template": [
+                        {
+                          "attributes": [
+                            {
+                              "name": "@onclick:stopPropagation",
+                              "value": true
+                            }
+                          ],
+                          "buttonStyle": "danger",
+                          "icon": "close",
+                          "name": "gridDeleteButton",
+                          "text": "",
+                          "size": "sm",
+                          "type": "button",
+                          "events": {
+                            "click": [
+                              {
+                                "condition": "await DialogService.Confirm(\"Are you sure you want to delete this record?\") == true",
+                                "error": [
+                                  {
+                                    "detail": "Unable to delete OutDtl",
+                                    "severity": "error",
+                                    "summary": "Error",
+                                    "type": "notify"
+                                  }
+                                ],
+                                "name": "MARK10_SQLEXPRESS04.deleteOutDtl",
+                                "parameters": [
+                                  {
+                                    "name": "WHSE_NO",
+                                    "value": "${data.WHSE_NO}"
+                                  },
+                                  {
+                                    "name": "OUT_NO",
+                                    "value": "${data.OUT_NO}"
+                                  },
+                                  {
+                                    "name": "OUT_LINE",
+                                    "value": "${data.OUT_LINE}"
+                                  }
+                                ],
+                                "then": [
+                                  {
+                                    "code": "await grid0.Reload();",
+                                    "condition": "result != null",
+                                    "type": "execute"
+                                  }
+                                ],
+                                "type": "invoke"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "RadzenDh5.Models.Mark10Sqlexpress04.OutDtl"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "MARK10_SQLEXPRESS04.getOutDtls",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getOutDtlsResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.OutDtl>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Out Dtls",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

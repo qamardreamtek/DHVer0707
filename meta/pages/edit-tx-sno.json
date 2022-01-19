@@ -1,0 +1,287 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "type": "template-form",
+                  "name": "form0",
+                  "components": [
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tx No",
+                              "component": "TX_NO",
+                              "name": "TX_NOLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 30,
+                              "type": "textbox",
+                              "name": "TX_NO",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${txsno.TX_NO}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "TX_NORequiredValidator",
+                              "component": "TX_NO",
+                              "text": "TX_NO is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tx Line",
+                              "component": "TX_LINE",
+                              "name": "TX_LINELabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 10,
+                              "type": "textbox",
+                              "name": "TX_LINE",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${txsno.TX_LINE}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "TX_LINERequiredValidator",
+                              "component": "TX_LINE",
+                              "text": "TX_LINE is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "In Sno",
+                              "component": "IN_SNO",
+                              "name": "IN_SNOLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 50,
+                              "type": "textbox",
+                              "name": "IN_SNO",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${txsno.IN_SNO}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "IN_SNORequiredValidator",
+                              "component": "IN_SNO",
+                              "text": "IN_SNO is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "type": "button",
+                              "buttonType": "submit",
+                              "icon": "save",
+                              "text": "Save",
+                              "buttonStyle": "primary"
+                            },
+                            {
+                              "type": "button",
+                              "buttonStyle": "light",
+                              "style": {
+                                "marginLeft": "1rem"
+                              },
+                              "text": "Cancel",
+                              "events": {
+                                "click": [
+                                  {
+                                    "type": "close-popup"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "events": {
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to update TxSno",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "MARK10_SQLEXPRESS04.updateTxSno",
+                        "parameters": [
+                          {
+                            "name": "TX_NO",
+                            "value": "${parameters.TX_NO}"
+                          },
+                          {
+                            "name": "TX_LINE",
+                            "value": "${parameters.TX_LINE}"
+                          },
+                          {
+                            "name": "IN_SNO",
+                            "value": "${parameters.IN_SNO}"
+                          },
+                          {
+                            "name": "TxSno",
+                            "value": "${txsno}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "close-popup",
+                            "result": "${txsno}",
+                            "condition": ""
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "itemType": "RadzenDh5.Models.Mark10Sqlexpress04.TxSno",
+                  "data": "${txsno}",
+                  "visible": "${txsno != null}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "MARK10_SQLEXPRESS04.getTxSnoByTX_NOAndTX_LINEAndIN_SNO",
+        "parameters": [
+          {
+            "name": "TX_NO",
+            "value": "${parameters.TX_NO}"
+          },
+          {
+            "name": "TX_LINE",
+            "value": "${parameters.TX_LINE}"
+          },
+          {
+            "name": "IN_SNO",
+            "value": "${parameters.IN_SNO}"
+          }
+        ],
+        "then": [
+          {
+            "name": "txsno",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "RadzenDh5.Models.Mark10Sqlexpress04.TxSno"
+          }
+        ],
+        "error": [],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Edit Tx Sno",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

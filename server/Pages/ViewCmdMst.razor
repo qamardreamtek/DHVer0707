@@ -1,0 +1,323 @@
+﻿@layout MainLayout
+@inherits RadzenDh5.Pages.ViewCmdMstComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+@using Microsoft.AspNetCore.Identity;
+@using RadzenDh5.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+@inject Microsoft.Extensions.Localization.IStringLocalizer<EditCmdMst> L
+<RadzenContent Container="main">
+  <ChildContent>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm TItem="RadzenDh5.Models.Mark10Sqlexpress04.CmdMst" Data="@cmdmst" Visible="@(cmdmst != null)" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("CMD_DATE")  Component="CMD_DATE" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="6" style="display: block; width: 100%" @bind-Value="@(cmdmst.CMD_DATE)" Name="CMD_DATE"> 
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="CMD_DATE" Text="@L["CMD_DATERequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("CMD_SNO")  Component="CMD_SNO" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="5" style="display: block; width: 100%" @bind-Value="@(cmdmst.CMD_SNO)" Name="CMD_SNO"> 
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="CMD_SNO" Text="@L["CMD_SNORequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("CMD_STS")  Component="CMD_STS" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="2" style="display: block; width: 100%" @bind-Value="@(cmdmst.CMD_STS)" Name="CMD_STS"> 
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="CMD_STS" Text="@L["CMD_STSRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("EQU_NO")  Component="EQU_NO" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="5" style="display: block; width: 100%" @bind-Value="@(cmdmst.EQU_NO)" Name="EQU_NO"> 
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="EQU_NO" Text="@L["EQU_NORequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("PRTY")  Component="PRTY" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="1" style="display: block; width: 100%" @bind-Value="@(cmdmst.PRTY)" Name="PRTY"> 
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="PRTY" Text="@L["PRTYRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("STN_NO")  Component="STN_NO" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="5" style="width: 100%" @bind-Value="@(cmdmst.STN_NO)" Name="STN_NO"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("CMD_MODE")  Component="CMD_MODE" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="1" style="display: block; width: 100%" @bind-Value="@(cmdmst.CMD_MODE)" Name="CMD_MODE"> 
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="CMD_MODE" Text="@L["CMD_MODERequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("IO_TYPE")  Component="IO_TYPE" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="2" style="display: block; width: 100%" @bind-Value="@(cmdmst.IO_TYPE)" Name="IO_TYPE"> 
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="IO_TYPE" Text="@L["IO_TYPERequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("LOC_NO")  Component="LOC_NO" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="7" style="width: 100%" @bind-Value="@(cmdmst.LOC_NO)" Name="LOC_NO"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("NEW_LOC")  Component="NEW_LOC" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="7" style="width: 100%" @bind-Value="@(cmdmst.NEW_LOC)" Name="NEW_LOC"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("TRACE")  Component="TRACE" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="2" style="display: block; width: 100%" @bind-Value="@(cmdmst.TRACE)" Name="TRACE"> 
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="TRACE" Text="@L["TRACERequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("SU_ID")  Component="SU_ID" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="20" style="width: 100%" @bind-Value="@(cmdmst.SU_ID)" Name="SU_ID"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("CRT_DTE")  Component="CRT_DTE" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="20" style="width: 100%" @bind-Value="@(cmdmst.CRT_DTE)" Name="CRT_DTE"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("EXP_DTE")  Component="EXP_DTE" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="20" style="width: 100%" @bind-Value="@(cmdmst.EXP_DTE)" Name="EXP_DTE"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("END_DTE")  Component="END_DTE" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="20" style="width: 100%" @bind-Value="@(cmdmst.END_DTE)" Name="END_DTE"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("FIN_DTE")  Component="FIN_DTE" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="20" style="width: 100%" @bind-Value="@(cmdmst.FIN_DTE)" Name="FIN_DTE"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("COMPLETECODE")  Component="COMPLETECODE" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="2" style="width: 100%" @bind-Value="@(cmdmst.COMPLETECODE)" Name="COMPLETECODE"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("REQM_NO")  Component="REQM_NO" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="30" style="width: 100%" @bind-Value="@(cmdmst.REQM_NO)" Name="REQM_NO"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("REQM_LINE")  Component="REQM_LINE" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="width: 100%" @bind-Value="@(cmdmst.REQM_LINE)" Name="REQM_LINE"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("REF_NO")  Component="REF_NO" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="30" style="width: 100%" @bind-Value="@(cmdmst.REF_NO)" Name="REF_NO"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("REF_LINE")  Component="REF_LINE" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="width: 100%" @bind-Value="@(cmdmst.REF_LINE)" Name="REF_LINE"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("PROG_ID")  Component="PROG_ID" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@(cmdmst.PROG_ID)" Name="PROG_ID"> 
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="PROG_ID" Text="@L["PROG_IDRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("REMARK")  Component="REMARK" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" style="width: 100%" @bind-Value="@(cmdmst.REMARK)" Name="REMARK"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("TRN_USER")  Component="TRN_USER" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(cmdmst.TRN_USER)" ReadOnly="true" Name="TRN_USER">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="TRN_USER" Text="@L["TRN_USERRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("TRN_DATE")  Component="TRN_DATE" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="20" style="width: 100%" @bind-Value="@(cmdmst.TRN_DATE)" ReadOnly="true" Name="TRN_DATE">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("CRT_USER")  Component="CRT_USER" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(cmdmst.CRT_USER)" ReadOnly="true" Name="CRT_USER">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="CRT_USER" Text="@L["CRT_USERRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("CRT_DATE")  Component="CRT_DATE" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="20" style="width: 100%" @bind-Value="@(cmdmst.CRT_DATE)" ReadOnly="true" Name="CRT_DATE">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col offset-md-3">
+<RadzenButton Text="OK" Click="@Button2Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

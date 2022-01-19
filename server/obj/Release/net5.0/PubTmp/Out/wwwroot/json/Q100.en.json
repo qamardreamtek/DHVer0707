@@ -1,0 +1,23 @@
+﻿{
+  "intItem1": 1701,
+  "intItem2": 1705,
+  "intItem3": 1709,
+  "intItem4": 1713,
+  "intItem5": 1717,
+  "intItem6": 1721,
+  "intItem7": 1725,
+  "intItem8": 1729,
+  "intItem9": 1735,
+  "intItem10": 1739,
+  "id": "Q100",
+  "item1": "Query of storage shelf status",
+  "item2": "Can query the status of the location ",
+  "item3": "Warehouse operator",
+  "item4": "Not applicable<br>",
+  "item5": "Query conditions for location information",
+  "item6": "Map of location status",
+  "item7": "If the WES software needs to be terminated due to an abnormality caused by a network interruption, ask the network administrator to restore the network and restart WES",
+  "item8": "Click refresh to clear the data on the screen and return to the initial state",
+  "item9": "Not applicable",
+  "item10": ""
+}

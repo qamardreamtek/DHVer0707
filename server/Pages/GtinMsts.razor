@@ -1,0 +1,90 @@
+﻿@page "/gtin-msts"
+@layout MainLayout
+@inherits RadzenDh5.Pages.GtinMstsComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+@using Microsoft.AspNetCore.Identity;
+@using RadzenDh5.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+@inject Microsoft.Extensions.Localization.IStringLocalizer<GtinMsts> L
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H3" Text="@L["pageTitle.Text"]">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="@L["Create"]" Click="@Button0Click">
+        </RadzenButton>
+        <RadzenSplitButton Icon="get_app" style="margin-left: 10px; margin-bottom: 10px" Text="@L["splitbutton0.Text"]" Click="@Splitbutton0Click">
+          <ChildContent>
+            <RadzenSplitButtonItem Text="@L["splitbutton0.excel.Text"]" Value="xlsx">
+            </RadzenSplitButtonItem>
+            <RadzenSplitButtonItem Text="@L["splitbutton0.csv.Text"]" Value="csv">
+            </RadzenSplitButtonItem>
+          </ChildContent>
+        </RadzenSplitButton>
+        <RadzenGrid @ref="grid0" AllowFiltering="true" FilterMode="FilterMode.Advanced" AllowPaging="true" AllowSorting="true" Data="@getGtinMstsResult" TItem="RadzenDh5.Models.Mark10Sqlexpress04.GtinMst" RowSelect="@Grid0RowSelect">
+          <Columns>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.GtinMst" Property="SKU_NO" Title="@L["grid0.SKU_NO.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.GtinMst" Property="GTIN_UNIT" Title="@L["grid0.GTIN_UNIT.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.GtinMst" Property="GTIN_NO" Title="@L["grid0.GTIN_NO.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.GtinMst" Property="GTIN_DESC" Title="@L["grid0.GTIN_DESC.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.GtinMst" Property="GTIN_CAT" Title="@L["grid0.GTIN_CAT.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.GtinMst" Property="GTIN_NUMERATOR" Title="@L["grid0.GTIN_NUMERATOR.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.GtinMst" Property="GTIN_DENOMINATOR" Title="@L["grid0.GTIN_DENOMINATOR.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.GtinMst" Property="GTIN_GROSS_WEIGHT" Title="@L["grid0.GTIN_GROSS_WEIGHT.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.GtinMst" Property="GTIN_NET_WEIGHT" Title="@L["grid0.GTIN_NET_WEIGHT.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.GtinMst" Property="GTIN_WEIGHT_UNIT" Title="@L["grid0.GTIN_WEIGHT_UNIT.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.GtinMst" Property="GTIN_VOLUME" Title="@L["grid0.GTIN_VOLUME.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.GtinMst" Property="GTIN_VOLUME_UNIT" Title="@L["grid0.GTIN_VOLUME_UNIT.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.GtinMst" Property="GTIN_LENGTH" Title="@L["grid0.GTIN_LENGTH.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.GtinMst" Property="GTIN_WIDTH" Title="@L["grid0.GTIN_WIDTH.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.GtinMst" Property="GTIN_HEIGHT" Title="@L["grid0.GTIN_HEIGHT.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.GtinMst" Property="GTIN_DIM_UNIT" Title="@L["grid0.GTIN_DIM_UNIT.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.GtinMst" Property="SOURCE" Title="@L["grid0.SOURCE.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.GtinMst" Property="APPROVE_IND" Title="@L["grid0.APPROVE_IND.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.GtinMst" Property="REMARK" Title="@L["grid0.REMARK.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.GtinMst" Property="TRN_USER" Title="@L["grid0.TRN_USER.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.GtinMst" Property="TRN_DATE" Title="@L["grid0.TRN_DATE.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.GtinMst" Property="CRT_USER" Title="@L["grid0.CRT_USER.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.GtinMst" Property="CRT_DATE" Title="@L["grid0.CRT_DATE.Title"]">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.GtinMst" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+              <Template Context="radzenDh5ModelsMark10Sqlexpress04GtinMst">
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, radzenDh5ModelsMark10Sqlexpress04GtinMst))" @onclick:stopPropagation="true">
+                </RadzenButton>
+              </Template>
+            </RadzenGridColumn>
+          </Columns>
+        </RadzenGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

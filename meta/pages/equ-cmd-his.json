@@ -1,0 +1,345 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Equ Cmd His"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "icon": "add_circle_outline",
+                  "name": "button0",
+                  "style": {
+                    "marginBottom": "10px"
+                  },
+                  "text": "Add",
+                  "type": "button",
+                  "events": {
+                    "click": [
+                      {
+                        "path": "add-equ-cmd-hi",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await grid0.Reload();",
+                            "type": "execute"
+                          },
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "events": {
+                    "click": [
+                      {
+                        "condition": "${event?.Value == \"csv\"}",
+                        "fileName": "Equ Cmd His",
+                        "name": "MARK10_SQLEXPRESS04.getEquCmdHis",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "HISDT,CmdSno,EquNo,CmdMode,CmdSts,Source,Destination,LocSize,Priority,RCVDT,ACTDT,CSTPresenceDT,ENDDT,CompleteCode,CompleteIndex,CarNo,ReNewFlag,FromInfo,PLT_ID"
+                          }
+                        ],
+                        "type": "export"
+                      },
+                      {
+                        "condition": "${event == null || event.Value == \"xlsx\"}",
+                        "fileName": "Equ Cmd His",
+                        "format": "xlsx",
+                        "name": "MARK10_SQLEXPRESS04.getEquCmdHis",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "HISDT,CmdSno,EquNo,CmdMode,CmdSts,Source,Destination,LocSize,Priority,RCVDT,ACTDT,CSTPresenceDT,ENDDT,CompleteCode,CompleteIndex,CarNo,ReNewFlag,FromInfo,PLT_ID"
+                          }
+                        ],
+                        "type": "export"
+                      }
+                    ]
+                  },
+                  "icon": "get_app",
+                  "items": [
+                    {
+                      "icon": "",
+                      "text": "Excel",
+                      "value": "xlsx"
+                    },
+                    {
+                      "icon": "",
+                      "text": "CSV",
+                      "value": "csv"
+                    }
+                  ],
+                  "name": "splitbutton0",
+                  "style": {
+                    "marginLeft": "10px",
+                    "marginBottom": "10px"
+                  },
+                  "text": "Export",
+                  "type": "splitbutton"
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "filterMode": "advanced",
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getEquCmdHisResult}",
+                  "events": {
+                    "loadData": [],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "HISDT",
+                            "value": "${event.HISDT}"
+                          },
+                          {
+                            "name": "CmdSno",
+                            "value": "${event.CmdSno}"
+                          },
+                          {
+                            "name": "EquNo",
+                            "value": "${event.EquNo}"
+                          },
+                          {
+                            "name": "CmdMode",
+                            "value": "${event.CmdMode}"
+                          },
+                          {
+                            "name": "Source",
+                            "value": "${event.Source}"
+                          }
+                        ],
+                        "path": "edit-equ-cmd-hi",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "HISDT",
+                      "title": "HISDT"
+                    },
+                    {
+                      "property": "CmdSno",
+                      "title": "Cmd Sno"
+                    },
+                    {
+                      "property": "EquNo",
+                      "title": "Equ No"
+                    },
+                    {
+                      "property": "CmdMode",
+                      "title": "Cmd Mode"
+                    },
+                    {
+                      "property": "CmdSts",
+                      "title": "Cmd Sts"
+                    },
+                    {
+                      "property": "Source",
+                      "title": "Source"
+                    },
+                    {
+                      "property": "Destination",
+                      "title": "Destination"
+                    },
+                    {
+                      "property": "LocSize",
+                      "title": "Loc Size"
+                    },
+                    {
+                      "property": "Priority",
+                      "title": "Priority"
+                    },
+                    {
+                      "property": "RCVDT",
+                      "title": "RCVDT"
+                    },
+                    {
+                      "property": "ACTDT",
+                      "title": "ACTDT"
+                    },
+                    {
+                      "property": "CSTPresenceDT",
+                      "title": "CST Presence DT"
+                    },
+                    {
+                      "property": "ENDDT",
+                      "title": "ENDDT"
+                    },
+                    {
+                      "property": "CompleteCode",
+                      "title": "Complete Code"
+                    },
+                    {
+                      "property": "CompleteIndex",
+                      "title": "Complete Index"
+                    },
+                    {
+                      "property": "CarNo",
+                      "title": "Car No"
+                    },
+                    {
+                      "property": "ReNewFlag",
+                      "title": "Re New Flag"
+                    },
+                    {
+                      "property": "FromInfo",
+                      "title": "From Info"
+                    },
+                    {
+                      "property": "PLT_ID",
+                      "title": "PLT ID"
+                    },
+                    {
+                      "filterable": false,
+                      "sortable": false,
+                      "width": "70px",
+                      "textAlign": "center",
+                      "template": [
+                        {
+                          "attributes": [
+                            {
+                              "name": "@onclick:stopPropagation",
+                              "value": true
+                            }
+                          ],
+                          "buttonStyle": "danger",
+                          "icon": "close",
+                          "name": "gridDeleteButton",
+                          "text": "",
+                          "size": "sm",
+                          "type": "button",
+                          "events": {
+                            "click": [
+                              {
+                                "condition": "await DialogService.Confirm(\"Are you sure you want to delete this record?\") == true",
+                                "error": [
+                                  {
+                                    "detail": "Unable to delete EquCmdHi",
+                                    "severity": "error",
+                                    "summary": "Error",
+                                    "type": "notify"
+                                  }
+                                ],
+                                "name": "MARK10_SQLEXPRESS04.deleteEquCmdHi",
+                                "parameters": [
+                                  {
+                                    "name": "HISDT",
+                                    "value": "${data.HISDT}"
+                                  },
+                                  {
+                                    "name": "CmdSno",
+                                    "value": "${data.CmdSno}"
+                                  },
+                                  {
+                                    "name": "EquNo",
+                                    "value": "${data.EquNo}"
+                                  },
+                                  {
+                                    "name": "CmdMode",
+                                    "value": "${data.CmdMode}"
+                                  },
+                                  {
+                                    "name": "Source",
+                                    "value": "${data.Source}"
+                                  }
+                                ],
+                                "then": [
+                                  {
+                                    "code": "await grid0.Reload();",
+                                    "condition": "result != null",
+                                    "type": "execute"
+                                  }
+                                ],
+                                "type": "invoke"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "RadzenDh5.Models.Mark10Sqlexpress04.EquCmdHi"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "MARK10_SQLEXPRESS04.getEquCmdHis",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getEquCmdHisResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.EquCmdHi>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Equ Cmd His",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

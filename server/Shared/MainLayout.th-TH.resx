@@ -1,0 +1,393 @@
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="syncidentity.Text" xml:space="preserve">
+    <value>同步[用戶][群組][程式]到ASP.NET [Users][Roles]</value>
+  </data>
+  <data name="panelmenu0.profile.Text" xml:space="preserve">
+    <value>ออกจากระบบและเปลี่ยนรหัสผ่าน</value>
+  </data>
+  <data name="panelmenu0..Text" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="panelmenu0.this.security.logout().Text" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="panelmenu0.logout.Text" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="panelmenu0.login.Text" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="panelmenu0.item9.Text" xml:space="preserve">
+    <value>Item 9</value>
+  </data>
+  <data name="application-users.Text" xml:space="preserve">
+    <value>Application Users</value>
+  </data>
+  <data name="applicationUsers.Text" xml:space="preserve">
+    <value>Application Users</value>
+  </data>
+  <data name="item0.Text" xml:space="preserve">
+    <value>Item 0</value>
+  </data>
+  <data name="panelmenu0.aspNetIdentity.Text" xml:space="preserve">
+    <value>ASP.NET Identity</value>
+  </data>
+  <data name="panelmenu0.item8.Text" xml:space="preserve">
+    <value>Item 8</value>
+  </data>
+	<data name="panelmenu0.c000PhysicalInventoryCount.Text" xml:space="preserve">
+    <value>C000 การตรวจนับสินค้าคงคลัง</value>
+  </data>
+	<data name="C010.Text" xml:space="preserve">
+    <value>C010 การตรวจนับสินค้าคงคลัง</value>
+  </data>
+	<data name="C030.Text" xml:space="preserve">
+    <value>C030 บันทึกการตรวจนับสินค้าคงคลัง</value>
+  </data>
+	<data name="C040.Text" xml:space="preserve">
+    <value>C040 การปรับปรุงผลต่างสินค้าคงคลัง</value>
+  </data>
+	<data name="panelmenu0.m000DataMaintenance.Text" xml:space="preserve">
+    <value>M000 รักษาข้อมูล</value>
+  </data>
+	<data name="M070.Text" xml:space="preserve">
+    <value>M070 การบำรุงรักษาคำสั่ง AS/RS Transfer</value>
+  </data>
+	<data name="M090.Text" xml:space="preserve">
+    <value>M090 อัปเดตสถานะการใช้ตำแหน่ง</value>
+  </data>
+	<data name="panelmenu0.p000ProcessExecuting.Text" xml:space="preserve">
+    <value>P000 กระบวนการทำงาน</value>
+  </data>
+	<data name="P020.Text" xml:space="preserve">
+    <value>P020 การจัดสรรสต็อคสำหรับใบส่งมอบ (หลายใบสั่งซื้อ)</value>
+  </data>
+	<data name="P030.Text" xml:space="preserve">
+    <value>P030 การจัดสรรสต็อคสำหรับใบส่งมอบ(รายการหนึ่งบรรทัด)</value>
+  </data>
+	<data name="P060.Text" xml:space="preserve">
+    <value>P060 ที่เก็บข้อมูลโอนออก</value>
+  </data>
+	<data name="P070.Text" xml:space="preserve">
+    <value>P070 การปรับสินค้าคงคลังของแพลเลท</value>
+  </data>
+	<data name="P080.Text" xml:space="preserve">
+    <value>P080 โอนสินค้าคงคลัง</value>
+  </data>
+	<data name="P090.Text" xml:space="preserve">
+    <value>P090 การจัดเรียงของพาเลทเปล่า</value>
+  </data>
+	<data name="P100.Text" xml:space="preserve">
+    <value>P100 โอนพาเลทเปล่าออก</value>
+  </data>
+	<data name="panelmenu0.q000DataInquire.Text" xml:space="preserve">
+    <value>Q000 แบบสอบถามข้อมูล</value>
+  </data>
+	<data name="Q010.Text" xml:space="preserve">
+    <value>Q010 สอบถามข้อมูลพื้นฐานของบทความ</value>
+  </data>
+	<data name="Q020.Text" xml:space="preserve">
+    <value>Q020 สอบถามข้อมูลพื้นฐานของ GTIN</value>
+  </data>
+	<data name="Q030.Text" xml:space="preserve">
+    <value>Q030 สอบถามข้อมูลพื้นฐานสำหรับประเภทหน่วยความจำ</value>
+  </data>
+	<data name="Q040.Text" xml:space="preserve">
+    <value>Q040 สอบถามข้อมูลความต้องการการถ่ายโอน</value>
+  </data>
+	<data name="Q050.Text" xml:space="preserve">
+    <value>Q050 สอบถามข้อมูลการสั่งซื้อการจัดส่งสินค้า</value>
+  </data>
+	<data name="Q060.Text" xml:space="preserve">
+    <value>Q060 สอบถามข้อมูลการตรวจนับสินค้าคงคลัง</value>
+  </data>
+	<data name="Q070.Text" xml:space="preserve">
+    <value>Q070 สอบถามคำสั่ง AS/RS Transfer</value>
+  </data>
+	<data name="Q080.Text" xml:space="preserve">
+    <value>Q080 สอบถามข้อมูลสินค้าคงคลัง</value>
+  </data>
+	<data name="Q090.Text" xml:space="preserve">
+    <value>Q090 สอบถามสถานที่ตั้งสถานะการใช้งาน</value>
+  </data>
+	<data name="Q100.Text" xml:space="preserve">
+    <value>Q100 แบบสอบถามสถานะการจัดเก็บอัตโนมัติ</value>
+  </data>
+	<data name="Q110.Text" xml:space="preserve">
+    <value>Q110 ค้นหาบันทึกการเปลี่ยนแปลงสถานที่ขนส่งสินค้า</value>
+  </data>
+	<data name="Q120.Text" xml:space="preserve">
+    <value>Q120 แบบสอบถามบันทึกการเปลี่ยนแปลงแอตทริบิวต์สินค้าคงคลัง</value>
+  </data>
+	<data name="panelmenu0.r000Report.Text" xml:space="preserve">
+    <value>R000 รายงาน</value>
+  </data>
+	<data name="R030.Text" xml:space="preserve">
+    <value>R030 รายงานวันคลังสินค้า</value>
+  </data>
+	<data name="R040.Text" xml:space="preserve">
+    <value>R040 รายงานวันคลังสินค้า</value>
+  </data>
+	<data name="R050.Text" xml:space="preserve">
+    <value>R050 ???????????????????</value>
+  </data>
+	<data name="R060.Text" xml:space="preserve">
+    <value>R060 ???????????????????</value>
+  </data>
+	<data name="R070.Text" xml:space="preserve">
+    <value>R070 ???????????????????</value>
+  </data>
+	<data name="R080.Text" xml:space="preserve">
+    <value>R080 รายงานวันคลังสินค้า</value>
+  </data>
+	<data name="panelmenu0.s000SystemSetting.Text" xml:space="preserve">
+    <value>S000 การตั้งค่าระบบ</value>
+  </data>
+	<data name="S010.Text" xml:space="preserve">
+    <value>S010 สร้างหรืออัพเดทข้อมูลพื้นฐานของผู้ใช้</value>
+  </data>
+	<data name="S020.Text" xml:space="preserve">
+    <value>S020 สร้างหรืออัปเดตข้อมูลพื้นฐานของกลุ่ม</value>
+  </data>
+	<data name="S030.Text" xml:space="preserve">
+    <value>S030 สร้างหรืออัปเดตข้อมูลรายการโปรแกรม</value>
+  </data>
+	<data name="S040.Text" xml:space="preserve">
+    <value>S040 สร้างหรืออัปเดตข้อมูลผู้ใช้กลุ่ม</value>
+  </data>
+	<data name="S050.Text" xml:space="preserve">
+    <value>S050 สร้างหรืออัปเดตการอนุญาตโปรแกรมตามกลุ่ม</value>
+  </data>
+	<data name="S060.Text" xml:space="preserve">
+    <value>S060 สร้างหรืออัปเดตการอนุญาตโปรแกรมโดยผู้ใช้</value>
+  </data>
+	<data name="S070.Text" xml:space="preserve">
+    <value>S070 สร้างหรือปรับปรุงข้อมูลรหัส</value>
+  </data>
+	<data name="S080.Text" xml:space="preserve">
+    <value>S080 เปลี่ยนรหัสผ่านเข้าสู่ระบบของผู้ใช้</value>
+  </data>
+	<data name="S090.Text" xml:space="preserve">
+    <value>S090 การบำรุงรักษาพจนานุกรมแปล</value>
+  </data>
+	<data name="profilemenu0.profile.Text" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="profilemenu0.users.Text" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="profilemenu0.roles.Text" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+  <data name="profilemenu0.logout.Text" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="panelmenu0.welcome.Text" xml:space="preserve">
+    <value>Welcome</value>
+  </data>
+  <data name="label0.Text" xml:space="preserve">
+    <value>RadzenDH5</value>
+  </data>
+  <data name="panelmenu0.prog-msts.Text" xml:space="preserve">
+    <value>Prog Msts</value>
+  </data>
+  <data name="panelmenu0.prog-wrts.Text" xml:space="preserve">
+    <value>Prog Wrts</value>
+  </data>
+  <data name="footerText.Text" xml:space="preserve">
+    <value>RadzenDH5, Copyright Ⓒ 2021</value>
+  </data>
+	<data name="C000" xml:space="preserve">
+    <value>C000 การตรวจนับสินค้าคงคลัง</value>
+  </data>
+	<data name="C010" xml:space="preserve">
+    <value>C010 การตรวจนับสินค้าคงคลัง</value>
+  </data>
+	<data name="C030" xml:space="preserve">
+    <value>C030 บันทึกการตรวจนับสินค้าคงคลัง</value>
+  </data>
+	<data name="C040" xml:space="preserve">
+    <value>C040 การปรับปรุงผลต่างสินค้าคงคลัง</value>
+  </data>
+	<data name="M000" xml:space="preserve">
+    <value>M000 รักษาข้อมูล</value>
+  </data>
+	<data name="M070" xml:space="preserve">
+    <value>M070 การบำรุงรักษาคำสั่ง AS/RS Transfer</value>
+  </data>
+	<data name="M090" xml:space="preserve">
+    <value>M090 อัปเดตสถานะการใช้ตำแหน่ง</value>
+  </data>
+	<data name="P000" xml:space="preserve">
+    <value>P000 กระบวนการทำงาน</value>
+  </data>
+	<data name="P020" xml:space="preserve">
+    <value>P020 การจัดสรรสต็อคสำหรับใบส่งมอบ (หลายใบสั่งซื้อ)</value>
+  </data>
+	<data name="P030" xml:space="preserve">
+    <value>P030 การจัดสรรสต็อคสำหรับใบส่งมอบ(รายการหนึ่งบรรทัด)</value>
+  </data>
+	<data name="P060" xml:space="preserve">
+    <value>P060 ที่เก็บข้อมูลโอนออก</value>
+  </data>
+	<data name="P070" xml:space="preserve">
+    <value>P070 การปรับสินค้าคงคลังของแพลเลท</value>
+  </data>
+	<data name="P080" xml:space="preserve">
+    <value>P080 โอนสินค้าคงคลัง</value>
+  </data>
+	<data name="P090" xml:space="preserve">
+    <value>P090 การจัดเรียงของพาเลทเปล่า</value>
+  </data>
+	<data name="P100" xml:space="preserve">
+    <value>P100 โอนพาเลทเปล่าออก</value>
+  </data>
+	<data name="Q000" xml:space="preserve">
+    <value>Q000 แบบสอบถามข้อมูล</value>
+  </data>
+	<data name="Q010" xml:space="preserve">
+    <value>Q010 สอบถามข้อมูลพื้นฐานของบทความ</value>
+  </data>
+	<data name="Q020" xml:space="preserve">
+    <value>Q020 สอบถามข้อมูลพื้นฐานของ GTIN</value>
+  </data>
+	<data name="Q030" xml:space="preserve">
+    <value>Q030 สอบถามข้อมูลพื้นฐานสำหรับประเภทหน่วยความจำ</value>
+  </data>
+	<data name="Q040" xml:space="preserve">
+    <value>Q040 สอบถามข้อมูลความต้องการการถ่ายโอน</value>
+  </data>
+	<data name="Q050" xml:space="preserve">
+    <value>Q050 สอบถามข้อมูลการสั่งซื้อการจัดส่งสินค้า</value>
+  </data>
+	<data name="Q060" xml:space="preserve">
+    <value>Q060 สอบถามข้อมูลการตรวจนับสินค้าคงคลัง</value>
+  </data>
+	<data name="Q070" xml:space="preserve">
+    <value>Q070 สอบถามคำสั่ง AS/RS Transfer</value>
+  </data>
+	<data name="Q080" xml:space="preserve">
+    <value>Q080 สอบถามข้อมูลสินค้าคงคลัง</value>
+  </data>
+	<data name="Q090" xml:space="preserve">
+    <value>Q090 สอบถามสถานที่ตั้งสถานะการใช้งาน</value>
+  </data>
+	<data name="Q100" xml:space="preserve">
+    <value>Q100 แบบสอบถามสถานะการจัดเก็บอัตโนมัติ</value>
+  </data>
+	<data name="Q110" xml:space="preserve">
+    <value>Q110 ค้นหาบันทึกการเปลี่ยนแปลงสถานที่ขนส่งสินค้า</value>
+  </data>
+	<data name="Q120" xml:space="preserve">
+    <value>Q120 แบบสอบถามบันทึกการเปลี่ยนแปลงแอตทริบิวต์สินค้าคงคลัง</value>
+  </data>
+	<data name="R000" xml:space="preserve">
+    <value>R000 รายงาน</value>
+  </data>
+	<data name="R030" xml:space="preserve">
+    <value>R030 รายงานวันคลังสินค้า</value>
+  </data>
+	<data name="R040" xml:space="preserve">
+    <value>R040 รายงานวันคลังสินค้า</value>
+  </data>
+	<data name="R050" xml:space="preserve">
+    <value>R050 ???????????????????</value>
+  </data>
+	<data name="R060" xml:space="preserve">
+    <value>R060 ???????????????????</value>
+  </data>
+	<data name="R070" xml:space="preserve">
+    <value>R070 ???????????????????</value>
+  </data>
+	<data name="R080" xml:space="preserve">
+    <value>R080 รายงานวันคลังสินค้า</value>
+  </data>
+	<data name="S000" xml:space="preserve">
+    <value>S000 การตั้งค่าระบบ</value>
+  </data>
+	<data name="S010" xml:space="preserve">
+    <value>S010 สร้างหรืออัพเดทข้อมูลพื้นฐานของผู้ใช้</value>
+  </data>
+	<data name="S020" xml:space="preserve">
+    <value>S020 สร้างหรืออัปเดตข้อมูลพื้นฐานของกลุ่ม</value>
+  </data>
+	<data name="S030" xml:space="preserve">
+    <value>S030 สร้างหรืออัปเดตข้อมูลรายการโปรแกรม</value>
+  </data>
+	<data name="S040" xml:space="preserve">
+    <value>S040 สร้างหรืออัปเดตข้อมูลผู้ใช้กลุ่ม</value>
+  </data>
+	<data name="S050" xml:space="preserve">
+    <value>S050 สร้างหรืออัปเดตการอนุญาตโปรแกรมตามกลุ่ม</value>
+  </data>
+	<data name="S060" xml:space="preserve">
+    <value>S060 สร้างหรืออัปเดตการอนุญาตโปรแกรมโดยผู้ใช้</value>
+  </data>
+	<data name="S070" xml:space="preserve">
+    <value>S070 สร้างหรือปรับปรุงข้อมูลรหัส</value>
+  </data>
+	<data name="S080" xml:space="preserve">
+    <value>S080 เปลี่ยนรหัสผ่านเข้าสู่ระบบของผู้ใช้</value>
+  </data>
+	<data name="S090" xml:space="preserve">
+    <value>S090 การบำรุงรักษาพจนานุกรมแปล</value>
+  </data>
+</root>

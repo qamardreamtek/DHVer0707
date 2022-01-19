@@ -1,0 +1,272 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Pic Sno His"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "events": {
+                    "click": [
+                      {
+                        "condition": "${event?.Value == \"csv\"}",
+                        "fileName": "Pic Sno His",
+                        "name": "MARK10_SQLEXPRESS04.getPicSnoHis",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "WHSE_NO,PIC_NO,PIC_LINE,STGE_TYPE,STGE_BIN,SU_ID,PLANT,STGE_LOC,SKU_NO,BATCH_NO,IN_SNO,GTIN_UNIT,GTIN_QTY,SKU_UNIT,SKU_QTY,COUNT_UNIT,COUNT_QTY,COUNT_USER,COUNT_DATE,APPROVE_USER,APPROVE_DATE,START_DATE,END_DATE,PIC_STS,REMARK,SOURCE,APPROVE_IND,TRN_USER,TRN_DATE,CRT_USER,CRT_DATE,LOG_DATE,LOG_USER"
+                          }
+                        ],
+                        "type": "export"
+                      },
+                      {
+                        "condition": "${event == null || event.Value == \"xlsx\"}",
+                        "fileName": "Pic Sno His",
+                        "format": "xlsx",
+                        "name": "MARK10_SQLEXPRESS04.getPicSnoHis",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "WHSE_NO,PIC_NO,PIC_LINE,STGE_TYPE,STGE_BIN,SU_ID,PLANT,STGE_LOC,SKU_NO,BATCH_NO,IN_SNO,GTIN_UNIT,GTIN_QTY,SKU_UNIT,SKU_QTY,COUNT_UNIT,COUNT_QTY,COUNT_USER,COUNT_DATE,APPROVE_USER,APPROVE_DATE,START_DATE,END_DATE,PIC_STS,REMARK,SOURCE,APPROVE_IND,TRN_USER,TRN_DATE,CRT_USER,CRT_DATE,LOG_DATE,LOG_USER"
+                          }
+                        ],
+                        "type": "export"
+                      }
+                    ]
+                  },
+                  "icon": "get_app",
+                  "items": [
+                    {
+                      "icon": "",
+                      "text": "Excel",
+                      "value": "xlsx"
+                    },
+                    {
+                      "icon": "",
+                      "text": "CSV",
+                      "value": "csv"
+                    }
+                  ],
+                  "name": "splitbutton0",
+                  "style": {
+                    "marginLeft": "0px",
+                    "marginBottom": "10px"
+                  },
+                  "text": "Export",
+                  "type": "splitbutton"
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "filterMode": "advanced",
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getPicSnoHisResult}",
+                  "events": {
+                    "loadData": []
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "WHSE_NO",
+                      "title": "WHSE NO"
+                    },
+                    {
+                      "property": "PIC_NO",
+                      "title": "PIC NO"
+                    },
+                    {
+                      "property": "PIC_LINE",
+                      "title": "PIC LINE"
+                    },
+                    {
+                      "property": "STGE_TYPE",
+                      "title": "STGE TYPE"
+                    },
+                    {
+                      "property": "STGE_BIN",
+                      "title": "STGE BIN"
+                    },
+                    {
+                      "property": "SU_ID",
+                      "title": "SU ID"
+                    },
+                    {
+                      "property": "PLANT",
+                      "title": "PLANT"
+                    },
+                    {
+                      "property": "STGE_LOC",
+                      "title": "STGE LOC"
+                    },
+                    {
+                      "property": "SKU_NO",
+                      "title": "SKU NO"
+                    },
+                    {
+                      "property": "BATCH_NO",
+                      "title": "BATCH NO"
+                    },
+                    {
+                      "property": "IN_SNO",
+                      "title": "IN SNO"
+                    },
+                    {
+                      "property": "GTIN_UNIT",
+                      "title": "GTIN UNIT"
+                    },
+                    {
+                      "property": "GTIN_QTY",
+                      "title": "GTIN QTY"
+                    },
+                    {
+                      "property": "SKU_UNIT",
+                      "title": "SKU UNIT"
+                    },
+                    {
+                      "property": "SKU_QTY",
+                      "title": "SKU QTY"
+                    },
+                    {
+                      "property": "COUNT_UNIT",
+                      "title": "COUNT UNIT"
+                    },
+                    {
+                      "property": "COUNT_QTY",
+                      "title": "COUNT QTY"
+                    },
+                    {
+                      "property": "COUNT_USER",
+                      "title": "COUNT USER"
+                    },
+                    {
+                      "property": "COUNT_DATE",
+                      "title": "COUNT DATE"
+                    },
+                    {
+                      "property": "APPROVE_USER",
+                      "title": "APPROVE USER"
+                    },
+                    {
+                      "property": "APPROVE_DATE",
+                      "title": "APPROVE DATE"
+                    },
+                    {
+                      "property": "START_DATE",
+                      "title": "START DATE"
+                    },
+                    {
+                      "property": "END_DATE",
+                      "title": "END DATE"
+                    },
+                    {
+                      "property": "PIC_STS",
+                      "title": "PIC STS"
+                    },
+                    {
+                      "property": "REMARK",
+                      "title": "REMARK"
+                    },
+                    {
+                      "property": "SOURCE",
+                      "title": "SOURCE"
+                    },
+                    {
+                      "property": "APPROVE_IND",
+                      "title": "APPROVE IND"
+                    },
+                    {
+                      "property": "TRN_USER",
+                      "title": "TRN USER"
+                    },
+                    {
+                      "property": "TRN_DATE",
+                      "title": "TRN DATE"
+                    },
+                    {
+                      "property": "CRT_USER",
+                      "title": "CRT USER"
+                    },
+                    {
+                      "property": "CRT_DATE",
+                      "title": "CRT DATE"
+                    },
+                    {
+                      "property": "LOG_DATE",
+                      "title": "LOG DATE"
+                    },
+                    {
+                      "property": "LOG_USER",
+                      "title": "LOG USER"
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "RadzenDh5.Models.Mark10Sqlexpress04.PicSnoHi"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "MARK10_SQLEXPRESS04.getPicSnoHis",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getPicSnoHisResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.PicSnoHi>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Pic Sno His",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

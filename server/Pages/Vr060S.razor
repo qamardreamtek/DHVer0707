@@ -1,0 +1,71 @@
+﻿
+@layout MainLayout
+@inherits RadzenDh5.Pages.Vr060SComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+@inject Microsoft.Extensions.Localization.IStringLocalizer<MainLayout> L
+
+
+<DhAppHeadingAuthMsgOpt IsShowAuth=@IsShowAuth AuthMsg="@AuthMsg" Culture="@Culture" DhUser="@DhUser" DhUsername="@DhUsername"
+                        PROG_ID="@PROG_ID" PROG_NAME_BY_CULTURE="@PROG_NAME_BY_CULTURE"
+                        progWrt="@progWrt" progMst="@progMst" GoodMsg="@GoodMsg" ErrMsg="@ErrMsg" />
+<div class="row">
+    <RadzenButton style="margin-bottom: 10px;margin-left:12px" Text=@Lang("Query") Click="@ButtonQueryClick" />
+    <RadzenButton style="margin-bottom: 10px;margin-left:12px" Text=@Lang("Refresh") Click="@ButtonRefreshClick" />
+    <RadzenButton style="margin-bottom: 10px;margin-left:12px" ButtonType="ButtonType.Submit" Disabled="@IsExportDisable" Text=@Lang("Export") ButtonStyle="ButtonStyle.Primary" Click="@ButtonExportClick" />
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <span> <RadzenLabel Text="DATE FROM. " /></span>
+        <span style="margin-left:8px">
+            <input @bind="@dateFrom" @bind:format="yyyy-MM-dd" Name="txtDateFrom" size="10" maxlength="10" />
+        </span>
+
+    </div>
+    <div class="col-md-4">
+        <span> <RadzenLabel Text="DATE TO. " /></span>
+        <span style="margin-left:8px">
+            <input @bind="@dateTo" @bind:format="yyyy-MM-dd" Name="txtDateTo" size="10" maxlength="10" />
+        </span>
+
+
+    </div>
+
+
+ 
+
+
+</div>
+
+
+<div class="row">
+
+    <div class="col-md-12">
+        @if (ErrMsg != null && ErrMsg != "")
+        {
+<div class="alert alert-danger" role="alert">
+    @ErrMsg
+</div>}
+    </div>
+</div>
+<RadzenGrid ColumnWidth="125px" AllowColumnResize="true" PagerPosition="PagerPosition.Top"
+            AllowFiltering="false" FilterMode="FilterMode.Advanced" AllowPaging="true" AllowSorting="false"
+            Data="@getVr060sResult" TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vr060">
+    <Columns>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vr060" Property="SKU_NO" Title="SKU NO"> 
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vr060" Property="SKU_DESC" Title="SKU DESC"> 
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vr060" Property="Outbound" Title=@Lang("Outbound")> 
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vr060" Property="Inbound" Title=@Lang("Inbound")> 
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vr060" Property="Relocation" Title=@Lang("Relocation")> 
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vr060" Property="Total" Title=@Lang("Total")> 
+        </RadzenGridColumn>
+    </Columns>
+</RadzenGrid>

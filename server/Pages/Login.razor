@@ -1,0 +1,44 @@
+﻿@page "/login"
+@layout LoginLayout
+@inherits RadzenDh5.Pages.LoginComponent
+
+@using Radzen
+@using Radzen.Blazor
+ 
+@using RadzenDh5.Models.Mark10Sqlexpress04
+@using Microsoft.AspNetCore.Identity;
+@using RadzenDh5.Models
+@using Microsoft.AspNetCore.Authorization
+
+@inject BlazorApp1.Data.PageService pageService;
+<form method="post" action="account/login">
+    <RadzenContent Container="main">
+        <ChildContent>
+            <RadzenHeading Size="H3" Text="Login ">
+            </RadzenHeading>
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="rz-form" novalidate="">
+                        <div class="row form-group">
+                            <label class="col-sm-3 col-form-label" for="language">Language</label>
+                            <div class="col">
+                                <RadzenDropDown Data="@(new[] { new { Text="EN", Value="en-US" },new { Text="TW", Value="zh-CHT" },new { Text="CN", Value="zh-CHS" },new { Text="TH", Value="th-TH" }})" style="margin-right: 8px; margin-top: 4px" TextProperty="Text" @bind-Value="@Culture" ValueProperty="Value" Name="Dropdown1" Change="@Dropdown1Change">
+                                </RadzenDropDown>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    @*<RadzenLogin AllowRegister="false" AllowResetPassword="false" Register="@Login0Register">*@
+           @*         </RadzenLogin>*@
+                    <DhRadzenLogin AllowRegister="false" AllowResetPassword="false" Register="@Login0Register">
+                    </DhRadzenLogin>
+                </div>
+            </div>
+
+        </ChildContent>
+    </RadzenContent>
+</form>

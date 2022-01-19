@@ -1,0 +1,83 @@
+﻿@page "/todoS"
+
+@inject BlazorApp1.Data.PageService pageService;
+<h3>A 開發主軸和重要備忘</h3>
+<ol>
+    @foreach (var x in pageService.GetTodoS())
+    {
+        @if (x.Id.StartsWith("A"))
+        {
+            <li> 【@x.Id】@x.Name</li>
+        }
+    }
+</ol>
+
+<h3>S</h3>
+<ol>
+    @foreach (var x in pageService.GetTodoS())
+    {
+        @if (x.Id.StartsWith("S"))
+        {
+            <li> 【@x.Id】@x.Name</li>
+        }
+    }
+</ol>
+
+<h3>Q</h3>
+<ol>
+    @foreach (var x in pageService.GetTodoS())
+    {
+        @if (x.Id.StartsWith("Q"))
+        {
+            <li> 【@x.Id】@x.Name</li>
+        }
+    }
+</ol>
+
+<h3>R</h3>
+<ol>
+    @foreach (var x in pageService.GetTodoS())
+    {
+        @if (x.Id.StartsWith("R"))
+        {
+            <li> 【@x.Id】@x.Name</li>
+        }
+    }
+</ol>
+
+<h3>C</h3>
+<ol>
+    @foreach (var x in pageService.GetTodoS())
+    {
+        @if (x.Id.StartsWith("C"))
+        {
+            <li> 【@x.Id】@x.Name</li>
+        }
+    }
+</ol>
+
+<h3>M</h3>
+<ol>
+    @foreach (var x in pageService.GetTodoS())
+    {
+        @if (x.Id.StartsWith("M"))
+        {
+            <li> 【@x.Id】@x.Name</li>
+        }
+    }
+</ol>
+
+<h3>P</h3>
+<ol>
+    @foreach (var x in pageService.GetTodoS())
+    {
+        @if (x.Id.StartsWith("P"))
+        {
+            <li> 【@x.Id】@x.Name</li>
+        }
+    }
+</ol>
+
+@code {
+
+}

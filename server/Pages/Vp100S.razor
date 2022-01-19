@@ -1,0 +1,31 @@
+﻿@page "/vp-100-s"
+@layout MainLayout
+@inherits RadzenDh5.Pages.Vp100SComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="Vp 100 S">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenGrid @ref="grid0" AllowFiltering="false" FilterMode="FilterMode.Advanced" AllowPaging="true" AllowSorting="false" Data="@getVp100sResult" TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp100">
+          <Columns>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp100" Property="EQU_NO" Title="EQU NO">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp100" Property="LOC_NO" Title="LOC NO">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp100" Property="SU_ID" Title="SU ID">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp100" Property="PLT_CNT" Title="PLT CNT">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp100" Property="REMARK" Title="REMARK">
+            </RadzenGridColumn>
+          </Columns>
+        </RadzenGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

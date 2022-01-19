@@ -1,0 +1,313 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Out Snos"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "icon": "add_circle_outline",
+                  "name": "button0",
+                  "style": {
+                    "marginBottom": "10px"
+                  },
+                  "text": "Add",
+                  "type": "button",
+                  "events": {
+                    "click": [
+                      {
+                        "path": "add-out-sno",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await grid0.Reload();",
+                            "type": "execute"
+                          },
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "events": {
+                    "click": [
+                      {
+                        "condition": "${event?.Value == \"csv\"}",
+                        "fileName": "Out Snos",
+                        "name": "MARK10_SQLEXPRESS04.getOutSnos",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "OUT_SNO1,WHSE_NO,OUT_NO,OUT_LINE,SKU_NO,GTIN_NO,REQM_NO,REQM_LINE,PICKED_USER,PICKED_DATE,PICKED_QTY,SU_ID_FROM,SU_ID_TO,APPROVE_IND,REMARK,TRN_USER,TRN_DATE,CRT_USER,CRT_DATE"
+                          }
+                        ],
+                        "type": "export"
+                      },
+                      {
+                        "condition": "${event == null || event.Value == \"xlsx\"}",
+                        "fileName": "Out Snos",
+                        "format": "xlsx",
+                        "name": "MARK10_SQLEXPRESS04.getOutSnos",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "OUT_SNO1,WHSE_NO,OUT_NO,OUT_LINE,SKU_NO,GTIN_NO,REQM_NO,REQM_LINE,PICKED_USER,PICKED_DATE,PICKED_QTY,SU_ID_FROM,SU_ID_TO,APPROVE_IND,REMARK,TRN_USER,TRN_DATE,CRT_USER,CRT_DATE"
+                          }
+                        ],
+                        "type": "export"
+                      }
+                    ]
+                  },
+                  "icon": "get_app",
+                  "items": [
+                    {
+                      "icon": "",
+                      "text": "Excel",
+                      "value": "xlsx"
+                    },
+                    {
+                      "icon": "",
+                      "text": "CSV",
+                      "value": "csv"
+                    }
+                  ],
+                  "name": "splitbutton0",
+                  "style": {
+                    "marginLeft": "10px",
+                    "marginBottom": "10px"
+                  },
+                  "text": "Export",
+                  "type": "splitbutton"
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "filterMode": "advanced",
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getOutSnosResult}",
+                  "events": {
+                    "loadData": [],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "OUT_SNO1",
+                            "value": "${event.OUT_SNO1}"
+                          }
+                        ],
+                        "path": "edit-out-sno",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "OUT_SNO1",
+                      "title": "OUT SNO"
+                    },
+                    {
+                      "property": "WHSE_NO",
+                      "title": "WHSE NO"
+                    },
+                    {
+                      "property": "OUT_NO",
+                      "title": "OUT NO"
+                    },
+                    {
+                      "property": "OUT_LINE",
+                      "title": "OUT LINE"
+                    },
+                    {
+                      "property": "SKU_NO",
+                      "title": "SKU NO"
+                    },
+                    {
+                      "property": "GTIN_NO",
+                      "title": "GTIN NO"
+                    },
+                    {
+                      "property": "REQM_NO",
+                      "title": "REQM NO"
+                    },
+                    {
+                      "property": "REQM_LINE",
+                      "title": "REQM LINE"
+                    },
+                    {
+                      "property": "PICKED_USER",
+                      "title": "PICKED USER"
+                    },
+                    {
+                      "property": "PICKED_DATE",
+                      "title": "PICKED DATE"
+                    },
+                    {
+                      "property": "PICKED_QTY",
+                      "title": "PICKED QTY"
+                    },
+                    {
+                      "property": "SU_ID_FROM",
+                      "title": "SU ID FROM"
+                    },
+                    {
+                      "property": "SU_ID_TO",
+                      "title": "SU ID TO"
+                    },
+                    {
+                      "property": "APPROVE_IND",
+                      "title": "APPROVE IND"
+                    },
+                    {
+                      "property": "REMARK",
+                      "title": "REMARK"
+                    },
+                    {
+                      "property": "TRN_USER",
+                      "title": "TRN USER"
+                    },
+                    {
+                      "property": "TRN_DATE",
+                      "title": "TRN DATE"
+                    },
+                    {
+                      "property": "CRT_USER",
+                      "title": "CRT USER"
+                    },
+                    {
+                      "property": "CRT_DATE",
+                      "title": "CRT DATE"
+                    },
+                    {
+                      "filterable": false,
+                      "sortable": false,
+                      "width": "70px",
+                      "textAlign": "center",
+                      "template": [
+                        {
+                          "attributes": [
+                            {
+                              "name": "@onclick:stopPropagation",
+                              "value": true
+                            }
+                          ],
+                          "buttonStyle": "danger",
+                          "icon": "close",
+                          "name": "gridDeleteButton",
+                          "text": "",
+                          "size": "sm",
+                          "type": "button",
+                          "events": {
+                            "click": [
+                              {
+                                "condition": "await DialogService.Confirm(\"Are you sure you want to delete this record?\") == true",
+                                "error": [
+                                  {
+                                    "detail": "Unable to delete OutSno",
+                                    "severity": "error",
+                                    "summary": "Error",
+                                    "type": "notify"
+                                  }
+                                ],
+                                "name": "MARK10_SQLEXPRESS04.deleteOutSno",
+                                "parameters": [
+                                  {
+                                    "name": "OUT_SNO1",
+                                    "value": "${data.OUT_SNO1}"
+                                  }
+                                ],
+                                "then": [
+                                  {
+                                    "code": "await grid0.Reload();",
+                                    "condition": "result != null",
+                                    "type": "execute"
+                                  }
+                                ],
+                                "type": "invoke"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "RadzenDh5.Models.Mark10Sqlexpress04.OutSno"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "MARK10_SQLEXPRESS04.getOutSnos",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getOutSnosResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.OutSno>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Out Snos",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

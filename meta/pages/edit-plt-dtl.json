@@ -1,0 +1,1243 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "type": "template-form",
+                  "name": "form0",
+                  "components": [
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Su Id",
+                              "component": "SU_ID",
+                              "name": "SU_IDLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 20,
+                              "type": "textbox",
+                              "name": "SU_ID",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${pltdtl.SU_ID}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "SU_IDRequiredValidator",
+                              "component": "SU_ID",
+                              "text": "SU_ID is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Su Type",
+                              "component": "SU_TYPE",
+                              "name": "SU_TYPELabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 10,
+                              "type": "textbox",
+                              "name": "SU_TYPE",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${pltdtl.SU_TYPE}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "SU_TYPERequiredValidator",
+                              "component": "SU_TYPE",
+                              "text": "SU_TYPE is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "In Sno",
+                              "component": "IN_SNO",
+                              "name": "IN_SNOLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 30,
+                              "type": "textbox",
+                              "name": "IN_SNO",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${pltdtl.IN_SNO}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "IN_SNORequiredValidator",
+                              "component": "IN_SNO",
+                              "text": "IN_SNO is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Whse No",
+                              "component": "WHSE_NO",
+                              "name": "WHSE_NOLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 10,
+                              "type": "textbox",
+                              "name": "WHSE_NO",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${pltdtl.WHSE_NO}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "WHSE_NORequiredValidator",
+                              "component": "WHSE_NO",
+                              "text": "WHSE_NO is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "In No",
+                              "component": "IN_NO",
+                              "name": "IN_NOLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 30,
+                              "type": "textbox",
+                              "name": "IN_NO",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${pltdtl.IN_NO}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "IN_NORequiredValidator",
+                              "component": "IN_NO",
+                              "text": "IN_NO is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "In Line",
+                              "component": "IN_LINE",
+                              "name": "IN_LINELabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 10,
+                              "type": "textbox",
+                              "name": "IN_LINE",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${pltdtl.IN_LINE}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "IN_LINERequiredValidator",
+                              "component": "IN_LINE",
+                              "text": "IN_LINE is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Gr Date",
+                              "component": "GR_DATE",
+                              "name": "GR_DATELabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 20,
+                              "type": "textbox",
+                              "name": "GR_DATE",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${pltdtl.GR_DATE}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Expire Date",
+                              "component": "EXPIRE_DATE",
+                              "name": "EXPIRE_DATELabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 20,
+                              "type": "textbox",
+                              "name": "EXPIRE_DATE",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${pltdtl.EXPIRE_DATE}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Date Code",
+                              "component": "DATE_CODE",
+                              "name": "DATE_CODELabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 20,
+                              "type": "textbox",
+                              "name": "DATE_CODE",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${pltdtl.DATE_CODE}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Sku No",
+                              "component": "SKU_NO",
+                              "name": "SKU_NOLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 30,
+                              "type": "textbox",
+                              "name": "SKU_NO",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${pltdtl.SKU_NO}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "SKU_NORequiredValidator",
+                              "component": "SKU_NO",
+                              "text": "SKU_NO is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Plant",
+                              "component": "PLANT",
+                              "name": "PLANTLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 10,
+                              "type": "textbox",
+                              "name": "PLANT",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${pltdtl.PLANT}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "PLANTRequiredValidator",
+                              "component": "PLANT",
+                              "text": "PLANT is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Stge Loc",
+                              "component": "STGE_LOC",
+                              "name": "STGE_LOCLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 10,
+                              "type": "textbox",
+                              "name": "STGE_LOC",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${pltdtl.STGE_LOC}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "STGE_LOCRequiredValidator",
+                              "component": "STGE_LOC",
+                              "text": "STGE_LOC is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Batch No",
+                              "component": "BATCH_NO",
+                              "name": "BATCH_NOLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 30,
+                              "type": "textbox",
+                              "name": "BATCH_NO",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${pltdtl.BATCH_NO}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "BATCH_NORequiredValidator",
+                              "component": "BATCH_NO",
+                              "text": "BATCH_NO is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Stk Cat",
+                              "component": "STK_CAT",
+                              "name": "STK_CATLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 10,
+                              "type": "textbox",
+                              "name": "STK_CAT",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${pltdtl.STK_CAT}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "STK_CATRequiredValidator",
+                              "component": "STK_CAT",
+                              "text": "STK_CAT is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Stk Special Ind",
+                              "component": "STK_SPECIAL_IND",
+                              "name": "STK_SPECIAL_INDLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 1,
+                              "type": "textbox",
+                              "name": "STK_SPECIAL_IND",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${pltdtl.STK_SPECIAL_IND}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "STK_SPECIAL_INDRequiredValidator",
+                              "component": "STK_SPECIAL_IND",
+                              "text": "STK_SPECIAL_IND is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Stk Special No",
+                              "component": "STK_SPECIAL_NO",
+                              "name": "STK_SPECIAL_NOLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 30,
+                              "type": "textbox",
+                              "name": "STK_SPECIAL_NO",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${pltdtl.STK_SPECIAL_NO}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "STK_SPECIAL_NORequiredValidator",
+                              "component": "STK_SPECIAL_NO",
+                              "text": "STK_SPECIAL_NO is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Gtin Unit",
+                              "component": "GTIN_UNIT",
+                              "name": "GTIN_UNITLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 10,
+                              "type": "textbox",
+                              "name": "GTIN_UNIT",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${pltdtl.GTIN_UNIT}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "GTIN_UNITRequiredValidator",
+                              "component": "GTIN_UNIT",
+                              "text": "GTIN_UNIT is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Gtin Qty",
+                              "component": "GTIN_QTY",
+                              "name": "GTIN_QTYLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "decimal",
+                              "type": "numeric",
+                              "name": "GTIN_QTY",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${pltdtl.GTIN_QTY}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "GTIN_QTYRequiredValidator",
+                              "component": "GTIN_QTY",
+                              "text": "GTIN_QTY is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Sku Unit",
+                              "component": "SKU_UNIT",
+                              "name": "SKU_UNITLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 10,
+                              "type": "textbox",
+                              "name": "SKU_UNIT",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${pltdtl.SKU_UNIT}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "SKU_UNITRequiredValidator",
+                              "component": "SKU_UNIT",
+                              "text": "SKU_UNIT is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Sku Qty",
+                              "component": "SKU_QTY",
+                              "name": "SKU_QTYLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "decimal",
+                              "type": "numeric",
+                              "name": "SKU_QTY",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${pltdtl.SKU_QTY}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "SKU_QTYRequiredValidator",
+                              "component": "SKU_QTY",
+                              "text": "SKU_QTY is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Count Date",
+                              "component": "COUNT_DATE",
+                              "name": "COUNT_DATELabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 20,
+                              "type": "textbox",
+                              "name": "COUNT_DATE",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${pltdtl.COUNT_DATE}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Gtin Alo Qty",
+                              "component": "GTIN_ALO_QTY",
+                              "name": "GTIN_ALO_QTYLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "decimal?",
+                              "type": "numeric",
+                              "name": "GTIN_ALO_QTY",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${pltdtl.GTIN_ALO_QTY}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Sku Alo Qty",
+                              "component": "SKU_ALO_QTY",
+                              "name": "SKU_ALO_QTYLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "decimal?",
+                              "type": "numeric",
+                              "name": "SKU_ALO_QTY",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${pltdtl.SKU_ALO_QTY}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "type": "button",
+                              "buttonType": "submit",
+                              "icon": "save",
+                              "text": "Save",
+                              "buttonStyle": "primary"
+                            },
+                            {
+                              "type": "button",
+                              "buttonStyle": "light",
+                              "style": {
+                                "marginLeft": "1rem"
+                              },
+                              "text": "Cancel",
+                              "events": {
+                                "click": [
+                                  {
+                                    "type": "close-popup"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "events": {
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to update PltDtl",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "MARK10_SQLEXPRESS04.updatePltDtl",
+                        "parameters": [
+                          {
+                            "name": "SU_ID",
+                            "value": "${parameters.SU_ID}"
+                          },
+                          {
+                            "name": "IN_SNO",
+                            "value": "${parameters.IN_SNO}"
+                          },
+                          {
+                            "name": "WHSE_NO",
+                            "value": "${parameters.WHSE_NO}"
+                          },
+                          {
+                            "name": "IN_NO",
+                            "value": "${parameters.IN_NO}"
+                          },
+                          {
+                            "name": "IN_LINE",
+                            "value": "${parameters.IN_LINE}"
+                          },
+                          {
+                            "name": "STK_CAT",
+                            "value": "${parameters.STK_CAT}"
+                          },
+                          {
+                            "name": "STK_SPECIAL_IND",
+                            "value": "${parameters.STK_SPECIAL_IND}"
+                          },
+                          {
+                            "name": "STK_SPECIAL_NO",
+                            "value": "${parameters.STK_SPECIAL_NO}"
+                          },
+                          {
+                            "name": "PltDtl",
+                            "value": "${pltdtl}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "close-popup",
+                            "result": "${pltdtl}",
+                            "condition": ""
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "itemType": "RadzenDh5.Models.Mark10Sqlexpress04.PltDtl",
+                  "data": "${pltdtl}",
+                  "visible": "${pltdtl != null}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "MARK10_SQLEXPRESS04.getPltDtlBySU_IDAndIN_SNOAndWHSE_NOAndIN_NOAndIN_LINEAndSTK_CATAndSTK_SPECIAL_INDAndSTK_SPECIAL_NO",
+        "parameters": [
+          {
+            "name": "SU_ID",
+            "value": "${parameters.SU_ID}"
+          },
+          {
+            "name": "IN_SNO",
+            "value": "${parameters.IN_SNO}"
+          },
+          {
+            "name": "WHSE_NO",
+            "value": "${parameters.WHSE_NO}"
+          },
+          {
+            "name": "IN_NO",
+            "value": "${parameters.IN_NO}"
+          },
+          {
+            "name": "IN_LINE",
+            "value": "${parameters.IN_LINE}"
+          },
+          {
+            "name": "STK_CAT",
+            "value": "${parameters.STK_CAT}"
+          },
+          {
+            "name": "STK_SPECIAL_IND",
+            "value": "${parameters.STK_SPECIAL_IND}"
+          },
+          {
+            "name": "STK_SPECIAL_NO",
+            "value": "${parameters.STK_SPECIAL_NO}"
+          }
+        ],
+        "then": [
+          {
+            "name": "pltdtl",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "RadzenDh5.Models.Mark10Sqlexpress04.PltDtl"
+          }
+        ],
+        "error": [],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Edit Plt Dtl",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

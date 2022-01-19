@@ -1,0 +1,308 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "type": "template-form",
+                  "name": "form0",
+                  "components": [
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Code Type",
+                              "component": "CodeType",
+                              "name": "CodeTypeLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 25,
+                              "type": "textbox",
+                              "name": "CodeType",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${equcodedef.CodeType}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "CodeTypeRequiredValidator",
+                              "component": "CodeType",
+                              "text": "CodeType is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Code",
+                              "component": "Code",
+                              "name": "CodeLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 5,
+                              "type": "textbox",
+                              "name": "Code",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${equcodedef.Code}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "CodeRequiredValidator",
+                              "component": "Code",
+                              "text": "Code is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Desc Tw",
+                              "component": "Desc_TW",
+                              "name": "Desc_TWLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 250,
+                              "type": "textbox",
+                              "name": "Desc_TW",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${equcodedef.Desc_TW}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Desc En",
+                              "component": "Desc_EN",
+                              "name": "Desc_ENLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 250,
+                              "type": "textbox",
+                              "name": "Desc_EN",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${equcodedef.Desc_EN}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "type": "button",
+                              "buttonType": "submit",
+                              "icon": "save",
+                              "text": "Save",
+                              "buttonStyle": "primary"
+                            },
+                            {
+                              "type": "button",
+                              "buttonStyle": "light",
+                              "style": {
+                                "marginLeft": "1rem"
+                              },
+                              "text": "Cancel",
+                              "events": {
+                                "click": [
+                                  {
+                                    "type": "close-popup"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "events": {
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to update EquCodeDef",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "MARK10_SQLEXPRESS04.updateEquCodeDef",
+                        "parameters": [
+                          {
+                            "name": "CodeType",
+                            "value": "${parameters.CodeType}"
+                          },
+                          {
+                            "name": "Code",
+                            "value": "${parameters.Code}"
+                          },
+                          {
+                            "name": "EquCodeDef",
+                            "value": "${equcodedef}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "close-popup",
+                            "result": "${equcodedef}",
+                            "condition": ""
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "itemType": "RadzenDh5.Models.Mark10Sqlexpress04.EquCodeDef",
+                  "data": "${equcodedef}",
+                  "visible": "${equcodedef != null}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "MARK10_SQLEXPRESS04.getEquCodeDefByCodeTypeAndCode",
+        "parameters": [
+          {
+            "name": "CodeType",
+            "value": "${parameters.CodeType}"
+          },
+          {
+            "name": "Code",
+            "value": "${parameters.Code}"
+          }
+        ],
+        "then": [
+          {
+            "name": "equcodedef",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "RadzenDh5.Models.Mark10Sqlexpress04.EquCodeDef"
+          }
+        ],
+        "error": [],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Edit Equ Code Def",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

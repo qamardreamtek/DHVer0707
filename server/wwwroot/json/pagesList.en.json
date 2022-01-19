@@ -1,0 +1,158 @@
+﻿[
+  {
+    "Id": "S010",
+    "Name": "S010 User Basic Data Maintain"
+  },
+  {
+    "Id": "S020",
+    "Name": "S020 Group Basic Data Maintain"
+  },
+  {
+    "Id": "S030",
+    "Name": "S030 Program Basic Data Maintain"
+  },
+  {
+    "Id": "S040",
+    "Name": "S040 Group User Data Maintain"
+  },
+  {
+    "Id": "S050",
+    "Name": "S050 Program Authorization by Group"
+  },
+  {
+    "Id": "S060",
+    "Name": "S060 Program Authorization by User"
+  },
+  {
+    "Id": "S070",
+    "Name": "S070 Code Data Maintain(Not apply)"
+  },
+  {
+    "Id": "S080",
+    "Name": "S080 User Login Password Change"
+  },
+  {
+    "Id": "S090",
+    "Name": "S090 Translation Dictionary Maintain"
+  },
+  {
+    "Id": "P020",
+    "Name": "P020 Stock Allocation for Delivery Order(Auto)"
+  },
+  {
+    "Id": "P030",
+    "Name": "P030 Stock Allocation for Delivery Order(Manual)"
+  },
+  {
+    "Id": "P060",
+    "Name": "P060 Storage Transfer Out"
+  },
+  {
+    "Id": "P070",
+    "Name": "P070 Pallet Inventory Adjustment"
+  },
+  {
+    "Id": "P080",
+    "Name": "P080 Inventory Transfer"
+  },
+  {
+    "Id": "P090",
+    "Name": "P090 Palletizing of Empty Pallet"
+  },
+  {
+    "Id": "P100",
+    "Name": "P100 Empty Pallet Transfer Out"
+  },
+  {
+    "Id": "M070",
+    "Name": "M070 AS/RS Transfer Command Maintain AS/RS"
+  },
+  {
+    "Id": "M090",
+    "Name": "M090 Location Usage Status Maintain"
+  },
+  {
+    "Id": "C010",
+    "Name": "C010 Physical Inventory Count"
+  },
+  {
+    "Id": "C030",
+    "Name": "C030 Physical Inventory Count Record"
+  },
+  {
+    "Id": "C040",
+    "Name": "C040 PIC Difference Adjustment"
+  },
+  {
+    "Id": "Q010",
+    "Name": "Q010 Article Basic Data Query"
+  },
+  {
+    "Id": "Q020",
+    "Name": "Q020 GTIN Basic Data Query"
+  },
+  {
+    "Id": "Q030",
+    "Name": "Q030 Storage Unit Type Basic Data Query"
+  },
+  {
+    "Id": "Q040",
+    "Name": "Q040 Transfer Requirement Data Query"
+  },
+  {
+    "Id": "Q050",
+    "Name": "Q050 Delivery Order Data Query"
+  },
+  {
+    "Id": "Q060",
+    "Name": "Q060 Physical Inventory Count Data Query"
+  },
+  {
+    "Id": "Q070",
+    "Name": "Q070 AS/RS Transfer Command Data Query"
+  },
+  {
+    "Id": "Q080",
+    "Name": "Q080 Inventory Data Query"
+  },
+  {
+    "Id": "Q090",
+    "Name": "Q090 Location Usage Status Query"
+  },
+  {
+    "Id": "Q100",
+    "Name": "Q100 Location Status Query"
+  },
+  {
+    "Id": "Q110",
+    "Name": "Q110 Bin to Bin Transfer Query"
+  },
+  {
+    "Id": "Q120",
+    "Name": "Q120 Posting Change Transfer Query"
+  },
+  {
+    "Id": "R030",
+    "Name": "R030 Daily Inbound Summary Report"
+  },
+  {
+    "Id": "R040",
+    "Name": "R040 Daily Outbound Summary Report"
+  },
+  {
+    "Id": "R050",
+    "Name": "R050 Stock Inquiry Report"
+  },
+  {
+    "Id": "R060",
+    "Name": "R060 Stock Movement Pallet"
+  },
+  {
+    "Id": "R070",
+    "Name": "R070 Stock Movement Transaction"
+  },
+  {
+    "Id": "R080",
+    "Name": "R080 Stock Counting Difference"
+  }
+]

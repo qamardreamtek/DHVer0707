@@ -1,0 +1,379 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "type": "template-form",
+                  "name": "form0",
+                  "components": [
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Equ No",
+                              "component": "EquNo",
+                              "name": "EquNoLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 2,
+                              "type": "textbox",
+                              "name": "EquNo",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${alarmlog.EquNo}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "EquNoRequiredValidator",
+                              "component": "EquNo",
+                              "text": "EquNo is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Alarm Code",
+                              "component": "AlarmCode",
+                              "name": "AlarmCodeLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 10,
+                              "type": "textbox",
+                              "name": "AlarmCode",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${alarmlog.AlarmCode}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "AlarmCodeRequiredValidator",
+                              "component": "AlarmCode",
+                              "text": "AlarmCode is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Alarm Sts",
+                              "component": "AlarmSts",
+                              "name": "AlarmStsLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 1,
+                              "type": "textbox",
+                              "name": "AlarmSts",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${alarmlog.AlarmSts}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "AlarmStsRequiredValidator",
+                              "component": "AlarmSts",
+                              "text": "AlarmSts is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Strdt",
+                              "component": "STRDT",
+                              "name": "STRDTLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 20,
+                              "type": "textbox",
+                              "name": "STRDT",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${alarmlog.STRDT}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "STRDTRequiredValidator",
+                              "component": "STRDT",
+                              "text": "STRDT is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Clrdt",
+                              "component": "CLRDT",
+                              "name": "CLRDTLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 20,
+                              "type": "textbox",
+                              "name": "CLRDT",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${alarmlog.CLRDT}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Totalsecs",
+                              "component": "TOTALSECS",
+                              "name": "TOTALSECSLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "int?",
+                              "type": "numeric",
+                              "name": "TOTALSECS",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${alarmlog.TOTALSECS}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "type": "button",
+                              "buttonType": "submit",
+                              "icon": "save",
+                              "text": "Save",
+                              "buttonStyle": "primary"
+                            },
+                            {
+                              "type": "button",
+                              "buttonStyle": "light",
+                              "style": {
+                                "marginLeft": "1rem"
+                              },
+                              "text": "Cancel",
+                              "events": {
+                                "click": [
+                                  {
+                                    "type": "close-popup"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "events": {
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to create new AlarmLog!",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "MARK10_SQLEXPRESS04.createAlarmLog",
+                        "parameters": [
+                          {
+                            "name": "AlarmLog",
+                            "value": "${alarmlog}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "close-popup",
+                            "result": "${alarmlog}"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "data": "${alarmlog}",
+                  "visible": "${alarmlog != null}",
+                  "itemType": "RadzenDh5.Models.Mark10Sqlexpress04.AlarmLog"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "alarmlog",
+        "type": "set",
+        "value": "new RadzenDh5.Models.Mark10Sqlexpress04.AlarmLog(){}",
+        "valueType": "RadzenDh5.Models.Mark10Sqlexpress04.AlarmLog"
+      }
+    ]
+  },
+  "name": "Add Alarm Log",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

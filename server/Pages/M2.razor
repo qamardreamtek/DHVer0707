@@ -1,0 +1,122 @@
+﻿
+@using System.IO
+@using Microsoft.EntityFrameworkCore
+@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment HostEnvironment
+@inject NavigationManager NavManager
+@inherits RadzenDh5.Pages.M2Component
+@using Radzen.Blazor
+@inject RadzenDh5.Data.Mark10Sqlexpress04Context AppDb
+
+@using RadzenDh5.Models;
+@using RadzenDh5.Pages;
+@inject Microsoft.Extensions.Localization.IStringLocalizer<MainLayout> L
+@inject SecurityService Security
+
+@inject Microsoft.JSInterop.IJSRuntime JSRuntime
+@attribute [Authorize]
+
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor httpContextAccessor
+@inject CaotunSpring.DH.Tools.DhGlobalsService DhGlobals
+
+@if (IS_USER_ENABLE)
+{
+<div class="row">
+    <div class="col-md-4">
+        @if (vRightsCat1 != null && vRightsCat1.Count() > 0)
+@foreach (var x in vRightsCat1)
+{
+<div>
+    @x.PROG_ID   &nbsp;
+    @if (@LANG == "en-US")
+    {@x.PROG_NAME}
+
+    @if (@LANG == "zh-CHS")
+    {@x.CN_NAME}
+
+    @if (@LANG == "zh-CHT")
+    {@x.TW_NAME}
+
+    @if (@LANG == "th-TH")
+    {@x.TH_NAME}
+
+    <USER_CAT_COMPONENT USER="@UserName" CAT="@x.PROG_ID" LANG="@LANG"></USER_CAT_COMPONENT>
+
+</div>}
+    </div>
+
+    <div class="col-md-4">
+        @if (vRightsCat2 != null && vRightsCat2.Count() > 0)
+@foreach (var x in vRightsCat2)
+{
+<div>
+    @x.PROG_ID   &nbsp;
+    @if (@LANG == "en-US")
+    {@x.PROG_NAME}
+
+    @if (@LANG == "zh-CHS")
+    {@x.CN_NAME}
+
+    @if (@LANG == "zh-CHT")
+    {@x.TW_NAME}
+
+    @if (@LANG == "th-TH")
+    {@x.TH_NAME}
+
+    <USER_CAT_COMPONENT USER="@UserName" CAT="@x.PROG_ID" LANG="@LANG"></USER_CAT_COMPONENT>
+
+</div>}
+    </div>
+
+    <div class="col-md-4">
+        @if (vRightsCat3 != null && vRightsCat3.Count() > 0)
+@foreach (var x in vRightsCat3)
+{
+<div>
+    @x.PROG_ID   &nbsp;
+    @if (@LANG == "en-US")
+    {@x.PROG_NAME}
+
+    @if (@LANG == "zh-CHS")
+    {@x.CN_NAME}
+
+    @if (@LANG == "zh-CHT")
+    {@x.TW_NAME}
+
+    @if (@LANG == "th-TH")
+    {@x.TH_NAME}
+
+    <USER_CAT_COMPONENT USER="@UserName" CAT="@x.PROG_ID" LANG="@LANG"></USER_CAT_COMPONENT>
+
+</div>}
+    </div>
+
+</div>
+
+
+
+                @if (vRightsCat == null)
+                {
+<h3>
+
+    Loading ...
+
+</h3>} @if (vRightsCat != null && vRightsCat.Count() == 0)
+                {
+<h3>
+
+    No data to display
+
+</h3>} }
+else
+{
+<h3>User is not enable or not in list</h3>}
+
+
+
+
+
+
+@code { // NOTE by Mark, 04/24
+    // get culture
+} 

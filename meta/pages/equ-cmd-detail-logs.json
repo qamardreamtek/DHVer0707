@@ -1,0 +1,357 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Equ Cmd Detail Logs"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "icon": "add_circle_outline",
+                  "name": "button0",
+                  "style": {
+                    "marginBottom": "10px"
+                  },
+                  "text": "Add",
+                  "type": "button",
+                  "events": {
+                    "click": [
+                      {
+                        "path": "add-equ-cmd-detail-log",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await grid0.Reload();",
+                            "type": "execute"
+                          },
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "events": {
+                    "click": [
+                      {
+                        "condition": "${event?.Value == \"csv\"}",
+                        "fileName": "Equ Cmd Detail Logs",
+                        "name": "MARK10_SQLEXPRESS04.getEquCmdDetailLogs",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "LogDT,CmdSno,EquNo,CmdMode,FBank,FBayLevel,TBank,TBayLevel,TransferInfo,WriteBuffer,WritePLC,StartAction,Cycle1,Fork1,LoadPresence_On,CSTPresence_On,Cycle2,Fork2,LoadPresence_Off,CSTPresence_Off,CmdFinish,CompleteCode,PLCTimerCount,Notes"
+                          }
+                        ],
+                        "type": "export"
+                      },
+                      {
+                        "condition": "${event == null || event.Value == \"xlsx\"}",
+                        "fileName": "Equ Cmd Detail Logs",
+                        "format": "xlsx",
+                        "name": "MARK10_SQLEXPRESS04.getEquCmdDetailLogs",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "LogDT,CmdSno,EquNo,CmdMode,FBank,FBayLevel,TBank,TBayLevel,TransferInfo,WriteBuffer,WritePLC,StartAction,Cycle1,Fork1,LoadPresence_On,CSTPresence_On,Cycle2,Fork2,LoadPresence_Off,CSTPresence_Off,CmdFinish,CompleteCode,PLCTimerCount,Notes"
+                          }
+                        ],
+                        "type": "export"
+                      }
+                    ]
+                  },
+                  "icon": "get_app",
+                  "items": [
+                    {
+                      "icon": "",
+                      "text": "Excel",
+                      "value": "xlsx"
+                    },
+                    {
+                      "icon": "",
+                      "text": "CSV",
+                      "value": "csv"
+                    }
+                  ],
+                  "name": "splitbutton0",
+                  "style": {
+                    "marginLeft": "10px",
+                    "marginBottom": "10px"
+                  },
+                  "text": "Export",
+                  "type": "splitbutton"
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "filterMode": "advanced",
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getEquCmdDetailLogsResult}",
+                  "events": {
+                    "loadData": [],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "LogDT",
+                            "value": "${event.LogDT}"
+                          },
+                          {
+                            "name": "CmdSno",
+                            "value": "${event.CmdSno}"
+                          },
+                          {
+                            "name": "EquNo",
+                            "value": "${event.EquNo}"
+                          },
+                          {
+                            "name": "CmdMode",
+                            "value": "${event.CmdMode}"
+                          }
+                        ],
+                        "path": "edit-equ-cmd-detail-log",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "LogDT",
+                      "title": "Log DT"
+                    },
+                    {
+                      "property": "CmdSno",
+                      "title": "Cmd Sno"
+                    },
+                    {
+                      "property": "EquNo",
+                      "title": "Equ No"
+                    },
+                    {
+                      "property": "CmdMode",
+                      "title": "Cmd Mode"
+                    },
+                    {
+                      "property": "FBank",
+                      "title": "F Bank"
+                    },
+                    {
+                      "property": "FBayLevel",
+                      "title": "F Bay Level"
+                    },
+                    {
+                      "property": "TBank",
+                      "title": "T Bank"
+                    },
+                    {
+                      "property": "TBayLevel",
+                      "title": "T Bay Level"
+                    },
+                    {
+                      "property": "TransferInfo",
+                      "title": "Transfer Info"
+                    },
+                    {
+                      "property": "WriteBuffer",
+                      "title": "Write Buffer"
+                    },
+                    {
+                      "property": "WritePLC",
+                      "title": "Write PLC"
+                    },
+                    {
+                      "property": "StartAction",
+                      "title": "Start Action"
+                    },
+                    {
+                      "property": "Cycle1",
+                      "title": "Cycle 1"
+                    },
+                    {
+                      "property": "Fork1",
+                      "title": "Fork 1"
+                    },
+                    {
+                      "property": "LoadPresence_On",
+                      "title": "Load Presence On"
+                    },
+                    {
+                      "property": "CSTPresence_On",
+                      "title": "CST Presence On"
+                    },
+                    {
+                      "property": "Cycle2",
+                      "title": "Cycle 2"
+                    },
+                    {
+                      "property": "Fork2",
+                      "title": "Fork 2"
+                    },
+                    {
+                      "property": "LoadPresence_Off",
+                      "title": "Load Presence Off"
+                    },
+                    {
+                      "property": "CSTPresence_Off",
+                      "title": "CST Presence Off"
+                    },
+                    {
+                      "property": "CmdFinish",
+                      "title": "Cmd Finish"
+                    },
+                    {
+                      "property": "CompleteCode",
+                      "title": "Complete Code"
+                    },
+                    {
+                      "property": "PLCTimerCount",
+                      "title": "PLC Timer Count"
+                    },
+                    {
+                      "property": "Notes",
+                      "title": "Notes"
+                    },
+                    {
+                      "filterable": false,
+                      "sortable": false,
+                      "width": "70px",
+                      "textAlign": "center",
+                      "template": [
+                        {
+                          "attributes": [
+                            {
+                              "name": "@onclick:stopPropagation",
+                              "value": true
+                            }
+                          ],
+                          "buttonStyle": "danger",
+                          "icon": "close",
+                          "name": "gridDeleteButton",
+                          "text": "",
+                          "size": "sm",
+                          "type": "button",
+                          "events": {
+                            "click": [
+                              {
+                                "condition": "await DialogService.Confirm(\"Are you sure you want to delete this record?\") == true",
+                                "error": [
+                                  {
+                                    "detail": "Unable to delete EquCmdDetailLog",
+                                    "severity": "error",
+                                    "summary": "Error",
+                                    "type": "notify"
+                                  }
+                                ],
+                                "name": "MARK10_SQLEXPRESS04.deleteEquCmdDetailLog",
+                                "parameters": [
+                                  {
+                                    "name": "LogDT",
+                                    "value": "${data.LogDT}"
+                                  },
+                                  {
+                                    "name": "CmdSno",
+                                    "value": "${data.CmdSno}"
+                                  },
+                                  {
+                                    "name": "EquNo",
+                                    "value": "${data.EquNo}"
+                                  },
+                                  {
+                                    "name": "CmdMode",
+                                    "value": "${data.CmdMode}"
+                                  }
+                                ],
+                                "then": [
+                                  {
+                                    "code": "await grid0.Reload();",
+                                    "condition": "result != null",
+                                    "type": "execute"
+                                  }
+                                ],
+                                "type": "invoke"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "RadzenDh5.Models.Mark10Sqlexpress04.EquCmdDetailLog"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "MARK10_SQLEXPRESS04.getEquCmdDetailLogs",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getEquCmdDetailLogsResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.EquCmdDetailLog>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Equ Cmd Detail Logs",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

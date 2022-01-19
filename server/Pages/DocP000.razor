@@ -1,0 +1,47 @@
+﻿
+@using RadzenDh5.Shared
+
+<div class="row">
+    <div class="col-xl-9">
+        <RadzenTabs>
+            <Tabs>
+                <RadzenTabsItem Text="P020">
+                    <pre>
+DataTable dtMST = new DataTable("OUT_MST"); //交貨單主檔
+DataTable dtDTL = new DataTable("OUT_DTL"); //交貨單明細檔
+</pre>
+                    <DocComponent Id="P020"></DocComponent>
+                </RadzenTabsItem>
+                <RadzenTabsItem Text="P030">
+                    <pre>
+DataTable dtMST = new DataTable("OUT_DTL"); //交貨單明細檔
+DataTable dtDTL = new DataTable("LOC_DTL"); //可分配庫存明細檔
+</pre>
+                    <DocComponent Id="P030"></DocComponent>
+                </RadzenTabsItem>
+                <RadzenTabsItem Text="P040">
+                    <DocComponent Id="P040"></DocComponent>
+                </RadzenTabsItem>
+                <RadzenTabsItem Text="P050">
+                    <DocComponent Id="P050"></DocComponent>
+                </RadzenTabsItem>
+                <RadzenTabsItem Text="P060">
+                    <DocComponent Id="P060"></DocComponent>
+                </RadzenTabsItem>
+                <RadzenTabsItem Text="P070">
+                    <DocComponent Id="P070"></DocComponent>
+                </RadzenTabsItem>
+                <RadzenTabsItem Text="P080">
+                    <DocComponent Id="P080"></DocComponent>
+                </RadzenTabsItem>
+                <RadzenTabsItem Text="P090">
+                    <DocComponent Id="P090"></DocComponent>
+                </RadzenTabsItem>
+                <RadzenTabsItem Text="P100">
+                    <DocComponent Id="P100"></DocComponent>
+                </RadzenTabsItem>
+            </Tabs>
+        </RadzenTabs>
+    </div>
+</div>
+

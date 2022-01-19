@@ -1,0 +1,301 @@
+﻿@layout MainLayout
+@inherits RadzenDh5.Pages.ViewInSnoComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+@using Microsoft.AspNetCore.Identity;
+@using RadzenDh5.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+@inject Microsoft.Extensions.Localization.IStringLocalizer<EditInSno> L
+<RadzenContent Container="main">
+  <ChildContent>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm TItem="RadzenDh5.Models.Mark10Sqlexpress04.InSno" Data="@insno" Visible="@(insno != null)" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("WHSE_NO")  Component="WHSE_NO" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@(insno.WHSE_NO)" Name="WHSE_NO"> 
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="WHSE_NO" Text="@L["WHSE_NORequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("IN_NO")  Component="IN_NO" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="30" style="display: block; width: 100%" @bind-Value="@(insno.IN_NO)" Name="IN_NO"> 
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="IN_NO" Text="@L["IN_NORequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("IN_LINE")  Component="IN_LINE" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@(insno.IN_LINE)" Name="IN_LINE"> 
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="IN_LINE" Text="@L["IN_LINERequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("TRN_NO")  Component="TRN_NO" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="30" style="width: 100%" @bind-Value="@(insno.TRN_NO)" Name="TRN_NO"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("TRN_LINE")  Component="TRN_LINE" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="width: 100%" @bind-Value="@(insno.TRN_LINE)" Name="TRN_LINE"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("SKU_NO")  Component="SKU_NO" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="30" style="display: block; width: 100%" @bind-Value="@(insno.SKU_NO)" Name="SKU_NO"> 
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="SKU_NO" Text="@L["SKU_NORequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("GTIN_NO")  Component="GTIN_NO" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="30" style="display: block; width: 100%" @bind-Value="@(insno.GTIN_NO)" Name="GTIN_NO"> 
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="GTIN_NO" Text="@L["GTIN_NORequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("REQM_NO")  Component="REQM_NO" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="30" style="display: block; width: 100%" @bind-Value="@(insno.REQM_NO)" Name="REQM_NO"> 
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="REQM_NO" Text="@L["REQM_NORequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("SKU_IN_QTY")  Component="SKU_IN_QTY" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenNumeric  ReadOnly="true" style="display: block; width: 100%" @bind-Value="@(insno.SKU_IN_QTY)" Name="SKU_IN_QTY"> 
+                </RadzenNumeric>
+                <RadzenRequiredValidator Component="SKU_IN_QTY" Text="@L["SKU_IN_QTYRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("SKU_RCV_QTY")  Component="SKU_RCV_QTY" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenNumeric  ReadOnly="true" style="width: 100%" @bind-Value="@(insno.SKU_RCV_QTY)" Name="SKU_RCV_QTY"> 
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("SKU_FIN_QTY")  Component="SKU_FIN_QTY" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenNumeric  ReadOnly="true" style="width: 100%" @bind-Value="@(insno.SKU_FIN_QTY)" Name="SKU_FIN_QTY"> 
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("SU_ID")  Component="SU_ID" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="20" style="display: block; width: 100%" @bind-Value="@(insno.SU_ID)" Name="SU_ID"> 
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="SU_ID" Text="@L["SU_IDRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("SU_TYPE")  Component="SU_TYPE" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="width: 100%" @bind-Value="@(insno.SU_TYPE)" Name="SU_TYPE"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("LOC_NO")  Component="LOC_NO" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="50" style="width: 100%" @bind-Value="@(insno.LOC_NO)" Name="LOC_NO"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("ALO_NO")  Component="ALO_NO" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="30" style="width: 100%" @bind-Value="@(insno.ALO_NO)" Name="ALO_NO"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("ALO_LINE")  Component="ALO_LINE" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="width: 100%" @bind-Value="@(insno.ALO_LINE)" Name="ALO_LINE"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("SKU_ALO_QTY")  Component="SKU_ALO_QTY" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenNumeric  ReadOnly="true" style="width: 100%" @bind-Value="@(insno.SKU_ALO_QTY)" Name="SKU_ALO_QTY"> 
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("SKU_OUT_QTY")  Component="SKU_OUT_QTY" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenNumeric  ReadOnly="true" style="width: 100%" @bind-Value="@(insno.SKU_OUT_QTY)" Name="SKU_OUT_QTY"> 
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("SOURCE")  Component="SOURCE" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="1" style="width: 100%" @bind-Value="@(insno.SOURCE)" Name="SOURCE"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("APPROVE_IND")  Component="APPROVE_IND" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="1" style="width: 100%" @bind-Value="@(insno.APPROVE_IND)" Name="APPROVE_IND"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("REMARK")  Component="REMARK" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" style="width: 100%" @bind-Value="@(insno.REMARK)" Name="REMARK"> 
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("TRN_USER")  Component="TRN_USER" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(insno.TRN_USER)" ReadOnly="true" Name="TRN_USER">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="TRN_USER" Text="@L["TRN_USERRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("TRN_DATE")  Component="TRN_DATE" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="20" style="width: 100%" @bind-Value="@(insno.TRN_DATE)" ReadOnly="true" Name="TRN_DATE">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("CRT_USER")  Component="CRT_USER" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(insno.CRT_USER)" ReadOnly="true" Name="CRT_USER">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="CRT_USER" Text="@L["CRT_USERRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("CRT_DATE")  Component="CRT_DATE" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="20" style="width: 100%" @bind-Value="@(insno.CRT_DATE)" ReadOnly="true" Name="CRT_DATE">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col offset-md-3">
+<RadzenButton Text="OK" Click="@Button2Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

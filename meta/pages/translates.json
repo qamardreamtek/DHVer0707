@@ -1,0 +1,164 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Translates"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "events": {
+                    "click": [
+                      {
+                        "condition": "${event?.Value == \"csv\"}",
+                        "fileName": "Translates",
+                        "name": "MARK10_SQLEXPRESS04.getTranslates",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "EN_TEXT,TW_TEXT,CN_TEXT,TH_TEXT,VN_TEXT,TEXT"
+                          }
+                        ],
+                        "type": "export"
+                      },
+                      {
+                        "condition": "${event == null || event.Value == \"xlsx\"}",
+                        "fileName": "Translates",
+                        "format": "xlsx",
+                        "name": "MARK10_SQLEXPRESS04.getTranslates",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "EN_TEXT,TW_TEXT,CN_TEXT,TH_TEXT,VN_TEXT,TEXT"
+                          }
+                        ],
+                        "type": "export"
+                      }
+                    ]
+                  },
+                  "icon": "get_app",
+                  "items": [
+                    {
+                      "icon": "",
+                      "text": "Excel",
+                      "value": "xlsx"
+                    },
+                    {
+                      "icon": "",
+                      "text": "CSV",
+                      "value": "csv"
+                    }
+                  ],
+                  "name": "splitbutton0",
+                  "style": {
+                    "marginLeft": "0px",
+                    "marginBottom": "10px"
+                  },
+                  "text": "Export",
+                  "type": "splitbutton"
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "filterMode": "advanced",
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getTranslatesResult}",
+                  "events": {
+                    "loadData": []
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "EN_TEXT",
+                      "title": "EN TEXT"
+                    },
+                    {
+                      "property": "TW_TEXT",
+                      "title": "TW TEXT"
+                    },
+                    {
+                      "property": "CN_TEXT",
+                      "title": "CN TEXT"
+                    },
+                    {
+                      "property": "TH_TEXT",
+                      "title": "TH TEXT"
+                    },
+                    {
+                      "property": "VN_TEXT",
+                      "title": "VN TEXT"
+                    },
+                    {
+                      "property": "TEXT",
+                      "title": "TEXT"
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "RadzenDh5.Models.Mark10Sqlexpress04.Translate"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "MARK10_SQLEXPRESS04.getTranslates",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTranslatesResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.Translate>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Translates",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

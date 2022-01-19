@@ -1,0 +1,64 @@
+﻿@inherits RadzenDh5.Layouts.MainLayoutComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+@using Microsoft.AspNetCore.Identity;
+@using RadzenDh5.Models
+@inject BlazorApp1.Data.PageService pageService;
+@*@inject SecurityService Security;*@
+@*@inject CaotunSpring.DH.Tools.DhGlobalsService DhGlobals;*@
+@inject Microsoft.Extensions.Localization.IStringLocalizer<MainLayout> L
+<RadzenDialog />
+<RadzenNotification />
+<RadzenTooltip />
+<RadzenContextMenu />
+
+<RadzenHeader>
+    <ChildContent >
+        <div class="row justify-content-start align-items-center">
+            <div  class="col-12 d-flex align-items-center">
+                <RadzenSidebarToggle Click="@SidebarToggle0Click">
+                </RadzenSidebarToggle>
+                <a href="/">
+                    <RadzenLabel Text="DOHOME WebWES">
+                    </RadzenLabel>
+                </a>
+                <span style="margin-left:48px">
+                    @Security.User.UserName
+                    【@pageService.GetLoginVersionReminderVer()】
+                </span>
+            </div>
+
+        </div>
+    </ChildContent>
+</RadzenHeader>
+<RadzenBody @ref="body0">
+    <ChildContent>
+        <RadzenContentContainer Name="main">
+            @Body
+        </RadzenContentContainer>
+    </ChildContent>
+</RadzenBody>
+<RadzenSidebar @ref="sidebar0">
+    <ChildContent>
+        <RadzenPanelMenu style="height: 100%">
+            @*<ChildContent>
+                    <RadzenPanelMenuItem Icon="login" Path="/Login" Text="Login">
+                    </RadzenPanelMenuItem>
+                </ChildContent>*@
+            <ChildContent>
+                <RadzenPanelMenuItem Icon="info" Path="/info" Text="Info">
+                </RadzenPanelMenuItem>
+             
+                @*<RadzenPanelMenuItem Icon="logout" Path="/Account/Logout" Text="Logout">
+                </RadzenPanelMenuItem>*@
+                <RadzenPanelMenuItem Icon="logout" Path="/DhLogout" Text="Logout">
+                </RadzenPanelMenuItem>
+            </ChildContent>
+
+
+        </RadzenPanelMenu>
+    </ChildContent>
+</RadzenSidebar>
+

@@ -1,0 +1,420 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Sku Mst His"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "events": {
+                    "click": [
+                      {
+                        "condition": "${event?.Value == \"csv\"}",
+                        "fileName": "Sku Mst His",
+                        "name": "MARK10_SQLEXPRESS04.getSkuMstHis",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "SKU_NO,EAN13_NO,SKU_NAME,SKU_DESC,SKU_BRAND,SKU_CAT,SKU_TYPE,SKU_INDUSTRY,SKU_GROUP,SKU_GROSS_WEIGHT,SKU_NET_WEIGHT,SKU_WEIGHT_UNIT,SKU_VOLUME,SKU_VOLUME_UNIT,GTIN_NO,GTIN_CAT,SKU_LENGTH,SKU_WIDTH,SKU_HEIGHT,SKU_DIM_UNIT,SKU_UNIT,SKU_BATCH,SKU_LOC_SIZE,SKU_LOC_HOT,MIN_SHELF_LIFE,MAX_SHELF_LIFE,VALID_DATE_FROM,VALID_DATE_TO,SKU_BLOCKED,SKU_SNO_IND,OLD_SKU_NO,STGE_CONDITION,CAT_GROUP,TP_GROUP,DIVISION,LABEL_TYPE,LABEL_FORM,SOURCE_SUPPLY,SEASON,PRODUCT_HIERACHY,CAD_IND,XSITE_STS,XDISTR_STS,XSITE_DATE,XDISTR_DATE,TAX_CLASSIFICATION,CONTENT_UNIT,NET_CONTENT,COMPARISON_PRICE,GROSS_CONTENT,DANGEROUS_IND,BATCH_IND,PERIOD_SLED,ROUND_SLED,ASSOR_TYPE,WH_SKU_GROUP,COUNTRY,LOAD_UNIT_GROUP,FREE_CHAR,ZMATERIAL,XPLANT_STS,SOURCE,APPROVE_IND,REMARK,TRN_USER,TRN_DATE,CRT_USER,CRT_DATE,LOG_DATE,LOG_USER"
+                          }
+                        ],
+                        "type": "export"
+                      },
+                      {
+                        "condition": "${event == null || event.Value == \"xlsx\"}",
+                        "fileName": "Sku Mst His",
+                        "format": "xlsx",
+                        "name": "MARK10_SQLEXPRESS04.getSkuMstHis",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "SKU_NO,EAN13_NO,SKU_NAME,SKU_DESC,SKU_BRAND,SKU_CAT,SKU_TYPE,SKU_INDUSTRY,SKU_GROUP,SKU_GROSS_WEIGHT,SKU_NET_WEIGHT,SKU_WEIGHT_UNIT,SKU_VOLUME,SKU_VOLUME_UNIT,GTIN_NO,GTIN_CAT,SKU_LENGTH,SKU_WIDTH,SKU_HEIGHT,SKU_DIM_UNIT,SKU_UNIT,SKU_BATCH,SKU_LOC_SIZE,SKU_LOC_HOT,MIN_SHELF_LIFE,MAX_SHELF_LIFE,VALID_DATE_FROM,VALID_DATE_TO,SKU_BLOCKED,SKU_SNO_IND,OLD_SKU_NO,STGE_CONDITION,CAT_GROUP,TP_GROUP,DIVISION,LABEL_TYPE,LABEL_FORM,SOURCE_SUPPLY,SEASON,PRODUCT_HIERACHY,CAD_IND,XSITE_STS,XDISTR_STS,XSITE_DATE,XDISTR_DATE,TAX_CLASSIFICATION,CONTENT_UNIT,NET_CONTENT,COMPARISON_PRICE,GROSS_CONTENT,DANGEROUS_IND,BATCH_IND,PERIOD_SLED,ROUND_SLED,ASSOR_TYPE,WH_SKU_GROUP,COUNTRY,LOAD_UNIT_GROUP,FREE_CHAR,ZMATERIAL,XPLANT_STS,SOURCE,APPROVE_IND,REMARK,TRN_USER,TRN_DATE,CRT_USER,CRT_DATE,LOG_DATE,LOG_USER"
+                          }
+                        ],
+                        "type": "export"
+                      }
+                    ]
+                  },
+                  "icon": "get_app",
+                  "items": [
+                    {
+                      "icon": "",
+                      "text": "Excel",
+                      "value": "xlsx"
+                    },
+                    {
+                      "icon": "",
+                      "text": "CSV",
+                      "value": "csv"
+                    }
+                  ],
+                  "name": "splitbutton0",
+                  "style": {
+                    "marginLeft": "0px",
+                    "marginBottom": "10px"
+                  },
+                  "text": "Export",
+                  "type": "splitbutton"
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "filterMode": "advanced",
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getSkuMstHisResult}",
+                  "events": {
+                    "loadData": []
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "SKU_NO",
+                      "title": "SKU NO"
+                    },
+                    {
+                      "property": "EAN13_NO",
+                      "title": "EAN 13 NO"
+                    },
+                    {
+                      "property": "SKU_NAME",
+                      "title": "SKU NAME"
+                    },
+                    {
+                      "property": "SKU_DESC",
+                      "title": "SKU DESC"
+                    },
+                    {
+                      "property": "SKU_BRAND",
+                      "title": "SKU BRAND"
+                    },
+                    {
+                      "property": "SKU_CAT",
+                      "title": "SKU CAT"
+                    },
+                    {
+                      "property": "SKU_TYPE",
+                      "title": "SKU TYPE"
+                    },
+                    {
+                      "property": "SKU_INDUSTRY",
+                      "title": "SKU INDUSTRY"
+                    },
+                    {
+                      "property": "SKU_GROUP",
+                      "title": "SKU GROUP"
+                    },
+                    {
+                      "property": "SKU_GROSS_WEIGHT",
+                      "title": "SKU GROSS WEIGHT"
+                    },
+                    {
+                      "property": "SKU_NET_WEIGHT",
+                      "title": "SKU NET WEIGHT"
+                    },
+                    {
+                      "property": "SKU_WEIGHT_UNIT",
+                      "title": "SKU WEIGHT UNIT"
+                    },
+                    {
+                      "property": "SKU_VOLUME",
+                      "title": "SKU VOLUME"
+                    },
+                    {
+                      "property": "SKU_VOLUME_UNIT",
+                      "title": "SKU VOLUME UNIT"
+                    },
+                    {
+                      "property": "GTIN_NO",
+                      "title": "GTIN NO"
+                    },
+                    {
+                      "property": "GTIN_CAT",
+                      "title": "GTIN CAT"
+                    },
+                    {
+                      "property": "SKU_LENGTH",
+                      "title": "SKU LENGTH"
+                    },
+                    {
+                      "property": "SKU_WIDTH",
+                      "title": "SKU WIDTH"
+                    },
+                    {
+                      "property": "SKU_HEIGHT",
+                      "title": "SKU HEIGHT"
+                    },
+                    {
+                      "property": "SKU_DIM_UNIT",
+                      "title": "SKU DIM UNIT"
+                    },
+                    {
+                      "property": "SKU_UNIT",
+                      "title": "SKU UNIT"
+                    },
+                    {
+                      "property": "SKU_BATCH",
+                      "title": "SKU BATCH"
+                    },
+                    {
+                      "property": "SKU_LOC_SIZE",
+                      "title": "SKU LOC SIZE"
+                    },
+                    {
+                      "property": "SKU_LOC_HOT",
+                      "title": "SKU LOC HOT"
+                    },
+                    {
+                      "property": "MIN_SHELF_LIFE",
+                      "title": "MIN SHELF LIFE"
+                    },
+                    {
+                      "property": "MAX_SHELF_LIFE",
+                      "title": "MAX SHELF LIFE"
+                    },
+                    {
+                      "property": "VALID_DATE_FROM",
+                      "title": "VALID DATE FROM"
+                    },
+                    {
+                      "property": "VALID_DATE_TO",
+                      "title": "VALID DATE TO"
+                    },
+                    {
+                      "property": "SKU_BLOCKED",
+                      "title": "SKU BLOCKED"
+                    },
+                    {
+                      "property": "SKU_SNO_IND",
+                      "title": "SKU SNO IND"
+                    },
+                    {
+                      "property": "OLD_SKU_NO",
+                      "title": "OLD SKU NO"
+                    },
+                    {
+                      "property": "STGE_CONDITION",
+                      "title": "STGE CONDITION"
+                    },
+                    {
+                      "property": "CAT_GROUP",
+                      "title": "CAT GROUP"
+                    },
+                    {
+                      "property": "TP_GROUP",
+                      "title": "TP GROUP"
+                    },
+                    {
+                      "property": "DIVISION",
+                      "title": "DIVISION"
+                    },
+                    {
+                      "property": "LABEL_TYPE",
+                      "title": "LABEL TYPE"
+                    },
+                    {
+                      "property": "LABEL_FORM",
+                      "title": "LABEL FORM"
+                    },
+                    {
+                      "property": "SOURCE_SUPPLY",
+                      "title": "SOURCE SUPPLY"
+                    },
+                    {
+                      "property": "SEASON",
+                      "title": "SEASON"
+                    },
+                    {
+                      "property": "PRODUCT_HIERACHY",
+                      "title": "PRODUCT HIERACHY"
+                    },
+                    {
+                      "property": "CAD_IND",
+                      "title": "CAD IND"
+                    },
+                    {
+                      "property": "XSITE_STS",
+                      "title": "XSITE STS"
+                    },
+                    {
+                      "property": "XDISTR_STS",
+                      "title": "XDISTR STS"
+                    },
+                    {
+                      "property": "XSITE_DATE",
+                      "title": "XSITE DATE"
+                    },
+                    {
+                      "property": "XDISTR_DATE",
+                      "title": "XDISTR DATE"
+                    },
+                    {
+                      "property": "TAX_CLASSIFICATION",
+                      "title": "TAX CLASSIFICATION"
+                    },
+                    {
+                      "property": "CONTENT_UNIT",
+                      "title": "CONTENT UNIT"
+                    },
+                    {
+                      "property": "NET_CONTENT",
+                      "title": "NET CONTENT"
+                    },
+                    {
+                      "property": "COMPARISON_PRICE",
+                      "title": "COMPARISON PRICE"
+                    },
+                    {
+                      "property": "GROSS_CONTENT",
+                      "title": "GROSS CONTENT"
+                    },
+                    {
+                      "property": "DANGEROUS_IND",
+                      "title": "DANGEROUS IND"
+                    },
+                    {
+                      "property": "BATCH_IND",
+                      "title": "BATCH IND"
+                    },
+                    {
+                      "property": "PERIOD_SLED",
+                      "title": "PERIOD SLED"
+                    },
+                    {
+                      "property": "ROUND_SLED",
+                      "title": "ROUND SLED"
+                    },
+                    {
+                      "property": "ASSOR_TYPE",
+                      "title": "ASSOR TYPE"
+                    },
+                    {
+                      "property": "WH_SKU_GROUP",
+                      "title": "WH SKU GROUP"
+                    },
+                    {
+                      "property": "COUNTRY",
+                      "title": "COUNTRY"
+                    },
+                    {
+                      "property": "LOAD_UNIT_GROUP",
+                      "title": "LOAD UNIT GROUP"
+                    },
+                    {
+                      "property": "FREE_CHAR",
+                      "title": "FREE CHAR"
+                    },
+                    {
+                      "property": "ZMATERIAL",
+                      "title": "ZMATERIAL"
+                    },
+                    {
+                      "property": "XPLANT_STS",
+                      "title": "XPLANT STS"
+                    },
+                    {
+                      "property": "SOURCE",
+                      "title": "SOURCE"
+                    },
+                    {
+                      "property": "APPROVE_IND",
+                      "title": "APPROVE IND"
+                    },
+                    {
+                      "property": "REMARK",
+                      "title": "REMARK"
+                    },
+                    {
+                      "property": "TRN_USER",
+                      "title": "TRN USER"
+                    },
+                    {
+                      "property": "TRN_DATE",
+                      "title": "TRN DATE"
+                    },
+                    {
+                      "property": "CRT_USER",
+                      "title": "CRT USER"
+                    },
+                    {
+                      "property": "CRT_DATE",
+                      "title": "CRT DATE"
+                    },
+                    {
+                      "property": "LOG_DATE",
+                      "title": "LOG DATE"
+                    },
+                    {
+                      "property": "LOG_USER",
+                      "title": "LOG USER"
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "RadzenDh5.Models.Mark10Sqlexpress04.SkuMstHi"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "MARK10_SQLEXPRESS04.getSkuMstHis",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getSkuMstHisResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.SkuMstHi>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Sku Mst His",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

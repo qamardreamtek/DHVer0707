@@ -1,0 +1,23 @@
+﻿{
+  "intItem1": 956,
+  "intItem2": 960,
+  "intItem3": 964,
+  "intItem4": 968,
+  "intItem5": 982,
+  "intItem6": 976,
+  "intItem7": 980,
+  "intItem8": 986,
+  "intItem9": 1002,
+  "intItem10": 1006,
+  "id": "P100",
+  "item1": "Retrieval empty pallets from AS/RS",
+  "item2": "Empty pallets can be stacked into the AS/RS storage. This operation can be performed when needed to generate empty pallets out of the AS/RS.",
+  "item3": "Warehouse operator",
+  "item4": "AS/RS has empty pallets storage .<br>",
+  "item5": "Specified storage bin location or number of empty pallets required",
+  "item6": "Empty pallet transfer out command",
+  "item7": "If the specified empty pallet storage bin location is not an empty pallet storage bin location, the system prompts that there is no empty pallet storage bin location information. The user can run the Data Inquire-> Q090 Location Usage Status Query job to query the storage bin location of the empty pallet; or do not specify an empty pallet storage bin location. Input pallet storage bin location quantity of empty pallets required",
+  "item8": "Enter the designated empty pallet storage bin location or the required number of empty pallets. Only one can be entered.",
+  "item9": "WCS executes empty pallet transfer out command",
+  "item10": "The empty pallets delivered from the AS/RS are then unbound and the binding relationship between the stack and the parent pallet is untied<br>"
+}

@@ -1,0 +1,47 @@
+﻿@page "/"
+@namespace RadzenDh5.Pages
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Radzen
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+        DOHOME WebWES
+    </title>
+    <base href="~/" />
+
+   
+
+    <link href="assets/css/styles.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <app>@(await Html.RenderComponentAsync<App>(RenderMode.Server))</app>
+
+    <script>
+        window.getIpAddress = () => {
+            return fetch('/api/info/ipaddress')
+                .then((response) => response.text())
+                .then((data) => {
+                    return data
+                })
+        }
+    </script>
+
+
+    <script src="_content/Radzen.Blazor/Radzen.Blazor.js"></script>
+    <script src="_framework/blazor.server.js"></script>
+    <script type="text/javascript">
+        window.getDimensions = function () {
+            return {
+                width: window.innerWidth,
+                height: window.innerHeight
+            };
+        };
+    </script>
+
+</body>
+</html>

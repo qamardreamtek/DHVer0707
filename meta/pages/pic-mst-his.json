@@ -1,0 +1,224 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Pic Mst His"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "events": {
+                    "click": [
+                      {
+                        "condition": "${event?.Value == \"csv\"}",
+                        "fileName": "Pic Mst His",
+                        "name": "MARK10_SQLEXPRESS04.getPicMstHis",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "WHSE_NO,PIC_NO,PIC_GROUP,PIC_TYPE,PLANT,STGE_LOC,COUNT_USER,SHELF,CREATEUSER,CREATEDATE,CREATETIME,PIC_STS,REMARK,SOURCE,APPROVE_IND,TRN_USER,TRN_DATE,CRT_USER,CRT_DATE,LOG_DATE,LOG_USER"
+                          }
+                        ],
+                        "type": "export"
+                      },
+                      {
+                        "condition": "${event == null || event.Value == \"xlsx\"}",
+                        "fileName": "Pic Mst His",
+                        "format": "xlsx",
+                        "name": "MARK10_SQLEXPRESS04.getPicMstHis",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "WHSE_NO,PIC_NO,PIC_GROUP,PIC_TYPE,PLANT,STGE_LOC,COUNT_USER,SHELF,CREATEUSER,CREATEDATE,CREATETIME,PIC_STS,REMARK,SOURCE,APPROVE_IND,TRN_USER,TRN_DATE,CRT_USER,CRT_DATE,LOG_DATE,LOG_USER"
+                          }
+                        ],
+                        "type": "export"
+                      }
+                    ]
+                  },
+                  "icon": "get_app",
+                  "items": [
+                    {
+                      "icon": "",
+                      "text": "Excel",
+                      "value": "xlsx"
+                    },
+                    {
+                      "icon": "",
+                      "text": "CSV",
+                      "value": "csv"
+                    }
+                  ],
+                  "name": "splitbutton0",
+                  "style": {
+                    "marginLeft": "0px",
+                    "marginBottom": "10px"
+                  },
+                  "text": "Export",
+                  "type": "splitbutton"
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "filterMode": "advanced",
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getPicMstHisResult}",
+                  "events": {
+                    "loadData": []
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "WHSE_NO",
+                      "title": "WHSE NO"
+                    },
+                    {
+                      "property": "PIC_NO",
+                      "title": "PIC NO"
+                    },
+                    {
+                      "property": "PIC_GROUP",
+                      "title": "PIC GROUP"
+                    },
+                    {
+                      "property": "PIC_TYPE",
+                      "title": "PIC TYPE"
+                    },
+                    {
+                      "property": "PLANT",
+                      "title": "PLANT"
+                    },
+                    {
+                      "property": "STGE_LOC",
+                      "title": "STGE LOC"
+                    },
+                    {
+                      "property": "COUNT_USER",
+                      "title": "COUNT USER"
+                    },
+                    {
+                      "property": "SHELF",
+                      "title": "SHELF"
+                    },
+                    {
+                      "property": "CREATEUSER",
+                      "title": "CREATEUSER"
+                    },
+                    {
+                      "property": "CREATEDATE",
+                      "title": "CREATEDATE"
+                    },
+                    {
+                      "property": "CREATETIME",
+                      "title": "CREATETIME"
+                    },
+                    {
+                      "property": "PIC_STS",
+                      "title": "PIC STS"
+                    },
+                    {
+                      "property": "REMARK",
+                      "title": "REMARK"
+                    },
+                    {
+                      "property": "SOURCE",
+                      "title": "SOURCE"
+                    },
+                    {
+                      "property": "APPROVE_IND",
+                      "title": "APPROVE IND"
+                    },
+                    {
+                      "property": "TRN_USER",
+                      "title": "TRN USER"
+                    },
+                    {
+                      "property": "TRN_DATE",
+                      "title": "TRN DATE"
+                    },
+                    {
+                      "property": "CRT_USER",
+                      "title": "CRT USER"
+                    },
+                    {
+                      "property": "CRT_DATE",
+                      "title": "CRT DATE"
+                    },
+                    {
+                      "property": "LOG_DATE",
+                      "title": "LOG DATE"
+                    },
+                    {
+                      "property": "LOG_USER",
+                      "title": "LOG USER"
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "RadzenDh5.Models.Mark10Sqlexpress04.PicMstHi"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "MARK10_SQLEXPRESS04.getPicMstHis",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getPicMstHisResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.PicMstHi>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Pic Mst His",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

@@ -1,0 +1,63 @@
+@using RadzenDh5.Models.Mark10Sqlexpress04
+<div class="row"   style=" margin-top: -4px;">
+    @*<div class="col-md-12"  style=" margin-top: -4px; visibility:hidden">
+        <span style=" margin-top: 0px; font-size: 125%; font-weight: bold; background-color: lightgray">
+
+            @PROG_ID @PROG_NAME_BY_CULTURE
+        </span>
+    </div>*@
+    <div class="col-md-12" style="
+                margin-left: 0px;
+                margin-top: 0px;
+                margin-bottom: 0px;
+                font-family: monospace;
+                font-size: 90%;
+              ">
+
+        @if (progMst != null)
+        {
+
+
+@if (IsShowAuth)
+{
+<span>
+    (@DhUser, @progMst.PROG_ID) =>
+    (QUERY=@progWrt.QUERY_WRT, PRINT=@progWrt.PRINT_WRT, IMPORT=@progWrt.IMPORT_WRT, EXPORT=@progWrt.EXPORT_WRT, UPDATE=@progWrt.UPDATE_WRT, DELETE=@progWrt.DELETE_WRT, APPROVE=@progWrt.APPROVE_WRT, ENABLE=@progWrt.ENABLE)
+</span>
+
+                    @if (AuthMsg != null && AuthMsg != "")
+                    {
+<span>
+    @AuthMsg
+</span>}}   }
+
+    </div>
+
+    @if (GoodMsg != null && GoodMsg != "")
+    {
+<div class="col-12 alert alert-info" role="alert" style="font-family:monospace;font-size: 95%;">
+    @GoodMsg
+</div>}
+    @if (ErrMsg != null && ErrMsg != "")
+    {
+<div class="col-12 alert alert-danger" role="alert" style="font-family:monospace;font-size: 95%;">
+    @ErrMsg
+</div>}
+</div>
+
+
+
+
+@code{ [Parameter] public bool IsShowAuth { get; set; }
+    [Parameter] public string DhUser { get; set; }
+    [Parameter] public string DhUsername { get; set; }
+    [Parameter] public string PROG_ID { get; set; }
+    [Parameter] public string PROG_NAME_BY_CULTURE { get; set; }
+    [Parameter] public string Culture { get; set; }
+    [Parameter] public ProgWrt progWrt { get; set; }
+    [Parameter] public ProgMst progMst { get; set; }
+
+
+    [Parameter] public string ErrMsg { get; set; }
+    [Parameter] public string GoodMsg { get; set; }
+    [Parameter] public string AuthMsg { get; set; } }

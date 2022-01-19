@@ -1,0 +1,109 @@
+﻿@*@page "/dochub"*@
+<h3>DocHub</h3>
+@using RadzenDh5.Shared
+
+<div class="row">
+    <div class="col-xl-9">
+        <RadzenTabs>
+            <Tabs>
+                <RadzenTabsItem Text="Q010">
+                    <pre>
+DataTable dtMST = new DataTable("SKU_MST");
+</pre>
+                    <DocComponent Id="Q010"></DocComponent>
+                </RadzenTabsItem>
+                <RadzenTabsItem Text="Q020">
+                    <pre>
+DataTable dtMST = new DataTable("GTIN_MST");
+</pre>
+                    <DocComponent Id="Q020"></DocComponent>
+                </RadzenTabsItem>
+                <RadzenTabsItem Text="Q030">
+                    <pre>
+                DataTable dtMST = new DataTable("SKU_SUT");
+                    </pre>
+                    <DocComponent Id="Q030"></DocComponent>
+                </RadzenTabsItem>
+
+
+                <RadzenTabsItem Text="Q040">
+                    <pre>
+                DataTable dtMST = new DataTable("IN_MST"); //TR主檔
+                DataTable dtDTL = new DataTable("IN_DTL"); //TR明細檔
+                DataTable dtSNO = new DataTable("IN_SNO"); //TR托盤序列號明細
+                    </pre>
+                    <DocComponent Id="Q040"></DocComponent>
+                </RadzenTabsItem>
+
+                <RadzenTabsItem Text="Q050">
+                    <pre>
+        DataTable dtMST = new DataTable("OUT_MST"); //交貨單主檔
+        DataTable dtDTL = new DataTable("OUT_DTL"); //交貨單明細檔
+        DataTable dtSNO = new DataTable("PCK_SNO"); //交貨單掃碼確認序列號明細
+
+                    </pre>
+
+
+                    <DocComponent Id="Q050"></DocComponent>
+                </RadzenTabsItem>
+                <RadzenTabsItem Text="Q060">
+                    <pre>
+
+        DataTable dtMST = new DataTable("PIC_MST"); //盤點主檔
+        DataTable dtDTL = new DataTable("PIC_DTL"); //盤點明細檔
+        DataTable dtSNO = new DataTable("PIC_SNO"); //盤點序列號檔
+                    </pre>
+
+
+                    <DocComponent Id="Q060"></DocComponent>
+                </RadzenTabsItem>
+                <RadzenTabsItem Text="Q070">
+                    <pre>
+        DataTable dtMST = new DataTable("CMD_MST"); //命令主檔
+        DataTable dtDTL = new DataTable("PLT_DTL"); //托盤明細(包含所有)
+
+                    </pre>
+
+
+                    <DocComponent Id="Q070"></DocComponent>
+                </RadzenTabsItem>
+                <RadzenTabsItem Text="Q080">
+                    <pre>
+        DataTable dtMST = new DataTable("LOC_DTL"); //庫存明細
+        DataTable dtDTL = new DataTable("PLT_DTL"); //托盤明細
+
+                    </pre>
+
+
+                    <DocComponent Id="Q080"></DocComponent>
+                </RadzenTabsItem>
+
+                <RadzenTabsItem Text="Q090">
+                    <pre>
+        DataTable dtMST = new DataTable("LOC_MST"); //儲位主檔
+        DataTable dtDTL = new DataTable("PLT_DTL"); //托盤明細
+
+                    </pre>
+
+
+                    <DocComponent Id="Q090"></DocComponent>
+                </RadzenTabsItem>
+                <RadzenTabsItem Text="Q100">
+                    <pre>
+               string sSQL = "select * from LOC_MST where EQU_NO in ('01','02','03','04') order by EQU_NO,ROW_X,LVL_Z,BAY_Y";
+
+
+                    </pre>
+
+
+                    <DocComponent Id="Q100"></DocComponent>
+                    <DocComponent Id="Q110"></DocComponent>
+                    <DocComponent Id="Q120"></DocComponent>
+                </RadzenTabsItem>
+
+
+            </Tabs>
+        </RadzenTabs>
+    </div>
+</div>
+

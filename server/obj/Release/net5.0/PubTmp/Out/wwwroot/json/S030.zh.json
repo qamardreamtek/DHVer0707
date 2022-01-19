@@ -1,0 +1,23 @@
+﻿{
+  "intItem1": 469,
+  "intItem2": 473,
+  "intItem3": 477,
+  "intItem4": 481,
+  "intItem5": 485,
+  "intItem6": 489,
+  "intItem7": 493,
+  "intItem8": 499,
+  "intItem9": 509,
+  "intItem10": 513,
+  "id": "S030",
+  "item1": "程序基本数据维护",
+  "item2": "管理立库程序的基本数据、是否启用",
+  "item3": "系统管理员",
+  "item4": "有管理权限的使用者",
+  "item5": "程序编码、程序名称",
+  "item6": "程序基本数据",
+  "item7": "如果无符合条件的程序数据，系统将提示查无此程序信息",
+  "item8": "    1. 输入查询条件或挑选程序编码后点选Query查询程序数据",
+  "item9": "执行S050 Program Authorization by Group或S060 Program Authorization by User确认程序的使用权限",
+  "item10": ""
+}

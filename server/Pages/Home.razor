@@ -1,0 +1,54 @@
+﻿
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+@using Microsoft.AspNetCore.Identity;
+@using RadzenDh5.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+@inject BlazorApp1.Data.PageService pageService;
+
+<RadzenContent Container="main">
+    <ChildContent>
+        <RadzenHeading Size="H3" Text="Home Page">
+        </RadzenHeading>
+
+        <div class="row">
+            <div class="col-xl-12">
+                <RadzenTabs>
+                    <Tabs>
+
+
+                        <RadzenTabsItem Text="第一批交付">
+                            <h3>
+                                Q 系列 010-090
+                            </h3>
+                            <ol>
+                                <li><a href="/Q010">Q010</a></li>
+                                <li><a href="/Q020">Q020</a></li>
+                                <li><a href="/Q030">Q030</a></li>
+                                <li><a href="/Q040">Q040</a></li>
+                                <li><a href="/Q050">Q050</a></li>
+                                <li><a href="/Q060">Q060</a></li>
+                                <li><a href="/Q070">Q070</a></li>
+                                <li><a href="/Q080">Q080</a></li>
+                                <li><a href="/Q090">Q090</a></li>
+                            </ol>
+                            <h3>
+                                檢查要點
+                            </h3>
+                            <ol>
+                                <li>以用戶 admin 登入</li>
+                                <li>這批次全部都是查詢</li>
+                                <li>著重在可查詢的功能是否涵蓋原功能</li>
+                                <li>已強調要求: 所有分頁在上</li>
+                      
+                            </ol>
+
+                        </RadzenTabsItem>
+                    </Tabs>
+                </RadzenTabs>
+            </div>
+        </div>
+    </ChildContent>
+</RadzenContent>

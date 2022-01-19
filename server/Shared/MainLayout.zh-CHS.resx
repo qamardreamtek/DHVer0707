@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="syncidentity.Text" xml:space="preserve">
+    <value>同步[用戶][群組][程式]到ASP.NET [Users][Roles]</value>
+  </data>
+  <data name="panelmenu0.profile.Text" xml:space="preserve">
+    <value>登出及修改密码</value>
+  </data>
+  <data name="panelmenu0..Text" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="panelmenu0.this.security.logout().Text" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="panelmenu0.logout.Text" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="panelmenu0.login.Text" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="panelmenu0.item9.Text" xml:space="preserve">
+    <value>Item 9</value>
+  </data>
+  <data name="application-users.Text" xml:space="preserve">
+    <value>Application Users</value>
+  </data>
+  <data name="applicationUsers.Text" xml:space="preserve">
+    <value>Application Users</value>
+  </data>
+  <data name="item0.Text" xml:space="preserve">
+    <value>Item 0</value>
+  </data>
+  <data name="panelmenu0.aspNetIdentity.Text" xml:space="preserve">
+    <value>ASP.NET Identity</value>
+  </data>
+  <data name="panelmenu0.item8.Text" xml:space="preserve">
+    <value>Item 8</value>
+  </data>
+  <data name="panelmenu0.c000PhysicalInventoryCount.Text" xml:space="preserve">
+    <value>C000 库存盘点</value>
+  </data>
+  <data name="C010.Text" xml:space="preserve">
+    <value>C010 库存盘点</value>
+  </data>
+  <data name="C030.Text" xml:space="preserve">
+    <value>C030 库存盘点记录</value>
+  </data>
+  <data name="C040.Text" xml:space="preserve">
+    <value>C040 库存盘点差异调整</value>
+  </data>
+  <data name="panelmenu0.m000DataMaintenance.Text" xml:space="preserve">
+    <value>M000 资料维护</value>
+  </data>
+  <data name="M070.Text" xml:space="preserve">
+    <value>M070 自动仓搬运命令维护</value>
+  </data>
+  <data name="M090.Text" xml:space="preserve">
+    <value>M090 自动仓储位状态维护</value>
+  </data>
+  <data name="panelmenu0.p000ProcessExecuting.Text" xml:space="preserve">
+    <value>P000 流程执行</value>
+  </data>
+  <data name="P020.Text" xml:space="preserve">
+    <value>P020 交货单的库存分配 (多个订单)</value>
+  </data>
+  <data name="P030.Text" xml:space="preserve">
+    <value>P030 交货单的库存分配 (一个订单项)</value>
+  </data>
+  <data name="P060.Text" xml:space="preserve">
+    <value>P060 转储出库</value>
+  </data>
+  <data name="P070.Text" xml:space="preserve">
+    <value>P070 托盘明细调整</value>
+  </data>
+  <data name="P080.Text" xml:space="preserve">
+    <value>P080 库存转移</value>
+  </data>
+  <data name="P090.Text" xml:space="preserve">
+    <value>P090 空托盘码垛</value>
+  </data>
+  <data name="P100.Text" xml:space="preserve">
+    <value>P100 空托盘出库</value>
+  </data>
+  <data name="panelmenu0.q000DataInquire.Text" xml:space="preserve">
+    <value>Q000 数据查询</value>
+  </data>
+  <data name="Q010.Text" xml:space="preserve">
+    <value>Q010 货物基本数据查询</value>
+  </data>
+  <data name="Q020.Text" xml:space="preserve">
+    <value>Q020 GTIN 单位包装基本数据查询</value>
+  </data>
+  <data name="Q030.Text" xml:space="preserve">
+    <value>Q030 货物储存单元类型基本数据查询</value>
+  </data>
+  <data name="Q040.Text" xml:space="preserve">
+    <value>Q040 转储需求单数据查询</value>
+  </data>
+  <data name="Q050.Text" xml:space="preserve">
+    <value>Q050 发货单数据查询</value>
+  </data>
+  <data name="Q060.Text" xml:space="preserve">
+    <value>Q060 盘点单数据查询</value>
+  </data>
+  <data name="Q070.Text" xml:space="preserve">
+    <value>Q070 自动仓搬运命令查询</value>
+  </data>
+  <data name="Q080.Text" xml:space="preserve">
+    <value>Q080 存货数据查询</value>
+  </data>
+  <data name="Q090.Text" xml:space="preserve">
+    <value>Q090 自动仓储位容积使用状态查询</value>
+  </data>
+  <data name="Q100.Text" xml:space="preserve">
+    <value>Q100 自动仓储位状态查询</value>
+  </data>
+  <data name="Q110.Text" xml:space="preserve">
+    <value>Q110 转储作业记录查询</value>
+  </data>
+  <data name="Q120.Text" xml:space="preserve">
+    <value>Q120 存货属性变更记录查询</value>
+  </data>
+  <data name="panelmenu0.r000Report.Text" xml:space="preserve">
+    <value>R000 报表</value>
+  </data>
+  <data name="R030.Text" xml:space="preserve">
+    <value>R030 入库日报表</value>
+  </data>
+  <data name="R040.Text" xml:space="preserve">
+    <value>R040 入库日报表</value>
+  </data>
+  <data name="R050.Text" xml:space="preserve">
+    <value>R050 入库日报表</value>
+  </data>
+  <data name="R060.Text" xml:space="preserve">
+    <value>R060 入库日报表</value>
+  </data>
+  <data name="R070.Text" xml:space="preserve">
+    <value>R070 入库日报表</value>
+  </data>
+  <data name="R080.Text" xml:space="preserve">
+    <value>R080 盘点差异报表</value>
+  </data>
+  <data name="panelmenu0.s000SystemSetting.Text" xml:space="preserve">
+    <value>S000 系统设定</value>
+  </data>
+  <data name="S010.Text" xml:space="preserve">
+    <value>S010 用户基本数据维护</value>
+  </data>
+  <data name="S020.Text" xml:space="preserve">
+    <value>S020 群组基本数据维护</value>
+  </data>
+  <data name="S030.Text" xml:space="preserve">
+    <value>S030 程序清单数据维护</value>
+  </data>
+  <data name="S040.Text" xml:space="preserve">
+    <value>S040 群组用户清单维护</value>
+  </data>
+  <data name="S050.Text" xml:space="preserve">
+    <value>S050 程序使用授权维护(依群组)</value>
+  </data>
+  <data name="S060.Text" xml:space="preserve">
+    <value>S060 程序使用授权维护(依用户)</value>
+  </data>
+  <data name="S070.Text" xml:space="preserve">
+    <value>S070 代码数据维护</value>
+  </data>
+  <data name="S080.Text" xml:space="preserve">
+    <value>S080 用户登入密码变更</value>
+  </data>
+  <data name="S090.Text" xml:space="preserve">
+    <value>S090 翻译字典维护</value>
+  </data>
+  <data name="profilemenu0.profile.Text" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="profilemenu0.users.Text" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="profilemenu0.roles.Text" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+  <data name="profilemenu0.logout.Text" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="panelmenu0.welcome.Text" xml:space="preserve">
+    <value>Welcome</value>
+  </data>
+  <data name="label0.Text" xml:space="preserve">
+    <value>RadzenDH5</value>
+  </data>
+  <data name="panelmenu0.prog-msts.Text" xml:space="preserve">
+    <value>Prog Msts</value>
+  </data>
+  <data name="panelmenu0.prog-wrts.Text" xml:space="preserve">
+    <value>Prog Wrts</value>
+  </data>
+  <data name="footerText.Text" xml:space="preserve">
+    <value>RadzenDH5, Copyright Ⓒ 2021</value>
+  </data>
+  <data name="C000" xml:space="preserve">
+    <value>C000 库存盘点</value>
+  </data>
+  <data name="C010" xml:space="preserve">
+    <value>C010 库存盘点</value>
+  </data>
+  <data name="C030" xml:space="preserve">
+    <value>C030 库存盘点记录</value>
+  </data>
+  <data name="C040" xml:space="preserve">
+    <value>C040 库存盘点差异调整</value>
+  </data>
+  <data name="M000" xml:space="preserve">
+    <value>M000 资料维护</value>
+  </data>
+  <data name="M070" xml:space="preserve">
+    <value>M070 自动仓搬运命令维护</value>
+  </data>
+  <data name="M090" xml:space="preserve">
+    <value>M090 自动仓储位状态维护</value>
+  </data>
+  <data name="P000" xml:space="preserve">
+    <value>P000 流程执行</value>
+  </data>
+  <data name="P020" xml:space="preserve">
+    <value>P020 交货单的库存分配 (多个订单)</value>
+  </data>
+  <data name="P030" xml:space="preserve">
+    <value>P030 交货单的库存分配 (一个订单项)</value>
+  </data>
+  <data name="P060" xml:space="preserve">
+    <value>P060 转储出库</value>
+  </data>
+  <data name="P070" xml:space="preserve">
+    <value>P070 托盘明细调整</value>
+  </data>
+  <data name="P080" xml:space="preserve">
+    <value>P080 库存转移</value>
+  </data>
+  <data name="P090" xml:space="preserve">
+    <value>P090 空托盘码垛</value>
+  </data>
+  <data name="P100" xml:space="preserve">
+    <value>P100 空托盘出库</value>
+  </data>
+  <data name="Q000" xml:space="preserve">
+    <value>Q000 数据查询</value>
+  </data>
+  <data name="Q010" xml:space="preserve">
+    <value>Q010 货物基本数据查询</value>
+  </data>
+  <data name="Q020" xml:space="preserve">
+    <value>Q020 GTIN 单位包装基本数据查询</value>
+  </data>
+  <data name="Q030" xml:space="preserve">
+    <value>Q030 货物储存单元类型基本数据查询</value>
+  </data>
+  <data name="Q040" xml:space="preserve">
+    <value>Q040 转储需求单数据查询</value>
+  </data>
+  <data name="Q050" xml:space="preserve">
+    <value>Q050 发货单数据查询</value>
+  </data>
+  <data name="Q060" xml:space="preserve">
+    <value>Q060 盘点单数据查询</value>
+  </data>
+  <data name="Q070" xml:space="preserve">
+    <value>Q070 自动仓搬运命令查询</value>
+  </data>
+  <data name="Q080" xml:space="preserve">
+    <value>Q080 存货数据查询</value>
+  </data>
+  <data name="Q090" xml:space="preserve">
+    <value>Q090 自动仓储位容积使用状态查询</value>
+  </data>
+  <data name="Q100" xml:space="preserve">
+    <value>Q100 自动仓储位状态查询</value>
+  </data>
+  <data name="Q110" xml:space="preserve">
+    <value>Q110 转储作业记录查询</value>
+  </data>
+  <data name="Q120" xml:space="preserve">
+    <value>Q120 存货属性变更记录查询</value>
+  </data>
+  <data name="R000" xml:space="preserve">
+    <value>R000 报表</value>
+  </data>
+  <data name="R030" xml:space="preserve">
+    <value>R030 入库日报表</value>
+  </data>
+  <data name="R040" xml:space="preserve">
+    <value>R040 入库日报表</value>
+  </data>
+  <data name="R050" xml:space="preserve">
+    <value>R050 入库日报表</value>
+  </data>
+  <data name="R060" xml:space="preserve">
+    <value>R060 入库日报表</value>
+  </data>
+  <data name="R070" xml:space="preserve">
+    <value>R070 入库日报表</value>
+  </data>
+  <data name="R080" xml:space="preserve">
+    <value>R080 盘点差异报表</value>
+  </data>
+  <data name="S000" xml:space="preserve">
+    <value>S000 系统设定</value>
+  </data>
+  <data name="S010" xml:space="preserve">
+    <value>S010 用户基本数据维护</value>
+  </data>
+  <data name="S020" xml:space="preserve">
+    <value>S020 群组基本数据维护</value>
+  </data>
+  <data name="S030" xml:space="preserve">
+    <value>S030 程序清单数据维护</value>
+  </data>
+  <data name="S040" xml:space="preserve">
+    <value>S040 群组用户清单维护</value>
+  </data>
+  <data name="S050" xml:space="preserve">
+    <value>S050 程序使用授权维护(依群组)</value>
+  </data>
+  <data name="S060" xml:space="preserve">
+    <value>S060 程序使用授权维护(依用户)</value>
+  </data>
+  <data name="S070" xml:space="preserve">
+    <value>S070 代码数据维护</value>
+  </data>
+  <data name="S080" xml:space="preserve">
+    <value>S080 用户登入密码变更</value>
+  </data>
+  <data name="S090" xml:space="preserve">
+    <value>S090 翻译字典维护</value>
+  </data>
+  <data name="Add Item1" xml:space="preserve">
+    <value>&gt;&gt; 加入</value>
+  </data>
+  <data name="Remove Item1" xml:space="preserve">
+    <value>移除 &lt;&lt;</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>创建</value>
+  </data>
+  <data name="Query" xml:space="preserve">
+    <value>查询</value>
+  </data>
+</root>

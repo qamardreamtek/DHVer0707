@@ -1,0 +1,123 @@
+﻿@layout MainLayout
+@inherits RadzenDh5.Pages.ViewPcSnoComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+@using Microsoft.AspNetCore.Identity;
+@using RadzenDh5.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+@inject Microsoft.Extensions.Localization.IStringLocalizer<EditPcSno> L
+<RadzenContent Container="main">
+  <ChildContent>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm TItem="RadzenDh5.Models.Mark10Sqlexpress04.PcSno" Data="@pcsno" Visible="@(pcsno != null)" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("WHSE_NO")  Component="WHSE_NO" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@(pcsno.WHSE_NO)" Name="WHSE_NO"> 
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="WHSE_NO" Text="@L["WHSE_NORequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("PC_NO")  Component="PC_NO" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="30" style="display: block; width: 100%" @bind-Value="@(pcsno.PC_NO)" Name="PC_NO"> 
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="PC_NO" Text="@L["PC_NORequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("PC_LINE")  Component="PC_LINE" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@(pcsno.PC_LINE)" Name="PC_LINE"> 
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="PC_LINE" Text="@L["PC_LINERequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("IN_SNO")  Component="IN_SNO" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+<RadzenTextBox  ReadOnly="true" MaxLength="50" style="display: block; width: 100%" @bind-Value="@(pcsno.IN_SNO)" Name="IN_SNO"> 
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="IN_SNO" Text="@L["IN_SNORequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("TRN_USER")  Component="TRN_USER" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(pcsno.TRN_USER)" ReadOnly="true" Name="TRN_USER">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="TRN_USER" Text="@L["TRN_USERRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("TRN_DATE")  Component="TRN_DATE" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="20" style="width: 100%" @bind-Value="@(pcsno.TRN_DATE)" ReadOnly="true" Name="TRN_DATE">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("CRT_USER")  Component="CRT_USER" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(pcsno.CRT_USER)" ReadOnly="true" Name="CRT_USER">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="CRT_USER" Text="@L["CRT_USERRequiredValidator.Text"]" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text=@Lang("CRT_DATE")  Component="CRT_DATE" style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="20" style="width: 100%" @bind-Value="@(pcsno.CRT_DATE)" ReadOnly="true" Name="CRT_DATE">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col offset-md-3">
+<RadzenButton Text="OK" Click="@Button2Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

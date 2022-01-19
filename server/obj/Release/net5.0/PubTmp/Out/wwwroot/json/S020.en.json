@@ -1,0 +1,23 @@
+﻿{
+  "intItem1": 419,
+  "intItem2": 423,
+  "intItem3": 427,
+  "intItem4": 431,
+  "intItem5": 435,
+  "intItem6": 439,
+  "intItem7": 443,
+  "intItem8": 448,
+  "intItem9": 458,
+  "intItem10": 462,
+  "id": "S020",
+  "item1": "Basic data maintenance for groups",
+  "item2": "Manage the basic data of the WES user group, the group owner, and whether to enable it",
+  "item3": "System administrator",
+  "item4": "Users with administrative rights<br>",
+  "item5": "Group ID, group name",
+  "item6": "Group basic data",
+  "item7": "If there is no eligible group data, the system will prompt to check that there is no available group information.<br>If the WES software needs to be terminated due to an abnormality caused by a network interruption, ask the network administrator to restore the network and restart WES",
+  "item8": "Enter query conditions or select group code and click Query to query group data",
+  "item9": "Execute S040 Group User Data Maintain to confirm user and group assignment",
+  "item10": ""
+}

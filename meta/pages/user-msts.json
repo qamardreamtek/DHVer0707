@@ -1,0 +1,301 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "User Msts"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "icon": "add_circle_outline",
+                  "name": "button0",
+                  "style": {
+                    "marginBottom": "10px"
+                  },
+                  "text": "Add",
+                  "type": "button",
+                  "events": {
+                    "click": [
+                      {
+                        "path": "add-user-mst",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await grid0.Reload();",
+                            "type": "execute"
+                          },
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "events": {
+                    "click": [
+                      {
+                        "condition": "${event?.Value == \"csv\"}",
+                        "fileName": "User Msts",
+                        "name": "MARK10_SQLEXPRESS04.getUserMsts",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "USER_ID,DEPT_NAME,USER_NAME,USER_PSWD,TELPHONE,MOBILE,EMAIL,LANGUAGE,ENABLE,REMARK,TRN_USER,TRN_DATE,CRT_USER,CRT_DATE,PSWD_DATE,LAST_DATE"
+                          }
+                        ],
+                        "type": "export"
+                      },
+                      {
+                        "condition": "${event == null || event.Value == \"xlsx\"}",
+                        "fileName": "User Msts",
+                        "format": "xlsx",
+                        "name": "MARK10_SQLEXPRESS04.getUserMsts",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "USER_ID,DEPT_NAME,USER_NAME,USER_PSWD,TELPHONE,MOBILE,EMAIL,LANGUAGE,ENABLE,REMARK,TRN_USER,TRN_DATE,CRT_USER,CRT_DATE,PSWD_DATE,LAST_DATE"
+                          }
+                        ],
+                        "type": "export"
+                      }
+                    ]
+                  },
+                  "icon": "get_app",
+                  "items": [
+                    {
+                      "icon": "",
+                      "text": "Excel",
+                      "value": "xlsx"
+                    },
+                    {
+                      "icon": "",
+                      "text": "CSV",
+                      "value": "csv"
+                    }
+                  ],
+                  "name": "splitbutton0",
+                  "style": {
+                    "marginLeft": "10px",
+                    "marginBottom": "10px"
+                  },
+                  "text": "Export",
+                  "type": "splitbutton"
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "filterMode": "advanced",
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getUserMstsResult}",
+                  "events": {
+                    "loadData": [],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "USER_ID",
+                            "value": "${event.USER_ID}"
+                          }
+                        ],
+                        "path": "edit-user-mst",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "USER_ID",
+                      "title": "USER ID"
+                    },
+                    {
+                      "property": "DEPT_NAME",
+                      "title": "DEPT NAME"
+                    },
+                    {
+                      "property": "USER_NAME",
+                      "title": "USER NAME"
+                    },
+                    {
+                      "property": "USER_PSWD",
+                      "title": "USER PSWD"
+                    },
+                    {
+                      "property": "TELPHONE",
+                      "title": "TELPHONE"
+                    },
+                    {
+                      "property": "MOBILE",
+                      "title": "MOBILE"
+                    },
+                    {
+                      "property": "EMAIL",
+                      "title": "EMAIL"
+                    },
+                    {
+                      "property": "LANGUAGE",
+                      "title": "LANGUAGE"
+                    },
+                    {
+                      "property": "ENABLE",
+                      "title": "ENABLE"
+                    },
+                    {
+                      "property": "REMARK",
+                      "title": "REMARK"
+                    },
+                    {
+                      "property": "TRN_USER",
+                      "title": "TRN USER"
+                    },
+                    {
+                      "property": "TRN_DATE",
+                      "title": "TRN DATE"
+                    },
+                    {
+                      "property": "CRT_USER",
+                      "title": "CRT USER"
+                    },
+                    {
+                      "property": "CRT_DATE",
+                      "title": "CRT DATE"
+                    },
+                    {
+                      "property": "PSWD_DATE",
+                      "title": "PSWD DATE"
+                    },
+                    {
+                      "property": "LAST_DATE",
+                      "title": "LAST DATE"
+                    },
+                    {
+                      "filterable": false,
+                      "sortable": false,
+                      "width": "70px",
+                      "textAlign": "center",
+                      "template": [
+                        {
+                          "attributes": [
+                            {
+                              "name": "@onclick:stopPropagation",
+                              "value": true
+                            }
+                          ],
+                          "buttonStyle": "danger",
+                          "icon": "close",
+                          "name": "gridDeleteButton",
+                          "text": "",
+                          "size": "sm",
+                          "type": "button",
+                          "events": {
+                            "click": [
+                              {
+                                "condition": "await DialogService.Confirm(\"Are you sure you want to delete this record?\") == true",
+                                "error": [
+                                  {
+                                    "detail": "Unable to delete UserMst",
+                                    "severity": "error",
+                                    "summary": "Error",
+                                    "type": "notify"
+                                  }
+                                ],
+                                "name": "MARK10_SQLEXPRESS04.deleteUserMst",
+                                "parameters": [
+                                  {
+                                    "name": "USER_ID",
+                                    "value": "${data.USER_ID}"
+                                  }
+                                ],
+                                "then": [
+                                  {
+                                    "code": "await grid0.Reload();",
+                                    "condition": "result != null",
+                                    "type": "execute"
+                                  }
+                                ],
+                                "type": "invoke"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "RadzenDh5.Models.Mark10Sqlexpress04.UserMst"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "MARK10_SQLEXPRESS04.getUserMsts",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getUserMstsResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.UserMst>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "User Msts",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

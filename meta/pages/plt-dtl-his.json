@@ -1,0 +1,240 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Plt Dtl His"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "events": {
+                    "click": [
+                      {
+                        "condition": "${event?.Value == \"csv\"}",
+                        "fileName": "Plt Dtl His",
+                        "name": "MARK10_SQLEXPRESS04.getPltDtlHis",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "SU_ID,SU_TYPE,IN_SNO,WHSE_NO,IN_NO,IN_LINE,GR_DATE,EXPIRE_DATE,DATE_CODE,SKU_NO,PLANT,STGE_LOC,BATCH_NO,STK_CAT,STK_SPECIAL_IND,STK_SPECIAL_NO,GTIN_UNIT,GTIN_QTY,SKU_UNIT,SKU_QTY,COUNT_DATE,GTIN_ALO_QTY,SKU_ALO_QTY,LOG_DATE,LOG_USER"
+                          }
+                        ],
+                        "type": "export"
+                      },
+                      {
+                        "condition": "${event == null || event.Value == \"xlsx\"}",
+                        "fileName": "Plt Dtl His",
+                        "format": "xlsx",
+                        "name": "MARK10_SQLEXPRESS04.getPltDtlHis",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "SU_ID,SU_TYPE,IN_SNO,WHSE_NO,IN_NO,IN_LINE,GR_DATE,EXPIRE_DATE,DATE_CODE,SKU_NO,PLANT,STGE_LOC,BATCH_NO,STK_CAT,STK_SPECIAL_IND,STK_SPECIAL_NO,GTIN_UNIT,GTIN_QTY,SKU_UNIT,SKU_QTY,COUNT_DATE,GTIN_ALO_QTY,SKU_ALO_QTY,LOG_DATE,LOG_USER"
+                          }
+                        ],
+                        "type": "export"
+                      }
+                    ]
+                  },
+                  "icon": "get_app",
+                  "items": [
+                    {
+                      "icon": "",
+                      "text": "Excel",
+                      "value": "xlsx"
+                    },
+                    {
+                      "icon": "",
+                      "text": "CSV",
+                      "value": "csv"
+                    }
+                  ],
+                  "name": "splitbutton0",
+                  "style": {
+                    "marginLeft": "0px",
+                    "marginBottom": "10px"
+                  },
+                  "text": "Export",
+                  "type": "splitbutton"
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "filterMode": "advanced",
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getPltDtlHisResult}",
+                  "events": {
+                    "loadData": []
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "SU_ID",
+                      "title": "SU ID"
+                    },
+                    {
+                      "property": "SU_TYPE",
+                      "title": "SU TYPE"
+                    },
+                    {
+                      "property": "IN_SNO",
+                      "title": "IN SNO"
+                    },
+                    {
+                      "property": "WHSE_NO",
+                      "title": "WHSE NO"
+                    },
+                    {
+                      "property": "IN_NO",
+                      "title": "IN NO"
+                    },
+                    {
+                      "property": "IN_LINE",
+                      "title": "IN LINE"
+                    },
+                    {
+                      "property": "GR_DATE",
+                      "title": "GR DATE"
+                    },
+                    {
+                      "property": "EXPIRE_DATE",
+                      "title": "EXPIRE DATE"
+                    },
+                    {
+                      "property": "DATE_CODE",
+                      "title": "DATE CODE"
+                    },
+                    {
+                      "property": "SKU_NO",
+                      "title": "SKU NO"
+                    },
+                    {
+                      "property": "PLANT",
+                      "title": "PLANT"
+                    },
+                    {
+                      "property": "STGE_LOC",
+                      "title": "STGE LOC"
+                    },
+                    {
+                      "property": "BATCH_NO",
+                      "title": "BATCH NO"
+                    },
+                    {
+                      "property": "STK_CAT",
+                      "title": "STK CAT"
+                    },
+                    {
+                      "property": "STK_SPECIAL_IND",
+                      "title": "STK SPECIAL IND"
+                    },
+                    {
+                      "property": "STK_SPECIAL_NO",
+                      "title": "STK SPECIAL NO"
+                    },
+                    {
+                      "property": "GTIN_UNIT",
+                      "title": "GTIN UNIT"
+                    },
+                    {
+                      "property": "GTIN_QTY",
+                      "title": "GTIN QTY"
+                    },
+                    {
+                      "property": "SKU_UNIT",
+                      "title": "SKU UNIT"
+                    },
+                    {
+                      "property": "SKU_QTY",
+                      "title": "SKU QTY"
+                    },
+                    {
+                      "property": "COUNT_DATE",
+                      "title": "COUNT DATE"
+                    },
+                    {
+                      "property": "GTIN_ALO_QTY",
+                      "title": "GTIN ALO QTY"
+                    },
+                    {
+                      "property": "SKU_ALO_QTY",
+                      "title": "SKU ALO QTY"
+                    },
+                    {
+                      "property": "LOG_DATE",
+                      "title": "LOG DATE"
+                    },
+                    {
+                      "property": "LOG_USER",
+                      "title": "LOG USER"
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "RadzenDh5.Models.Mark10Sqlexpress04.PltDtlHi"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "MARK10_SQLEXPRESS04.getPltDtlHis",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getPltDtlHisResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.PltDtlHi>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Plt Dtl His",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

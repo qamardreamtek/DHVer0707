@@ -1,0 +1,27 @@
+﻿@page "/"
+
+<h1>Hello, world!</h1>
+<p>
+    <input @bind="input1" @oninput="OnInput" />
+</p>
+<p>
+    <code>input1</code>: @input1
+</p>
+
+
+<p>
+    <input @bind="inputValue" />
+</p>
+
+<p>
+    <code>inputValue</code>: @inputValue
+</p>
+
+@code {
+    private int inputValue = 123;
+
+    private string input1;
+
+    
+
+}

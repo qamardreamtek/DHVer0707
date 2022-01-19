@@ -1,0 +1,212 @@
+﻿@page "/add-group-dtl"
+@layout MainLayout
+@inherits RadzenDh5.Pages.AddGroupDtlComponent
+
+@inject RadzenDh5.Data.Mark10Sqlexpress04Context AppDb
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+@using Microsoft.AspNetCore.Identity;
+@using RadzenDh5.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+@inject Microsoft.Extensions.Localization.IStringLocalizer<AddGroupDtl> L
+<RadzenContent Container="main">
+    <ChildContent>
+        <div class="row">
+            <div class="col-md-12">
+                <RadzenTemplateForm Data="@groupdtl" Visible="@(groupdtl != null)" TItem="RadzenDh5.Models.Mark10Sqlexpress04.GroupDtl" Submit="@Form0Submit">
+                    <ChildContent>
+                        <div style="margin-bottom: 1rem" class="row">
+                            <div class="col-md-3">
+                                <RadzenLabel Text="@L["GROUP_ID"]" Component="GROUP_ID" style="width: 100%">
+                                </RadzenLabel>
+                            </div>
+                            <div class="col-md-9">
+
+
+                                <RadzenDropDown AllowClear="true" TValue="string" @bind-Value="@(groupdtl.GROUP_ID)" Name="GROUP_ID"
+                                                Data=@( AppDb.GroupMsts.Select(c => new { GroupID = c.GROUP_ID, CompanyName = c.GROUP_ID }))
+                                                TextProperty="CompanyName" ValueProperty="GroupID" />
+
+
+
+                                <RadzenRequiredValidator Component="GROUP_ID" Text="@L["GROUP_IDRequiredValidator.Text"]" style="position: absolute">
+                                </RadzenRequiredValidator>
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 1rem" class="row">
+                            <div class="col-md-3">
+                                <RadzenLabel Text="@L["USER_ID"]" Component="USER_ID" style="width: 100%">
+                                </RadzenLabel>
+                            </div>
+                            <div class="col-md-9">
+
+
+                                <RadzenDropDown AllowClear="true" TValue="string" @bind-Value="@(groupdtl.USER_ID)" Name="USER_ID"
+                                                Data=@( AppDb.UserMsts.Select(c => new { CustomerID = c.USER_ID, CompanyName = c.USER_ID }))
+                                                TextProperty="CompanyName" ValueProperty="CustomerID" />
+
+
+
+                                <RadzenRequiredValidator Component="USER_ID" Text="@L["USER_IDRequiredValidator.Text"]" style="position: absolute">
+                                </RadzenRequiredValidator>
+                            </div>
+                        </div>
+
+
+
+                        @*
+                            <div style="margin-bottom: 1rem" class="row">
+                                <div class="col-md-3">
+                                    <RadzenLabel Text="@L["GROUP_ID"]" Component="GROUP_ID" style="width: 100%">
+                                    </RadzenLabel>
+                                </div>
+                                <div class="col-md-9">
+                                    <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(groupdtl.GROUP_ID)" Name="GROUP_ID">
+                                    </RadzenTextBox>
+                                    <RadzenRequiredValidator Component="GROUP_ID" Text="@L["GROUP_IDRequiredValidator.Text"]" style="position: absolute">
+                                    </RadzenRequiredValidator>
+                                </div>
+                            </div>
+                            <div style="margin-bottom: 1rem" class="row">
+                                <div class="col-md-3">
+                                    <RadzenLabel Text="@L["USER_ID"]" Component="USER_ID" style="width: 100%">
+                                    </RadzenLabel>
+                                </div>
+                                <div class="col-md-9">
+
+
+                                    <RadzenDropDown AllowClear="true" TValue="string" @bind-Value="@(groupdtl.USER_ID)" Name="USER_ID"
+                                                    Data=@( AppDb.UserMsts.Select(c => new { CustomerID = c.USER_ID, CompanyName = c.USER_ID }))
+                                                    TextProperty="CompanyName" ValueProperty="CustomerID" />
+
+
+
+                                    <RadzenRequiredValidator Component="USER_ID" Text="@L["USER_IDRequiredValidator.Text"]" style="position: absolute">
+                                    </RadzenRequiredValidator>
+                                </div>
+                            </div>*@
+
+                        @*
+                            <div style="margin-bottom: 1rem" class="row">
+                              <div class="col-md-3">
+                                <RadzenLabel Text="@L["USER_ID"]" Component="USER_ID" style="width: 100%">
+                                </RadzenLabel>
+                              </div>
+                              <div class="col-md-9">
+                                <RadzenTextBox MaxLength="20" style="display: block; width: 100%" @bind-Value="@(groupdtl.USER_ID)" Name="USER_ID">
+                                </RadzenTextBox>
+                                <RadzenRequiredValidator Component="USER_ID" Text="@L["USER_IDRequiredValidator.Text"]" style="position: absolute">
+                                </RadzenRequiredValidator>
+                              </div>
+                            </div>
+                            <div style="margin-bottom: 1rem" class="row">
+                              <div class="col-md-3">
+                                <RadzenLabel Text="@L["USER_NAME"]" Component="USER_NAME" style="width: 100%">
+                                </RadzenLabel>
+                              </div>
+                              <div class="col-md-9">
+                                <RadzenTextBox MaxLength="50" style="width: 100%" @bind-Value="@(groupdtl.USER_NAME)" Name="USER_NAME">
+                                </RadzenTextBox>
+                              </div>
+                            </div>
+                            <div style="margin-bottom: 1rem" class="row">
+                              <div class="col-md-3">
+                                <RadzenLabel Text="@L["DEPT_NAME"]" Component="DEPT_NAME" style="width: 100%">
+                                </RadzenLabel>
+                              </div>
+                              <div class="col-md-9">
+                                <RadzenTextBox MaxLength="50" style="width: 100%" @bind-Value="@(groupdtl.DEPT_NAME)" Name="DEPT_NAME">
+                                </RadzenTextBox>
+                              </div>
+                            </div>
+                            <div style="margin-bottom: 1rem" class="row">
+                              <div class="col-md-3">
+                                <RadzenLabel Text="@L["ENABLE"]" Component="ENABLE" style="width: 100%">
+                                </RadzenLabel>
+                              </div>
+                              <div class="col-md-9">
+                                <RadzenTextBox MaxLength="1" style="width: 100%" @bind-Value="@(groupdtl.ENABLE)" Name="ENABLE">
+                                </RadzenTextBox>
+                              </div>
+                            </div>
+                            <div style="margin-bottom: 1rem" class="row">
+                              <div class="col-md-3">
+                                <RadzenLabel Text="@L["REMARK"]" Component="REMARK" style="width: 100%">
+                                </RadzenLabel>
+                              </div>
+                              <div class="col-md-9">
+                                <RadzenTextBox style="width: 100%" @bind-Value="@(groupdtl.REMARK)" Name="REMARK">
+                                </RadzenTextBox>
+                              </div>
+                            </div>
+                            <div style="margin-bottom: 1rem" class="row">
+                              <div class="col-md-3">
+                                <RadzenLabel Text="@L["TRN_USER"]" Component="TRN_USER" style="width: 100%">
+                                </RadzenLabel>
+                              </div>
+                              <div class="col-md-9">
+                                <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(groupdtl.TRN_USER)" ReadOnly="true" Name="TRN_USER">
+                                </RadzenTextBox>
+                                <RadzenRequiredValidator Component="TRN_USER" Text="@L["TRN_USERRequiredValidator.Text"]" style="position: absolute">
+                                </RadzenRequiredValidator>
+                              </div>
+                            </div>
+                            <div style="margin-bottom: 1rem" class="row">
+                              <div class="col-md-3">
+                                <RadzenLabel Text="@L["TRN_DATE"]" Component="TRN_DATE" style="width: 100%">
+                                </RadzenLabel>
+                              </div>
+                              <div class="col-md-9">
+                                <RadzenTextBox MaxLength="20" style="width: 100%" @bind-Value="@(groupdtl.TRN_DATE)" ReadOnly="true" Name="TRN_DATE">
+                                </RadzenTextBox>
+                              </div>
+                            </div>
+                            <div style="margin-bottom: 1rem" class="row">
+                              <div class="col-md-3">
+                                <RadzenLabel Text="@L["CRT_USER"]" Component="CRT_USER" style="width: 100%">
+                                </RadzenLabel>
+                              </div>
+                              <div class="col-md-9">
+                                <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(groupdtl.CRT_USER)" ReadOnly="true" Name="CRT_USER">
+                                </RadzenTextBox>
+                                <RadzenRequiredValidator Component="CRT_USER" Text="@L["CRT_USERRequiredValidator.Text"]" style="position: absolute">
+                                </RadzenRequiredValidator>
+                              </div>
+                            </div>
+                            <div style="margin-bottom: 1rem" class="row">
+                              <div class="col-md-3">
+                                <RadzenLabel Text="@L["CRT_DATE"]" Component="CRT_DATE" style="width: 100%">
+                                </RadzenLabel>
+                              </div>
+                              <div class="col-md-9">
+                                <RadzenTextBox MaxLength="20" style="width: 100%" @bind-Value="@(groupdtl.CRT_DATE)" ReadOnly="true" Name="CRT_DATE">
+                                </RadzenTextBox>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col offset-sm-3">
+                                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="@L["Save"]" ButtonStyle="ButtonStyle.Primary">
+                                </RadzenButton>
+                                <RadzenButton ButtonStyle="ButtonStyle.Light" style="margin-left: 1rem" Text="@L["Cancel"]" Click="@Button2Click">
+                                </RadzenButton>
+                              </div>
+                            </div>*@
+                        <div class="row">
+                            <div class="col offset-sm-3">
+                                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="@L["Save"]" ButtonStyle="ButtonStyle.Primary">
+                                </RadzenButton>
+                                <RadzenButton ButtonStyle="ButtonStyle.Light" style="margin-left: 1rem" Text="@L["Cancel"]" Click="@Button2Click">
+                                </RadzenButton>
+                            </div>
+                        </div>
+                    </ChildContent>
+                </RadzenTemplateForm>
+            </div>
+        </div>
+
+    </ChildContent>
+</RadzenContent>

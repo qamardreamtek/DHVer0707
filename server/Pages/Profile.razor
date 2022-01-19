@@ -1,0 +1,82 @@
+﻿@page "/profile"
+@layout MainLayout
+@inherits RadzenDh5.Pages.ProfileComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+@using Microsoft.AspNetCore.Identity;
+@using RadzenDh5.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+@inject Microsoft.Extensions.Localization.IStringLocalizer<Profile> L
+<RadzenContent Container="main">
+    <ChildContent>
+        <RadzenHeading Size="H3" Text="@L["Logout"]">
+        </RadzenHeading>
+        <div class="row">
+            <div class="col-md-12">
+                <RadzenTemplateForm Action="account/changepassword" Data="@(user)" TItem="ApplicationUser" Method="post" Visible="@(user != null)">
+                    <ChildContent>
+                        @*<div style="margin-bottom: 1rem" class="row">
+                            <div class="col-md-3">
+                                <RadzenLabel Component="OldPassword" style="width: 100%" Text="@L["OldPassword"]">
+                                </RadzenLabel>
+                            </div>
+                            <div class="col-md-9">
+                                <RadzenPassword style="display: block; width: 100%" Name="OldPassword">
+                                </RadzenPassword>
+                                <RadzenRequiredValidator Component="OldPassword" style="position: absolute" Text="@L["OldPasswordRequiredValidator.Text"]">
+                                </RadzenRequiredValidator>
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 1rem" class="row">
+                            <div class="col-md-3">
+                                <RadzenLabel Component="NewPassword" style="width: 100%" Text="@L["NewPassword"]">
+                                </RadzenLabel>
+                            </div>
+                            <div class="col-md-9">
+                                <RadzenPassword style="display: block; width: 100%" Name="NewPassword">
+                                </RadzenPassword>
+                                <RadzenRequiredValidator Component="NewPassword" style="position: absolute" Text="@L["NewPasswordRequiredValidator.Text"]">
+                                </RadzenRequiredValidator>
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 1rem" class="row">
+                            <div class="col-md-3">
+                                <RadzenLabel Component="ConfirmPassword" style="width: 100%" Text="@L["ConfirmPassword"]">
+                                </RadzenLabel>
+                            </div>
+                            <div class="col-md-9">
+                                <RadzenPassword style="display: block; width: 100%" Name="ConfirmPassword">
+                                </RadzenPassword>
+                                <RadzenRequiredValidator Component="ConfirmPassword" style="position: absolute" Text="@L["ConfirmPasswordRequiredValidator.Text"]">
+                                </RadzenRequiredValidator>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col offset-sm-3">
+                                <RadzenButton ButtonStyle="ButtonStyle.Primary" ButtonType="ButtonType.Submit" Icon="save" Text="@L["Save"]">
+                                </RadzenButton>
+                                <RadzenButton ButtonStyle="ButtonStyle.Light" Text="@L["Cancel"]" Click="@Button2Click">
+                                </RadzenButton>
+                            </div>
+                        </div>*@
+                        <div class="row">
+                            <div class="col offset-sm-0">
+                                <RadzenButton Icon="exit_to_app" Text="@L["Logout"]" Click="@Button0Click">
+                                </RadzenButton>
+                                <RadzenTextBox AutoComplete="false" ReadOnly="true" @bind-Value="@(Security.User.Name)" Name="Textbox0">
+                                </RadzenTextBox>
+                            </div>
+                        </div>
+</ChildContent>
+                </RadzenTemplateForm>
+            </div>
+        </div>
+    
+    </ChildContent>
+</RadzenContent>

@@ -1,0 +1,23 @@
+﻿{
+  "intItem1": 1081,
+  "intItem2": 1085,
+  "intItem3": 1089,
+  "intItem4": 1093,
+  "intItem5": 1097,
+  "intItem6": 1101,
+  "intItem7": 1105,
+  "intItem8": 1111,
+  "intItem9": 1121,
+  "intItem10": 1125,
+  "id": "C010",
+  "item1": "作业目的",
+  "item2": "说明",
+  "item3": "角色",
+  "item4": "前置条件",
+  "item5": "输入",
+  "item6": "输出",
+  "item7": "异常处里",
+  "item8": "操作步骤",
+  "item9": "后置条件",
+  "item10": "备注"
+}

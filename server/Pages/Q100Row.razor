@@ -1,0 +1,53 @@
+﻿
+@page "/Q100A"
+
+@using System.Linq;
+@using Microsoft.Data.SqlClient;
+@using Microsoft.EntityFrameworkCore;
+
+
+@inject RadzenDh5.Data.Mark10Sqlexpress04Context AppDb
+<table class="gridtable">
+
+
+
+    @for (int i = 12; i >= 1; i--)
+    {
+    <tr>
+        <th>@i</th>
+        @foreach (var x in getRowLvl(ROW_NUM, i))
+        {
+            <td>@x.LOC_STS</td>
+        }
+    </tr>
+    }
+
+</table>
+
+
+
+
+
+
+
+@code {
+    [Parameter]
+    public int ROW_NUM { get; set; }
+
+    public IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.LocMst> getLocMstsResult;
+
+
+    protected override void OnInitialized()
+    {
+
+    }
+
+    IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.LocMst> getRowLvl(int row, int lvl)
+    {
+        decimal decRow = Convert.ToDecimal(row);
+        decimal decLvl = Convert.ToDecimal(lvl);
+
+         var result = AppDb.LocMsts.Where(x => x.ROW_X == decRow && x.LVL_Z == decLvl).Take(100).ToList();
+         return result;
+    }
+}

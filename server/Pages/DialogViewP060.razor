@@ -1,0 +1,520 @@
+﻿@*@page "/dialogbasic/{OrderID}"*@
+
+@inject Radzen.DialogService dialogService
+
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h1" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v1">
+                </RadzenTextBox>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h2" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v2">
+                </RadzenTextBox>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h3" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v3">
+                </RadzenTextBox>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h4" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v4">
+                </RadzenTextBox>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h5" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v5">
+                </RadzenTextBox>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h6" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v6">
+                </RadzenTextBox>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h7" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v7">
+                </RadzenTextBox>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h8" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v8">
+                </RadzenTextBox>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h9" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v9">
+                </RadzenTextBox>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h10" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v10">
+                </RadzenTextBox>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h11" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v11">
+                </RadzenTextBox>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h12" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v12">
+                </RadzenTextBox>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h13" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v13">
+                </RadzenTextBox>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h14" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v14">
+                </RadzenTextBox>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h15" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v15">
+                </RadzenTextBox>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h16" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v16">
+                </RadzenTextBox>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h17" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v17">
+                </RadzenTextBox>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h18" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v18">
+                </RadzenTextBox>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h19" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v19">
+                </RadzenTextBox>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h20" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v20">
+                </RadzenTextBox>
+            </div>
+        </div>
+
+
+
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h21" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v21">
+                </RadzenTextBox>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h22" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v22">
+                </RadzenTextBox>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h23" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v23">
+                </RadzenTextBox>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h24" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v24">
+                </RadzenTextBox>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h25" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v25">
+                </RadzenTextBox>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h26" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v26">
+                </RadzenTextBox>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h27" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v27">
+                </RadzenTextBox>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h28" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v28">
+                </RadzenTextBox>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h29" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v29">
+                </RadzenTextBox>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h30" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v30">
+                </RadzenTextBox>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h31" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v31">
+                </RadzenTextBox>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h32" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v32">
+                </RadzenTextBox>
+            </div>
+        </div>
+
+
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h33" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v33">
+                </RadzenTextBox>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h34" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v34">
+                </RadzenTextBox>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h35" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v35">
+                </RadzenTextBox>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h36" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v36">
+                </RadzenTextBox>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h37" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v37">
+                </RadzenTextBox>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h38" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v38">
+                </RadzenTextBox>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h39" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v39">
+                </RadzenTextBox>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3">
+                <RadzenLabel Text="@h40" style="width: 100%">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@v40">
+                </RadzenTextBox>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col offset-md-3">
+        <RadzenButton Click="@Button2Click" Text="OK" Style="" />
+
+    </div>
+</div>
+
+
+
+
+@code { //
+    protected async System.Threading.Tasks.Task Button2Click(MouseEventArgs args)
+    {
+        dialogService.Close(null);
+    }
+    //      Message2
+    //[Parameter] public string Message2 { get; set; }
+    [Parameter] public string h1 { get; set; }
+    [Parameter] public string v1 { get; set; }
+    [Parameter] public string h2 { get; set; }
+    [Parameter] public string v2 { get; set; }
+    [Parameter] public string h3 { get; set; }
+    [Parameter] public string v3 { get; set; }
+    [Parameter] public string h4 { get; set; }
+    [Parameter] public string v4 { get; set; }
+    [Parameter] public string h5 { get; set; }
+    [Parameter] public string v5 { get; set; }
+    [Parameter] public string h6 { get; set; }
+    [Parameter] public string v6 { get; set; }
+    [Parameter] public string h7 { get; set; }
+    [Parameter] public string v7 { get; set; }
+    [Parameter] public string h8 { get; set; }
+    [Parameter] public string v8 { get; set; }
+    [Parameter] public string h9 { get; set; }
+    [Parameter] public string v9 { get; set; }
+    [Parameter] public string h10 { get; set; }
+    [Parameter] public string v10 { get; set; }
+    [Parameter] public string h11 { get; set; }
+    [Parameter] public string v11 { get; set; }
+    [Parameter] public string h12 { get; set; }
+    [Parameter] public string v12 { get; set; }
+    [Parameter] public string h13 { get; set; }
+    [Parameter] public string v13 { get; set; }
+    [Parameter] public string h14 { get; set; }
+    [Parameter] public string v14 { get; set; }
+    [Parameter] public string h15 { get; set; }
+    [Parameter] public string v15 { get; set; }
+    [Parameter] public string h16 { get; set; }
+    [Parameter] public string v16 { get; set; }
+    [Parameter] public string h17 { get; set; }
+    [Parameter] public string v17 { get; set; }
+    [Parameter] public string h18 { get; set; }
+    [Parameter] public string v18 { get; set; }
+    [Parameter] public string h19 { get; set; }
+    [Parameter] public string v19 { get; set; }
+    [Parameter] public string h20 { get; set; }
+    [Parameter] public string v20 { get; set; }
+
+
+    [Parameter] public string h21 { get; set; }
+    [Parameter] public string v21 { get; set; }
+    [Parameter] public string h22 { get; set; }
+    [Parameter] public string v22 { get; set; }
+    [Parameter] public string h23 { get; set; }
+    [Parameter] public string v23 { get; set; }
+    [Parameter] public string h24 { get; set; }
+    [Parameter] public string v24 { get; set; }
+    [Parameter] public string h25 { get; set; }
+    [Parameter] public string v25 { get; set; }
+    [Parameter] public string h26 { get; set; }
+    [Parameter] public string v26 { get; set; }
+    [Parameter] public string h27 { get; set; }
+    [Parameter] public string v27 { get; set; }
+    [Parameter] public string h28 { get; set; }
+    [Parameter] public string v28 { get; set; }
+    [Parameter] public string h29 { get; set; }
+    [Parameter] public string v29 { get; set; }
+    [Parameter] public string h30 { get; set; }
+    [Parameter] public string v30 { get; set; }
+    [Parameter] public string h31 { get; set; }
+    [Parameter] public string v31 { get; set; }
+    [Parameter] public string h32 { get; set; }
+    [Parameter] public string v32 { get; set; }
+    [Parameter] public string h33 { get; set; }
+    [Parameter] public string v33 { get; set; }
+    [Parameter] public string h34 { get; set; }
+    [Parameter] public string v34 { get; set; }
+    [Parameter] public string h35 { get; set; }
+    [Parameter] public string v35 { get; set; }
+    [Parameter] public string h36 { get; set; }
+    [Parameter] public string v36 { get; set; }
+    [Parameter] public string h37 { get; set; }
+    [Parameter] public string v37 { get; set; }
+    [Parameter] public string h38 { get; set; }
+    [Parameter] public string v38 { get; set; }
+    [Parameter] public string h39 { get; set; }
+    [Parameter] public string v39 { get; set; }
+    [Parameter] public string h40 { get; set; }
+    [Parameter] public string v40 { get; set; }}

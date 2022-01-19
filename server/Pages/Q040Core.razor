@@ -1,0 +1,370 @@
+﻿
+@using RadzenDh5.Shared
+@layout MainLayout
+@inherits RadzenDh5.Pages.Q040CoreComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using Models.Mark10Sqlexpress04
+@using Microsoft.AspNetCore.Identity;
+@using Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+
+<DhAppHeadingAuthMsgOpt IsShowAuth=@IsShowAuth AuthMsg="@AuthMsg" Culture="@Culture" DhUser="@DhUser" DhUsername="@DhUsername"
+                        PROG_ID="@PROG_ID" PROG_NAME_BY_CULTURE="@PROG_NAME_BY_CULTURE"
+                        progWrt="@progWrt" progMst="@progMst" GoodMsg="@GoodMsg" ErrMsg="@ErrMsg" />
+
+<div class="row">
+    <RadzenButton style="margin-bottom: 10px;margin-left:12px" Text=@Lang("Query") Click="@ButtonQueryClick" />
+    <RadzenButton style="margin-bottom: 10px;margin-left:8px" Text=@Lang("Refresh") Click="@ButtonRefreshClick" />
+</div>
+
+<div id="Q040_filters_20210607_141847" class="row" style="margin-bottom:4px;">
+    <DhTextBox Label=@Lang("SKU_NO")  MaxLength="20" style="display: block; width:100% " @bind-Value="@txtSKU_NO" /> 
+    <DhTextBox Label=@Lang("GTIN_NO")  MaxLength="20" style="display: block; width:100% " @bind-Value="@txtGTIN_NO" /> 
+    <DhTextBox Label=@Lang("REQM_NO")  MaxLength="20" style="display: block; width:100% " @bind-Value="@txtREQM_NO" /> 
+    <DhTextBox Label=@Lang("SU_ID")  MaxLength="20" style="display: block; width:100% " @bind-Value="@txtSU_ID" /> 
+    <DhTextBox Label=@Lang("IN_NO")  MaxLength="20" style="display: block; width:100% " @bind-Value="@txtIN_NO" /> 
+</div>
+@*
+<div class="row" style="margin-bottom:4px;">
+
+    <div class="col-md-3">
+        <span> SKU_NO. </span>
+        <span style="margin-left:8px"> <input @bind="@txtSKU_NO" size="20" maxlength="20" /></span>
+    </div>
+
+    <div class="col-md-3">
+        <span> GTIN_NO. </span>
+        <span style="margin-left:8px"> <input @bind="@txtGTIN_NO" size="20" maxlength="20" /></span>
+    </div>
+
+    <div class="col-md-3">
+        <span> REQM_NO. </span>
+        <span style="margin-left:8px"> <input @bind="@txtREQM_NO" size="20" maxlength="20" /></span>
+    </div>
+
+    <div class="col-md-3">
+        <span> SU_ID. </span>
+        <span style="margin-left:8px"> <input @bind="@txtSU_ID" size="20" maxlength="20" /></span>
+    </div>
+
+    <div class="col-md-3">
+        <span> IN_NO. </span>
+        <span style="margin-left:8px"> <input @bind="@txtIN_NO" size="20" maxlength="20" /></span>
+    </div>
+
+
+</div>
+*@
+
+
+
+
+
+<RadzenTabs RenderMode="TabRenderMode.Client" id="RadzenTabs_Q040_Q040Core_20210607_220828" @bind-SelectedIndex=@selectedTabIndex Change=@OnTabChange style="height: 880px" >
+    <Tabs>
+        <RadzenTabsItem Text="TR Header.">
+
+            <RadzenGrid @ref="grid0"
+                        @bind-Value="ObjTab0Selected" ColumnWidth="125px" AllowColumnResize="false" PagerPosition="PagerPosition.Top"
+                        AllowFiltering="false" FilterMode="FilterMode.Advanced" AllowPaging="true" AllowSorting="false"
+                        Data="@getInMstsResult" TItem="Models.Mark10Sqlexpress04.InMst"
+                        RowSelect="@Grid0RowSelect" RowDoubleClick="Grid0RowDoubleClick">
+                <Columns>
+                    <RadzenGridColumn Width="50px" TItem="InMst" Title="" Filterable="false" Sortable="false" TextAlign="TextAlign.Center"> 
+                        <Template>
+                            @(getInMstsResult.ToList().IndexOf(context) +1)
+                        </Template>
+                    </RadzenGridColumn>
+
+
+
+
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InMst" Property="WHSE_NO" Title=@Lang("WHSE_NO")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InMst" Property="IN_NO" Title=@Lang("IN_NO")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InMst" Property="HEADER_STS" Title=@Lang("HEADER_STS")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InMst" Property="SHIP_TYPE" Title=@Lang("SHIP_TYPE")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InMst" Property="PRIORITY" Title=@Lang("PRIORITY")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InMst" Property="HEADER_TEXT" Title=@Lang("HEADER_TEXT")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InMst" Property="REQM_NO" Title=@Lang("REQM_NO")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InMst" Property="REQM_TYPE" Title=@Lang("REQM_TYPE")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InMst" Property="MOVM_TYPE" Title=@Lang("MOVM_TYPE")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InMst" Property="STGE_TYPE_FROM" Title=@Lang("STGE_TYPE_FROM")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InMst" Property="STGE_BIN_FROM" Title=@Lang("STGE_BIN_FROM")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InMst" Property="DYNAMIC_IND_FROM" Title=@Lang("DYNAMIC_IND_FROM")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InMst" Property="STGE_TYPE_TO" Title=@Lang("STGE_TYPE_TO")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InMst" Property="STGE_BIN_TO" Title=@Lang("STGE_BIN_TO")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InMst" Property="DYNAMIC_IND_TO" Title=@Lang("DYNAMIC_IND_TO")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InMst" Property="PLAN_DATE" Title=@Lang("PLAN_DATE")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InMst" Property="TRN_NO" Title=@Lang("TRN_NO")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InMst" Property="TRN_YEAR" Title=@Lang("TRN_YEAR")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InMst" Property="ITEM_COUNT" Title=@Lang("ITEM_COUNT")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InMst" Property="GROSS_WEIGHT" Title=@Lang("GROSS_WEIGHT")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InMst" Property="NET_WEIGHT" Title=@Lang("NET_WEIGHT")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InMst" Property="WEIGHT_UNIT" Title=@Lang("WEIGHT_UNIT")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InMst" Property="VOLUME" Title=@Lang("VOLUME")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InMst" Property="VOLUME_UNIT" Title=@Lang("VOLUME_UNIT")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InMst" Property="IN_STS" Title=@Lang("IN_STS")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InMst" Property="SOURCE" Title=@Lang("SOURCE")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InMst" Property="APPROVE_IND" Title=@Lang("APPROVE_IND")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InMst" Property="REMARK" Title=@Lang("REMARK")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InMst" Property="TRN_USER" Title=@Lang("TRN_USER")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InMst" Property="TRN_DATE" Title=@Lang("TRN_DATE")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InMst" Property="CRT_USER" Title=@Lang("CRT_USER")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InMst" Property="CRT_DATE" Title=@Lang("CRT_DATE")> 
+                    </RadzenGridColumn>
+                </Columns>
+            </RadzenGrid>
+        </RadzenTabsItem>
+
+        <RadzenTabsItem Text="TR Items.">
+
+            <RadzenGrid @ref="grid1"
+                        PagerPosition="PagerPosition.Top"
+                        @bind-Value="ObjTab1Selected" ColumnWidth="125px" AllowColumnResize="true"
+                        AllowFiltering="false" FilterMode="FilterMode.Advanced" AllowPaging="true" AllowSorting="false"
+                        Data="@getInDtlsResult" TItem="Models.Mark10Sqlexpress04.InDtl"
+                        RowSelect="@Grid1RowSelect" RowDoubleClick="Grid1RowDoubleClick">
+                <Columns>
+                    <RadzenGridColumn Width="50px" TItem="InDtl" Title="" Filterable="false" Sortable="false" TextAlign="TextAlign.Center"> 
+                        <Template>
+                            @(getInDtlsResult.ToList().IndexOf(context)+1)
+                        </Template>
+                    </RadzenGridColumn>
+
+
+
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="WHSE_NO" Title=@Lang("WHSE_NO")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="IN_NO" Title=@Lang("IN_NO")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="IN_LINE" Title=@Lang("IN_LINE")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="MOVM_TYPE" Title=@Lang("MOVM_TYPE")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="TRN_NO" Title=@Lang("TRN_NO")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="TRN_LINE" Title=@Lang("TRN_LINE")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="ITEM_STS" Title=@Lang("ITEM_STS")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="SKU_NO" Title=@Lang("SKU_NO")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="GTIN_NO" Title=@Lang("GTIN_NO")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="REQM_NO" Title=@Lang("REQM_NO")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="REQM_TYPE" Title=@Lang("REQM_TYPE")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="STK_SEGMENT" Title=@Lang("STK_SEGMENT")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="PLANT" Title=@Lang("PLANT")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="STGE_LOC" Title=@Lang("STGE_LOC")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="BATCH_NO" Title=@Lang("BATCH_NO")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="STK_CAT" Title=@Lang("STK_CAT")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="STK_SPECIAL_IND" Title=@Lang("STK_SPECIAL_IND")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="STK_SPECIAL_NO" Title=@Lang("STK_SPECIAL_NO")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="EXPIRE_DATE" Title=@Lang("EXPIRE_DATE")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="INSP_LOT" Title=@Lang("INSP_LOT")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="GR_DATE" Title=@Lang("GR_DATE")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="SKU_IN_QTY" Title=@Lang("SKU_IN_QTY")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="SKU_ALO_QTY" Title=@Lang("SKU_ALO_QTY")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="SKU_FIN_QTY" Title=@Lang("SKU_FIN_QTY")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="SKU_UNIT" Title=@Lang("SKU_UNIT")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="GTIN_IN_QTY" Title=@Lang("GTIN_IN_QTY")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="GTIN_ALO_QTY" Title=@Lang("GTIN_ALO_QTY")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="GTIN_FIN_QTY" Title=@Lang("GTIN_FIN_QTY")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="GTIN_UNIT" Title=@Lang("GTIN_UNIT")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="GTIN_NUMERATOR" Title=@Lang("GTIN_NUMERATOR")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="GTIN_DENOMINATOR" Title=@Lang("GTIN_DENOMINATOR")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="GROSS_WEIGHT" Title=@Lang("GROSS_WEIGHT")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="NET_WEIGHT" Title=@Lang("NET_WEIGHT")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="WEIGHT_UNIT" Title=@Lang("WEIGHT_UNIT")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="VOLUME" Title=@Lang("VOLUME")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="VOLUME_UNIT" Title=@Lang("VOLUME_UNIT")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="TO_NO" Title=@Lang("TO_NO")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="TO_DATE" Title=@Lang("TO_DATE")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="TO_SKU_QTY" Title=@Lang("TO_SKU_QTY")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="TO_GTIN_QTY" Title=@Lang("TO_GTIN_QTY")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="DATE_CODE" Title=@Lang("DATE_CODE")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="START_DATE" Title=@Lang("START_DATE")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="END_DATE" Title=@Lang("END_DATE")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="IN_USER" Title=@Lang("IN_USER")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="IN_DATE" Title=@Lang("IN_DATE")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="IN_LOC" Title=@Lang("IN_LOC")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="IN_STS" Title=@Lang("IN_STS")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="SOURCE" Title=@Lang("SOURCE")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="APPROVE_IND" Title=@Lang("APPROVE_IND")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="REMARK" Title=@Lang("REMARK")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="TRN_USER" Title=@Lang("TRN_USER")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="TRN_DATE" Title=@Lang("TRN_DATE")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="CRT_USER" Title=@Lang("CRT_USER")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InDtl" Property="CRT_DATE" Title=@Lang("CRT_DATE")> 
+                    </RadzenGridColumn>
+
+                </Columns>
+            </RadzenGrid>
+        </RadzenTabsItem>
+
+        <RadzenTabsItem Text="Serial Items.">
+            @*<RadzenSplitButton Icon="get_app" style="margin-left: 0px; margin-bottom: 10px" Text="Download" Click="@Splitbutton0Click">
+                    <ChildContent>
+                        <RadzenSplitButtonItem Text="excel" Value="xlsx">
+                        </RadzenSplitButtonItem>
+                        <RadzenSplitButtonItem Text="csv" Value="csv">
+                        </RadzenSplitButtonItem>
+                    </ChildContent>
+                </RadzenSplitButton>*@
+            <RadzenGrid @bind-Value="ObjTab2Selected" ColumnWidth="125px" AllowColumnResize="true" PagerPosition="PagerPosition.Top"
+                        AllowFiltering="false" FilterMode="FilterMode.Advanced" AllowPaging="true" AllowSorting="false"
+                        Data="@getInSnosResult" TItem="Models.Mark10Sqlexpress04.InSno"
+                        RowDoubleClick="Grid2RowDoubleClick">
+
+                <Columns>
+                    <RadzenGridColumn Width="50px" TItem="InSno" Title="" Filterable="false" Sortable="false" TextAlign="TextAlign.Center"> 
+                        <Template>
+                            @(getInSnosResult.ToList().IndexOf(context)+1)
+                        </Template>
+                    </RadzenGridColumn>
+
+
+
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InSno" Property="WHSE_NO" Title=@Lang("WHSE_NO")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InSno" Property="IN_NO" Title=@Lang("IN_NO")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InSno" Property="IN_LINE" Title=@Lang("IN_LINE")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InSno" Property="TRN_NO" Title=@Lang("TRN_NO")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InSno" Property="TRN_LINE" Title=@Lang("TRN_LINE")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InSno" Property="SKU_NO" Title=@Lang("SKU_NO")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InSno" Property="GTIN_NO" Title=@Lang("GTIN_NO")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InSno" Property="REQM_NO" Title=@Lang("REQM_NO")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InSno" Property="SKU_IN_QTY" Title=@Lang("SKU_IN_QTY")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InSno" Property="SKU_RCV_QTY" Title=@Lang("SKU_RCV_QTY")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InSno" Property="SKU_FIN_QTY" Title=@Lang("SKU_FIN_QTY")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InSno" Property="SU_ID" Title=@Lang("SU_ID")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InSno" Property="SU_TYPE" Title=@Lang("SU_TYPE")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InSno" Property="IN_SNO1" Title=@Lang("IN_SNO1")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InSno" Property="LOC_NO" Title=@Lang("LOC_NO")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InSno" Property="ALO_NO" Title=@Lang("ALO_NO")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InSno" Property="ALO_LINE" Title=@Lang("ALO_LINE")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InSno" Property="SKU_ALO_QTY" Title=@Lang("SKU_ALO_QTY")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InSno" Property="SKU_OUT_QTY" Title=@Lang("SKU_OUT_QTY")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InSno" Property="SOURCE" Title=@Lang("SOURCE")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InSno" Property="APPROVE_IND" Title=@Lang("APPROVE_IND")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InSno" Property="REMARK" Title=@Lang("REMARK")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InSno" Property="TRN_USER" Title=@Lang("TRN_USER")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InSno" Property="TRN_DATE" Title=@Lang("TRN_DATE")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InSno" Property="CRT_USER" Title=@Lang("CRT_USER")> 
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="Models.Mark10Sqlexpress04.InSno" Property="CRT_DATE" Title=@Lang("CRT_DATE")> 
+                    </RadzenGridColumn>
+
+                </Columns>
+            </RadzenGrid>
+        </RadzenTabsItem>
+
+
+
+    </Tabs>
+</RadzenTabs>
+
+

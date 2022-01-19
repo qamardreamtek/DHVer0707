@@ -1,0 +1,130 @@
+﻿
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+@using Microsoft.AspNetCore.Identity;
+@using RadzenDh5.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+@inject BlazorApp1.Data.PageService pageService;
+
+
+
+    <h3>
+        P080
+    </h3>
+    <ol>
+        <li>
+            Main Tab
+            <ul>
+                <li> fields from 2 tables</li>
+                <li> need to make view and generate Entity (using Radzen)</li>
+                <li> mergy code with Radzen generated </li>
+
+            </ul>
+        </li>
+        <li>
+            filters, home-made tool to generate code for
+            <ul>
+                <li> UI html</li>
+                <li> code: declaration, snippet for purify input and conditional query</li>
+
+            </ul>
+        </li>
+        <li>
+            Query on Main Tab
+            <ul>
+                <li> qry involved 4 tables</li>
+                <li> disable all filter/sorting on default grid</li>
+                <li> pager on top</li>
+
+            </ul>
+        </li>
+        <li>
+            *** New to show SQL on extra tab
+            <ul>
+                <li> got this idea when doing on P020</li>
+                <li> good for test and debug</li>
+                <li> can be option to show/hide on production</li>
+
+            </ul>
+        </li>
+
+        <li>
+            Select row  on Main Tab to update sub Tab
+            <ul>
+                <li> known Radzen issue, need to use object to remember selected item</li>
+                <li> actual selected row still in strong type</li>
+                <li> when allow multiple rows selections, extra task to maintain, list of strong type</li>
+
+            </ul>
+        </li>
+        <li>
+            Execute
+            <ul>
+                <li>to use WES code as possible</li>
+                <li> pay attention to throw Exception</li>
+                <li> return with bool and string, is currently best practice</li>
+
+            </ul>
+        </li>
+
+
+    </ol>
+
+
+
+
+
+
+    <h3>
+        目前P020的開發狀況
+    </h3>
+
+    <h4>UI</h4>
+    <ul>
+        <li>
+            OUT_NO.等七個文本框用來填寫篩選條件
+        </li>
+    </ul>
+    <h4>Query</h4>
+    <ul>
+        <li>
+            按篩選條件反應出結果
+        </li>
+        <li>
+            在 Order Header 單選
+        </li>
+        <li>
+            在 Order Item 單選
+        </li>
+
+
+    </ul>
+
+    <h4>Execute</h4>
+    <ul>
+        <li>
+            在 Order Header 執行
+            <ol>
+                <li>...</li>
+                <li>...</li>
+                <li>...</li>
+
+
+            </ol>
+        </li>
+        <li>
+            在 Order Item 執行
+            <ol>
+                <li>...</li>
+                <li>...</li>
+                <li>...</li>
+
+
+            </ol>
+        </li>
+
+
+    </ul>
+    @code{ [Parameter] public string ProgID { get; set; } }

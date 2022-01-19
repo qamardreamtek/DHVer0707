@@ -1,0 +1,23 @@
+﻿{
+  "intItem1": 419,
+  "intItem2": 423,
+  "intItem3": 427,
+  "intItem4": 431,
+  "intItem5": 435,
+  "intItem6": 439,
+  "intItem7": 443,
+  "intItem8": 448,
+  "intItem9": 458,
+  "intItem10": 462,
+  "id": "S020",
+  "item1": "群组基本数据维护",
+  "item2": "管理立库群组的基本数据、管理者及是否启用",
+  "item3": "系统管理员",
+  "item4": "有管理权限的使用者",
+  "item5": "群组编码、群组名称",
+  "item6": "群组基本数据",
+  "item7": "如果无符合条件的群组数据，系统将提示查无此群组信息；",
+  "item8": "    1. 输入查询条件或挑选群组编码后点选Query查询群组数据",
+  "item9": "执行S040 Group User Data Maintain确认使用者与群组的分配",
+  "item10": ""
+}

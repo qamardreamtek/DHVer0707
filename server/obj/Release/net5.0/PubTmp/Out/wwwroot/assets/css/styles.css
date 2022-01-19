@@ -1,0 +1,77 @@
+/*
+  You can add custom CSS rules or import files here.
+*/
+
+
+/* Import the Radzen CSS files */
+@import './styles-generated.css';
+
+table.gridtableQ100 {
+    font-family: monospace
+    /*font-size: 88%;*/
+    /*color:#333333;*/
+    color: black;
+    border-width: 1px;
+    /*border-color: #666666;*/
+    border-color: #666666;
+    border-collapse: collapse;
+}
+
+    table.gridtableQ100 th {
+        font-size: 85%;
+        text-align: center;
+        align-content: center;
+        align-items: center;
+        border-width: 1px;
+        padding: 8px;
+        border-style: solid;
+        /*border-color: #666666;*/
+        border-color: #666666;
+        background-color: #dedede;
+    }
+
+    table.gridtableQ100 td {
+        font-size: 85%;
+        text-align: center;
+        border-width: 1px;
+        /*padding: 8px;*/
+        border-style: solid;
+        /*border-color: #666666;*/
+        border-color: #666666;
+        background-color: #ffffff;
+    }
+
+
+table.gridtable {
+    font-family: verdana, arial, sans-serif;
+    /*font-size: 88%;*/
+    /*color:#333333;*/
+    color: black;
+    border-width: 1px;
+    /*border-color: #666666;*/
+    border-color: #666666;
+    border-collapse: collapse;
+}
+
+    table.gridtable th {
+        font-size: 95%;
+        text-align: center;
+        align-content: center;
+        align-items: center;
+        border-width: 1px;
+        padding: 8px;
+        border-style: solid;
+        /*border-color: #666666;*/
+        border-color: #666666;
+        background-color: #dedede;
+    }
+
+    table.gridtable td {
+        font-size: 95%;
+        border-width: 1px;
+        padding: 8px;
+        border-style: solid;
+        /*border-color: #666666;*/
+        border-color: #666666;
+        background-color: #ffffff;
+    }

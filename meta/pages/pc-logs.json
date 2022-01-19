@@ -1,0 +1,369 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Pc Logs"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "icon": "add_circle_outline",
+                  "name": "button0",
+                  "style": {
+                    "marginBottom": "10px"
+                  },
+                  "text": "Add",
+                  "type": "button",
+                  "events": {
+                    "click": [
+                      {
+                        "path": "add-pc-log",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await grid0.Reload();",
+                            "type": "execute"
+                          },
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "events": {
+                    "click": [
+                      {
+                        "condition": "${event?.Value == \"csv\"}",
+                        "fileName": "Pc Logs",
+                        "name": "MARK10_SQLEXPRESS04.getPcLogs",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "WHSE_NO,PC_NO,PC_LINE,SU_ID,LOC_NO,PLANT,STGE_LOC,SKU_NO,BATCH_NO,STK_CAT,STK_SPECIAL_IND,STK_SPECIAL_NO,SKU_UNIT,SKU_QTY,MOVM_TYPE,STK_CAT_TO,STK_SPECIAL_IND_TO,STK_SPECIAL_NO_TO,SKU_QTY_TO,PC_USER,PC_DATE,PC_STS,REMARK,SOURCE,APPROVE_IND,TRN_USER,TRN_DATE,CRT_USER,CRT_DATE"
+                          }
+                        ],
+                        "type": "export"
+                      },
+                      {
+                        "condition": "${event == null || event.Value == \"xlsx\"}",
+                        "fileName": "Pc Logs",
+                        "format": "xlsx",
+                        "name": "MARK10_SQLEXPRESS04.getPcLogs",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "WHSE_NO,PC_NO,PC_LINE,SU_ID,LOC_NO,PLANT,STGE_LOC,SKU_NO,BATCH_NO,STK_CAT,STK_SPECIAL_IND,STK_SPECIAL_NO,SKU_UNIT,SKU_QTY,MOVM_TYPE,STK_CAT_TO,STK_SPECIAL_IND_TO,STK_SPECIAL_NO_TO,SKU_QTY_TO,PC_USER,PC_DATE,PC_STS,REMARK,SOURCE,APPROVE_IND,TRN_USER,TRN_DATE,CRT_USER,CRT_DATE"
+                          }
+                        ],
+                        "type": "export"
+                      }
+                    ]
+                  },
+                  "icon": "get_app",
+                  "items": [
+                    {
+                      "icon": "",
+                      "text": "Excel",
+                      "value": "xlsx"
+                    },
+                    {
+                      "icon": "",
+                      "text": "CSV",
+                      "value": "csv"
+                    }
+                  ],
+                  "name": "splitbutton0",
+                  "style": {
+                    "marginLeft": "10px",
+                    "marginBottom": "10px"
+                  },
+                  "text": "Export",
+                  "type": "splitbutton"
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "filterMode": "advanced",
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getPcLogsResult}",
+                  "events": {
+                    "loadData": [],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "WHSE_NO",
+                            "value": "${event.WHSE_NO}"
+                          },
+                          {
+                            "name": "PC_NO",
+                            "value": "${event.PC_NO}"
+                          },
+                          {
+                            "name": "PC_LINE",
+                            "value": "${event.PC_LINE}"
+                          }
+                        ],
+                        "path": "edit-pc-log",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "WHSE_NO",
+                      "title": "WHSE NO"
+                    },
+                    {
+                      "property": "PC_NO",
+                      "title": "PC NO"
+                    },
+                    {
+                      "property": "PC_LINE",
+                      "title": "PC LINE"
+                    },
+                    {
+                      "property": "SU_ID",
+                      "title": "SU ID"
+                    },
+                    {
+                      "property": "LOC_NO",
+                      "title": "LOC NO"
+                    },
+                    {
+                      "property": "PLANT",
+                      "title": "PLANT"
+                    },
+                    {
+                      "property": "STGE_LOC",
+                      "title": "STGE LOC"
+                    },
+                    {
+                      "property": "SKU_NO",
+                      "title": "SKU NO"
+                    },
+                    {
+                      "property": "BATCH_NO",
+                      "title": "BATCH NO"
+                    },
+                    {
+                      "property": "STK_CAT",
+                      "title": "STK CAT"
+                    },
+                    {
+                      "property": "STK_SPECIAL_IND",
+                      "title": "STK SPECIAL IND"
+                    },
+                    {
+                      "property": "STK_SPECIAL_NO",
+                      "title": "STK SPECIAL NO"
+                    },
+                    {
+                      "property": "SKU_UNIT",
+                      "title": "SKU UNIT"
+                    },
+                    {
+                      "property": "SKU_QTY",
+                      "title": "SKU QTY"
+                    },
+                    {
+                      "property": "MOVM_TYPE",
+                      "title": "MOVM TYPE"
+                    },
+                    {
+                      "property": "STK_CAT_TO",
+                      "title": "STK CAT TO"
+                    },
+                    {
+                      "property": "STK_SPECIAL_IND_TO",
+                      "title": "STK SPECIAL IND TO"
+                    },
+                    {
+                      "property": "STK_SPECIAL_NO_TO",
+                      "title": "STK SPECIAL NO TO"
+                    },
+                    {
+                      "property": "SKU_QTY_TO",
+                      "title": "SKU QTY TO"
+                    },
+                    {
+                      "property": "PC_USER",
+                      "title": "PC USER"
+                    },
+                    {
+                      "property": "PC_DATE",
+                      "title": "PC DATE"
+                    },
+                    {
+                      "property": "PC_STS",
+                      "title": "PC STS"
+                    },
+                    {
+                      "property": "REMARK",
+                      "title": "REMARK"
+                    },
+                    {
+                      "property": "SOURCE",
+                      "title": "SOURCE"
+                    },
+                    {
+                      "property": "APPROVE_IND",
+                      "title": "APPROVE IND"
+                    },
+                    {
+                      "property": "TRN_USER",
+                      "title": "TRN USER"
+                    },
+                    {
+                      "property": "TRN_DATE",
+                      "title": "TRN DATE"
+                    },
+                    {
+                      "property": "CRT_USER",
+                      "title": "CRT USER"
+                    },
+                    {
+                      "property": "CRT_DATE",
+                      "title": "CRT DATE"
+                    },
+                    {
+                      "filterable": false,
+                      "sortable": false,
+                      "width": "70px",
+                      "textAlign": "center",
+                      "template": [
+                        {
+                          "attributes": [
+                            {
+                              "name": "@onclick:stopPropagation",
+                              "value": true
+                            }
+                          ],
+                          "buttonStyle": "danger",
+                          "icon": "close",
+                          "name": "gridDeleteButton",
+                          "text": "",
+                          "size": "sm",
+                          "type": "button",
+                          "events": {
+                            "click": [
+                              {
+                                "condition": "await DialogService.Confirm(\"Are you sure you want to delete this record?\") == true",
+                                "error": [
+                                  {
+                                    "detail": "Unable to delete PcLog",
+                                    "severity": "error",
+                                    "summary": "Error",
+                                    "type": "notify"
+                                  }
+                                ],
+                                "name": "MARK10_SQLEXPRESS04.deletePcLog",
+                                "parameters": [
+                                  {
+                                    "name": "WHSE_NO",
+                                    "value": "${data.WHSE_NO}"
+                                  },
+                                  {
+                                    "name": "PC_NO",
+                                    "value": "${data.PC_NO}"
+                                  },
+                                  {
+                                    "name": "PC_LINE",
+                                    "value": "${data.PC_LINE}"
+                                  }
+                                ],
+                                "then": [
+                                  {
+                                    "code": "await grid0.Reload();",
+                                    "condition": "result != null",
+                                    "type": "execute"
+                                  }
+                                ],
+                                "type": "invoke"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "RadzenDh5.Models.Mark10Sqlexpress04.PcLog"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "MARK10_SQLEXPRESS04.getPcLogs",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getPcLogsResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.PcLog>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Pc Logs",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

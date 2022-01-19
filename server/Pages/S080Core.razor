@@ -1,0 +1,83 @@
+﻿@*@page "/S080"*@
+@layout MainLayout
+@inherits RadzenDh5.Pages.S080CoreComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+@using Microsoft.AspNetCore.Identity;
+@using RadzenDh5.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+@inject Microsoft.Extensions.Localization.IStringLocalizer<MainLayout> L
+
+
+<DhAppHeadingAuthMsgOpt IsShowAuth=@IsShowAuth  AuthMsg="@AuthMsg" Culture="@Culture" DhUser="@DhUser" DhUsername="@DhUsername"
+                 PROG_ID="@PROG_ID" PROG_NAME_BY_CULTURE="@PROG_NAME_BY_CULTURE"
+                 progWrt="@progWrt" progMst="@progMst" GoodMsg="@GoodMsg" ErrMsg="@ErrMsg" />
+<div class="row">
+    <div class="col-md-6">
+
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3" style="text-align:left">
+                <RadzenLabel Component="USER_ID" style="width: 100%" Text="@L["USER_ID "]">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-3">
+
+                <RadzenTextBox AutoComplete="false" style="background-color: lightgrey" ReadOnly="true" @bind-Value="@(Security.User.Name)" Name="Textbox0">
+                </RadzenTextBox>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3" style="text-align:left">
+                <RadzenLabel Component="OldPassword" style="width: 100%" Text="@L["Old Password"]">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-3">
+                <RadzenPassword style="display: block; width: 100%" @bind-Value="@OldPassword" Name="OldPassword">
+                </RadzenPassword>
+                <RadzenRequiredValidator Component="OldPassword" style="position: absolute" Text="@L["OldPasswordRequiredValidator.Text"]">
+                </RadzenRequiredValidator>
+            </div>
+        </div>
+
+
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3" style="text-align:left">
+                <RadzenLabel Component="NewPassword" style="width: 100%" Text="@L["New Password"]">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-3">
+                <RadzenPassword style="display: block; width: 100%" @bind-Value="@NewPassword" Name="NewPassword">
+                </RadzenPassword>
+                <RadzenRequiredValidator Component="NewPassword" style="position: absolute" Text="@L["NewPasswordRequiredValidator.Text"]">
+                </RadzenRequiredValidator>
+            </div>
+        </div>
+        <div style="margin-bottom: 1rem" class="row">
+            <div class="col-md-3" style="text-align:left">
+                <RadzenLabel Component="ConfirmPassword" style="width: 100%" Text="@L["Repeat New Password"]">
+                </RadzenLabel>
+            </div>
+            <div class="col-md-3">
+                <RadzenPassword style="display: block; width: 100%" @bind-Value="@NewPassword2" Name="ConfirmPassword">
+                </RadzenPassword>
+                <RadzenRequiredValidator Component="ConfirmPassword" style="position: absolute" Text="@L["ConfirmPasswordRequiredValidator.Text"]">
+                </RadzenRequiredValidator>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col offset-sm-3">
+                <RadzenButton ButtonStyle="ButtonStyle.Primary" ButtonType="ButtonType.Submit" Icon="save" Click="@ButtonSubmitClick" Text="@L["Submit"]">
+                </RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Light" Text="@L["Cancel"]" Click="@Button2Click">
+                </RadzenButton>
+            </div>
+        </div>
+
+    </div>
+</div>

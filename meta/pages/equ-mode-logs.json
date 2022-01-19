@@ -1,0 +1,285 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Equ Mode Logs"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "icon": "add_circle_outline",
+                  "name": "button0",
+                  "style": {
+                    "marginBottom": "10px"
+                  },
+                  "text": "Add",
+                  "type": "button",
+                  "events": {
+                    "click": [
+                      {
+                        "path": "add-equ-mode-log",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await grid0.Reload();",
+                            "type": "execute"
+                          },
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "events": {
+                    "click": [
+                      {
+                        "condition": "${event?.Value == \"csv\"}",
+                        "fileName": "Equ Mode Logs",
+                        "name": "MARK10_SQLEXPRESS04.getEquModeLogs",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "EquNo,CarNo,StrDT,EndDT,EquMode,TotalSecs"
+                          }
+                        ],
+                        "type": "export"
+                      },
+                      {
+                        "condition": "${event == null || event.Value == \"xlsx\"}",
+                        "fileName": "Equ Mode Logs",
+                        "format": "xlsx",
+                        "name": "MARK10_SQLEXPRESS04.getEquModeLogs",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "EquNo,CarNo,StrDT,EndDT,EquMode,TotalSecs"
+                          }
+                        ],
+                        "type": "export"
+                      }
+                    ]
+                  },
+                  "icon": "get_app",
+                  "items": [
+                    {
+                      "icon": "",
+                      "text": "Excel",
+                      "value": "xlsx"
+                    },
+                    {
+                      "icon": "",
+                      "text": "CSV",
+                      "value": "csv"
+                    }
+                  ],
+                  "name": "splitbutton0",
+                  "style": {
+                    "marginLeft": "10px",
+                    "marginBottom": "10px"
+                  },
+                  "text": "Export",
+                  "type": "splitbutton"
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "filterMode": "advanced",
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getEquModeLogsResult}",
+                  "events": {
+                    "loadData": [],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "EquNo",
+                            "value": "${event.EquNo}"
+                          },
+                          {
+                            "name": "CarNo",
+                            "value": "${event.CarNo}"
+                          },
+                          {
+                            "name": "StrDT",
+                            "value": "${event.StrDT}"
+                          },
+                          {
+                            "name": "EquMode",
+                            "value": "${event.EquMode}"
+                          }
+                        ],
+                        "path": "edit-equ-mode-log",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "EquNo",
+                      "title": "Equ No"
+                    },
+                    {
+                      "property": "CarNo",
+                      "title": "Car No"
+                    },
+                    {
+                      "property": "StrDT",
+                      "title": "Str DT"
+                    },
+                    {
+                      "property": "EndDT",
+                      "title": "End DT"
+                    },
+                    {
+                      "property": "EquMode",
+                      "title": "Equ Mode"
+                    },
+                    {
+                      "property": "TotalSecs",
+                      "title": "Total Secs"
+                    },
+                    {
+                      "filterable": false,
+                      "sortable": false,
+                      "width": "70px",
+                      "textAlign": "center",
+                      "template": [
+                        {
+                          "attributes": [
+                            {
+                              "name": "@onclick:stopPropagation",
+                              "value": true
+                            }
+                          ],
+                          "buttonStyle": "danger",
+                          "icon": "close",
+                          "name": "gridDeleteButton",
+                          "text": "",
+                          "size": "sm",
+                          "type": "button",
+                          "events": {
+                            "click": [
+                              {
+                                "condition": "await DialogService.Confirm(\"Are you sure you want to delete this record?\") == true",
+                                "error": [
+                                  {
+                                    "detail": "Unable to delete EquModeLog",
+                                    "severity": "error",
+                                    "summary": "Error",
+                                    "type": "notify"
+                                  }
+                                ],
+                                "name": "MARK10_SQLEXPRESS04.deleteEquModeLog",
+                                "parameters": [
+                                  {
+                                    "name": "EquNo",
+                                    "value": "${data.EquNo}"
+                                  },
+                                  {
+                                    "name": "CarNo",
+                                    "value": "${data.CarNo}"
+                                  },
+                                  {
+                                    "name": "StrDT",
+                                    "value": "${data.StrDT}"
+                                  },
+                                  {
+                                    "name": "EquMode",
+                                    "value": "${data.EquMode}"
+                                  }
+                                ],
+                                "then": [
+                                  {
+                                    "code": "await grid0.Reload();",
+                                    "condition": "result != null",
+                                    "type": "execute"
+                                  }
+                                ],
+                                "type": "invoke"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "RadzenDh5.Models.Mark10Sqlexpress04.EquModeLog"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "MARK10_SQLEXPRESS04.getEquModeLogs",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getEquModeLogsResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.EquModeLog>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Equ Mode Logs",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

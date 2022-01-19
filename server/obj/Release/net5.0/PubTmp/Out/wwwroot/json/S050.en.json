@@ -1,0 +1,23 @@
+﻿{
+  "intItem1": 570,
+  "intItem2": 574,
+  "intItem3": 578,
+  "intItem4": 582,
+  "intItem5": 586,
+  "intItem6": 590,
+  "intItem7": 594,
+  "intItem8": 600,
+  "intItem9": 612,
+  "intItem10": 616,
+  "id": "S050",
+  "item1": "Program permission management for groups",
+  "item2": "Set permissions for programs in each group",
+  "item3": "System administrator",
+  "item4": "Created group user data<br>",
+  "item5": "Group ID, group name, group owner",
+  "item6": "Program data, update group authorization data",
+  "item7": "If there is no matching group data, the system will prompt to find no such group information",
+  "item8": "Enter query conditions or select group code and click Query to query group authorization data",
+  "item9": "Not Applicable",
+  "item10": ""
+}

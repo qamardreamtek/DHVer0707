@@ -1,0 +1,293 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "User Logs"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "icon": "add_circle_outline",
+                  "name": "button0",
+                  "style": {
+                    "marginBottom": "10px"
+                  },
+                  "text": "Add",
+                  "type": "button",
+                  "events": {
+                    "click": [
+                      {
+                        "path": "add-user-log",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await grid0.Reload();",
+                            "type": "execute"
+                          },
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "events": {
+                    "click": [
+                      {
+                        "condition": "${event?.Value == \"csv\"}",
+                        "fileName": "User Logs",
+                        "name": "MARK10_SQLEXPRESS04.getUserLogs",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "LOG_DATE,LOG_TYPE,USER_ID,PROG_ID,PROG_NAME,DEPT_NAME,USER_NAME,REMARK"
+                          }
+                        ],
+                        "type": "export"
+                      },
+                      {
+                        "condition": "${event == null || event.Value == \"xlsx\"}",
+                        "fileName": "User Logs",
+                        "format": "xlsx",
+                        "name": "MARK10_SQLEXPRESS04.getUserLogs",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "LOG_DATE,LOG_TYPE,USER_ID,PROG_ID,PROG_NAME,DEPT_NAME,USER_NAME,REMARK"
+                          }
+                        ],
+                        "type": "export"
+                      }
+                    ]
+                  },
+                  "icon": "get_app",
+                  "items": [
+                    {
+                      "icon": "",
+                      "text": "Excel",
+                      "value": "xlsx"
+                    },
+                    {
+                      "icon": "",
+                      "text": "CSV",
+                      "value": "csv"
+                    }
+                  ],
+                  "name": "splitbutton0",
+                  "style": {
+                    "marginLeft": "10px",
+                    "marginBottom": "10px"
+                  },
+                  "text": "Export",
+                  "type": "splitbutton"
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "filterMode": "advanced",
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getUserLogsResult}",
+                  "events": {
+                    "loadData": [],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "LOG_DATE",
+                            "value": "${event.LOG_DATE}"
+                          },
+                          {
+                            "name": "LOG_TYPE",
+                            "value": "${event.LOG_TYPE}"
+                          },
+                          {
+                            "name": "USER_ID",
+                            "value": "${event.USER_ID}"
+                          },
+                          {
+                            "name": "PROG_ID",
+                            "value": "${event.PROG_ID}"
+                          }
+                        ],
+                        "path": "edit-user-log",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "LOG_DATE",
+                      "title": "LOG DATE"
+                    },
+                    {
+                      "property": "LOG_TYPE",
+                      "title": "LOG TYPE"
+                    },
+                    {
+                      "property": "USER_ID",
+                      "title": "USER ID"
+                    },
+                    {
+                      "property": "PROG_ID",
+                      "title": "PROG ID"
+                    },
+                    {
+                      "property": "PROG_NAME",
+                      "title": "PROG NAME"
+                    },
+                    {
+                      "property": "DEPT_NAME",
+                      "title": "DEPT NAME"
+                    },
+                    {
+                      "property": "USER_NAME",
+                      "title": "USER NAME"
+                    },
+                    {
+                      "property": "REMARK",
+                      "title": "REMARK"
+                    },
+                    {
+                      "filterable": false,
+                      "sortable": false,
+                      "width": "70px",
+                      "textAlign": "center",
+                      "template": [
+                        {
+                          "attributes": [
+                            {
+                              "name": "@onclick:stopPropagation",
+                              "value": true
+                            }
+                          ],
+                          "buttonStyle": "danger",
+                          "icon": "close",
+                          "name": "gridDeleteButton",
+                          "text": "",
+                          "size": "sm",
+                          "type": "button",
+                          "events": {
+                            "click": [
+                              {
+                                "condition": "await DialogService.Confirm(\"Are you sure you want to delete this record?\") == true",
+                                "error": [
+                                  {
+                                    "detail": "Unable to delete UserLog",
+                                    "severity": "error",
+                                    "summary": "Error",
+                                    "type": "notify"
+                                  }
+                                ],
+                                "name": "MARK10_SQLEXPRESS04.deleteUserLog",
+                                "parameters": [
+                                  {
+                                    "name": "LOG_DATE",
+                                    "value": "${data.LOG_DATE}"
+                                  },
+                                  {
+                                    "name": "LOG_TYPE",
+                                    "value": "${data.LOG_TYPE}"
+                                  },
+                                  {
+                                    "name": "USER_ID",
+                                    "value": "${data.USER_ID}"
+                                  },
+                                  {
+                                    "name": "PROG_ID",
+                                    "value": "${data.PROG_ID}"
+                                  }
+                                ],
+                                "then": [
+                                  {
+                                    "code": "await grid0.Reload();",
+                                    "condition": "result != null",
+                                    "type": "execute"
+                                  }
+                                ],
+                                "type": "invoke"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "RadzenDh5.Models.Mark10Sqlexpress04.UserLog"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "MARK10_SQLEXPRESS04.getUserLogs",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getUserLogsResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.UserLog>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "User Logs",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

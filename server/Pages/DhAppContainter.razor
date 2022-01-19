@@ -1,0 +1,61 @@
+﻿
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+@using Microsoft.AspNetCore.Identity;
+@using RadzenDh5.Models
+@using Microsoft.AspNetCore.Authorization
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor httpContextAccessor
+@inject BlazorApp1.Data.PageService pageService
+@inject Microsoft.Extensions.Localization.IStringLocalizer<MainLayout> L
+@attribute [Authorize]
+@inject IJSRuntime JSRuntime
+
+
+<RadzenTabs RenderMode="TabRenderMode.Client">
+    <Tabs>
+        <RadzenTabsItem Text="@TabName">
+            @if (IsOnUserMenu)
+            {@ChildContent }
+        else
+        {<span>Loading ...</span>}
+        </RadzenTabsItem>
+    </Tabs>
+</RadzenTabs>
+
+@code { // NOTE by Mark, 4/25
+    [Parameter]
+    public string ProgId { get; set; }
+
+    public string DocProgId { get { return "Doc " + ProgId; } }
+    [Inject] protected CaotunSpring.DH.Tools.DhGlobalsService DhGlobals { get; set; }
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+
+    bool IsOnUserMenu;
+
+    public string TabName { get; set; }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        var USER_ID = httpContextAccessor.HttpContext.User.Identity.Name;
+        //        IsOnUserMenu = pageService.IsOnUserMenu(USER_ID, ProgId);
+        IsOnUserMenu = await DhGlobals.IsAuthToQueryAsync(USER_ID, ProgId);
+
+        // NOTE by Mark, for Language
+        //var Culture = "en-US";
+
+        //Culture = await JSRuntime.InvokeAsync<string>("Radzen.getCulture");
+
+
+        //    var ProgName = await DhGlobals.GetProgName(USER_ID, ProgId);
+
+        //  var ProgNameWithLang = await DhGlobals.GetProgNameWithLang(ProgId, Culture);
+
+        TabName = ProgId;
+        //    TabName = ProgId + " " + ProgNameWithLang;
+
+
+    } }

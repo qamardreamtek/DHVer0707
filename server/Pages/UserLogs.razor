@@ -1,0 +1,40 @@
+﻿
+@layout MainLayout
+@inherits RadzenDh5.Pages.UserLogsComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+@using Microsoft.AspNetCore.Identity;
+@using RadzenDh5.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <p>This is for DEBUG and TEST purpose, not part of delivered Programs</p>
+        <RadzenGrid @ref="grid0" ColumnWidth="100px" AllowColumnResize="true" PagerPosition="PagerPosition.Top" AllowFiltering="true" FilterMode="FilterMode.Advanced" AllowPaging="true" AllowSorting="true" Data="@getUserLogsResult" TItem="RadzenDh5.Models.Mark10Sqlexpress04.UserLog" RowSelect="@Grid0RowSelect">
+            <Columns>
+                <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.UserLog" Property="LOG_DATE" Title="LOG_DATE">
+                </RadzenGridColumn>
+                <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.UserLog" Property="LOG_TYPE" Title="LOG_TYPE">
+                </RadzenGridColumn>
+                <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.UserLog" Property="USER_ID" Title="USER_ID">
+                </RadzenGridColumn>
+                <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.UserLog" Property="PROG_ID" Title="PROG_ID">
+                </RadzenGridColumn>
+                <RadzenGridColumn  Width="225px" TItem="RadzenDh5.Models.Mark10Sqlexpress04.UserLog" Property="PROG_NAME" Title="PROG_NAME">
+                </RadzenGridColumn>
+                <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.UserLog" Property="DEPT_NAME" Title="DEPT_NAME">
+                </RadzenGridColumn>
+                <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.UserLog" Property="USER_NAME" Title="USER_NAME">
+                </RadzenGridColumn>
+                <RadzenGridColumn Width="225px" TItem="RadzenDh5.Models.Mark10Sqlexpress04.UserLog" Property="REMARK" Title="REMARK">
+                </RadzenGridColumn>
+
+            </Columns>
+        </RadzenGrid>
+    </div>
+</div>

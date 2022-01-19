@@ -1,0 +1,71 @@
+﻿@*@page "/user-msts"*@
+@layout MainLayout
+@inherits RadzenDh5.Pages.UserMstsComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+@using Microsoft.AspNetCore.Identity;
+@using RadzenDh5.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+@inject Microsoft.Extensions.Localization.IStringLocalizer<MainLayout> L
+<DhAppHeadingAuthMsgOpt IsShowAuth=@IsShowAuth AuthMsg="@AuthMsg" Culture="@Culture" DhUser="@DhUser" DhUsername="@DhUsername"
+                        PROG_ID="@PROG_ID" PROG_NAME_BY_CULTURE="@PROG_NAME_BY_CULTURE"
+                        progWrt="@progWrt" progMst="@progMst" GoodMsg="@GoodMsg" ErrMsg="@ErrMsg" />
+
+<div class="row" style="margin-top: 8px">
+    <RadzenButton style="margin-bottom: 10px;margin-left:12px" Text=@Lang("Query") Click="@ButtonQueryClick" />
+    <RadzenButton style="margin-bottom: 10px;margin-left:12px" Text=@Lang("Create") Click="@ButtonCreateClick" />
+    <RadzenButton style="margin-bottom: 10px;margin-left:12px" Text=@Lang("Update") Click="@ButtonUpdateClick" />
+    <RadzenButton style="margin-bottom: 10px;margin-left:12px" Text=@Lang("Delete") Click="@ButtonDeleteClick" />
+    <RadzenButton style="margin-bottom: 10px;margin-left:8px" Text=@Lang("Refresh") Click="@ButtonRefreshClick" />
+</div>
+
+<div id="S010_filters_20210607_141847" class="row" style="margin-bottom:4px;">
+    <DhTextBox Label=@Lang("USER_ID")  MaxLength="20" style="display: block; width:100% " @bind-Value="@txtUSER_ID" /> 
+    <DhTextBox Label=@Lang("USER_NAME")  MaxLength="20" style="display: block; width:100% " @bind-Value="@txtUSER_NAME" /> 
+    <DhTextBox Label=@Lang("DEPT_NAME")  MaxLength="20" style="display: block; width:100% " @bind-Value="@txtDEPT_NAME" /> 
+</div>
+
+
+<RadzenGrid @ref="grid0" ColumnWidth="125px" AllowColumnResize="true" PagerPosition="PagerPosition.Top"
+            @bind-Value="grid0Bind"
+            AllowFiltering="false" FilterMode="FilterMode.Advanced" AllowPaging="true" AllowSorting="false"
+            Data="@getUserMstsResult" TItem="RadzenDh5.Models.Mark10Sqlexpress04.UserMst" 
+            RowSelect="@Grid0RowSelect" RowDoubleClick="@Grid0RowDoubleClick">
+    <Columns>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.UserMst" Property="USER_ID" Title=@Lang("USER_ID")> 
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.UserMst" Property="DEPT_NAME" Title=@Lang("DEPT_NAME")> 
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.UserMst" Property="USER_NAME" Title=@Lang("USER_NAME")> 
+        </RadzenGridColumn>
+         <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.UserMst" Property="TELPHONE" Title=@Lang("TELPHONE")> 
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.UserMst" Property="MOBILE" Title=@Lang("MOBILE")> 
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.UserMst" Property="EMAIL" Title=@Lang("EMAIL")> 
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.UserMst" Property="LANGUAGE" Title=@Lang("LANGUAGE")> 
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.UserMst" Property="ENABLE" Title=@Lang("ENABLE")> 
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.UserMst" Property="REMARK" Title=@Lang("REMARK")> 
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.UserMst" Property="TRN_USER" Title=@Lang("TRN_USER")> 
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.UserMst" Property="TRN_DATE" Title=@Lang("TRN_DATE")> 
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.UserMst" Property="CRT_USER" Title=@Lang("CRT_USER")> 
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.UserMst" Property="CRT_DATE" Title=@Lang("CRT_DATE")> 
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.UserMst" Property="PSWD_DATE" Title=@Lang("PSWD_DATE")> 
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.UserMst" Property="LAST_DATE" Title=@Lang("LAST_DATE")> 
+        </RadzenGridColumn>
+    </Columns>
+</RadzenGrid>

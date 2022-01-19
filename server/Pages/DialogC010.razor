@@ -1,0 +1,104 @@
+﻿@*@page "/dialogbasic/{OrderID}"*@
+
+@inject Radzen.DialogService dialogService
+<div class="row">
+
+    <div style="margin-bottom: 1rem" class="row">
+        <div class="col-md-3">
+            <RadzenLabel Text="WHSE_NO" style="width: 100%">
+            </RadzenLabel>
+        </div>
+        <div class="col-md-9">
+            <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@(args.WHSE_NO)" Name="WHSE_NO">
+            </RadzenTextBox>
+        </div>
+    </div>
+    <div style="margin-bottom: 1rem" class="row">
+        <div class="col-md-3">
+            <RadzenLabel Text="WHSE_NO" style="width: 100%">
+            </RadzenLabel>
+        </div>
+        <div class="col-md-9">
+            <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@(args.WHSE_NO)" Name="WHSE_NO">
+            </RadzenTextBox>
+        </div>
+    </div>
+    <div style="margin-bottom: 1rem" class="row">
+        <div class="col-md-3">
+            <RadzenLabel Text="WHSE_NO" style="width: 100%">
+            </RadzenLabel>
+        </div>
+        <div class="col-md-9">
+            <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@(args.WHSE_NO)" Name="WHSE_NO">
+            </RadzenTextBox>
+        </div>
+    </div>
+    <div style="margin-bottom: 1rem" class="row">
+        <div class="col-md-3">
+            <RadzenLabel Text="WHSE_NO" style="width: 100%">
+            </RadzenLabel>
+        </div>
+        <div class="col-md-9">
+            <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@(args.WHSE_NO)" Name="WHSE_NO">
+            </RadzenTextBox>
+        </div>
+    </div>
+    <div style="margin-bottom: 1rem" class="row">
+        <div class="col-md-3">
+            <RadzenLabel Text="WHSE_NO" style="width: 100%">
+            </RadzenLabel>
+        </div>
+        <div class="col-md-9">
+            <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@(args.WHSE_NO)" Name="WHSE_NO">
+            </RadzenTextBox>
+        </div>
+    </div>
+    <div style="margin-bottom: 1rem" class="row">
+        <div class="col-md-3">
+            <RadzenLabel Text="WHSE_NO" style="width: 100%">
+            </RadzenLabel>
+        </div>
+        <div class="col-md-9">
+            <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@(args.WHSE_NO)" Name="WHSE_NO">
+            </RadzenTextBox>
+        </div>
+    </div>
+    <div style="margin-bottom: 1rem" class="row">
+        <div class="col-md-3">
+            <RadzenLabel Text="WHSE_NO" style="width: 100%">
+            </RadzenLabel>
+        </div>
+        <div class="col-md-9">
+            <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@(args.WHSE_NO)" Name="WHSE_NO">
+            </RadzenTextBox>
+        </div>
+    </div>
+    <div style="margin-bottom: 1rem" class="row">
+        <div class="col-md-3">
+            <RadzenLabel Text="WHSE_NO" style="width: 100%">
+            </RadzenLabel>
+        </div>
+        <div class="col-md-9">
+            <RadzenTextBox ReadOnly="true" MaxLength="10" style="display: block; width: 100%" @bind-Value="@(args.WHSE_NO)" Name="WHSE_NO">
+            </RadzenTextBox>
+        </div>
+    </div>
+</div>
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <h3> @args.WHSE_NO</h3>
+        </div>
+        <div class="col-md-12">
+            <h3> @args.WHSE_NO</h3>
+        </div>
+
+    </div>
+    <div class="row" style="margin-top:16px;">
+        <div class="col-md-12">
+            <RadzenButton Click="@((args) => dialogService.Close(true))" Text="OK" Style=" width: 150px" />
+        </div>
+    </div>
+
+    @code { [Parameter] public RadzenDh5.Models.Mark10Sqlexpress04.Vc010 args { get; set; } }

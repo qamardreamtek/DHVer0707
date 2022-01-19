@@ -1,0 +1,23 @@
+﻿{
+  "intItem1": 741,
+  "intItem2": 745,
+  "intItem3": 749,
+  "intItem4": 753,
+  "intItem5": 757,
+  "intItem6": 761,
+  "intItem7": 765,
+  "intItem8": 771,
+  "intItem9": 781,
+  "intItem10": 785,
+  "id": "P030",
+  "item1": "发货条件是20或90的交货单自动分配库存出库",
+  "item2": "由人工挑选交货单启动自动仓出库下架",
+  "item3": "仓管员",
+  "item4": "SAP下传相关Delivery Data",
+  "item5": "可执行Delivery数据",
+  "item6": "拣配数据、更新Delivery数据状态",
+  "item7": "如果无符合条件的Delivery数据，系统将提示查无可用Delivery信息，用户可执行Data Inquire-->Q050 Delivery Order Data Query作业查询Delivery数据与状态；或挑选指定的Delivery No.",
+  "item8": "    1. 输入查询条件或挑选Delivery No后点选Query查询可拣配Delivery表头与明细清单",
+  "item9": "自动仓库搬运出库",
+  "item10": "此作业依据FEFO & FIFO等逻辑自动分配库存。一个托盘不能同时有多个TO分配出库。"
+}

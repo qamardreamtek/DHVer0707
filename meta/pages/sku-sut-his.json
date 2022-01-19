@@ -1,0 +1,244 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Sku Sut His"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "events": {
+                    "click": [
+                      {
+                        "condition": "${event?.Value == \"csv\"}",
+                        "fileName": "Sku Sut His",
+                        "name": "MARK10_SQLEXPRESS04.getSkuSutHis",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "WHSE_NO,SKU_NO,GTIN_UNIT,SKU_NAME,SKU_DESC,SKU_UNIT,SU_TYPE,SU_UNIT,SU_LENGTH,SU_WIDTH,SU_HEIGHT,SU_DIM_UNIT,SKU_MAX_QTY,GTIN_NO,GTIN_MAX_QTY,GTIN_LAYER,GTIN_LAYER_QTY,SOURCE,APPROVE_IND,REMARK,TRN_USER,TRN_DATE,CRT_USER,CRT_DATE,LOG_DATE,LOG_USER"
+                          }
+                        ],
+                        "type": "export"
+                      },
+                      {
+                        "condition": "${event == null || event.Value == \"xlsx\"}",
+                        "fileName": "Sku Sut His",
+                        "format": "xlsx",
+                        "name": "MARK10_SQLEXPRESS04.getSkuSutHis",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "WHSE_NO,SKU_NO,GTIN_UNIT,SKU_NAME,SKU_DESC,SKU_UNIT,SU_TYPE,SU_UNIT,SU_LENGTH,SU_WIDTH,SU_HEIGHT,SU_DIM_UNIT,SKU_MAX_QTY,GTIN_NO,GTIN_MAX_QTY,GTIN_LAYER,GTIN_LAYER_QTY,SOURCE,APPROVE_IND,REMARK,TRN_USER,TRN_DATE,CRT_USER,CRT_DATE,LOG_DATE,LOG_USER"
+                          }
+                        ],
+                        "type": "export"
+                      }
+                    ]
+                  },
+                  "icon": "get_app",
+                  "items": [
+                    {
+                      "icon": "",
+                      "text": "Excel",
+                      "value": "xlsx"
+                    },
+                    {
+                      "icon": "",
+                      "text": "CSV",
+                      "value": "csv"
+                    }
+                  ],
+                  "name": "splitbutton0",
+                  "style": {
+                    "marginLeft": "0px",
+                    "marginBottom": "10px"
+                  },
+                  "text": "Export",
+                  "type": "splitbutton"
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "filterMode": "advanced",
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getSkuSutHisResult}",
+                  "events": {
+                    "loadData": []
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "WHSE_NO",
+                      "title": "WHSE NO"
+                    },
+                    {
+                      "property": "SKU_NO",
+                      "title": "SKU NO"
+                    },
+                    {
+                      "property": "GTIN_UNIT",
+                      "title": "GTIN UNIT"
+                    },
+                    {
+                      "property": "SKU_NAME",
+                      "title": "SKU NAME"
+                    },
+                    {
+                      "property": "SKU_DESC",
+                      "title": "SKU DESC"
+                    },
+                    {
+                      "property": "SKU_UNIT",
+                      "title": "SKU UNIT"
+                    },
+                    {
+                      "property": "SU_TYPE",
+                      "title": "SU TYPE"
+                    },
+                    {
+                      "property": "SU_UNIT",
+                      "title": "SU UNIT"
+                    },
+                    {
+                      "property": "SU_LENGTH",
+                      "title": "SU LENGTH"
+                    },
+                    {
+                      "property": "SU_WIDTH",
+                      "title": "SU WIDTH"
+                    },
+                    {
+                      "property": "SU_HEIGHT",
+                      "title": "SU HEIGHT"
+                    },
+                    {
+                      "property": "SU_DIM_UNIT",
+                      "title": "SU DIM UNIT"
+                    },
+                    {
+                      "property": "SKU_MAX_QTY",
+                      "title": "SKU MAX QTY"
+                    },
+                    {
+                      "property": "GTIN_NO",
+                      "title": "GTIN NO"
+                    },
+                    {
+                      "property": "GTIN_MAX_QTY",
+                      "title": "GTIN MAX QTY"
+                    },
+                    {
+                      "property": "GTIN_LAYER",
+                      "title": "GTIN LAYER"
+                    },
+                    {
+                      "property": "GTIN_LAYER_QTY",
+                      "title": "GTIN LAYER QTY"
+                    },
+                    {
+                      "property": "SOURCE",
+                      "title": "SOURCE"
+                    },
+                    {
+                      "property": "APPROVE_IND",
+                      "title": "APPROVE IND"
+                    },
+                    {
+                      "property": "REMARK",
+                      "title": "REMARK"
+                    },
+                    {
+                      "property": "TRN_USER",
+                      "title": "TRN USER"
+                    },
+                    {
+                      "property": "TRN_DATE",
+                      "title": "TRN DATE"
+                    },
+                    {
+                      "property": "CRT_USER",
+                      "title": "CRT USER"
+                    },
+                    {
+                      "property": "CRT_DATE",
+                      "title": "CRT DATE"
+                    },
+                    {
+                      "property": "LOG_DATE",
+                      "title": "LOG DATE"
+                    },
+                    {
+                      "property": "LOG_USER",
+                      "title": "LOG USER"
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "RadzenDh5.Models.Mark10Sqlexpress04.SkuSutHi"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "MARK10_SQLEXPRESS04.getSkuSutHis",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getSkuSutHisResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.SkuSutHi>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Sku Sut His",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

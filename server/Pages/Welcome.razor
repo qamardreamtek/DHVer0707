@@ -1,0 +1,237 @@
+﻿
+@page "/welcome"
+@layout MainLayout
+@inherits RadzenDh5.Pages.WelcomeComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+@using Microsoft.AspNetCore.Identity;
+@using RadzenDh5.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+@inject Microsoft.Extensions.Localization.IStringLocalizer<Welcome> L
+<RadzenContent Container="main">
+    <ChildContent>
+        <RadzenHeading Size="H3" Text="@L["pageTitle.Text"]">
+        </RadzenHeading>
+        <div class="row">
+            <div class="col-3">
+                <RadzenLabel Text="@L["label-user.Text"]" ReadOnly="true">
+                </RadzenLabel>
+                <RadzenTextBox ReadOnly="true" @bind-Value="@(Security.User.Name)" Name="TextboxUser">
+                </RadzenTextBox>
+            </div>
+            <div class="col-3">
+                限開發測試使用
+                <RadzenDropDown Data="@(new[] { new { Text="Chinese (Simplified)", Value="zh-CHS" },new { Text="Chinese (Traditional)", Value="zh-CHT" },new { Text="English - United States", Value="en-US" },new { Text="Thai - Thailand", Value="th-TH" }})" style="margin-right: 8px; margin-top: 4px" TextProperty="Text" @bind-Value="@Culture" ValueProperty="Value" Name="Dropdown1" Change="@Dropdown1Change">
+                </RadzenDropDown>
+            </div>
+        </div>
+        <hr />
+        <h2><a href="/topic1">待確認主題一</a></h2>
+        登入頁面(不選擇語系), 左側菜單(可收), 用戶權限(含菜單和實際頁面), 多語效果(是否需要繁中)。<br>
+        同步後請以另一款流覽器登出登入驗証用戶權限。
+        <hr />
+        <h2><a href="/topic2">待確認主題二</a></h2>
+        決定本項目標準的增刪改查頁面風格。提示單獨特殊的頁面(程序)需求。
+        <hr />
+        <h2>Recap of 04/07 onsite meeting</h2>
+        <ol>
+            <li>Loin 畫面加語系選擇,登入後不再選, 登入後目錄即顯示應對語系文字。</li>
+            <li>Menu 同意使用 https://blazor.radzen.com/ 左側可以收起打開的 Nav Menu 來實現 WES 畫面左側欄框的 Tree Menu。</li>
+            <li>權限機制同意使用 ASP.NET Core Identity, https://docs.microsoft.com/en-us/aspnet/core/security/authentication/identity?view=aspnetcore-5.0&tabs=visual-studio, 包括新增 AspNetUsers 等數據庫表單納入DHDB</li>
+            <li>
+                同步 WES [USER-GROUP-PROG] 到 Identity [User-Roles] 時, 只要 [PROG_WRT][GROUP_WRT]的 ENABLE 為Y 即屬有效, 用戶即可看到基本查詢頁面, 進一步要在各頁面處理
+                QUERY_WRT	PRINT_WRT	IMPORT_WRT	EXPORT_WRT	UPDATE_WRT	DELETE_WRT	APPROVE_WRT 所應對顯示及有效權限運行的功能。
+
+
+
+            </li>
+            <li>一般性的查詢頁面,同意使用 https://blazor.radzen.com/tabs Customers 的風格, 分頁要提到整個顯示Table的上方。Table 裡的欄位顯示順序和方式,同WES。  </li>
+            <li>
+                04/14 版本, 先满足上述, 並先完成後述表列頁面的 layout
+                <ul>
+                    <li><a href="/S030">S030</a>:  程序清單, 基本的單表查詢, 分頁在上。完成。</li>
+                    <li><a href="/S040">S040</a>:  群組用戶清單, 使用 Radzen DataGrid, 上方為群組, 下左為可加入的用戶,下右為已加入的用戶。TODO: 1.上方點選觸發下方更新 2.Add/Remove</li>
+                    <li><a href="vr-030-s">R030</a> 做成VIEW, 生成Entity, 能導出EXCEL。 文檔裡有,代碼裡有, 在DHDB裡目前沒出現, 可以用WES操作顯示出來. DH5需要單獨加在 Nav</li>
+                    <li><span style="color:red">R080 目前 WES 運行會報錯</span></li>
+                    <li>
+                        <a href="/Q040">
+                            Q040 Tab3[TR Header][TR Items][Serial Items]
+                        </a>
+                        <pre>
+ DataTable dtMST = new DataTable("IN_MST"); //TR主檔
+ DataTable dtDTL = new DataTable("IN_DTL"); //TR明細檔
+ DataTable dtSNO = new DataTable("IN_SNO"); //TR托盤序列號明細
+
+       string sSQL = string.Format(@@"select distinct a.* from {0} a join {1} b on (a.IN_NO=b.IN_NO) where 1=1", dtMST.TableName,dtSNO.TableName);
+            if (tbSKU_NO.Text.Trim().Length > 0) sSQL = sSQL + string.Format(@@" and b.SKU_NO like '%{0}%'", tbSKU_NO.Text.Trim().ToUpper());
+            if (tbGTIN_NO.Text.Trim().Length > 0) sSQL = sSQL + string.Format(@@" and b.GTIN_NO like '%{0}%'", tbGTIN_NO.Text.Trim().ToUpper());
+            if (tbREQM_NO.Text.Trim().Length > 0) sSQL = sSQL + string.Format(@@" and b.REQM_NO like '%{0}%'", tbREQM_NO.Text.Trim().ToUpper());
+            if (tbIN_NO.Text.Trim().Length > 0) sSQL = sSQL + string.Format(@@" and b.IN_NO like '%{0}%'", tbIN_NO.Text.Trim().ToUpper());
+            if (tbSU_ID.Text.Trim().Length > 0) sSQL = sSQL + string.Format(@@" and b.SU_ID like '%{0}%'", tbSU_ID.Text.Trim().ToUpper());
+ sSQL = string.Format(@@"select * from {0} where IN_NO='{1}' order by IN_LINE", dtDTL.TableName, sIN_NO);
+ sSQL = string.Format(@@"select * from {0} where IN_NO='{1}' and IN_LINE = '{2}' order by IN_NO,IN_LINE,IN_SNO", dtSNO.TableName, sIN_NO, sIN_LINE);
+</pre>
+
+                    </li>
+                    <li>
+                        Q100 所有儲位的狀況, 四個TAB 分別為 [Lane 1.][Lane 2.][Lane 3.][Lane 4.]
+                        <ul>
+                            <li>每個Lane 有兩個ROW, 每個ROW 由左而右01->98, 由下而上, 01->12</li>
+                            <li>
+                                <pre>
+ string sSQL = "select * from LOC_MST where EQU_NO in ('01','02','03','04') order by EQU_NO,ROW_X,LVL_Z,BAY_Y";
+                Globals.QueryTable(ref dtLocMst, sSQL);
+                if (dtLocMst.Rows.Count > 0)
+                {
+                    for (int i = 0; i &lt; dtLocMst.Rows.Count; i++)
+                    {
+
+                        int iRow = Convert.ToInt32(dtLocMst.Rows[i]["ROW_X"]) - 1;
+                        int iBay = Convert.ToInt32(dtLocMst.Rows[i]["BAY_Y"]) - 1;
+                        int iLvl = dgvLocSts[iRow].RowCount - Convert.ToInt32(dtLocMst.Rows[i]["LVL_Z"]);
+                        string sSTS = Convert.ToString(dtLocMst.Rows[i]["LOC_STS"]);
+
+                        dgvLocSts[iRow].Rows[iLvl].Cells[iBay].Value = sSTS;
+               
+  switch (sSTS)
+                        {
+                            case "N": //空储位
+                                dgvLocSts[iRow].Rows[iLvl].Cells[iBay].Style.BackColor = Color.White;
+                                dgvLocSts[iRow].Rows[iLvl].Cells[iBay].Style.ForeColor = Color.Black;
+                                if (Convert.ToString(dtLocMst.Rows[i]["LOC_SIZE"])=="H") iSTS_N_H[iRow]++;
+                                else iSTS_N_L[iRow]++;
+                                break;
+                            case "S": //庫存储位
+                                dgvLocSts[iRow].Rows[iLvl].Cells[iBay].Style.BackColor = Color.Lime;
+                                dgvLocSts[iRow].Rows[iLvl].Cells[iBay].Style.ForeColor = Color.Black;
+                                iSTS_S[iRow]++;
+                                break;
+                            case "E": //空托盤 
+                                dgvLocSts[iRow].Rows[iLvl].Cells[iBay].Style.BackColor = Color.Blue;
+                                dgvLocSts[iRow].Rows[iLvl].Cells[iBay].Style.ForeColor = Color.White;
+                                iSTS_E[iRow]++;
+                                break;
+                            case "I": //入庫預約
+                                dgvLocSts[iRow].Rows[iLvl].Cells[iBay].Style.BackColor = Color.DeepSkyBlue;
+                                dgvLocSts[iRow].Rows[iLvl].Cells[iBay].Style.ForeColor = Color.Red;
+                                iSTS_I[iRow]++;
+                                break;
+                            case "O": //出庫預約
+                                dgvLocSts[iRow].Rows[iLvl].Cells[iBay].Style.BackColor = Color.Yellow;
+                                dgvLocSts[iRow].Rows[iLvl].Cells[iBay].Style.ForeColor = Color.Red;
+                                iSTS_O[iRow]++;
+                                break;
+                            case "C": //盤點預約
+                                dgvLocSts[iRow].Rows[iLvl].Cells[iBay].Style.BackColor = Color.Purple;
+                                dgvLocSts[iRow].Rows[iLvl].Cells[iBay].Style.ForeColor = Color.White;
+                                iSTS_C[iRow]++;
+                                break;
+                            case "P": //盤點待調帳 
+                                dgvLocSts[iRow].Rows[iLvl].Cells[iBay].Style.BackColor = Color.Brown;
+                                dgvLocSts[iRow].Rows[iLvl].Cells[iBay].Style.ForeColor = Color.White;
+                                iSTS_P[iRow]++;
+                                break;
+                            case "X": //禁用 
+                                dgvLocSts[iRow].Rows[iLvl].Cells[iBay].Style.BackColor = Color.Black;
+                                dgvLocSts[iRow].Rows[iLvl].Cells[iBay].Style.ForeColor = Color.Yellow;
+                                iSTS_X[iRow]++;
+                                break;
+                            case "F": //異常储位 
+                                dgvLocSts[iRow].Rows[iLvl].Cells[iBay].Style.BackColor = Color.Red;
+                                dgvLocSts[iRow].Rows[iLvl].Cells[iBay].Style.ForeColor = Color.Yellow;
+                                iSTS_F[iRow]++;
+                                break;
+                            default: continue;
+                        }
+
+</pre>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>M070 ??? No data </li>
+                    <li>
+                        M090     以 LOC_MST 為主體, 要處理 update
+                        <pre>
+DataTable dtMST = new DataTable("LOC_MST"); //儲位主檔
+DataTable dtDTL = new DataTable("PLT_DTL"); //托盤明細
+</pre>
+                        9408筆
+                        <ul><li>可以使用的模板 https://blazor.radzen.com/master-detail</li></ul>
+                    </li>
+                    <li>C010  Physical Inventory Count</li>
+                    <li>C030 Physical Inventory Record</li>
+                    <li>P030 ??? No data</li>
+                    <li>P070</li>
+                    <li>P090</li>
+                </ul>
+
+
+            </li>
+            <li>
+                項目內預計要完工的PROGRAM, 以文檔為基準。
+                <ul>
+                    <li>http://yun4.dreamaitek.com:5002/doc</li>
+                    <li>
+                        目前第一版的DHDB的 admin 沒有顯示 R000
+                        <ul>
+                            <li>R030 Daily Inbound Summary Report上架日报</li>
+                            <li> R040 Daily Outbound Summary Report下架日报</li>
+                            <li>
+
+                                R050 Stock Inquiry Report库存查询报表
+                            </li>
+                            <li>
+                                R060 Stock Movement Pallet库存异动托盘数
+                            </li>
+                            <li>
+                                R070 Stock Movement Transaction库存异动交易数
+                            </li>
+                            <li> R080 Stock Counting Difference盘点差异</li>
+                        </ul>
+
+                    </li>
+                    <li>
+                        在第一版的DHDB的基礎上, 準備SQL腳本
+                        <ul>
+                            <li>ASP.NET Core Identity 相關 TABLES</li>
+                            <li>一些查詢使用的 VIEW</li>
+                            <li>讓admin用戶具有以述 報表的訪問權限</li>
+
+                        </ul>
+                    </li>
+
+                </ul>
+            </li>
+
+            <li>
+                提供現階段 WepApp 佈署在一般筆電的 Publish 檔案夾, 包括安裝步驟。
+                <ul>
+                    <li>
+                        基本檔案
+                        <ul>
+                            <li>DHDB 數據庫第一版</li>
+                            <li>數據腳本建立必要的TABLE/VIEW</li>
+                            <li>WebApp  (Ver. 04/14) Publish zip 檔</li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        設置要點
+                        <ul>
+                            <li>安裝 Runtime, 最新的.NET 5.0, https://dotnet.microsoft.com/download</li>
+                            <li>IIS 新站點</li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </li>
+
+        </ol>
+    </ChildContent>
+</RadzenContent>

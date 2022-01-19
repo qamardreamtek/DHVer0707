@@ -1,0 +1,337 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Gtin Msts"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "icon": "add_circle_outline",
+                  "name": "button0",
+                  "style": {
+                    "marginBottom": "10px"
+                  },
+                  "text": "Add",
+                  "type": "button",
+                  "events": {
+                    "click": [
+                      {
+                        "path": "add-gtin-mst",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await grid0.Reload();",
+                            "type": "execute"
+                          },
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "events": {
+                    "click": [
+                      {
+                        "condition": "${event?.Value == \"csv\"}",
+                        "fileName": "Gtin Msts",
+                        "name": "MARK10_SQLEXPRESS04.getGtinMsts",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "SKU_NO,GTIN_UNIT,GTIN_NO,GTIN_DESC,GTIN_CAT,GTIN_NUMERATOR,GTIN_DENOMINATOR,GTIN_GROSS_WEIGHT,GTIN_NET_WEIGHT,GTIN_WEIGHT_UNIT,GTIN_VOLUME,GTIN_VOLUME_UNIT,GTIN_LENGTH,GTIN_WIDTH,GTIN_HEIGHT,GTIN_DIM_UNIT,SOURCE,APPROVE_IND,REMARK,TRN_USER,TRN_DATE,CRT_USER,CRT_DATE"
+                          }
+                        ],
+                        "type": "export"
+                      },
+                      {
+                        "condition": "${event == null || event.Value == \"xlsx\"}",
+                        "fileName": "Gtin Msts",
+                        "format": "xlsx",
+                        "name": "MARK10_SQLEXPRESS04.getGtinMsts",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "SKU_NO,GTIN_UNIT,GTIN_NO,GTIN_DESC,GTIN_CAT,GTIN_NUMERATOR,GTIN_DENOMINATOR,GTIN_GROSS_WEIGHT,GTIN_NET_WEIGHT,GTIN_WEIGHT_UNIT,GTIN_VOLUME,GTIN_VOLUME_UNIT,GTIN_LENGTH,GTIN_WIDTH,GTIN_HEIGHT,GTIN_DIM_UNIT,SOURCE,APPROVE_IND,REMARK,TRN_USER,TRN_DATE,CRT_USER,CRT_DATE"
+                          }
+                        ],
+                        "type": "export"
+                      }
+                    ]
+                  },
+                  "icon": "get_app",
+                  "items": [
+                    {
+                      "icon": "",
+                      "text": "Excel",
+                      "value": "xlsx"
+                    },
+                    {
+                      "icon": "",
+                      "text": "CSV",
+                      "value": "csv"
+                    }
+                  ],
+                  "name": "splitbutton0",
+                  "style": {
+                    "marginLeft": "10px",
+                    "marginBottom": "10px"
+                  },
+                  "text": "Export",
+                  "type": "splitbutton"
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "filterMode": "advanced",
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getGtinMstsResult}",
+                  "events": {
+                    "loadData": [],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "SKU_NO",
+                            "value": "${event.SKU_NO}"
+                          },
+                          {
+                            "name": "GTIN_UNIT",
+                            "value": "${event.GTIN_UNIT}"
+                          }
+                        ],
+                        "path": "edit-gtin-mst",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "SKU_NO",
+                      "title": "SKU NO"
+                    },
+                    {
+                      "property": "GTIN_UNIT",
+                      "title": "GTIN UNIT"
+                    },
+                    {
+                      "property": "GTIN_NO",
+                      "title": "GTIN NO"
+                    },
+                    {
+                      "property": "GTIN_DESC",
+                      "title": "GTIN DESC"
+                    },
+                    {
+                      "property": "GTIN_CAT",
+                      "title": "GTIN CAT"
+                    },
+                    {
+                      "property": "GTIN_NUMERATOR",
+                      "title": "GTIN NUMERATOR"
+                    },
+                    {
+                      "property": "GTIN_DENOMINATOR",
+                      "title": "GTIN DENOMINATOR"
+                    },
+                    {
+                      "property": "GTIN_GROSS_WEIGHT",
+                      "title": "GTIN GROSS WEIGHT"
+                    },
+                    {
+                      "property": "GTIN_NET_WEIGHT",
+                      "title": "GTIN NET WEIGHT"
+                    },
+                    {
+                      "property": "GTIN_WEIGHT_UNIT",
+                      "title": "GTIN WEIGHT UNIT"
+                    },
+                    {
+                      "property": "GTIN_VOLUME",
+                      "title": "GTIN VOLUME"
+                    },
+                    {
+                      "property": "GTIN_VOLUME_UNIT",
+                      "title": "GTIN VOLUME UNIT"
+                    },
+                    {
+                      "property": "GTIN_LENGTH",
+                      "title": "GTIN LENGTH"
+                    },
+                    {
+                      "property": "GTIN_WIDTH",
+                      "title": "GTIN WIDTH"
+                    },
+                    {
+                      "property": "GTIN_HEIGHT",
+                      "title": "GTIN HEIGHT"
+                    },
+                    {
+                      "property": "GTIN_DIM_UNIT",
+                      "title": "GTIN DIM UNIT"
+                    },
+                    {
+                      "property": "SOURCE",
+                      "title": "SOURCE"
+                    },
+                    {
+                      "property": "APPROVE_IND",
+                      "title": "APPROVE IND"
+                    },
+                    {
+                      "property": "REMARK",
+                      "title": "REMARK"
+                    },
+                    {
+                      "property": "TRN_USER",
+                      "title": "TRN USER"
+                    },
+                    {
+                      "property": "TRN_DATE",
+                      "title": "TRN DATE"
+                    },
+                    {
+                      "property": "CRT_USER",
+                      "title": "CRT USER"
+                    },
+                    {
+                      "property": "CRT_DATE",
+                      "title": "CRT DATE"
+                    },
+                    {
+                      "filterable": false,
+                      "sortable": false,
+                      "width": "70px",
+                      "textAlign": "center",
+                      "template": [
+                        {
+                          "attributes": [
+                            {
+                              "name": "@onclick:stopPropagation",
+                              "value": true
+                            }
+                          ],
+                          "buttonStyle": "danger",
+                          "icon": "close",
+                          "name": "gridDeleteButton",
+                          "text": "",
+                          "size": "sm",
+                          "type": "button",
+                          "events": {
+                            "click": [
+                              {
+                                "condition": "await DialogService.Confirm(\"Are you sure you want to delete this record?\") == true",
+                                "error": [
+                                  {
+                                    "detail": "Unable to delete GtinMst",
+                                    "severity": "error",
+                                    "summary": "Error",
+                                    "type": "notify"
+                                  }
+                                ],
+                                "name": "MARK10_SQLEXPRESS04.deleteGtinMst",
+                                "parameters": [
+                                  {
+                                    "name": "SKU_NO",
+                                    "value": "${data.SKU_NO}"
+                                  },
+                                  {
+                                    "name": "GTIN_UNIT",
+                                    "value": "${data.GTIN_UNIT}"
+                                  }
+                                ],
+                                "then": [
+                                  {
+                                    "code": "await grid0.Reload();",
+                                    "condition": "result != null",
+                                    "type": "execute"
+                                  }
+                                ],
+                                "type": "invoke"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "RadzenDh5.Models.Mark10Sqlexpress04.GtinMst"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "MARK10_SQLEXPRESS04.getGtinMsts",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getGtinMstsResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.GtinMst>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Gtin Msts",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

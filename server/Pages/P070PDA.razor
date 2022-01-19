@@ -1,0 +1,356 @@
+﻿
+@layout MainLayout
+@inherits RadzenDh5.Pages.P070PDAComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+@using Microsoft.AspNetCore.Identity;
+@using RadzenDh5.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+<DhAppHeadingAuthMsgOpt IsShowAuth=@IsShowAuth  AuthMsg="@AuthMsg" Culture="@Culture" DhUser="@DhUser" DhUsername="@DhUsername"
+                 PROG_ID="@PROG_ID" PROG_NAME_BY_CULTURE="@PROG_NAME_BY_CULTURE"
+                 progWrt="@progWrt" progMst="@progMst" GoodMsg="@GoodMsg" ErrMsg="@ErrMsg" />
+
+
+<div class="row">
+    <RadzenButton style="margin-bottom: 10px;margin-left:12px" Text=@Lang("Refresh") Click="@ButtonRefreshClick" />
+</div>
+
+        Source SU_ID.
+<RadzenTextBox @bind-Value="@tbPLT1" Change=@(args => OnTxt1Change(args, "TextBox")) MaxLength="6" Style="width:120px" />
+<RadzenButton style="margin: 0 1rem 1rem 0" Click=@(args => ButtonReloadClick()) Text="Reload" />
+
+<RadzenDataList WrapItems="true" AllowPaging="true" Data="@getVp070sResult1" TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp070">
+    <Template Context="item">
+        <RadzenCard Style="width:300px;">
+            <div class="row">
+
+
+
+                <div class="col-4" style="margin-top:8px; ">
+                    SU_ID<br /><b> @(item.SU_ID) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    SU_TYPE<br /><b><span style="background-color:lightgray"> @(item.SU_TYPE)</span> </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    IN_SNO<br /><b> @(item.IN_SNO) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    WHSE_NO<br /><b> @(item.WHSE_NO) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    IN_NO<br /><b> @(item.IN_NO) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    IN_LINE<br /><b> @(item.IN_LINE) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    GR_DATE<br /><b> @(item.GR_DATE) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    EXPIRE_DATE<br /><b> @(item.EXPIRE_DATE) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    DATE_CODE<br /><b> @(item.DATE_CODE) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    SKU_NO<br /><b> @(item.SKU_NO) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    PLANT<br /><b> @(item.PLANT) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    STGE_LOC<br /><b> @(item.STGE_LOC) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    BATCH_NO<br /><b> @(item.BATCH_NO) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    STK_CAT<br /><b> @(item.STK_CAT) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    STK_SPECIAL_IND<br /><b> @(item.STK_SPECIAL_IND) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    STK_SPECIAL_NO<br /><b> @(item.STK_SPECIAL_NO) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    GTIN_UNIT<br /><b> @(item.GTIN_UNIT) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    GTIN_QTY<br /><b> @(item.GTIN_QTY) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    SKU_UNIT<br /><b> @(item.SKU_UNIT) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    SKU_QTY<br /><b> @(item.SKU_QTY) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    COUNT_DATE<br /><b> @(item.COUNT_DATE) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    GTIN_ALO_QTY<br /><b> @(item.GTIN_ALO_QTY) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    SKU_ALO_QTY<br /><b> @(item.SKU_ALO_QTY) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    STGE_TYPE<br /><b> @(item.STGE_TYPE) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    STGE_BIN<br /><b> @(item.STGE_BIN) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    LOC_NO<br /><b><span style="background-color:lightgray"> @(item.LOC_NO)</span> </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    GTIN_NUMERATOR<br /><b> @(item.GTIN_NUMERATOR) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    GTIN_DENOMINATOR<br /><b> @(item.GTIN_DENOMINATOR) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    GROSS_WEIGHT<br /><b> @(item.GROSS_WEIGHT) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    NET_WEIGHT<br /><b> @(item.NET_WEIGHT) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    WEIGHT_UNIT<br /><b> @(item.WEIGHT_UNIT) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    VOLUME<br /><b> @(item.VOLUME) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    VOLUME_UNIT<br /><b> @(item.VOLUME_UNIT) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    LOC_QTY<br /><b> @(item.LOC_QTY) </b>
+                </div>
+
+                <div class="col-12" style="margin-top:8px; ">
+                    <RadzenButton style="margin: 0 1rem 1rem 0" Click=@(args => OnAddClick(item)) Text="To Add" />
+                </div>
+
+
+            </div>
+
+
+        </RadzenCard>
+    </Template>
+
+</RadzenDataList>
+<div class="row">
+    <div class="col-12" style="margin-top:8px; ">
+        <span>@GW_VOL</span>
+        <RadzenTextBox @bind-Value="@tbGW_S" ReadOnly="true" Style="width:100px;background-color:lightgray" />
+        <RadzenTextBox @bind-Value="@tbV_S" ReadOnly="true" Style="width:100px;background-color:lightgray" />
+
+    </div>
+</div>
+
+<hr />
+        Target SU_ID.
+<RadzenTextBox @bind-Value="@tbPLT2" Change=@(args => OnTxt2Change(args, "TextBox")) MaxLength="6" Style="width:120px" />
+<RadzenButton style="margin: 0 1rem 1rem 0" Click=@(args => ButtonReloadClick()) Text="Reload" />
+
+
+<RadzenDataList WrapItems="true" AllowPaging="true" Data="@getVp070sResult2" TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp070">
+    <Template Context="item">
+        <RadzenCard Style="width:300px;">
+            <div class="row">
+
+
+                <div class="col-4" style="margin-top:8px; ">
+                    SU_ID<br /><b> @(item.SU_ID) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    SU_TYPE<br /><b><span style="background-color:lightgray"> @(item.SU_TYPE)</span> </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    IN_SNO<br /><b> @(item.IN_SNO) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    WHSE_NO<br /><b> @(item.WHSE_NO) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    IN_NO<br /><b> @(item.IN_NO) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    IN_LINE<br /><b> @(item.IN_LINE) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    GR_DATE<br /><b> @(item.GR_DATE) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    EXPIRE_DATE<br /><b> @(item.EXPIRE_DATE) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    DATE_CODE<br /><b> @(item.DATE_CODE) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    SKU_NO<br /><b> @(item.SKU_NO) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    PLANT<br /><b> @(item.PLANT) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    STGE_LOC<br /><b> @(item.STGE_LOC) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    BATCH_NO<br /><b> @(item.BATCH_NO) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    STK_CAT<br /><b> @(item.STK_CAT) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    STK_SPECIAL_IND<br /><b> @(item.STK_SPECIAL_IND) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    STK_SPECIAL_NO<br /><b> @(item.STK_SPECIAL_NO) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    GTIN_UNIT<br /><b> @(item.GTIN_UNIT) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    GTIN_QTY<br /><b> @(item.GTIN_QTY) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    SKU_UNIT<br /><b> @(item.SKU_UNIT) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    SKU_QTY<br /><b> @(item.SKU_QTY) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    COUNT_DATE<br /><b> @(item.COUNT_DATE) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    GTIN_ALO_QTY<br /><b> @(item.GTIN_ALO_QTY) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    SKU_ALO_QTY<br /><b> @(item.SKU_ALO_QTY) </b>
+                </div>
+                <div class="col-4" style="margin-top:8px; ">
+                    STGE_TYPE<br /><b> @(item.STGE_TYPE) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    STGE_BIN<br /><b> @(item.STGE_BIN) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    LOC_NO<br /><b><span style="background-color:lightgray"> @(item.LOC_NO)</span> </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    GTIN_NUMERATOR<br /><b> @(item.GTIN_NUMERATOR) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    GTIN_DENOMINATOR<br /><b> @(item.GTIN_DENOMINATOR) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    GROSS_WEIGHT<br /><b> @(item.GROSS_WEIGHT) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    NET_WEIGHT<br /><b> @(item.NET_WEIGHT) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    WEIGHT_UNIT<br /><b> @(item.WEIGHT_UNIT) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    VOLUME<br /><b> @(item.VOLUME) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    VOLUME_UNIT<br /><b> @(item.VOLUME_UNIT) </b>
+                </div>
+
+                <div class="col-4" style="margin-top:8px; ">
+                    LOC_QTY<br /><b> @(item.LOC_QTY) </b>
+                </div>
+
+                <div class="col-12" style="margin-top:8px; ">
+                    <RadzenButton style="margin: 0 1rem 1rem 0" Click=@(args => OnRemoveClick(item)) Text="To Remove" />
+                </div>
+
+
+            </div>
+
+
+        </RadzenCard>
+    </Template>
+</RadzenDataList>
+<div class="row">
+    <div class="col-12" style="margin-top:8px; ">
+        <span>@GW_VOL</span>
+        <RadzenTextBox @bind-Value="@tbGW_T" ReadOnly="true" Style="width:100px;background-color:lightgray" />
+        <RadzenTextBox @bind-Value="@tbV_T" ReadOnly="true" Style="width:100px;background-color:lightgray" />
+
+    </div>
+</div>

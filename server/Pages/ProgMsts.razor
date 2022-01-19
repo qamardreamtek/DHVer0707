@@ -1,0 +1,77 @@
+﻿
+@layout MainLayout
+@inherits RadzenDh5.Pages.ProgMstsComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+@using Microsoft.AspNetCore.Identity;
+@using RadzenDh5.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+@inject Microsoft.Extensions.Localization.IStringLocalizer<MainLayout> L
+<DhAppHeadingAuthMsgOpt IsShowAuth=@IsShowAuth AuthMsg="@AuthMsg" Culture="@Culture" DhUser="@DhUser" DhUsername="@DhUsername"
+                        PROG_ID="@PROG_ID" PROG_NAME_BY_CULTURE="@PROG_NAME_BY_CULTURE"
+                        progWrt="@progWrt" progMst="@progMst" GoodMsg="@GoodMsg" ErrMsg="@ErrMsg" />
+<div class="row" style="margin-top: 8px">
+    <RadzenButton style="margin-bottom: 10px;margin-left:12px" Text=@Lang("Query") Click="@ButtonQueryClick" />
+    <RadzenButton style="margin-bottom: 10px;margin-left:12px" Text=@Lang("Create") Click="@ButtonCreateClick" />
+    <RadzenButton style="margin-bottom: 10px;margin-left:12px" Text=@Lang("Update") Click="@ButtonUpdateClick" />
+    <RadzenButton style="margin-bottom: 10px;margin-left:12px" Text=@Lang("Delete") Click="@ButtonDeleteClick" />
+    <RadzenButton style="margin-bottom: 10px;margin-left:12px" Text=@Lang("Refresh") Click="@ButtonRefreshClick" />
+</div>
+
+<div id="S030_filters_20210607_141847" class="row" style="margin-bottom:4px;">
+    <DhTextBox Label=@Lang("PROG_ID") MaxLength="20" style="display: block; width:100% " @bind-Value="@txtPROG_ID" />
+    <DhTextBox Label=@Lang("PROG_NAME") MaxLength="20" style="display: block; width:100% " @bind-Value="@txtPROG_NAME" />
+</div>
+
+
+<RadzenGrid @ref="grid0" ColumnWidth="125px" PagerPosition="PagerPosition.Top"
+            AllowFiltering="false" AllowColumnResize="true" FilterMode="FilterMode.Advanced" AllowPaging="true" AllowSorting="false"
+            Data="@getProgMstsResult" TItem="RadzenDh5.Models.Mark10Sqlexpress04.ProgMst" RowSelect="@Grid0RowSelect" RowDoubleClick="@Grid0RowDoubleClick">
+    <Columns>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.ProgMst" Property="PROG_ID" Title=@Lang("PROG_ID")>
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.ProgMst" Property="PROG_NAME" Title=@Lang("PROG_NAME")>
+        </RadzenGridColumn>
+        @*<RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.ProgMst" Property="PROG_TYPE" Title=@Lang("PROG_TYPE")>
+            </RadzenGridColumn>*@
+
+
+
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.ProgMst" Property="PARENT_ID" Title=@Lang("PARENT")>
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.ProgMst" Property="PROG_NODE" Title=@Lang("NODE")>
+        </RadzenGridColumn>
+        @*<RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.ProgMst" Property="PROG_PATH" Title=@Lang("PROG_PATH*@
+        @*    </RadzenGridColumn>*@
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.ProgMst" Property="PROG_SNO" Title=@Lang("SNO")>
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.ProgMst" Property="ENABLE" Title=@Lang("ENABLE")>
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.ProgMst" Property="REMARK" Title=@Lang("REMARK")>
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.ProgMst" Property="TRN_USER" Title=@Lang("TRN_USER")>
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.ProgMst" Property="TRN_DATE" Title=@Lang("TRN_DATE")>
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.ProgMst" Property="CRT_USER" Title=@Lang("CRT_USER")>
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.ProgMst" Property="CRT_DATE" Title=@Lang("CRT_DATE")>
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.ProgMst" Property="TW_NAME" Title=@Lang("TW_NAME")>
+        </RadzenGridColumn>
+
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.ProgMst" Property="CN_NAME" Title=@Lang("CN_NAME")>
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.ProgMst" Property="TH_NAME" Title=@Lang("TH_NAME")>
+        </RadzenGridColumn>
+        @*      <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.ProgMst" Property="VN_NAME" Title=@Lang("VN_NAME*@
+        @*      </RadzenGridColumn>*@
+
+    </Columns>
+</RadzenGrid>
+

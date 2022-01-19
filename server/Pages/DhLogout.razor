@@ -1,0 +1,23 @@
+﻿@page "/DhLogout"
+@using System.IO
+@using Microsoft.EntityFrameworkCore
+@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment HostEnvironment
+@inject NavigationManager NavManager
+@inherits RadzenDh5.Pages.DhLogoutComponent
+@using Radzen.Blazor
+@inject RadzenDh5.Data.Mark10Sqlexpress04Context AppDb
+
+@using RadzenDh5.Models;
+@using RadzenDh5.Pages;
+@inject Microsoft.Extensions.Localization.IStringLocalizer<MainLayout> L
+@inject SecurityService Security
+
+@inject Microsoft.JSInterop.IJSRuntime JSRuntime
+@attribute [Authorize]
+
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor httpContextAccessor
+@inject CaotunSpring.DH.Tools.DhGlobalsService DhGlobals
+
+<h1>To Logout</h1>
+

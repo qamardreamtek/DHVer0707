@@ -1,0 +1,67 @@
+﻿@*@page "/dhlocallogin"*@
+@layout LoginLayout
+@inherits RadzenDh5.Pages.DhLocalLoginComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+@using Microsoft.AspNetCore.Identity;
+@using RadzenDh5.Models
+@using Microsoft.AspNetCore.Authorization
+
+@inject BlazorApp1.Data.PageService pageService;
+<form method="post" action="account/login">
+    <RadzenContent Container="main">
+        <ChildContent>
+            <RadzenHeading Size="H3" Text="和 WES 相容的登入頁面  *****************************************本頁面 不使用了">
+            </RadzenHeading>
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="rz-form" novalidate="">
+                        <div class="row form-group">
+                            <label class="col-sm-3 col-form-label" for="language">Language</label>
+                            <div class="col">
+                                <RadzenDropDown Data="@(new[] { new { Text="EN", Value="en-US" },new { Text="TW", Value="zh-CHT" },new { Text="CN", Value="zh-CHS" },new { Text="TH", Value="th-TH" }})" style="margin-right: 8px; margin-top: 4px" TextProperty="Text" @bind-Value="@Culture" ValueProperty="Value" Name="Dropdown1" Change="@Dropdown1Change">
+                                </RadzenDropDown>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div  @attributes="Attributes"  >
+                        <div class="rz-form">
+                            <div class="row form-group">
+                                <label class="col-sm-3 col-form-label" for="username">@UserText</label>
+                                <div class="col">
+                                    <RadzenTextBox style="display: block" Name="Username" @bind-Value=@Username />
+                                    <RadzenRequiredValidator Component="Username" Text=@UserRequired style="position: absolute" />
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <label class="col-sm-3 col-form-label" for="password">@PasswordText</label>
+                                <div class="col">
+                                    <RadzenPassword style="display: block" Name="Password" @bind-Value=@Password />
+                                    <RadzenRequiredValidator Component="Password" Text=@PasswordRequired style="position: absolute" />
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="offset-sm-3 col login-buttons">
+                                    <RadzenButton ButtonStyle="ButtonStyle.Primary" ButtonType="ButtonType.Submit" Text=@LoginText Click=@OnLogin />
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <RadzenDh5.Pages.DhLoginComponent AllowRegister="false" AllowResetPassword="false">
+                    </RadzenDh5.Pages.DhLoginComponent>
+                </div>
+            </div>
+
+        </ChildContent>
+    </RadzenContent>
+</form>

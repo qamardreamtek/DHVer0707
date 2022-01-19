@@ -1,0 +1,23 @@
+﻿{
+  "intItem1": 688,
+  "intItem2": 692,
+  "intItem3": 696,
+  "intItem4": 700,
+  "intItem5": 704,
+  "intItem6": 708,
+  "intItem7": 712,
+  "intItem8": 718,
+  "intItem9": 728,
+  "intItem10": 732,
+  "id": "P020",
+  "item1": "发货条件不是20或90的交货单自动分配库存出库",
+  "item2": "查看是否还有未自动执行的交货单",
+  "item3": "仓管员",
+  "item4": "SAP下传相关Delivery Data",
+  "item5": "可执行Delivery数据",
+  "item6": "拣配数据、更新Delivery数据状态",
+  "item7": "如果无符合条件的Delivery数据，系统将提示查无可用Delivery信息，用户可执行Data Inquire-->Q050 Delivery Order Data Query作业查询Delivery数据与状态；或挑选指定的Delivery No.",
+  "item8": "    1. 输入查询条件或挑选Delivery No后点选Query查询可拣配Delivery表头与明细清单",
+  "item9": "自动仓库搬运出库",
+  "item10": "此作业依据FEFO & FIFO等逻辑自动分配库存。此程序为备用，可检查是否有未能自动执行或未执行完成的交货单。"
+}

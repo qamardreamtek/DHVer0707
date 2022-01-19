@@ -1,0 +1,23 @@
+﻿{
+  "intItem1": 842,
+  "intItem2": 846,
+  "intItem3": 850,
+  "intItem4": 854,
+  "intItem5": 858,
+  "intItem6": 862,
+  "intItem7": 866,
+  "intItem8": 872,
+  "intItem9": 882,
+  "intItem10": 886,
+  "id": "P070",
+  "item1": "重新整理货物所绑定的托盘",
+  "item2": "重新整理货物所绑定的托盘，可以将零散的货物整并在一个托盘",
+  "item3": "仓管员",
+  "item4": "货物托盘已Transfer Out出库",
+  "item5": "序列号或原托盘号及目的托盘号",
+  "item6": "更改托盘货物绑定关系",
+  "item7": "如果无符合条件的托盘明细数据，系统将提示查无可用托盘明细信息，用户可执行Data Inquire-->Q080 Inventory Data Query作业查询托盘明细数据；",
+  "item8": "    1. 输入查询条件后点选Query查询托盘明细清单",
+  "item9": "完成的货物托盘可用叉车再置入立库入库输送机入库",
+  "item10": ""
+}

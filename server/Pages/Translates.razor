@@ -1,0 +1,46 @@
+﻿@*@page "/translates"*@
+@layout MainLayout
+@inherits RadzenDh5.Pages.TranslatesComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+
+<DhAppHeadingAuthMsgOpt IsShowAuth=@IsShowAuth AuthMsg="@AuthMsg" Culture="@Culture" DhUser="@DhUser" DhUsername="@DhUsername"
+                        PROG_ID="@PROG_ID" PROG_NAME_BY_CULTURE="@PROG_NAME_BY_CULTURE"
+                        progWrt="@progWrt" progMst="@progMst" GoodMsg="@GoodMsg" ErrMsg="@ErrMsg" />
+<div class="row" style="margin-top: 8px">
+    <RadzenButton style="margin-bottom: 10px;margin-left:12px" Text=@Lang("Query") Click="@ButtonQueryClick" />
+    <RadzenButton style="margin-bottom: 10px;margin-left:12px" Text=@Lang("Create") Click="@ButtonCreateClick" />
+    <RadzenButton style="margin-bottom: 10px;margin-left:12px" Text=@Lang("Update") Click="@ButtonUpdateClick" />
+    <RadzenButton style="margin-bottom: 10px;margin-left:12px" Text=@Lang("Delete") Click="@ButtonDeleteClick" />
+    <RadzenButton style="margin-bottom: 10px;margin-left:12px" Text=@Lang("Refresh") Click="@ButtonRefreshClick" />
+</div>
+
+
+<div id="S090_filters_20210607_141847" class="row" style="margin-bottom:4px;">
+    <DhTextBox Label=@Lang("TEXT")  MaxLength="20" style="display: block; width:100% " @bind-Value="@txtTEXT" /> 
+</div>
+
+
+<RadzenGrid @ref="grid0"
+            ColumnWidth="125px" AllowColumnResize="true" PagerPosition="PagerPosition.Top"
+            AllowFiltering="false" FilterMode="FilterMode.Advanced" AllowPaging="true" AllowSorting="false"
+            Data="@getTranslatesResult" TItem="RadzenDh5.Models.Mark10Sqlexpress04.Translate"
+            RowSelect="@Grid0RowSelect" RowDoubleClick="@Grid0RowDoubleClick">
+    <Columns>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Translate" Property="EN_TEXT" Title="EN TEXT"> 
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Translate" Property="TW_TEXT" Title="TW TEXT"> 
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Translate" Property="CN_TEXT" Title="CN TEXT"> 
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Translate" Property="TH_TEXT" Title="TH TEXT"> 
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Translate" Property="VN_TEXT" Title="VN TEXT"> 
+        </RadzenGridColumn>
+        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Translate" Property="TEXT" Title=@Lang("TEXT")> 
+        </RadzenGridColumn>
+
+    </Columns>
+</RadzenGrid>

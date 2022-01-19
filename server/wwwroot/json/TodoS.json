@@ -1,0 +1,61 @@
+﻿[
+  {
+    "Id": "A000",
+    "Name": "4/25 已將 【帳號同步】在登入時實現。考慮都不留之前為了部署所用的 dhadmin 帳號。4/24 完成從 WES 用戶主檔同步帳號到 ASP.NET CORE IDENTITY , 包括解決了密碼加密解密的需求。以這基礎同時完成用戶的權限, 包括使用的語系。這是針對菜單的部份。  "
+  },
+  {
+    "Id": "A001",
+    "Name": "準備在任何訪問登入畫面時做[帳號同步], 這樣子解決系統初次使用在何時[同步]的問。也不需要在 USER_MST 增改時做。USER_MST 刪除用戶時, 需要同時刪除 ASP.NET Identity User。  "
+  },
+  {
+    "Id": "A002",
+    "Name": "基本上是直接使用 https://blazor.radzen.com/ 的component, 這是目前第一個要客製 login 的功能, RadzenLogin.razor, 為了有所區別, 客製的加上前綴Dh, 成為 DhRadzenLogin.razor "
+  },
+  {
+    "Id": "A002",
+    "Name": "單獨拉出元件客製在技術層面是會比直接在原 https://blazor.radzen.com/ 修改代碼重新 build 出像 NuGet Package 來用要難一些, 必需要有紮實的  namespace 基礎理論才能不和原 Package 混亂使用。 "
+  },
+  {
+    "Id": "A002",
+    "Name": "[帳號同步]是一個一個帳號比對, 如果已經存在, 就同步密碼, 如果沒有, 就新建帳號。  "
+  },
+  {
+    "Id": "A101",
+    "Name": "所有頁面都入到  Tab, 同時都帶一個 Menu  "
+  },
+  {
+    "Id": "A102",
+    "Name": "S020 是頁面訪問權限範例 "
+  },
+  {
+    "Id": "A103",
+    "Name": "所有頁面的其它權限一次性,先到位  "
+  },
+  {
+    "Id": "A104",
+    "Name": "Report 有找到寫檔案名稱和 sheetname. 要找語句 插入主旨等row, 要做成可篩選和凍結三個row , 原代碼這部分是否相容? "
+  },
+  {
+    "Id": "A105",
+    "Name": "Report 是否有幾支決定要採用 RAW SQL "
+  },
+
+
+  {
+    "Id": "S010",
+    "Name": "Add USER_MST 密碼要加密  "
+  },
+  {
+    "Id": "S040",
+    "Name": "要擴開成 PROG_WRT 記錄  "
+  },
+  {
+    "Id": "S050",
+    "Name": "要擴開成 PROG_WRT 記錄  "
+  },
+  {
+    "Id": "Q100",
+    "Name": "統計, 著色 "
+  }
+
+]

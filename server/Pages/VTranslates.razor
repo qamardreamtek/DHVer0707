@@ -1,0 +1,36 @@
+﻿@page "/v-translates"
+@layout MainLayout
+@inherits RadzenDh5.Pages.VTranslatesComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="V Translates">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenGrid @ref="grid0"
+                      ColumnWidth="125px" AllowColumnResize="true" PagerPosition="PagerPosition.Top"
+                             
+                    AllowFiltering="true" FilterMode="FilterMode.Advanced" AllowPaging="true" AllowSorting="true" Data="@getVTranslatesResult" TItem="RadzenDh5.Models.Mark10Sqlexpress04.VTranslate">
+          <Columns>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.VTranslate" Property="EN_TEXT" Title="EN TEXT">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.VTranslate" Property="TW_TEXT" Title="TW TEXT">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.VTranslate" Property="CN_TEXT" Title="CN TEXT">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.VTranslate" Property="TH_TEXT" Title="TH TEXT">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.VTranslate" Property="VN_TEXT" Title="VN TEXT">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.VTranslate" Property="TEXT" Title="TEXT">
+            </RadzenGridColumn>
+          </Columns>
+        </RadzenGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

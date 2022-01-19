@@ -1,0 +1,397 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Pic Dtls"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "icon": "add_circle_outline",
+                  "name": "button0",
+                  "style": {
+                    "marginBottom": "10px"
+                  },
+                  "text": "Add",
+                  "type": "button",
+                  "events": {
+                    "click": [
+                      {
+                        "path": "add-pic-dtl",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await grid0.Reload();",
+                            "type": "execute"
+                          },
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "events": {
+                    "click": [
+                      {
+                        "condition": "${event?.Value == \"csv\"}",
+                        "fileName": "Pic Dtls",
+                        "name": "MARK10_SQLEXPRESS04.getPicDtls",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "WHSE_NO,PIC_NO,PIC_LINE,STGE_TYPE,STGE_BIN,SU_ID,PLANT,STGE_LOC,SKU_NO,BATCH_NO,COUNT_USER,COUNT_QTY,COUNT_UNIT,WMSLOC_IND,REASON1,REASON2,REASON3,REASON4,REASON5,REASON6,REASON7,REASON8,REASON9,REASON10,BATCH_IND,SERIAL_IND,START_DATE,END_DATE,PIC_STS,REMARK,SOURCE,APPROVE_IND,TRN_USER,TRN_DATE,CRT_USER,CRT_DATE"
+                          }
+                        ],
+                        "type": "export"
+                      },
+                      {
+                        "condition": "${event == null || event.Value == \"xlsx\"}",
+                        "fileName": "Pic Dtls",
+                        "format": "xlsx",
+                        "name": "MARK10_SQLEXPRESS04.getPicDtls",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "WHSE_NO,PIC_NO,PIC_LINE,STGE_TYPE,STGE_BIN,SU_ID,PLANT,STGE_LOC,SKU_NO,BATCH_NO,COUNT_USER,COUNT_QTY,COUNT_UNIT,WMSLOC_IND,REASON1,REASON2,REASON3,REASON4,REASON5,REASON6,REASON7,REASON8,REASON9,REASON10,BATCH_IND,SERIAL_IND,START_DATE,END_DATE,PIC_STS,REMARK,SOURCE,APPROVE_IND,TRN_USER,TRN_DATE,CRT_USER,CRT_DATE"
+                          }
+                        ],
+                        "type": "export"
+                      }
+                    ]
+                  },
+                  "icon": "get_app",
+                  "items": [
+                    {
+                      "icon": "",
+                      "text": "Excel",
+                      "value": "xlsx"
+                    },
+                    {
+                      "icon": "",
+                      "text": "CSV",
+                      "value": "csv"
+                    }
+                  ],
+                  "name": "splitbutton0",
+                  "style": {
+                    "marginLeft": "10px",
+                    "marginBottom": "10px"
+                  },
+                  "text": "Export",
+                  "type": "splitbutton"
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "filterMode": "advanced",
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getPicDtlsResult}",
+                  "events": {
+                    "loadData": [],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "WHSE_NO",
+                            "value": "${event.WHSE_NO}"
+                          },
+                          {
+                            "name": "PIC_NO",
+                            "value": "${event.PIC_NO}"
+                          },
+                          {
+                            "name": "PIC_LINE",
+                            "value": "${event.PIC_LINE}"
+                          }
+                        ],
+                        "path": "edit-pic-dtl",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "WHSE_NO",
+                      "title": "WHSE NO"
+                    },
+                    {
+                      "property": "PIC_NO",
+                      "title": "PIC NO"
+                    },
+                    {
+                      "property": "PIC_LINE",
+                      "title": "PIC LINE"
+                    },
+                    {
+                      "property": "STGE_TYPE",
+                      "title": "STGE TYPE"
+                    },
+                    {
+                      "property": "STGE_BIN",
+                      "title": "STGE BIN"
+                    },
+                    {
+                      "property": "SU_ID",
+                      "title": "SU ID"
+                    },
+                    {
+                      "property": "PLANT",
+                      "title": "PLANT"
+                    },
+                    {
+                      "property": "STGE_LOC",
+                      "title": "STGE LOC"
+                    },
+                    {
+                      "property": "SKU_NO",
+                      "title": "SKU NO"
+                    },
+                    {
+                      "property": "BATCH_NO",
+                      "title": "BATCH NO"
+                    },
+                    {
+                      "property": "COUNT_USER",
+                      "title": "COUNT USER"
+                    },
+                    {
+                      "property": "COUNT_QTY",
+                      "title": "COUNT QTY"
+                    },
+                    {
+                      "property": "COUNT_UNIT",
+                      "title": "COUNT UNIT"
+                    },
+                    {
+                      "property": "WMSLOC_IND",
+                      "title": "WMSLOC IND"
+                    },
+                    {
+                      "property": "REASON1",
+                      "title": "REASON 1"
+                    },
+                    {
+                      "property": "REASON2",
+                      "title": "REASON 2"
+                    },
+                    {
+                      "property": "REASON3",
+                      "title": "REASON 3"
+                    },
+                    {
+                      "property": "REASON4",
+                      "title": "REASON 4"
+                    },
+                    {
+                      "property": "REASON5",
+                      "title": "REASON 5"
+                    },
+                    {
+                      "property": "REASON6",
+                      "title": "REASON 6"
+                    },
+                    {
+                      "property": "REASON7",
+                      "title": "REASON 7"
+                    },
+                    {
+                      "property": "REASON8",
+                      "title": "REASON 8"
+                    },
+                    {
+                      "property": "REASON9",
+                      "title": "REASON 9"
+                    },
+                    {
+                      "property": "REASON10",
+                      "title": "REASON 10"
+                    },
+                    {
+                      "property": "BATCH_IND",
+                      "title": "BATCH IND"
+                    },
+                    {
+                      "property": "SERIAL_IND",
+                      "title": "SERIAL IND"
+                    },
+                    {
+                      "property": "START_DATE",
+                      "title": "START DATE"
+                    },
+                    {
+                      "property": "END_DATE",
+                      "title": "END DATE"
+                    },
+                    {
+                      "property": "PIC_STS",
+                      "title": "PIC STS"
+                    },
+                    {
+                      "property": "REMARK",
+                      "title": "REMARK"
+                    },
+                    {
+                      "property": "SOURCE",
+                      "title": "SOURCE"
+                    },
+                    {
+                      "property": "APPROVE_IND",
+                      "title": "APPROVE IND"
+                    },
+                    {
+                      "property": "TRN_USER",
+                      "title": "TRN USER"
+                    },
+                    {
+                      "property": "TRN_DATE",
+                      "title": "TRN DATE"
+                    },
+                    {
+                      "property": "CRT_USER",
+                      "title": "CRT USER"
+                    },
+                    {
+                      "property": "CRT_DATE",
+                      "title": "CRT DATE"
+                    },
+                    {
+                      "filterable": false,
+                      "sortable": false,
+                      "width": "70px",
+                      "textAlign": "center",
+                      "template": [
+                        {
+                          "attributes": [
+                            {
+                              "name": "@onclick:stopPropagation",
+                              "value": true
+                            }
+                          ],
+                          "buttonStyle": "danger",
+                          "icon": "close",
+                          "name": "gridDeleteButton",
+                          "text": "",
+                          "size": "sm",
+                          "type": "button",
+                          "events": {
+                            "click": [
+                              {
+                                "condition": "await DialogService.Confirm(\"Are you sure you want to delete this record?\") == true",
+                                "error": [
+                                  {
+                                    "detail": "Unable to delete PicDtl",
+                                    "severity": "error",
+                                    "summary": "Error",
+                                    "type": "notify"
+                                  }
+                                ],
+                                "name": "MARK10_SQLEXPRESS04.deletePicDtl",
+                                "parameters": [
+                                  {
+                                    "name": "WHSE_NO",
+                                    "value": "${data.WHSE_NO}"
+                                  },
+                                  {
+                                    "name": "PIC_NO",
+                                    "value": "${data.PIC_NO}"
+                                  },
+                                  {
+                                    "name": "PIC_LINE",
+                                    "value": "${data.PIC_LINE}"
+                                  }
+                                ],
+                                "then": [
+                                  {
+                                    "code": "await grid0.Reload();",
+                                    "condition": "result != null",
+                                    "type": "execute"
+                                  }
+                                ],
+                                "type": "invoke"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "RadzenDh5.Models.Mark10Sqlexpress04.PicDtl"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "MARK10_SQLEXPRESS04.getPicDtls",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getPicDtlsResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.PicDtl>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Pic Dtls",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

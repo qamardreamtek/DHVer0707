@@ -1,0 +1,23 @@
+﻿{
+  "intItem1": 849,
+  "intItem2": 853,
+  "intItem3": 857,
+  "intItem4": 861,
+  "intItem5": 865,
+  "intItem6": 869,
+  "intItem7": 873,
+  "intItem8": 879,
+  "intItem9": 889,
+  "intItem10": 893,
+  "id": "P080",
+  "item1": "Change article attributes",
+  "item2": "Article attributes Stock Category can be changed manually",
+  "item3": "Warehouse operator",
+  "item4": "Get an indication of a property change<br>",
+  "item5": "Inquiry conditions for inventory details",
+  "item6": "Change inventory details properties",
+  "item7": "If there is no qualified pallet detail data, the system will prompt to check that there is no available inventory detail information. The user can perform Data Inquire-> Q080 Inventory Data Query job to query inventory detail information",
+  "item8": "Enter the query conditions and click Query to query the inventory details list",
+  "item9": "Not applicable",
+  "item10": "Only the attributes of the same pallet detail line can be changed; if there are partial changes, you need to do P060 Transfer Out and P070 Pallet Inventory Adjustment before implementing<br>"
+}

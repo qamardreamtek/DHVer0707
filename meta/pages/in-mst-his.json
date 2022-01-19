@@ -1,0 +1,276 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "In Mst His"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "events": {
+                    "click": [
+                      {
+                        "condition": "${event?.Value == \"csv\"}",
+                        "fileName": "In Mst His",
+                        "name": "MARK10_SQLEXPRESS04.getInMstHis",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "WHSE_NO,IN_NO,HEADER_STS,SHIP_TYPE,PRIORITY,HEADER_TEXT,REQM_NO,REQM_TYPE,MOVM_TYPE,STGE_TYPE_FROM,STGE_BIN_FROM,DYNAMIC_IND_FROM,STGE_TYPE_TO,STGE_BIN_TO,DYNAMIC_IND_TO,PLAN_DATE,TRN_NO,TRN_YEAR,ITEM_COUNT,GROSS_WEIGHT,NET_WEIGHT,WEIGHT_UNIT,VOLUME,VOLUME_UNIT,IN_STS,SOURCE,APPROVE_IND,REMARK,TRN_USER,TRN_DATE,CRT_USER,CRT_DATE,LOG_DATE,LOG_USER"
+                          }
+                        ],
+                        "type": "export"
+                      },
+                      {
+                        "condition": "${event == null || event.Value == \"xlsx\"}",
+                        "fileName": "In Mst His",
+                        "format": "xlsx",
+                        "name": "MARK10_SQLEXPRESS04.getInMstHis",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "WHSE_NO,IN_NO,HEADER_STS,SHIP_TYPE,PRIORITY,HEADER_TEXT,REQM_NO,REQM_TYPE,MOVM_TYPE,STGE_TYPE_FROM,STGE_BIN_FROM,DYNAMIC_IND_FROM,STGE_TYPE_TO,STGE_BIN_TO,DYNAMIC_IND_TO,PLAN_DATE,TRN_NO,TRN_YEAR,ITEM_COUNT,GROSS_WEIGHT,NET_WEIGHT,WEIGHT_UNIT,VOLUME,VOLUME_UNIT,IN_STS,SOURCE,APPROVE_IND,REMARK,TRN_USER,TRN_DATE,CRT_USER,CRT_DATE,LOG_DATE,LOG_USER"
+                          }
+                        ],
+                        "type": "export"
+                      }
+                    ]
+                  },
+                  "icon": "get_app",
+                  "items": [
+                    {
+                      "icon": "",
+                      "text": "Excel",
+                      "value": "xlsx"
+                    },
+                    {
+                      "icon": "",
+                      "text": "CSV",
+                      "value": "csv"
+                    }
+                  ],
+                  "name": "splitbutton0",
+                  "style": {
+                    "marginLeft": "0px",
+                    "marginBottom": "10px"
+                  },
+                  "text": "Export",
+                  "type": "splitbutton"
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "filterMode": "advanced",
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getInMstHisResult}",
+                  "events": {
+                    "loadData": []
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "WHSE_NO",
+                      "title": "WHSE NO"
+                    },
+                    {
+                      "property": "IN_NO",
+                      "title": "IN NO"
+                    },
+                    {
+                      "property": "HEADER_STS",
+                      "title": "HEADER STS"
+                    },
+                    {
+                      "property": "SHIP_TYPE",
+                      "title": "SHIP TYPE"
+                    },
+                    {
+                      "property": "PRIORITY",
+                      "title": "PRIORITY"
+                    },
+                    {
+                      "property": "HEADER_TEXT",
+                      "title": "HEADER TEXT"
+                    },
+                    {
+                      "property": "REQM_NO",
+                      "title": "REQM NO"
+                    },
+                    {
+                      "property": "REQM_TYPE",
+                      "title": "REQM TYPE"
+                    },
+                    {
+                      "property": "MOVM_TYPE",
+                      "title": "MOVM TYPE"
+                    },
+                    {
+                      "property": "STGE_TYPE_FROM",
+                      "title": "STGE TYPE FROM"
+                    },
+                    {
+                      "property": "STGE_BIN_FROM",
+                      "title": "STGE BIN FROM"
+                    },
+                    {
+                      "property": "DYNAMIC_IND_FROM",
+                      "title": "DYNAMIC IND FROM"
+                    },
+                    {
+                      "property": "STGE_TYPE_TO",
+                      "title": "STGE TYPE TO"
+                    },
+                    {
+                      "property": "STGE_BIN_TO",
+                      "title": "STGE BIN TO"
+                    },
+                    {
+                      "property": "DYNAMIC_IND_TO",
+                      "title": "DYNAMIC IND TO"
+                    },
+                    {
+                      "property": "PLAN_DATE",
+                      "title": "PLAN DATE"
+                    },
+                    {
+                      "property": "TRN_NO",
+                      "title": "TRN NO"
+                    },
+                    {
+                      "property": "TRN_YEAR",
+                      "title": "TRN YEAR"
+                    },
+                    {
+                      "property": "ITEM_COUNT",
+                      "title": "ITEM COUNT"
+                    },
+                    {
+                      "property": "GROSS_WEIGHT",
+                      "title": "GROSS WEIGHT"
+                    },
+                    {
+                      "property": "NET_WEIGHT",
+                      "title": "NET WEIGHT"
+                    },
+                    {
+                      "property": "WEIGHT_UNIT",
+                      "title": "WEIGHT UNIT"
+                    },
+                    {
+                      "property": "VOLUME",
+                      "title": "VOLUME"
+                    },
+                    {
+                      "property": "VOLUME_UNIT",
+                      "title": "VOLUME UNIT"
+                    },
+                    {
+                      "property": "IN_STS",
+                      "title": "IN STS"
+                    },
+                    {
+                      "property": "SOURCE",
+                      "title": "SOURCE"
+                    },
+                    {
+                      "property": "APPROVE_IND",
+                      "title": "APPROVE IND"
+                    },
+                    {
+                      "property": "REMARK",
+                      "title": "REMARK"
+                    },
+                    {
+                      "property": "TRN_USER",
+                      "title": "TRN USER"
+                    },
+                    {
+                      "property": "TRN_DATE",
+                      "title": "TRN DATE"
+                    },
+                    {
+                      "property": "CRT_USER",
+                      "title": "CRT USER"
+                    },
+                    {
+                      "property": "CRT_DATE",
+                      "title": "CRT DATE"
+                    },
+                    {
+                      "property": "LOG_DATE",
+                      "title": "LOG DATE"
+                    },
+                    {
+                      "property": "LOG_USER",
+                      "title": "LOG USER"
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "RadzenDh5.Models.Mark10Sqlexpress04.InMstHi"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "MARK10_SQLEXPRESS04.getInMstHis",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getInMstHisResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.InMstHi>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "In Mst His",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

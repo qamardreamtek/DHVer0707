@@ -1,0 +1,1485 @@
+[
+  {
+    "Id": "0.15.149_P030",
+    "Name": "改UI, 2021-12-01, 改P030的RadzenTabsItem.Text"
+  },
+  {
+    "Id": "0.15.148_Q040",
+    "Name": "fix, Q040 Query, 2021-12-01, 檢索條件REQM_NO和IN_NO改取表IN_MST而非IN_SNO, 並且把join改為full outer join"
+  },
+  {
+    "Id": "0.15.147_Q040",
+    "Name": "fix, Q040 Query, 2021-12-01, 解決此問題: 先查詢到資料, 再把檢索條件改成查詢不到資料, Query後Item和Serial兩tab之前的資料沒清"
+  },
+  {
+    "Id": "0.15.146_USER_LOG",
+    "Name": "Change of Design as per PM's advice, 2021-07-07, not to show USER_LOG known exception"
+  },
+  {
+    "Id": "0.15.145_Q060",
+    "Name": "fix, use DialogViewPicMst to replace old one, 舊的欠兩個欄位, 應該查看 DHDB 兩個版本 PIC_MST 欄位是否有變動。fix P030 2tabs doubleclick as well"
+  },
+  {
+    "Id": "0.15.144_C040",
+    "Name": "fix, follow C030 style, 改寫連動和切換tab內容更新的時機。"
+  },
+  {
+    "Id": "0.15.143_C030",
+    "Name": "fix, 改寫連動和切換tab內容更新的時機。"
+  },
+  {
+    "Id": "0.15.142_Q040",
+    "Name": "fix, Q040 tab0 row doubleclick not working, 會帶出, 但是全空白, 且無法關閉. 確認是 ViewInMst 損壞, 以 EditInMst重做一個。"
+  },
+  {
+    "Id": "0.15.141_Mainlayout",
+    "Name": "fix Mainlayout Logout link to DhLogout"
+  },
+  {
+    "Id": "0.15.140_Logout",
+    "Name": "fix Logout log, 加了 DhLogout 為後續用戶軌跡做準備工作"
+  },
+  {
+    "Id": "0.15.139_Menu",
+    "Name": "fix Menu 裡的排序按 PROG_SNO,原按 PROG_ID, 目前的寫法是寫在 USER_CAT_COMPONENT.razor"
+  },
+  {
+    "Id": "0.15.138_C030",
+    "Name": "MLASRS QueryMst  和 CellClick 寫法不一致, 仍採用 QueryMst, 加上註解, 配合 TEST CASE "
+  },
+  {
+    "Id": "0.15.137_R_DateTo",
+    "Name": "fix R 系列, DTATE_TO 要加 23:59:59"
+  },
+  {
+    "Id": "0.15.136_P080",
+    "Name": "fix tab1 的 Excute 成功後加上 Change success, 同時 --- 06/22 15:20 MLASRS 在這裡, 不論是 tab0 或是 tab1 的更新, 都沒有再按查詢條件自動更新, 操作上,使用者會有些錯覺, 整個MLASRS 有些有做如上述的更新後按查詢條件自動更新, 有些則沒有, 可以隨盟立要求做調。P080, 刻意做成會自動更新頁面, 加上這註解說明 "
+  },
+  {
+    "Id": "0.15.135_M090",
+    "Name": "fix query bug, 有新的 =, >=, <=, 之前全部用 like 處理 "
+  },
+  {
+    "Id": "0.15.134_P080",
+    "Name": "[做成和MLASRS一樣的效果] 在測試用例  SU_ID=105332, tab1, STK_CAT='S'  GTIN_QTY=5, Execute 後, MLASRS 沒有第一筆的 detail, 但 WebApp 仍有第一筆的 detail "
+  },
+  {
+    "Id": "0.15.133_C010",
+    "Name": "fix: 1. 仿 MLASRS 多選生成盤點單的排序  2. 第一筆的預設選定反白, 也修正為列為多選 "
+  },
+  {
+    "Id": "0.15.132_login",
+    "Name": "new feature, DaysToPromptChangePassword 設為 90, 會實現提醒用戶上次更改密碼已經超過90天, hide debug info "
+  },
+  {
+    "Id": "0.15.131_login",
+    "Name": "new feature, DaysToPromptChangePassword 設為 90, 會實現提醒用戶上次更改密碼已經超過90天 "
+  },
+  {
+    "Id": "0.15.130_P090",
+    "Name": "fix, Child PalletID => Child Pallet ID "
+  },
+  {
+    "Id": "0.15.129_P080",
+    "Name": "fix, sSTK_CAT == sSTK_CAT_TO should throw No storage category change. "
+  },
+  {
+    "Id": "0.15.128_P060",
+    "Name": "fix, 第二次Query時, 會受到第一次Query ReloadTab1 未做 Async 而可能形成 A second operation was started on this context before a previous operation completed. "
+  },
+  {
+    "Id": "0.15.127_P060",
+    "Name": "fix, tab0 DoubleClick to view, 之前帶出View 的代碼已註釋掉, 因為不是標準的 entity, 採用 C010 模式。目前三個同模式: C010,P080,P060 "
+  },
+  {
+    "Id": "0.15.126_P030",
+    "Name": "刻意 log Excecute 後, 先停一秒再 log Query, 類似 P070, 但是不要報 log PK 錯誤。另外 01 08 是昨天實施的新 Log 一個bug, 同時修護。 "
+  },
+  {
+    "Id": "0.15.125_S020",
+    "Name": "fix, OWNER_NAME to be able to edit, 之前是 readonly"
+  },
+  {
+    "Id": "0.15.124_UserLog",
+    "Name": "以最新版的 await DoUserLogAsync 更新了所有頁面直接調用的 UserLog"
+  },
+  {
+    "Id": "0.15.123_Delegate",
+    "Name": "用 P070 為例, 準備強化全部的 USER_LOG , 並保持日後按不同情況,可以快速做調整"
+  },
+  {
+    "Id": "0.15.122_Login",
+    "Name": "加上檢查, 如果用戶 ENABLE 不為 Y 時, 提示 This user has not been enabled"
+  },
+
+  {
+    "Id": "0.15.121_S020",
+    "Name": "fixed, OWER_ID 在 Create|Update 時, 如果不存在要提示 not valid user id"
+  },
+  {
+    "Id": "0.15.120_0617",
+    "Name": "FIX 0.15.119 MLASRS_UserLog_Async***, Login 無法選 Language, 這裡的版本號必需是合法的檔案名稱,用來做 text login "
+  },
+
+  {
+    "Id": "0.15.119 MLASRS_UserLog_Async***",
+    "Name": "FIX DEPT_NAME ON LOG FILE 模擬出 P070 操作正確但是 Log 時報錯 "
+  },
+  {
+    "Id": "0.15.118 MLASRS_UserLog_Async**",
+    "Name": "模擬出 P070 操作正確但是 Log 時報錯 "
+  },
+  {
+    "Id": "0.15.117 revisedP070**",
+    "Name": "不檢查 IN_SNO 是否為 **********    Serial data can't split quantity "
+  },
+  {
+    "Id": "0.15.116 revisedP070",
+    "Name": "按照 MLASRS biz logic 重寫!  "
+  },
+  {
+    "Id": "0.15.115 P070",
+    "Name": "show Query log"
+  },
+  {
+    "Id": "0.15.114 P070",
+    "Name": "adjust layout style"
+  },
+  {
+    "Id": "0.15.113 P090",
+    "Name": "adjust TextBox layout"
+  },
+  {
+    "Id": "0.15.112 M070",
+    "Name": "adjust DropDownList layout"
+  },
+  {
+    "Id": "0.15.111 C030",
+    "Name": "fix, Query 後的最一筆選定和連動"
+  },
+  {
+    "Id": "0.15.110 Q010Q020",
+    "Name": "done, RowDoubleClick=>Grid0RowSelect    ***請檢查命名規則"
+  },
+  {
+    "Id": "0.15.109 Culture",
+    "Name": "不使用 Blazor 在 AspNETCore 提供的 Culture 功能, 仍保留並使用其值, 以全部客製的多語來實現. 要注意如果客戶的 Browser 是TH 會不會造成不預期的困擾."
+  },
+  {
+    "Id": "0.15.108 RecNum",
+    "Name": "fix some missing RecNum"
+  },
+  {
+    "Id": "0.15.107 Selected",
+    "Name": "清除舊的 大寫的 Selected"
+  },
+  {
+    "Id": "0.15.106 grid-selected",
+    "Name": "清除舊的 grid selected, all clean up"
+  },
+  {
+    "Id": "0.15.105 S090",
+    "Name": "清除舊的 selected 寫法, 消除可能的 bug"
+  },
+  {
+    "Id": "0.15.104 S030",
+    "Name": "清除舊的 selected 寫法, 消除可能的 bug"
+  },
+  {
+    "Id": "0.15.103 S020",
+    "Name": "fix Update, it was View"
+  },
+  {
+    "Id": "0.15.102 revised_S020",
+    "Name": "清除舊的 selected 寫法, 消除可能的 bug"
+  },
+  {
+    "Id": "0.15.101 revised_S010",
+    "Name": "清除舊的 selected 寫法, 消除可能的 bug"
+  },
+  {
+    "Id": "0.15.100 revised_M090",
+    "Name": "清除舊的 selected 寫法, 消除可能的 bug"
+  },
+  {
+    "Id": "0.15.99 revised_M070",
+    "Name": "直接使用 MLASRS biz logic and source code"
+  },
+  {
+    "Id": "0.15.98 Button{core}Click命名規則",
+    "Name": "fix Button{core}Click命名規則"
+  },
+  {
+    "Id": "0.15.97 RowSelect命名規則",
+    "Name": "fix GridUserRowSelect 不合乎命名規則,GridGroupUserRowSelect 不合乎命名規則"
+  },
+  {
+    "Id": "0.15.96 P080_DoubleClick",
+    "Name": "correction P080, not P100, 兩個雙擊帶出的VIEW"
+  },
+  {
+    "Id": "0.15.95 P100_DoubleClick",
+    "Name": "兩個雙擊帶出的VIEW"
+  },
+  {
+    "Id": "0.15.94 P100",
+    "Name": "implement default first row as selected for both tab0 and tab1"
+  },
+  {
+    "Id": "0.15.93 P080",
+    "Name": "implement default first row as selected for both tab0 and tab1"
+  },
+  {
+    "Id": "0.15.92 P060",
+    "Name": "implement default first row as selected for both tab0 and tab1"
+  },
+  {
+    "Id": "0.15.91 P030",
+    "Name": "implement default first row as selected for both tab0 and tab1"
+  },
+  {
+    "Id": "0.15.90 P020",
+    "Name": "implement default first row as selected for both tab0 and tab1"
+  },
+
+  {
+    "Id": "0.15.89 C040",
+    "Name": "revised C040, 按 MLASRS biz logic 及其 funtion 命名規則"
+  },
+  {
+    "Id": "0.15.88 M",
+    "Name": "M,完成一輪, 預選第一筆的連動"
+  },
+  {
+    "Id": "0.15.87_revisedC030",
+    "Name": "包括 Edit COUNT_QTY REMARK,  及 Confirm"
+  },
+  {
+    "Id": "0.15.86_C010_grid",
+    "Name": "fix grid translation"
+  },
+  {
+    "Id": "0.15.86_C010",
+    "Name": "revised C010, 和MLASRS 在 tab0 多選的 behavior 一樣, 最大量使用原本的 CreateCountCMD_OUT 代碼"
+  },
+  {
+    "Id": "0.15.85_S000",
+    "Name": "優化了 S010-S060"
+  },
+  {
+    "Id": "0.15.84_R000",
+    "Name": "R,完成一輪, 預選第一筆的連動"
+  },
+  {
+    "Id": "0.15.83_Q000",
+    "Name": "Q,完成一輪, 預選第一筆的連動"
+  },
+  {
+    "Id": "0.15.82_grid012_SOP",
+    "Name": "以Q060為範例,做預選第一筆的連動"
+  },
+  {
+    "Id": "0.15.81_DatePicker",
+    "Name": "R030 40 60 70  實施  DatePicker "
+  },
+  {
+    "Id": "0.15.80_S050_S060",
+    "Name": "Edit Auth 改為  DoubleClick,  如果 ENABLE 沒有值, 或是沒有看得到的值, 在UI給-, 方便用戶去改 "
+  },
+  {
+    "Id": "0.15.79_grid",
+    "Name": "所有的 grid bind-vale,全部檢查補上, 確保都有反白且可以記住 "
+  },
+
+  {
+    "Id": "0.15.78_QueryUI",
+    "Name": "R系列和大家一致, DhTextBox Label 部份微調上下居中 "
+  },
+  {
+    "Id": "0.15.77_Cleanup06101957",
+    "Name": "清理不必要的代碼及部份強固"
+  },
+  {
+    "Id": "0.15.76_CoreName_done",
+    "Name": "所有 Core Name 正規化命名 完成 "
+  },
+  {
+    "Id": "0.15.75_Naming",
+    "Name": "正規化命名之前. 同時拿掉 USER_LOG (仍有舊版本的 Radzen tab/grid 問題) "
+  },
+  {
+    "Id": "0.15.74_C010",
+    "Name": "實施 Query 時, 會先跳出 to ensure new query will be in process, 同時在實際的 grid0 grid1 都清空"
+  },
+  {
+    "Id": "0.15.73_C010",
+    "Name": "show RowDoubleClick 這是特型 , 準備將所有 View Dialog Return => OK"
+  },
+  {
+    "Id": "0.15.72_S030",
+    "Name": "show RowDoubleClick with ViewProgMst "
+  },
+  {
+    "Id": "0.15.71_S020",
+    "Name": "show RowDoubleClick with ViewGroupMst "
+  },
+  {
+    "Id": "0.15.70_S010",
+    "Name": "show RowDoubleClick with ViewUserMst "
+  },
+  {
+    "Id": "0.15.69_S010",
+    "Name": "FIXED, BUG 0.15.52 例如S010, Create用戶, 再Update該用戶時, 由於密碼有加密, 會超過12碼無法Save "
+  },
+  {
+    "Id": "0.15.68_Exit",
+    "Name": "移除各頁的 btn Exit "
+  },
+  {
+    "Id": "0.15.67_Menu",
+    "Name": "remove tab menu, tab Menu causing performace issue "
+  },
+  {
+    "Id": "0.15.66_S_EditAdd",
+    "Name": "done, 多語 Edit|Add User|Group|Prog Mst "
+  },
+  {
+    "Id": "0.15.65_Q_doubleclick",
+    "Name": "done, Q 系列 View , 這應該是看到所有主要TABLE的系列, 有些剛好可以供TA處使用 "
+  },
+  {
+    "Id": "0.15.64_core_grid",
+    "Name": "done, 多語 Core Grid "
+  },
+  {
+    "Id": "0.15.63_Translate_btn",
+    "Name": "done, 多語 btn "
+  },
+
+  {
+    "Id": "0.15.62_prepare_Translate_btn",
+    "Name": "準備要能多語 btn "
+  },
+  {
+    "Id": "0.15.61_S",
+    "Name": "cleanup S UI and adjust margin "
+  },
+  {
+    "Id": "0.15.60_P090",
+    "Name": "和 MLASRS 更相近 "
+  },
+  {
+    "Id": "0.15.59_C040_ERR",
+    "Name": "same as C030 "
+  },
+  {
+    "Id": "0.15.58_C030_ERR",
+    "Name": "C030 REASON1 to REASON10, 早期的寫法, 不知道為何出錯, 啟用新的寫法"
+  },
+  {
+    "Id": "0.15.57_Tabs",
+    "Name": "之前的  Radzen Tabs 影響到 切換到不同 tab 時 grid 應該記住的頁次"
+  },
+  {
+    "Id": "0.15.57_P020_RowDoubleClick",
+    "Name": "P020 grid0 grid1 RowDoubleClick"
+  },
+  {
+    "Id": "0.15.56_Grid0RowSelect",
+    "Name": "P020 sample, try to catch Connection disconnected with error: Server timeout elapsed without receiving a message from the server"
+  },
+  {
+    "Id": "0.15.55_FiltersUI",
+    "Name": "use P020 as starting program"
+  },
+
+  {
+    "Id": "0.15.55_P020",
+    "Name": "redo P020 using MLASRS AllocateMst AllocateDtl directly"
+  },
+  {
+    "Id": "0.15.54_P080SAMPLE",
+    "Name": "查詢的部份,  row 之間有4px"
+  },
+  {
+    "Id": "0.15.53_USER_LOG",
+    "Name": "一秒鐘之內有超過一筆的同 PK log, 直接略過不處理"
+  },
+  {
+    "Id": "0.15.52_fix_Q060",
+    "Name": "fix tab2選row不會反白"
+  },
+  {
+    "Id": "0.15.51_fix_Q050_RODER_BY",
+    "Name": ".OrderBy(a => a.PICK_DATE).ThenBy(a => a.PICK_TIME)"
+  },
+  {
+    "Id": "0.15.50_enhance_UserLog",
+    "Name": "今天下午討論時發生 EF Core 前一個動作還沒結束, 後一個動作就發起的報錯"
+  },
+  {
+    "Id": "0.15.49_fix_Exit_btn",
+    "Name": "補上幾頁漏了Exit btn"
+  },
+  {
+    "Id": "0.15.48_S050_ENABLE",
+    "Name": "fix ENABLE null 時無法編輯, 如有此情況, 在打開  Edeit form 時, 給一個空格"
+  },
+  {
+    "Id": "0.15.47_P080Sample",
+    "Name": "fix WEB搜尋SKU_NO, 排序和WES不同"
+  },
+  {
+    "Id": "0.15.46_P080Sample",
+    "Name": "for 06/03 15:00 discussion"
+  },
+  {
+    "Id": "0.15.45_Q050",
+    "Name": "fix bug SHIP_TO"
+  },
+  {
+    "Id": "0.15.44_P080_UI",
+    "Name": "fix P060 is a VIEW issue"
+  },
+  {
+    "Id": "0.15.44_P060_Q060",
+    "Name": "fix P060 with View, Q060 with .AsNoTracking().ToListAsync();"
+  },
+  {
+    "Id": "0.15.43_P020",
+    "Name": "complete"
+  },
+  {
+    "Id": "0.15.42_P030",
+    "Name": "MLASRS  這裡是有瑕疵的, UI 可以簡單調整, biz logic 只能跟著BUG走"
+  },
+  {
+    "Id": "0.15.41_P060",
+    "Name": "提示的內容, 都同步了, 大量採用原代碼"
+  },
+  {
+    "Id": "0.15.40_P070-btn",
+    "Name": "complete, 保持全局的一致性"
+  },
+  {
+    "Id": "0.15.39_adj-R-btns",
+    "Name": "complete, 保持全局的一致性"
+  },
+  {
+    "Id": "0.15.38_adj-P080",
+    "Name": "complete, 包括改寫成 最大化使用 MLASRS  biz logic 及代碼"
+  },
+  {
+    "Id": "0.15.37_adj-P090",
+    "Name": "complete"
+  },
+  {
+    "Id": "0.15.36_adj-P100",
+    "Name": "complete"
+  },
+  {
+    "Id": "0.15.35_adj-M090",
+    "Name": "complete"
+  },
+  {
+    "Id": "0.15.34_adj-M070",
+    "Name": "complete"
+  },
+  {
+    "Id": "0.15.33_redo-C040-UI-DoubleClick",
+    "Name": "complete"
+  },
+  {
+    "Id": "0.15.32_redo-C030-UI-DoubleClick",
+    "Name": "complete"
+  },
+  {
+    "Id": "0.15.31_C010-tab1-doubleclick",
+    "Name": " TODO tab0-doubleclick"
+  },
+  {
+    "Id": "0.15.30_fix-bind",
+    "Name": "沒有把之前 記住的, 忘掉"
+  },
+  {
+    "Id": "0.15.29_fix-Q120",
+    "Name": "also Q050 沒有清空tab1 Q060 Q070 Q080 沒有回到tab0"
+  },
+  {
+    "Id": "0.15.29_fix-Q110",
+    "Name": "including checkbox"
+  },
+  {
+    "Id": "0.15.28_fix-Q050",
+    "Name": "Refresh will switch to tab0"
+  },
+  {
+    "Id": "0.15.27_fix-Q090-UI",
+    "Name": "also provide doubleclick to show one record, make sure Refresh will switch to tab0"
+  },
+  {
+    "Id": "0.15.26_fix-Q080-UI",
+    "Name": "also provide doubleclick to show one record, make sure Refresh will switch to tab0"
+  },
+  {
+    "Id": "0.15.26_fix-Q070-UI",
+    "Name": "also provide doubleclick to show one record"
+  },
+  {
+    "Id": "0.15.25_redo-Q050",
+    "Name": "fix bug like Q040"
+  },
+  {
+    "Id": "0.15.25_fix-Q030-view",
+    "Name": "also adjust layout"
+  },
+  {
+    "Id": "0.15.24_fix-Q020-view",
+    "Name": "also adjust layout"
+  },
+  {
+    "Id": "0.15.23_fix-Q010-view",
+    "Name": "doubleclick row to view detail"
+  },
+  {
+    "Id": "0.15.22_Q040",
+    "Name": "doubleclick to view row"
+  },
+  {
+    "Id": "0.15.21_redo_S090",
+    "Name": "包括格式, Exit Query Create Update Delete Refresh, and USER_LOG, 也能無模板新增"
+  },
+  {
+    "Id": "0.15.20_redo_S060",
+    "Name": "S050, S060 都只顯示 授權 的 Y/N 編輯, PK 不能被改,灰底 "
+  },
+  {
+    "Id": "0.15.19_redo_S050",
+    "Name": "GROUP_WRT 授權只允許 Y/N, PK 不能被改 "
+  },
+  {
+    "Id": "0.15.18_redo_S040",
+    "Name": "custom Query "
+  },
+  {
+    "Id": "0.15.17_Complete_S030",
+    "Name": "包括格式, Exit Query Create Update Delete Refresh, and USER_LOG, 也能無模板新增"
+  },
+  {
+    "Id": "0.15.16_fix_S010",
+    "Name": "能無模板新增"
+  },
+  {
+    "Id": "0.15.15_Complete_S020",
+    "Name": "包括格式, Exit Query Create Update Delete Refresh, and USER_LOG, 也能無模板新增"
+  },
+  {
+    "Id": "0.15.14_Complete_S010",
+    "Name": "包括格式, Exit Query Create Update Delete Refresh, and USER_LOG"
+  },
+  {
+    "Id": "0.15.13_S010",
+    "Name": "implement SimpleDialog"
+  },
+  {
+    "Id": "0.15.12_R",
+    "Name": "  entire R with USER_LOG"
+  },
+  {
+    "Id": "0.15.11_Q030",
+    "Name": "  custom Q030"
+  },
+  {
+    "Id": "0.15.10_Q020",
+    "Name": "  custom Q020"
+  },
+  {
+    "Id": "0.15.9_fix_Q010",
+    "Name": "  await grid0.GoToPage(0);"
+  },
+  {
+    "Id": "0.15.8_Q010",
+    "Name": "to meet requirements"
+  },
+  {
+    "Id": "0.15.7_USER_LOG",
+    "Name": "not allow to edit USER LOG。"
+  },
+  {
+    "Id": "0.15.6_Q100",
+    "Name": "as per 05/28 advice: Lane1 对应的是ROW:01,02,以此类推。"
+  },
+  {
+    "Id": "0.15.5_R030_Export",
+    "Name": "Export 03, Query 01"
+  },
+  {
+    "Id": "0.15.4_R030_Query",
+    "Name": "客製了 Web USER_LOG, 如同 MLASRS 不刻意做區分"
+  },
+  {
+    "Id": "0.15.3_USER_LOG",
+    "Name": "顯示 USER_LOG, 同時做了 housekeeping"
+  },
+  {
+    "Id": "0.15.2_S010",
+    "Name": "custom Query"
+  },
+  {
+    "Id": "0.15.1_0527Requirement",
+    "Name": "接著按 05/27 feedback 改進"
+  },
+  {
+    "Id": "0.14.81_logM2",
+    "Name": "緃深防禦在 M2 檢查 V_RIGHT 是否存在"
+  },
+  {
+    "Id": "0.14.80_architect",
+    "Name": "先記錄 05/24 事件的推測和實做 "
+  },
+
+  {
+    "Id": "0.14.79_dependencies",
+    "Name": "update all dependencies "
+  },
+  {
+    "Id": "0.14.78_log_ver",
+    "Name": "enhance log version, clean step2 "
+  },
+  {
+    "Id": "0.14.77_logver",
+    "Name": "enhance log version, clean step2 "
+  },
+  {
+    "Id": "0.14.76_login",
+    "Name": "log version with 1(before),2(drop/create),3(after) "
+  },
+  {
+    "Id": "0.14.75_V_RIGHT",
+    "Name": "housekeeping VIEW "
+  },
+  {
+    "Id": "0.14.74_user_menu",
+    "Name": "edit V_RIGHT to have same result "
+  },
+  {
+    "Id": "0.14.73_permission",
+    "Name": "add permission to log {IsShowAuth:false,XXXXXXX} "
+  },
+  {
+    "Id": "0.14.72_log",
+    "Name": "show page visit with {IsShowAuth:false} "
+  },
+  {
+    "Id": "0.14.71_DhAppHeadingAuthMsgOpt",
+    "Name": "total 38 pages apply to "
+  },
+
+
+  {
+    "Id": "0.14.71_Info",
+    "Name": "info page to have 將是否顯示 ShowAuth 做到  appsettings.json"
+  },
+  {
+    "Id": "0.14.70_IsShowAuth",
+    "Name": "將是否顯示 ShowAuth 做到  appsettings.json"
+  },
+  {
+    "Id": "0.14.69_Ver0519_log",
+    "Name": "for ver 05/19 with Log"
+  },
+  {
+    "Id": "0.14.68_Ver0519",
+    "Name": "for ver 05/19"
+  },
+  {
+    "Id": "0.14.67_Confirm",
+    "Name": "all btn with Confirm for Lang "
+  },
+  {
+    "Id": "0.14.66_Query_Export_Execute",
+    "Name": "all btn with Query_Export_Execute for Lang "
+  },
+  {
+    "Id": "0.14.65_Lang",
+    "Name": "R030 for testing"
+  },
+  {
+    "Id": "0.14.64_Q110",
+    "Name": "fixed ObjTabXSelected"
+  },
+  {
+    "Id": "0.14.63_Q090",
+    "Name": "fixed ObjTabXSelected"
+  },
+  {
+    "Id": "0.14.62_Q080",
+    "Name": "fixed ObjTabXSelected"
+  },
+  {
+    "Id": "0.14.61_Q060",
+    "Name": "fixed ObjTabXSelected"
+  },
+  {
+    "Id": "0.14.60_Q050",
+    "Name": "fixed ObjTabXSelected"
+  },
+  {
+    "Id": "0.14.59_Q040",
+    "Name": "fixed ObjTabXSelected"
+  },
+  {
+    "Id": "0.14.58_server_ip",
+    "Name": "fixed server ip"
+  },
+  {
+    "Id": "0.14.57_info",
+    "Name": "/info page"
+  },
+  {
+    "Id": "0.14.56_deploy",
+    "Name": "every update checking view/sp and drop/create"
+  },
+  {
+    "Id": "0.14.55 S090 Auth ",
+    "Name": "use correct Create/Update/Delete msg "
+  },
+  {
+    "Id": "0.14.55 S040 Auth ",
+    "Name": "Add Remove "
+  },
+  {
+    "Id": "0.14.54 S050 Auth ",
+    "Name": "Add Remove "
+  },
+  {
+    "Id": "0.14.53 S030 Auth ",
+    "Name": "Create Update Delete "
+  },
+  {
+    "Id": "0.14.52 S020 Auth ",
+    "Name": "Create Update Delete "
+  },
+  {
+    "Id": "0.14.51 S010 Auth ",
+    "Name": "Create Update Delete "
+  },
+  {
+    "Id": "0.14.50 R Auth ",
+    "Name": "R 3 4 5 6 7 8  Auth "
+  },
+  {
+    "Id": "0.14.49 C010 C030 Auth ",
+    "Name": "C010 C030 Auth "
+  },
+  {
+    "Id": "0.14.48 M090 Auth ",
+    "Name": "M070 Enable/Disable auth "
+  },
+  {
+    "Id": "0.14.47 M070 Auth ",
+    "Name": "M070 4 btn auth "
+  },
+  {
+    "Id": "0.14.46 P100 Auth ",
+    "Name": "P100 authorization to execute granted "
+  },
+  {
+    "Id": "0.14.45 P090 Auth ",
+    "Name": "P090 authorization to execute granted "
+  },
+  {
+    "Id": "0.14.44 P080 Auth ",
+    "Name": "P080 authorization to execute granted "
+  },
+  {
+    "Id": "0.14.43 P070 Auth ",
+    "Name": "P070 authorization to execute granted "
+  },
+  {
+    "Id": "0.14.42 P060 Auth ",
+    "Name": "P060 authorization to execute granted "
+  },
+  {
+    "Id": "0.14.41 P030 Auth ",
+    "Name": "P030 authorization to execute granted "
+  },
+  {
+    "Id": "0.14.40 Auth ",
+    "Name": "authorization to execute granted "
+  },
+  {
+    "Id": "0.14.39 Q070 ",
+    "Name": "just add Q070 "
+  },
+  {
+    "Id": "0.14.38 C030 ",
+    "Name": "refactor C030 "
+  },
+  {
+    "Id": "0.14.37 C000 C010",
+    "Name": "refactor C000 C010"
+  },
+  {
+    "Id": "0.14.35 Q110",
+    "Name": "refactor Q110, TODO 確認一下Q070"
+  },
+  {
+    "Id": "0.14.34 Q100",
+    "Name": "refactor Q100, TODO 確認一下Q070"
+  },
+  {
+    "Id": "0.14.33 Q090",
+    "Name": "refactor Q090, TODO 確認一下Q070"
+  },
+  {
+    "Id": "0.14.32 Q080",
+    "Name": "refactor Q080, TODO 確認一下Q070"
+  },
+  {
+    "Id": "0.14.31 Q060",
+    "Name": "refactor Q060"
+  },
+  {
+    "Id": "0.14.30 Q050",
+    "Name": "refactor Q050"
+  },
+  {
+    "Id": "0.14.29 Q040",
+    "Name": "refactor Q040"
+  },
+  {
+    "Id": "0.14.28 Q030",
+    "Name": "refactor Q030"
+  },
+  {
+    "Id": "0.14.27 Q000 Q010 Q020",
+    "Name": "refactor Q000 Q010 Q020"
+  },
+  {
+    "Id": "0.14.26 R5678",
+    "Name": "refactor R5678"
+  },
+  {
+    "Id": "0.14.25 R040",
+    "Name": "refactor R040"
+  },
+  {
+    "Id": "0.14.24 R000 R030",
+    "Name": "refactor  R000 R030"
+  },
+  {
+    "Id": "0.14.23 S010",
+    "Name": "refactor S020, S010 "
+  },
+  {
+    "Id": "0.14.22 S030",
+    "Name": "refactor S030, TODO S Auth "
+  },
+  {
+    "Id": "0.14.21 S040",
+    "Name": "refactor S040 "
+  },
+  {
+    "Id": "0.14.20 S050",
+    "Name": "refactor S050 "
+  },
+  {
+    "Id": "0.14.19 S080",
+    "Name": "refactor S080 "
+  },
+  {
+    "Id": "0.14.18 ***S090",
+    "Name": "Complete Translation CRUD "
+  },
+  {
+    "Id": "0.14.17 S090",
+    "Name": "Fix Translate PK issue. TODO precheck existing PK "
+  },
+  {
+    "Id": "0.14.16 S090",
+    "Name": "Heading "
+  },
+  {
+    "Id": "0.14.15 S090",
+    "Name": "Add Translates to S090 "
+  },
+  {
+    "Id": "0.14.14 **M090",
+    "Name": "better msg for M090 "
+  },
+  {
+    "Id": "0.14.13 *M090",
+    "Name": "refactor M090, MUST NOT SHOW RECNUM AT THIS MOMENT "
+  },
+  {
+    "Id": "0.14.13 *M070",
+    "Name": "refactor M070 "
+  },
+  {
+    "Id": "0.14.12 *P070",
+    "Name": "refactor P070 "
+  },
+  {
+    "Id": "0.14.11 *P060",
+    "Name": "refactor P060 "
+  },
+  {
+    "Id": "0.14.10 ***P090",
+    "Name": "implement progWrt.APPROVE_WRT != Y  "
+  },
+  {
+    "Id": "0.14.9 **P090",
+    "Name": "fixed DELETE "
+  },
+  {
+    "Id": "0.14.8 *P090",
+    "Name": "refactor P090, BUT, NEED TO REDSIGN TO USE SIMPLE ErrMsg and GoodMsg "
+  },
+  {
+    "Id": "0.14.7 *P100",
+    "Name": "refactor P100 "
+  },
+  {
+    "Id": "0.14.6 *P080",
+    "Name": "refactor P080 "
+  },
+  {
+    "Id": "0.14.5 *P030",
+    "Name": "refactor P030 "
+  },
+  {
+    "Id": "0.14.4 Show Auth V2",
+    "Name": "顯示(admin, P020) => (QUERY=Y, PRINT=N, IMPORT=N, EXPORT=N, UPDATE=N, DELETE=N, APPROVE=Y, ENABLE=Y) "
+  },
+  {
+    "Id": "0.14.3 Show Auth",
+    "Name": "顯示(admin, P020) => (QUERY=Y, PRINT=N, IMPORT=N, EXPORT=N, UPDATE=N, DELETE=N, APPROVE=Y, ENABLE=Y) "
+  },
+  {
+    "Id": "0.14.2 Result Cnt",
+    "Name": "顯示 result cnt "
+  },
+  {
+    "Id": "0.14.1 GoodMsg/ErrMsg",
+    "Name": "顯示用戶程序及授權信息 "
+  },
+  {
+    "Id": "0.13.4 deploy",
+    "Name": "自動加View和SP "
+  },
+  {
+    "Id": "0.13.3 R070",
+    "Name": "fix sheetname (> 31);"
+  },
+  {
+    "Id": "0.13.2 P070",
+    "Name": "fix source/target sum, fix C010 with await grid0.GoToPage(0);"
+  },
+  {
+    "Id": "0.13.1",
+    "Name": "0.13 for client's code review "
+  },
+  {
+    "Id": "0.12.13 Q100",
+    "Name": "final touch"
+  },
+  {
+    "Id": "0.12.12 Q100",
+    "Name": "adj summary to top, TODO N summary"
+  },
+  {
+    "Id": "0.12.11 R030",
+    "Name": "standard set: R030"
+  },
+  {
+    "Id": "0.12.10 R040",
+    "Name": "standard set: R040"
+  },
+  {
+    "Id": "0.12.09 R050",
+    "Name": "standard set: R050"
+  },
+  {
+    "Id": "0.12.08 R060",
+    "Name": "standard set: R060"
+  },
+  {
+    "Id": "0.12.07 ",
+    "Name": "standard set: R070"
+  },
+  {
+    "Id": "0.12.08 ",
+    "Name": "R080, Query and Export btn, no more download link"
+  },
+  {
+    "Id": "0.12.07 ",
+    "Name": "R080, Export directly and + download link"
+  },
+  {
+    "Id": "0.12.06 ",
+    "Name": "R080, export to save Excel on wwwroot/ReportR000/r080 as gitignore"
+  },
+  {
+    "Id": "0.12.05 ",
+    "Name": "R080 as testing, add debug btn, save file directly on /export/r080"
+  },
+  {
+    "Id": "0.12.04 ",
+    "Name": "R080 as testing, save file directly on /export/r080"
+  },
+  {
+    "Id": "0.12.03 ",
+    "Name": "R080 as testing, generate Excel to wwwroot/Reports"
+  },
+  {
+    "Id": "0.12.02 ",
+    "Name": "R080 as testing, 暫時先導出, 仿 WES, C:\\ASRS2, folder name, file name, sheet name 都對上了"
+  },
+  {
+    "Id": "0.12.01 ",
+    "Name": "R080 as testing, to check result, need to debug OutOfRange when generating Excel,Exception thrown: 'System.IndexOutOfRangeException' in NPOI.dll"
+  },
+  {
+    "Id": "0.11.28 ",
+    "Name": "P100, done!"
+  },
+  {
+    "Id": "0.11.27 ",
+    "Name": "C040, done! 大量套用 C030"
+  },
+  {
+    "Id": "0.11.26 ",
+    "Name": "C030, done! 使用 原代碼 Globals.USER_NAME"
+  },
+  {
+    "Id": "0.11.25 ",
+    "Name": "redo C010, done! fixed GetCmdSno"
+  },
+  {
+    "Id": "0.11.24 ",
+    "Name": "show C030 TRANSLATION OF REASON1 to 10!"
+  },
+  {
+    "Id": "0.11.23 ",
+    "Name": "P030 complete!"
+  },
+  {
+    "Id": "0.11.22 ",
+    "Name": "P080 complete!"
+  },
+  {
+    "Id": "0.11.21 ",
+    "Name": "P080 main tab Execute, done! USE WES CODE IN MAX"
+  },
+  {
+    "Id": "0.11.20 ",
+    "Name": "P080 main/sub tab to select row to show edit btn"
+  },
+  {
+    "Id": "0.11.19 ",
+    "Name": "show SQL tab on P080"
+  },
+  {
+    "Id": "0.11.18 ",
+    "Name": "P020 Dtl to go, need to do further testing and tune up"
+  },
+  {
+    "Id": "0.11.17 ",
+    "Name": "to log P020 processing for further tune up"
+  },
+  {
+    "Id": "0.11.16 ",
+    "Name": "to show P020 dev status"
+  },
+  {
+    "Id": "0.11.15 ",
+    "Name": "P020, going to create ENTITY of V_P020A"
+  },
+  {
+    "Id": "0.11.13 ",
+    "Name": "C010, OK"
+  },
+  {
+    "Id": "0.11.12 ",
+    "Name": "S040, BUG FIX, to reset selection after processing"
+  },
+  {
+    "Id": "0.11.11 ",
+    "Name": "S050, BUG FIX, to reset selection after processing"
+  },
+  {
+    "Id": "0.11.10 ",
+    "Name": "S050, done!"
+  },
+  {
+    "Id": "0.11.9 ",
+    "Name": "S040, done!"
+  },
+  {
+    "Id": "0.11.8 ",
+    "Name": "P070 Add/Remove done!"
+  },
+  {
+    "Id": "0.11.7 ",
+    "Name": "P070 Add working, TODO: Remove"
+  },
+  {
+    "Id": "0.11.6 ",
+    "Name": "P070 reload btn working"
+  },
+  {
+    "Id": "0.11.5 ",
+    "Name": "P060 done"
+  },
+  {
+    "Id": "0.11.4 ",
+    "Name": "P060 auth and other checking, done. TODO create CMD_MST"
+  },
+  {
+    "Id": "0.11.4 ",
+    "Name": "auto update VIEWs  for P060 "
+  },
+  {
+    "Id": "0.11.3 ",
+    "Name": "precheck VIEWS  for P060 "
+  },
+  {
+    "Id": "0.11.2 ",
+    "Name": "P060 查詢優化完成, TODO: action"
+  },
+  {
+    "Id": "0.11.1 ",
+    "Name": "split dev and test review"
+  },
+  {
+    "Id": "0.10.29 ",
+    "Name": "to fix cloud VM logs not in utf8"
+  },
+  {
+    "Id": "0.10.28 ",
+    "Name": "able to check current view and sp"
+  },
+  {
+    "Id": "0.10.27 ",
+    "Name": "M070 is complete. M070 btn Force End and Cancel, done!"
+  },
+  {
+    "Id": "0.10.26 ",
+    "Name": "M070 btn Change Out Port, done"
+  },
+  {
+    "Id": "0.10.25 ",
+    "Name": "M070 btn Change Priority, done"
+  },
+  {
+    "Id": "0.10.24 ",
+    "Name": "M070 query with all conditions, done"
+  },
+  {
+    "Id": "0.10.23 ",
+    "Name": "M070 layout and default query done"
+  },
+  {
+    "Id": "0.10.22 ",
+    "Name": "全盤查看"
+  },
+  {
+    "Id": "0.10.21 ",
+    "Name": "R060 的模式成功, http get 只傳 datefrom dateto, 在調用生成 Excel 時才給 filename, 在此之前形同去觸發 query ,保持頁面和 EXCEL 一致"
+  },
+  {
+    "Id": "0.10.20 ",
+    "Name": "R080 ready to use"
+  },
+  {
+    "Id": "0.10.19 ",
+    "Name": "R030  已加上起止日期篩選，功能開發完畢"
+  },
+  {
+    "Id": "0.10.18 ",
+    "Name": "show up status tab"
+  },
+  {
+    "Id": "0.10.17 ",
+    "Name": "Implement DhGlobals.MakeSureViewExists, 不在部署時使用 SQL script 建 VIEW"
+  },
+  {
+    "Id": "0.10.16 ",
+    "Name": "處理用戶如果不是 ENABLE 的情況 "
+  },
+  {
+    "Id": "0.10.15 ",
+    "Name": "fixed 加密密碼再次加密, hide S010 USER_PASS on the list "
+  },
+  {
+    "Id": "0.10.14 ",
+    "Name": "Implement IsAuthToCreate and ToDelete with ToQuery beforehand .....先以 S010 為例做驗証 "
+  },
+  {
+    "Id": "0.10.13 ",
+    "Name": "fixed C010, 在沒限訪問權限之前, 登入用戶, 無程序權限, 應該要能先正常出現頁面, 有記錄顯示。 "
+  },
+  {
+    "Id": "0.10.12 ",
+    "Name": "新增用戶時, 密碼長度檢查8-12已實施, 同時取消 development admin。也合併了R系列 頁面保護,透過 pull requests 的加入。 "
+  },
+  {
+    "Id": "0.10.11 ",
+    "Name": "處理同步時不合規範的密碼, 寫到  wwwroot/throw.txt "
+  },
+  {
+    "Id": "0.10.10 ",
+    "Name": "Menu 顯示在頁面左中右三分區, 可以一次性看到所有的PROGRAM "
+  },
+  {
+    "Id": "0.10.9 ",
+    "Name": "Implement DhAppContainer to have IsOnUserMenu  [no authorization to visit] "
+  },
+  {
+    "Id": "0.10.8 ",
+    "Name": "S080 User Login Password Change 完成。包括建立了 Log 機制, 要在頁面顯示 USER_LOG, at least for admin "
+  },
+  {
+    "Id": "0.10.7 ",
+    "Name": "實施在訪問登入畫面時, 同步帳號。 "
+  },
+  {
+    "Id": "0.10.6 ",
+    "Name": "done, Edit USER_MST 密碼加密, 驗証了在 WebAPP 改的密碼, 可以在 WES 使用. TODO (1) Add USER_MST  (2)觸發同步才能在 WwbAPP登入 "
+  },
+  {
+    "Id": "0.10.5 ",
+    "Name": "開始實施頁面的訪問權限 no authorization to visit "
+  },
+  {
+    "Id": "0.10.4 ",
+    "Name": "put Menu in tab, add Home link in DH project title "
+  },
+  {
+    "Id": "0.10.3 ",
+    "Name": "done, S 系列 導航  "
+  },
+  {
+    "Id": "0.10.2 ",
+    "Name": "done, 同步 WES 用戶到 Asp.Net Core Identity "
+  },
+  {
+    "Id": "0.10.1 ",
+    "Name": "重整 04/28 版本, TODO: 同步用戶(含密碼), 不同步權限. 以 ASP.NET CORE Identity 登入, 直接使用 PROG_WRT 生成菜單和權限管控  "
+  },
+  {
+    "Id": "0.9.52 ",
+    "Name": "m2 MENU for checking  "
+  },
+  {
+    "Id": "0.9.51 ",
+    "Name": "To Implement Radzen Tree, TODO:Language  "
+  },
+  {
+    "Id": "0.9.50 ",
+    "Name": "規畫項目內的六個交付版本  "
+  },
+  {
+    "Id": "0.9.49 ",
+    "Name": "第一批次交付  "
+  },
+  {
+    "Id": "0.9.48 ",
+    "Name": "quick TODO  "
+  },
+  {
+    "Id": "0.9.47 ",
+    "Name": "show up LOC_DTL =>P070 測試時,可以改 STGE_TYPE, 不然 2版 DHDB 沒有現成資料可以測  "
+  },
+  {
+    "Id": "0.9.46 Week2",
+    "Name": "show up DH_USER_LOG   "
+  },
+  {
+    "Id": "0.9.45 04/21 release",
+    "Name": "視同為項目正式啟動的第二版本, 項目預計六周完成, 需保持六個不同階段的獨立版本,包括各自SQL instance 的同名 DHDB   "
+  },
+  {
+    "Id": "0.9.44 P090 PDA",
+    "Name": "for quick dev testing, auth checking and write to db are skipped  "
+  },
+  {
+    "Id": "0.9.43",
+    "Name": "dimension , for PDA 800X480 concern  "
+  },
+  {
+    "Id": "0.9.42",
+    "Name": "暫時不對 P070 P090 做 Role權限要求  "
+  },
+  {
+    "Id": "0.9.41",
+    "Name": "fixed R060 在導出 EXCEL 時, 內容和頁面篩選過的不一致。同時 done for Excel filename and sheetname。"
+  },
+  {
+    "Id": "0.9.40",
+    "Name": "fixed bug, P090, PROG_MST Record no found  "
+  },
+
+  {
+    "Id": "0.9.39",
+    "Name": "R060 在 R040 的基礎上, 要處理 view and entity, decimail => int。"
+  },
+  {
+    "Id": "0.9.38",
+    "Name": "R040 起止日期範例寫法,單獨頁面開發再合併是可行可操作的。"
+  },
+  {
+    "Id": "0.9.37",
+    "Name": "Rearrange Homepage and grouping"
+  },
+  {
+    "Id": "0.9.36",
+    "Name": "R050 working, also fixed R080, needs Controller_R000"
+  },
+  {
+    "Id": "0.9.35",
+    "Name": "basic R080, using Context_R000 and Service_R000"
+  },
+  {
+    "Id": "0.9.34",
+    "Name": "2021-04-18, starting R000, show up R030 "
+  },
+  {
+    "Id": "0.9.33",
+    "Name": "2021-04-18, P060 main tab soloved, TODO: click to update kid tab "
+  },
+  {
+    "Id": "0.9.32",
+    "Name": "clone P020 to have P030, working well, TODO: tune up "
+  },
+  {
+    "Id": "0.9.31",
+    "Name": "P020 using FromSqlRaw(strSQL) w/o SP "
+  },
+  {
+    "Id": "0.9.30",
+    "Name": "P060 VIEW 需要優化, 暫不顯示! "
+  },
+  {
+    "Id": "0.9.29",
+    "Name": "P060 原因不明, 畫面空白,  V_P060 的筆數是對的! "
+  },
+  {
+    "Id": "0.9.28",
+    "Name": "P080 完美使用 Q080 當模板 TODO: biz logic! "
+  },
+  {
+    "Id": "0.9.27",
+    "Name": "show up P090  ! P070 有需要大輻度調整, 待會"
+  },
+  {
+    "Id": "0.9.26",
+    "Name": "P100 先有基本的 list, WES 有沒有數據不好核對, 先不進行 !"
+  },
+  {
+    "Id": "0.9.25",
+    "Name": "M070 grid0 data ready !"
+  },
+  {
+    "Id": "0.9.24",
+    "Name": "M090 is clean with self set. Also implement Toast !"
+  },
+  {
+    "Id": "0.9.23",
+    "Name": "show S090, TODO: 要決定多語模式 !"
+  },
+  {
+    "Id": "0.9.22",
+    "Name": "S080, 可以改密碼, TODO: 密碼格式"
+  },
+  {
+    "Id": "0.9.21",
+    "Name": "S060, 啟用 Edit Auth"
+  },
+  {
+    "Id": "0.9.20",
+    "Name": "新建 S060, 啟用 Notification(Toast) 三個顏色定位"
+  },
+  {
+    "Id": "0.9.19",
+    "Name": "新建 S050, 左右 Add/Remove 以此為範例"
+  },
+  {
+    "Id": "0.9.18",
+    "Name": "整理 S040 cs and designer."
+  },
+  {
+    "Id": "0.9.17",
+    "Name": "整理 S030 cs and designer"
+  },
+  {
+    "Id": "0.9.16",
+    "Name": "quick S020, adjust homepage, 登入後顯示剛做好的"
+  },
+  {
+    "Id": "0.9.15",
+    "Name": "quick S010, using homemade tool to replace"
+  },
+  {
+    "Id": "0.9.14",
+    "Name": "add Q210, using Q110 as template, NO DATA FOUND"
+  },
+
+  {
+    "Id": "0.9.13",
+    "Name": "add Q110, using Q090 as template"
+  },
+
+  {
+    "Id": "0.9.12",
+    "Name": "先恢復 Q100。TODO 要計數上色和調整上下同框,ROW # 再確認"
+  },
+  {
+    "Id": "0.9.11",
+    "Name": "add Q090, using Q090 as template"
+  },
+
+  {
+    "Id": "0.9.10",
+    "Name": "add Q080, using Q070 as template"
+  },
+  {
+    "Id": "0.9.9",
+    "Name": "speedup Q070, 以這個定調,只有在razor要顯示時才 ToList"
+  },
+  {
+    "Id": "0.9.8",
+    "Name": "done Q070, 2021-04-16 08:15"
+  },
+  {
+    "Id": "0.9.7",
+    "Name": "done Q060, grid0=>grid1=>grid2, 0=>12, 1=>2"
+  },
+  {
+    "Id": "0.9.6",
+    "Name": "fix Q050, no data for SNO, need to change DB ver2"
+  },
+  {
+    "Id": "0.9.5",
+    "Name": "fix R030"
+  },
+  {
+    "Id": "0.9.4",
+    "Name": "fix Q010-Q040, Page on Top"
+  },
+
+  {
+    "Id": "0.9.3",
+    "Name": "Q030 已完成, 使用 Q020 為模板, remove DEL btn"
+  },
+  {
+    "Id": "0.9.2",
+    "Name": "Q010,Q020 已完成"
+  },
+  {
+    "Id": "0.9.1",
+    "Name": "量產模式,2021-04-15 build, 專注在Q系統, 可以在 publish/wwwroot/json/LoginVersionReminder.json 確認部署的版本 "
+  }
+
+]

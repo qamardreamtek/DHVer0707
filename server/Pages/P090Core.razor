@@ -1,0 +1,84 @@
+﻿
+@layout MainLayout
+@inherits RadzenDh5.Pages.P090CoreComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+@using Microsoft.AspNetCore.Identity;
+@using RadzenDh5.Models
+@using Microsoft.AspNetCore.Authorization
+
+@attribute [Authorize]
+
+
+
+@inject Microsoft.Extensions.Localization.IStringLocalizer<MainLayout> L
+<DhAppHeadingAuthMsgOpt IsShowAuth=@IsShowAuth AuthMsg="@AuthMsg" Culture="@Culture" DhUser="@DhUser" DhUsername="@DhUsername"
+                        PROG_ID="@PROG_ID" PROG_NAME_BY_CULTURE="@PROG_NAME_BY_CULTURE"
+                        progWrt="@progWrt" progMst="@progMst" GoodMsg="@GoodMsg" ErrMsg="@ErrMsg" />
+<div class="row">
+    <RadzenButton style="margin-bottom: 10px;margin-left:12px" Text=@Lang("Execute") Click="@ButtonExecuteClick" />
+    <RadzenButton style="margin-bottom: 10px;margin-left:12px" Text=@Lang("Refresh") Click="@ButtonRefreshClick" />
+
+
+</div>
+
+<div id="M070_filters_20210607_141847" class="row" style="margin-bottom:4px;">
+    <DhTextBoxV2 Label=@Lang("Parent Pallet ID") MaxLength="6" style="display: block; width:100% " @bind-Value="@ParentPalletID" @oninput=@(args => OnParentChange(args.Value.ToString(), "TextBox with change on every input")) Change=@(args => OnTxtParentChange(args, "TextBox")) />
+    <DhTextBoxV2 Label=@Lang("Child Pallet ID") MaxLength="6" style="display: block; width:100% " @oninput=@(args => OnChildChange(args.Value.ToString(), "TextBox with change on every input"))
+               Change=@(args => OnTxtChildChange(args, "TextBox")) />
+
+</div>
+
+@*<div class="row">
+    <div class="col-sm-6">
+
+        Parent Pallet ID.
+    </div>
+    <div class="col-sm-6">
+        <RadzenTextBox MaxLength="6" @bind-Value="ParentPalletID" @oninput=@(args => OnParentChange(args.Value.ToString(), "TextBox with change on every input")) Change=@(args => OnTxtParentChange(args, "TextBox")) />
+    </div>
+
+
+    <div class="col-sm-6">
+
+        Child PalletID.
+    </div>
+    <div class="col-sm-6">
+        <RadzenTextBox MaxLength="6" @oninput=@(args => OnChildChange(args.Value.ToString(), "TextBox with change on every input"))
+                       Change=@(args => OnTxtChildChange(args, "TextBox")) />
+
+        @if (childMsg != null)
+        {
+            <span style="color:red">@childMsg</span>}
+    </div>
+
+</div>*@
+
+
+
+<RadzenDataList WrapItems="true" AllowPaging="true" Data="@GetSimpleOneColumnResult" TItem="SimpleOneColumn">
+    <Template Context="item">
+        <RadzenCard Style="width:auto">
+            <div class="col-sm-5" style="margin-top:-4px">
+
+                &nbsp;&nbsp;
+
+                <b>@item.OneColumn</b>
+                &nbsp;&nbsp;
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(@item.OneColumn))">
+                </RadzenButton>
+            </div>
+
+
+        </RadzenCard>
+    </Template>
+</RadzenDataList>
+<span>
+    Total Pallet Qty. <sapn style="background-color:lightgrey">
+        &nbsp;@if (totalPalletQty > 0)
+        {@totalPalletQty}&nbsp;
+    </sapn>
+</span>
+

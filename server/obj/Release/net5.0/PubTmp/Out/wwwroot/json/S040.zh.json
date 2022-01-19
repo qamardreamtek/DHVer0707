@@ -1,0 +1,23 @@
+﻿{
+  "intItem1": 520,
+  "intItem2": 524,
+  "intItem3": 528,
+  "intItem4": 532,
+  "intItem5": 536,
+  "intItem6": 540,
+  "intItem7": 544,
+  "intItem8": 550,
+  "intItem9": 560,
+  "intItem10": 564,
+  "id": "S040",
+  "item1": "群组使用者数居维护",
+  "item2": "管理群组适用者数据、是否启用",
+  "item3": "系统管理员",
+  "item4": "有管理权限的使用者",
+  "item5": "群组编码、使用者编号",
+  "item6": "群组使用者数据",
+  "item7": "如果无符合条件的群组或使用者，系统将提示查无此信息",
+  "item8": "    1. 输入群组编码后点选Query查询群组数据",
+  "item9": "执行S050 Program Authorization by Group确认程序的使用权限",
+  "item10": ""
+}

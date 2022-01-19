@@ -1,0 +1,337 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Equ Mplc Cmd His"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "icon": "add_circle_outline",
+                  "name": "button0",
+                  "style": {
+                    "marginBottom": "10px"
+                  },
+                  "text": "Add",
+                  "type": "button",
+                  "events": {
+                    "click": [
+                      {
+                        "path": "add-equ-mplc-cmd-hi",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await grid0.Reload();",
+                            "type": "execute"
+                          },
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "events": {
+                    "click": [
+                      {
+                        "condition": "${event?.Value == \"csv\"}",
+                        "fileName": "Equ Mplc Cmd His",
+                        "name": "MARK10_SQLEXPRESS04.getEquMplcCmdHis",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "EquNo,D0,D1,D2,D3,D4,D5,D6,D7,D8,D9,D10,D11,D12,D13,D14,LogDT"
+                          }
+                        ],
+                        "type": "export"
+                      },
+                      {
+                        "condition": "${event == null || event.Value == \"xlsx\"}",
+                        "fileName": "Equ Mplc Cmd His",
+                        "format": "xlsx",
+                        "name": "MARK10_SQLEXPRESS04.getEquMplcCmdHis",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "EquNo,D0,D1,D2,D3,D4,D5,D6,D7,D8,D9,D10,D11,D12,D13,D14,LogDT"
+                          }
+                        ],
+                        "type": "export"
+                      }
+                    ]
+                  },
+                  "icon": "get_app",
+                  "items": [
+                    {
+                      "icon": "",
+                      "text": "Excel",
+                      "value": "xlsx"
+                    },
+                    {
+                      "icon": "",
+                      "text": "CSV",
+                      "value": "csv"
+                    }
+                  ],
+                  "name": "splitbutton0",
+                  "style": {
+                    "marginLeft": "10px",
+                    "marginBottom": "10px"
+                  },
+                  "text": "Export",
+                  "type": "splitbutton"
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "filterMode": "advanced",
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getEquMplcCmdHisResult}",
+                  "events": {
+                    "loadData": [],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "EquNo",
+                            "value": "${event.EquNo}"
+                          },
+                          {
+                            "name": "D0",
+                            "value": "${event.D0}"
+                          },
+                          {
+                            "name": "D1",
+                            "value": "${event.D1}"
+                          },
+                          {
+                            "name": "D14",
+                            "value": "${event.D14}"
+                          },
+                          {
+                            "name": "LogDT",
+                            "value": "${event.LogDT}"
+                          }
+                        ],
+                        "path": "edit-equ-mplc-cmd-hi",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "EquNo",
+                      "title": "Equ No"
+                    },
+                    {
+                      "property": "D0",
+                      "title": "D 0"
+                    },
+                    {
+                      "property": "D1",
+                      "title": "D 1"
+                    },
+                    {
+                      "property": "D2",
+                      "title": "D 2"
+                    },
+                    {
+                      "property": "D3",
+                      "title": "D 3"
+                    },
+                    {
+                      "property": "D4",
+                      "title": "D 4"
+                    },
+                    {
+                      "property": "D5",
+                      "title": "D 5"
+                    },
+                    {
+                      "property": "D6",
+                      "title": "D 6"
+                    },
+                    {
+                      "property": "D7",
+                      "title": "D 7"
+                    },
+                    {
+                      "property": "D8",
+                      "title": "D 8"
+                    },
+                    {
+                      "property": "D9",
+                      "title": "D 9"
+                    },
+                    {
+                      "property": "D10",
+                      "title": "D 10"
+                    },
+                    {
+                      "property": "D11",
+                      "title": "D 11"
+                    },
+                    {
+                      "property": "D12",
+                      "title": "D 12"
+                    },
+                    {
+                      "property": "D13",
+                      "title": "D 13"
+                    },
+                    {
+                      "property": "D14",
+                      "title": "D 14"
+                    },
+                    {
+                      "property": "LogDT",
+                      "title": "Log DT"
+                    },
+                    {
+                      "filterable": false,
+                      "sortable": false,
+                      "width": "70px",
+                      "textAlign": "center",
+                      "template": [
+                        {
+                          "attributes": [
+                            {
+                              "name": "@onclick:stopPropagation",
+                              "value": true
+                            }
+                          ],
+                          "buttonStyle": "danger",
+                          "icon": "close",
+                          "name": "gridDeleteButton",
+                          "text": "",
+                          "size": "sm",
+                          "type": "button",
+                          "events": {
+                            "click": [
+                              {
+                                "condition": "await DialogService.Confirm(\"Are you sure you want to delete this record?\") == true",
+                                "error": [
+                                  {
+                                    "detail": "Unable to delete EquMplcCmdHi",
+                                    "severity": "error",
+                                    "summary": "Error",
+                                    "type": "notify"
+                                  }
+                                ],
+                                "name": "MARK10_SQLEXPRESS04.deleteEquMplcCmdHi",
+                                "parameters": [
+                                  {
+                                    "name": "EquNo",
+                                    "value": "${data.EquNo}"
+                                  },
+                                  {
+                                    "name": "D0",
+                                    "value": "${data.D0}"
+                                  },
+                                  {
+                                    "name": "D1",
+                                    "value": "${data.D1}"
+                                  },
+                                  {
+                                    "name": "D14",
+                                    "value": "${data.D14}"
+                                  },
+                                  {
+                                    "name": "LogDT",
+                                    "value": "${data.LogDT}"
+                                  }
+                                ],
+                                "then": [
+                                  {
+                                    "code": "await grid0.Reload();",
+                                    "condition": "result != null",
+                                    "type": "execute"
+                                  }
+                                ],
+                                "type": "invoke"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "RadzenDh5.Models.Mark10Sqlexpress04.EquMplcCmdHi"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "MARK10_SQLEXPRESS04.getEquMplcCmdHis",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getEquMplcCmdHisResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.EquMplcCmdHi>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Equ Mplc Cmd His",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

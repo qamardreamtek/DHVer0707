@@ -1,0 +1,23 @@
+
+<div class="row">
+
+    @if (GoodMsg != null && GoodMsg != "")
+    {
+
+<div class="col-12 alert alert-info" role="alert">
+    @GoodMsg
+</div>}
+    
+    @if (ErrMsg != null && ErrMsg != "")
+    {
+
+<div class="col-12 alert alert-danger" role="alert">
+    @ErrMsg
+</div>}
+    
+
+
+</div>
+@code{ 
+    [Parameter] public string ErrMsg { get; set; }
+    [Parameter] public string GoodMsg { get; set; } }

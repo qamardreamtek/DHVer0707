@@ -1,0 +1,53 @@
+﻿@page "/info"
+@using RadzenDh5.Shared
+@layout MainLayout
+@inherits RadzenDh5.Pages.InfoComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using Models.Mark10Sqlexpress04
+@using Microsoft.AspNetCore.Identity;
+@using Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+
+<h3>DOHOME AS/RS Warehouse Executing System (Web)v1.0.0.0</h3>
+<div>
+    <table class="gridtable">
+        <tr><td> USER_ID  </td><td>   @DhUser   </td></tr>
+        <tr><td> USER_NAME  </td><td>   @DhUsername    </td></tr>
+        <tr><td> Server IP </td><td>   @IP2Server   </td></tr>
+        <tr><td> Client IP </td><td>   @IP1Client   </td></tr>
+        <tr><td> SQL Server  </td><td> @ConnectionString_ServerOnly    </td></tr>
+        <tr><td> Database  </td><td> @ConnectionString_DBOnly    </td></tr>
+
+    </table>
+
+
+
+</div>
+
+<hr />
+
+<span>
+    設計上在每個 PROGRAM,即頁面, 都會顯示如
+    <pre>(admin, P030) => (QUERY=Y, PRINT=N, IMPORT=N, EXPORT=N, UPDATE=N, DELETE=N, APPROVE=Y, ENABLE=Y)</pre>
+    的授權檢查信息
+</span>
+如果不想顯示這信息, appsettings.json
+<pre>
+ "DhConfig": {
+    "IsShowAuth": "N"
+  },
+</pre>
+
+<br />
+目前的設定的是
+@if (@IsShowAuth)
+{
+<span>顯示</span> }
+else
+{ <span>不顯示 </span>}
+

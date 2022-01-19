@@ -1,0 +1,224 @@
+﻿@inherits DhRadzen.DhRadzenComponent
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models
+
+@if (Visible)
+{
+<div @ref="@Element" @attributes="Attributes" class="@GetCssClass()" style="@Style" id="@GetId()">
+    <div class="rz-form">
+        <div class="row form-group">
+            <label class="col-sm-3 col-form-label" for="username">@UserText</label>
+            <div class="col">
+                <RadzenTextBox style="display: block" Name="Username" @bind-Value=@Username />
+                <RadzenRequiredValidator Component="Username" Text=@UserRequired style="position: absolute" />
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="col-sm-3 col-form-label" for="password">@PasswordText</label>
+            <div class="col">
+                <RadzenPassword style="display: block" Name="Password" @bind-Value=@Password />
+                <RadzenRequiredValidator Component="Password" Text=@PasswordRequired style="position: absolute" />
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="offset-sm-3 col login-buttons">
+                <RadzenButton ButtonStyle="ButtonStyle.Primary" ButtonType="ButtonType.Submit" Text=@LoginText Click=@OnLogin />
+                @if (AllowResetPassword)
+                {
+<a @onclick=@OnReset>@ResetPasswordText</a>}
+            </div>
+        </div>
+    </div>
+    @if (AllowRegister)
+    {
+<div class="register">
+    @RegisterMessageText
+    <RadzenButton ButtonType="ButtonType.Button" ButtonStyle="ButtonStyle.Primary" Text=@RegisterText Click=@OnRegister />
+</div>}
+</div>}
+@code { protected override string GetComponentCssClass()
+    {
+        return "login";
+    }
+
+    string _username;
+    [Parameter]
+    public string Username
+    {
+        get
+        {
+            return _username;
+        }
+        set
+        {
+            if (_username != value)
+            {
+                _username = value;
+            }
+        }
+    }
+
+    string _password;
+    [Parameter]
+    public string Password
+    {
+        get
+        {
+            return _password;
+        }
+        set
+        {
+            if (_password != value)
+            {
+                _password = value;
+            }
+        }
+    }
+
+    [Parameter]
+    public EventCallback<Radzen.LoginArgs> Login { get; set; }
+
+    [Parameter]
+    public EventCallback Register { get; set; }
+
+    [Parameter]
+    public EventCallback<string> ResetPassword { get; set; }
+
+    [Parameter]
+    public bool AllowRegister { get; set; } = true;
+
+    [Parameter]
+    public bool AllowResetPassword { get; set; } = true;
+
+    [Parameter]
+    public string LoginText { get; set; } = "Login";
+
+    [Parameter]
+    public string RegisterText { get; set; } = "Sign up";
+
+    [Parameter]
+    public string RegisterMessageText { get; set; } = "Don't have an account yet?";
+
+    [Parameter]
+    public string ResetPasswordText { get; set; } = "Forgot password";
+
+    [Parameter]
+    public string UserText { get; set; } = "Username";
+
+    [Parameter]
+    public string UserRequired { get; set; } = "Username is required";
+
+    [Parameter]
+    public string PasswordText { get; set; } = "Password";
+
+    [Parameter]
+    public string PasswordRequired { get; set; } = "Password is required";
+
+    protected async Task OnLogin()
+    {
+        if (!string.IsNullOrEmpty(Username) && !string.IsNullOrEmpty(Password))
+        {
+            // 0.10.7
+            // NOTE by Mark,
+            // 要在這裡觸發同步
+           // await ButtonSubmitClick(); // 不行, 要放到 Controller 
+
+
+            //    await Task.Delay(5000); // 這是為觀察這個動作的 Toast, 在這裡無效, 因為外層的 form , 直接就跳轉到 account/login
+
+        @*<form method="post" action="account/login">*@
+
+
+
+        await Login.InvokeAsync(new Radzen.LoginArgs { Username = Username, Password = Password });
+    }
+}
+
+
+// 以下是原在同步開發時做的, 先整個帶過來再調試
+
+[Inject] protected RadzenDh5.Data.Mark10Sqlexpress04Context AppDb { get; set; }
+[Inject]
+protected NotificationService NotificationService { get; set; }
+[Inject]
+protected SecurityService Security { get; set; }
+protected void Toast(NotificationSeverity severity, string msg, double duration = 4000)
+{
+    NotificationService.Notify(new NotificationMessage() { Severity = severity, Summary = "", Detail = msg, Duration = duration });
+
+}
+
+public async Task<ApplicationUser>
+    DhCreateUser(string Name, string Password)
+{
+
+    var old = await Security.GetUserByName(Name);
+    if (old != null)
+    {
+        //   Toast(NotificationSeverity.Info, old.Name + " 已存在");
+        var old2 = await Security.DeleteUser(old.Id);
+        //   Toast(NotificationSeverity.Info, old2.Name + " 已刪除");
+    }
+
+    var obj = new ApplicationUser();
+    obj.Email = Name;// "mark3";
+    obj.Password = Password;// "Aa123@"; 已經設為最少 8 chars, like ASRS,123
+                            // 到這裡, 如不滿足會導致頁面出錯, 但不在用戶端報錯, 使用 browser inspect to check
+    var obj2 = await Security.CreateUser(obj);
+    return obj2;
+}
+
+public async Task ButtonSubmitClick()
+{
+
+    //     var x = await DhCreateUser("mark4", "Aa123@");
+    //var x = await DhCreateUser("mark4", "ASRS,123");
+
+    //Toast(NotificationSeverity.Success, x.Name + " created!");
+
+    var toCreateList = AppDb.UserMsts.OrderBy(a => a.USER_ID);
+    int cnt = 0;
+    foreach (var u in toCreateList)
+    {
+        var u2 = await DhCreateUser(u.USER_ID, GetPlainPass(u.USER_PSWD));
+        cnt += 1;
+        //   Toast(NotificationSeverity.Success, u2.Name + " created!");
+
+    }
+    Toast(NotificationSeverity.Success, cnt + " 用戶已同步!");
+
+
+
+}
+//static string sKey = "22099478";
+//static string sIV = "35783280";
+static string sKey = RadzenDh5.Data.DhGlobalStatic.sKey;
+static string sIV = RadzenDh5.Data.DhGlobalStatic.sIV;
+
+
+public string GetPlainPass(string value)
+{
+    return clsTool_2.DecryptDES(value, sKey, sIV);
+}
+protected void OnPassChange(string value, string name)
+{
+
+
+    //      pass2 = clsTool_2.EncryptDES(value, sKey, sIV);
+}
+
+
+
+protected async Task OnReset(EventArgs args)
+{
+    if (!string.IsNullOrEmpty(Username))
+    {
+        await ResetPassword.InvokeAsync(Username);
+    }
+}
+
+protected async Task OnRegister()
+{
+    await Register.InvokeAsync(EventArgs.Empty);
+} }

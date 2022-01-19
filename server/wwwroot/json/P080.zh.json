@@ -1,0 +1,23 @@
+﻿{
+  "intItem1": 849,
+  "intItem2": 853,
+  "intItem3": 857,
+  "intItem4": 861,
+  "intItem5": 865,
+  "intItem6": 869,
+  "intItem7": 873,
+  "intItem8": 879,
+  "intItem9": 889,
+  "intItem10": 893,
+  "id": "P080",
+  "item1": "改变货物属性",
+  "item2": "由人工设定改变货物属性Stock Category",
+  "item3": "仓管员",
+  "item4": "获得属性更改的指示",
+  "item5": "库存明细信息查询条件",
+  "item6": "更改库存明细信息属性",
+  "item7": "如果无符合条件的托盘明细数据，系统将提示查无可用库存明细信息，用户可执行Data Inquire-->Q080 Inventory Data Query作业查询库存明细信息；",
+  "item8": "    1. 输入查询条件后点选Query查询托库存明细信息清单",
+  "item9": "无",
+  "item10": "限同一托盘明细行的属性改变；如果有部分改变，则需求先做P060 Transfer Out及P070 Pallet Inventory Adjustment后才能实施"
+}

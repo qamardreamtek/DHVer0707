@@ -1,0 +1,236 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Pck Mst His"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "events": {
+                    "click": [
+                      {
+                        "condition": "${event?.Value == \"csv\"}",
+                        "fileName": "Pck Mst His",
+                        "name": "MARK10_SQLEXPRESS04.getPckMstHis",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "WHSE_NO,PCK_NO,PCK_TYPE,STGE_TYPE,STGE_BIN,SU_ID,SU_TYPE,LOC_NO,CMD_DATE,CMD_SNO,STN_NO,START_DATE,END_DATE,PCK_USER,PCK_DATE,PCK_STS,APPROVE_IND,REMARK,TRN_USER,TRN_DATE,CRT_USER,CRT_DATE,LOG_DATE,LOG_USER"
+                          }
+                        ],
+                        "type": "export"
+                      },
+                      {
+                        "condition": "${event == null || event.Value == \"xlsx\"}",
+                        "fileName": "Pck Mst His",
+                        "format": "xlsx",
+                        "name": "MARK10_SQLEXPRESS04.getPckMstHis",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "WHSE_NO,PCK_NO,PCK_TYPE,STGE_TYPE,STGE_BIN,SU_ID,SU_TYPE,LOC_NO,CMD_DATE,CMD_SNO,STN_NO,START_DATE,END_DATE,PCK_USER,PCK_DATE,PCK_STS,APPROVE_IND,REMARK,TRN_USER,TRN_DATE,CRT_USER,CRT_DATE,LOG_DATE,LOG_USER"
+                          }
+                        ],
+                        "type": "export"
+                      }
+                    ]
+                  },
+                  "icon": "get_app",
+                  "items": [
+                    {
+                      "icon": "",
+                      "text": "Excel",
+                      "value": "xlsx"
+                    },
+                    {
+                      "icon": "",
+                      "text": "CSV",
+                      "value": "csv"
+                    }
+                  ],
+                  "name": "splitbutton0",
+                  "style": {
+                    "marginLeft": "0px",
+                    "marginBottom": "10px"
+                  },
+                  "text": "Export",
+                  "type": "splitbutton"
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "filterMode": "advanced",
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getPckMstHisResult}",
+                  "events": {
+                    "loadData": []
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "WHSE_NO",
+                      "title": "WHSE NO"
+                    },
+                    {
+                      "property": "PCK_NO",
+                      "title": "PCK NO"
+                    },
+                    {
+                      "property": "PCK_TYPE",
+                      "title": "PCK TYPE"
+                    },
+                    {
+                      "property": "STGE_TYPE",
+                      "title": "STGE TYPE"
+                    },
+                    {
+                      "property": "STGE_BIN",
+                      "title": "STGE BIN"
+                    },
+                    {
+                      "property": "SU_ID",
+                      "title": "SU ID"
+                    },
+                    {
+                      "property": "SU_TYPE",
+                      "title": "SU TYPE"
+                    },
+                    {
+                      "property": "LOC_NO",
+                      "title": "LOC NO"
+                    },
+                    {
+                      "property": "CMD_DATE",
+                      "title": "CMD DATE"
+                    },
+                    {
+                      "property": "CMD_SNO",
+                      "title": "CMD SNO"
+                    },
+                    {
+                      "property": "STN_NO",
+                      "title": "STN NO"
+                    },
+                    {
+                      "property": "START_DATE",
+                      "title": "START DATE"
+                    },
+                    {
+                      "property": "END_DATE",
+                      "title": "END DATE"
+                    },
+                    {
+                      "property": "PCK_USER",
+                      "title": "PCK USER"
+                    },
+                    {
+                      "property": "PCK_DATE",
+                      "title": "PCK DATE"
+                    },
+                    {
+                      "property": "PCK_STS",
+                      "title": "PCK STS"
+                    },
+                    {
+                      "property": "APPROVE_IND",
+                      "title": "APPROVE IND"
+                    },
+                    {
+                      "property": "REMARK",
+                      "title": "REMARK"
+                    },
+                    {
+                      "property": "TRN_USER",
+                      "title": "TRN USER"
+                    },
+                    {
+                      "property": "TRN_DATE",
+                      "title": "TRN DATE"
+                    },
+                    {
+                      "property": "CRT_USER",
+                      "title": "CRT USER"
+                    },
+                    {
+                      "property": "CRT_DATE",
+                      "title": "CRT DATE"
+                    },
+                    {
+                      "property": "LOG_DATE",
+                      "title": "LOG DATE"
+                    },
+                    {
+                      "property": "LOG_USER",
+                      "title": "LOG USER"
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "RadzenDh5.Models.Mark10Sqlexpress04.PckMstHi"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "MARK10_SQLEXPRESS04.getPckMstHis",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getPckMstHisResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.PckMstHi>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Pck Mst His",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

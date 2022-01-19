@@ -1,0 +1,110 @@
+﻿@*@page "/M090"*@
+@layout MainLayout
+@inherits RadzenDh5.Pages.LocMstsComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+@using Microsoft.AspNetCore.Identity;
+@using RadzenDh5.Models
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+
+@inject Microsoft.Extensions.Localization.IStringLocalizer<MainLayout> L
+<RadzenContent Container="main">
+    <ChildContent>
+        <RadzenHeading Size="H3" Text="@L["M090.Text"]">
+        </RadzenHeading>
+        <div class="row">
+            <div class="col-md-12">
+                <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Add" Click="@Button0Click">
+                </RadzenButton>
+                @*<RadzenSplitButton Icon="get_app" style="margin-left: 10px; margin-bottom: 10px" Text="Download" Click="@Splitbutton0Click">
+                    <ChildContent>
+                        <RadzenSplitButtonItem Text="excel" Value="xlsx">
+                        </RadzenSplitButtonItem>
+                        <RadzenSplitButtonItem Text="csv" Value="csv">
+                        </RadzenSplitButtonItem>
+                    </ChildContent>
+                </RadzenSplitButton>*@
+                <RadzenGrid @ref="grid0" ColumnWidth="100px" AllowColumnResize="true" AllowFiltering="true" FilterMode="FilterMode.Advanced" AllowPaging="true" AllowSorting="true" Data="@getLocMstsResult" TItem="RadzenDh5.Models.Mark10Sqlexpress04.LocMst" RowSelect="@Grid0RowSelect">
+                    <Columns>
+                        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.LocMst" Property="WHSE_NO" Title="WHSE_NO">
+                        </RadzenGridColumn>
+                        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.LocMst" Property="LOC_NO" Title="LOC_NO">
+                        </RadzenGridColumn>
+                        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.LocMst" Property="LOC_NAME" Title="LOC_NAME">
+                        </RadzenGridColumn>
+                        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.LocMst" Property="ZONE_NO" Title="ZONE_NO">
+                        </RadzenGridColumn>
+                        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.LocMst" Property="LANE_NO" Title="LANE_NO">
+                        </RadzenGridColumn>
+                        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.LocMst" Property="EQU_NO" Title="EQU_NO">
+                        </RadzenGridColumn>
+                        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.LocMst" Property="ROW_X" Title="ROW_X">
+                        </RadzenGridColumn>
+                        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.LocMst" Property="BAY_Y" Title="BAY_Y">
+                        </RadzenGridColumn>
+                        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.LocMst" Property="LVL_Z" Title="LVL_Z">
+                        </RadzenGridColumn>
+                        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.LocMst" Property="LOC_ASRS" Title="LOC_ASRS">
+                        </RadzenGridColumn>
+                        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.LocMst" Property="LOC_STS" Title="LOC_STS">
+                        </RadzenGridColumn>
+                        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.LocMst" Property="LOC_OSTS" Title="LOC_OSTS">
+                        </RadzenGridColumn>
+                        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.LocMst" Property="AVAIL" Title="AVAIL">
+                        </RadzenGridColumn>
+                        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.LocMst" Property="DEPTH" Title="DEPTH">
+                        </RadzenGridColumn>
+                        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.LocMst" Property="LOC_SIZE" Title="LOC_SIZE">
+                        </RadzenGridColumn>
+                        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.LocMst" Property="LOC_TYPE" Title="LOC_TYPE">
+                        </RadzenGridColumn>
+                        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.LocMst" Property="LOC_ABC" Title="LOC_ABC">
+                        </RadzenGridColumn>
+                        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.LocMst" Property="LOC_SPECIAL" Title="LOC_SPECIAL">
+                        </RadzenGridColumn>
+                        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.LocMst" Property="LOC_HOT" Title="LOC_HOT">
+                        </RadzenGridColumn>
+                        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.LocMst" Property="LOC_RCV" Title="LOC_RCV">
+                        </RadzenGridColumn>
+                        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.LocMst" Property="LOC_STOCK" Title="LOC_STOCK">
+                        </RadzenGridColumn>
+                        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.LocMst" Property="LOC_QC" Title="LOC_QC">
+                        </RadzenGridColumn>
+                        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.LocMst" Property="LOC_NG" Title="LOC_NG">
+                        </RadzenGridColumn>
+                        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.LocMst" Property="LOC_RETURN" Title="LOC_RETURN">
+                        </RadzenGridColumn>
+                        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.LocMst" Property="LOC_SORT" Title="LOC_SORT">
+                        </RadzenGridColumn>
+                        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.LocMst" Property="LOC_PICK" Title="LOC_PICK">
+                        </RadzenGridColumn>
+                        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.LocMst" Property="LOC_STAGE" Title="LOC_STAGE">
+                        </RadzenGridColumn>
+                        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.LocMst" Property="LOC_DEL" Title="LOC_DEL">
+                        </RadzenGridColumn>
+                        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.LocMst" Property="SU_ID" Title="SU_ID">
+                        </RadzenGridColumn>
+                        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.LocMst" Property="COUNT_DATE" Title="COUNT_DATE">
+                        </RadzenGridColumn>
+                        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.LocMst" Property="REMARK" Title="REMARK">
+                        </RadzenGridColumn>
+                        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.LocMst" Property="TRN_USER" Title="TRN_USER">
+                        </RadzenGridColumn>
+                        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.LocMst" Property="TRN_DATE" Title="TRN_DATE">
+                        </RadzenGridColumn>
+                        <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.LocMst" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+                            <Template Context="radzenDh5ModelsMark10Sqlexpress04LocMst">
+                                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, radzenDh5ModelsMark10Sqlexpress04LocMst))" @onclick:stopPropagation="true">
+                                </RadzenButton>
+                            </Template>
+                        </RadzenGridColumn>
+                    </Columns>
+                </RadzenGrid>
+            </div>
+        </div>
+    </ChildContent>
+</RadzenContent>

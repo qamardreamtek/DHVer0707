@@ -1,0 +1,156 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "V User Prog By Groups"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "events": {
+                    "click": [
+                      {
+                        "condition": "${event?.Value == \"csv\"}",
+                        "fileName": "V User Prog By Groups",
+                        "name": "MARK10_SQLEXPRESS04.getVUserProgByGroups",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "USER_ID,PROG_ID,GROUP_ID,GROUP_WRT_ENABLE"
+                          }
+                        ],
+                        "type": "export"
+                      },
+                      {
+                        "condition": "${event == null || event.Value == \"xlsx\"}",
+                        "fileName": "V User Prog By Groups",
+                        "format": "xlsx",
+                        "name": "MARK10_SQLEXPRESS04.getVUserProgByGroups",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "USER_ID,PROG_ID,GROUP_ID,GROUP_WRT_ENABLE"
+                          }
+                        ],
+                        "type": "export"
+                      }
+                    ]
+                  },
+                  "icon": "get_app",
+                  "items": [
+                    {
+                      "icon": "",
+                      "text": "Excel",
+                      "value": "xlsx"
+                    },
+                    {
+                      "icon": "",
+                      "text": "CSV",
+                      "value": "csv"
+                    }
+                  ],
+                  "name": "splitbutton0",
+                  "style": {
+                    "marginLeft": "0px",
+                    "marginBottom": "10px"
+                  },
+                  "text": "Export",
+                  "type": "splitbutton"
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "filterMode": "advanced",
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getVUserProgByGroupsResult}",
+                  "events": {
+                    "loadData": []
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "USER_ID",
+                      "title": "USER ID"
+                    },
+                    {
+                      "property": "PROG_ID",
+                      "title": "PROG ID"
+                    },
+                    {
+                      "property": "GROUP_ID",
+                      "title": "GROUP ID"
+                    },
+                    {
+                      "property": "GROUP_WRT_ENABLE",
+                      "title": "GROUP WRT ENABLE"
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "RadzenDh5.Models.Mark10Sqlexpress04.VUserProgByGroup"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "MARK10_SQLEXPRESS04.getVUserProgByGroups",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getVUserProgByGroupsResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.VUserProgByGroup>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "V User Prog By Groups",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

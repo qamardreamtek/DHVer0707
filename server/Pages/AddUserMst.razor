@@ -1,0 +1,204 @@
+﻿@page "/add-user-mst"
+@layout MainLayout
+@inherits RadzenDh5.Pages.AddUserMstComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+<RadzenContent Container="main">
+  <ChildContent>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm Data="@usermst" Visible="@(usermst != null)" TItem="RadzenDh5.Models.Mark10Sqlexpress04.UserMst" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                 <RadzenLabel  Text=@Lang("USER_ID")   Component="USER_ID"  style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="20" style="display: block; width: 100%" @bind-Value="@(usermst.USER_ID)" Name="USER_ID">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="USER_ID" Text="USER_ID is required" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                 <RadzenLabel  Text=@Lang("DEPT_NAME")   Component="DEPT_NAME"  style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="width: 100%" @bind-Value="@(usermst.DEPT_NAME)" Name="DEPT_NAME">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                 <RadzenLabel  Text=@Lang("USER_NAME")   Component="USER_NAME"  style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(usermst.USER_NAME)" Name="USER_NAME">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="USER_NAME" Text="USER_NAME is required" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                 <RadzenLabel  Text=@Lang("USER_PSWD")   Component="USER_PSWD"  style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                  <RadzenPassword MaxLength="50" style="display: block; width: 100%" @bind-Value="@(usermst.USER_PSWD)" Name="USER_PSWD">
+                  </RadzenPassword>
+                  <RadzenRequiredValidator Component="USER_PSWD" Text="USER_PSWD is required" style="position: absolute">
+                  </RadzenRequiredValidator>
+                
+                  <RadzenLengthValidator Component="USER_PSWD" Min="8" Max="12" Text="password is 8 to 12 characters"></RadzenLengthValidator>
+
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                 <RadzenLabel  Text=@Lang("TELPHONE")   Component="TELPHONE"  style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="width: 100%" @bind-Value="@(usermst.TELPHONE)" Name="TELPHONE">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                 <RadzenLabel  Text=@Lang("MOBILE")   Component="MOBILE"  style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="width: 100%" @bind-Value="@(usermst.MOBILE)" Name="MOBILE">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                 <RadzenLabel  Text=@Lang("EMAIL")   Component="EMAIL"  style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="width: 100%" @bind-Value="@(usermst.EMAIL)" Name="EMAIL">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                 <RadzenLabel  Text=@Lang("LANGUAGE")   Component="LANGUAGE"  style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                  <RadzenTextBox MaxLength="2" style="width: 100%" @bind-Value="@(usermst.LANGUAGE)" Name="LANGUAGE">
+                  </RadzenTextBox>
+                  <RadzenDh5.Validator.DhLangValidator Component="LANGUAGE" Text="must be EN,TW,CN,TH or VN" style="position:relative">
+                  </RadzenDh5.Validator.DhLangValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                 <RadzenLabel  Text=@Lang("ENABLE")   Component="ENABLE"  style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                  <RadzenTextBox MaxLength="1" style="width: 100%" @bind-Value="@(usermst.ENABLE)" Name="ENABLE">
+                  </RadzenTextBox>
+                  <RadzenDh5.Validator.DhYNValidator Component="ENABLE" Text="must be Y or N" style="position:relative">
+                  </RadzenDh5.Validator.DhYNValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                 <RadzenLabel  Text=@Lang("REMARK")   Component="REMARK"  style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox style="width: 100%" @bind-Value="@(usermst.REMARK)" Name="REMARK">
+                </RadzenTextBox>
+              </div>
+            </div>
+            @*<div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                 <RadzenLabel  Text=@Lang("TRN_USER")   Component="TRN_USER"  style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(usermst.TRN_USER)" Name="TRN_USER">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="TRN_USER" Text="TRN_USER is required" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                 <RadzenLabel  Text=@Lang("TRN_DATE")   Component="TRN_DATE"  style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="20" style="width: 100%" @bind-Value="@(usermst.TRN_DATE)" Name="TRN_DATE">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                 <RadzenLabel  Text=@Lang("CRT_USER")   Component="CRT_USER"  style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(usermst.CRT_USER)" Name="CRT_USER">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="CRT_USER" Text="CRT_USER is required" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                 <RadzenLabel  Text=@Lang("CRT_DATE")   Component="CRT_DATE"  style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="20" style="width: 100%" @bind-Value="@(usermst.CRT_DATE)" Name="CRT_DATE">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                 <RadzenLabel  Text=@Lang("PSWD_DATE")   Component="PSWD_DATE"  style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="20" style="width: 100%" @bind-Value="@(usermst.PSWD_DATE)" Name="PSWD_DATE">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                 <RadzenLabel  Text=@Lang("LAST_DATE")   Component="LAST_DATE"  style="width: 100%"> 
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="20" style="width: 100%" @bind-Value="@(usermst.LAST_DATE)" Name="LAST_DATE">
+                </RadzenTextBox>
+              </div>*@
+            @*</div>*@
+            <div class="row">
+              <div class="col offset-sm-3">
+                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="Save" ButtonStyle="ButtonStyle.Primary">
+                </RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Light" style="margin-left: 1rem" Text="Cancel" Click="@Button2Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

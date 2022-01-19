@@ -1,0 +1,385 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Loc Msts"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "icon": "add_circle_outline",
+                  "name": "button0",
+                  "style": {
+                    "marginBottom": "10px"
+                  },
+                  "text": "Add",
+                  "type": "button",
+                  "events": {
+                    "click": [
+                      {
+                        "path": "add-loc-mst",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await grid0.Reload();",
+                            "type": "execute"
+                          },
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "events": {
+                    "click": [
+                      {
+                        "condition": "${event?.Value == \"csv\"}",
+                        "fileName": "Loc Msts",
+                        "name": "MARK10_SQLEXPRESS04.getLocMsts",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "WHSE_NO,LOC_NO,LOC_NAME,ZONE_NO,LANE_NO,EQU_NO,ROW_X,BAY_Y,LVL_Z,LOC_ASRS,LOC_STS,LOC_OSTS,AVAIL,DEPTH,LOC_SIZE,LOC_TYPE,LOC_ABC,LOC_SPECIAL,LOC_HOT,LOC_RCV,LOC_STOCK,LOC_QC,LOC_NG,LOC_RETURN,LOC_SORT,LOC_PICK,LOC_STAGE,LOC_DEL,SU_ID,COUNT_DATE,REMARK,TRN_USER,TRN_DATE"
+                          }
+                        ],
+                        "type": "export"
+                      },
+                      {
+                        "condition": "${event == null || event.Value == \"xlsx\"}",
+                        "fileName": "Loc Msts",
+                        "format": "xlsx",
+                        "name": "MARK10_SQLEXPRESS04.getLocMsts",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "WHSE_NO,LOC_NO,LOC_NAME,ZONE_NO,LANE_NO,EQU_NO,ROW_X,BAY_Y,LVL_Z,LOC_ASRS,LOC_STS,LOC_OSTS,AVAIL,DEPTH,LOC_SIZE,LOC_TYPE,LOC_ABC,LOC_SPECIAL,LOC_HOT,LOC_RCV,LOC_STOCK,LOC_QC,LOC_NG,LOC_RETURN,LOC_SORT,LOC_PICK,LOC_STAGE,LOC_DEL,SU_ID,COUNT_DATE,REMARK,TRN_USER,TRN_DATE"
+                          }
+                        ],
+                        "type": "export"
+                      }
+                    ]
+                  },
+                  "icon": "get_app",
+                  "items": [
+                    {
+                      "icon": "",
+                      "text": "Excel",
+                      "value": "xlsx"
+                    },
+                    {
+                      "icon": "",
+                      "text": "CSV",
+                      "value": "csv"
+                    }
+                  ],
+                  "name": "splitbutton0",
+                  "style": {
+                    "marginLeft": "10px",
+                    "marginBottom": "10px"
+                  },
+                  "text": "Export",
+                  "type": "splitbutton"
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "filterMode": "advanced",
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getLocMstsResult}",
+                  "events": {
+                    "loadData": [],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "WHSE_NO",
+                            "value": "${event.WHSE_NO}"
+                          },
+                          {
+                            "name": "LOC_NO",
+                            "value": "${event.LOC_NO}"
+                          },
+                          {
+                            "name": "ZONE_NO",
+                            "value": "${event.ZONE_NO}"
+                          }
+                        ],
+                        "path": "edit-loc-mst",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "WHSE_NO",
+                      "title": "WHSE NO"
+                    },
+                    {
+                      "property": "LOC_NO",
+                      "title": "LOC NO"
+                    },
+                    {
+                      "property": "LOC_NAME",
+                      "title": "LOC NAME"
+                    },
+                    {
+                      "property": "ZONE_NO",
+                      "title": "ZONE NO"
+                    },
+                    {
+                      "property": "LANE_NO",
+                      "title": "LANE NO"
+                    },
+                    {
+                      "property": "EQU_NO",
+                      "title": "EQU NO"
+                    },
+                    {
+                      "property": "ROW_X",
+                      "title": "ROW X"
+                    },
+                    {
+                      "property": "BAY_Y",
+                      "title": "BAY Y"
+                    },
+                    {
+                      "property": "LVL_Z",
+                      "title": "LVL Z"
+                    },
+                    {
+                      "property": "LOC_ASRS",
+                      "title": "LOC ASRS"
+                    },
+                    {
+                      "property": "LOC_STS",
+                      "title": "LOC STS"
+                    },
+                    {
+                      "property": "LOC_OSTS",
+                      "title": "LOC OSTS"
+                    },
+                    {
+                      "property": "AVAIL",
+                      "title": "AVAIL"
+                    },
+                    {
+                      "property": "DEPTH",
+                      "title": "DEPTH"
+                    },
+                    {
+                      "property": "LOC_SIZE",
+                      "title": "LOC SIZE"
+                    },
+                    {
+                      "property": "LOC_TYPE",
+                      "title": "LOC TYPE"
+                    },
+                    {
+                      "property": "LOC_ABC",
+                      "title": "LOC ABC"
+                    },
+                    {
+                      "property": "LOC_SPECIAL",
+                      "title": "LOC SPECIAL"
+                    },
+                    {
+                      "property": "LOC_HOT",
+                      "title": "LOC HOT"
+                    },
+                    {
+                      "property": "LOC_RCV",
+                      "title": "LOC RCV"
+                    },
+                    {
+                      "property": "LOC_STOCK",
+                      "title": "LOC STOCK"
+                    },
+                    {
+                      "property": "LOC_QC",
+                      "title": "LOC QC"
+                    },
+                    {
+                      "property": "LOC_NG",
+                      "title": "LOC NG"
+                    },
+                    {
+                      "property": "LOC_RETURN",
+                      "title": "LOC RETURN"
+                    },
+                    {
+                      "property": "LOC_SORT",
+                      "title": "LOC SORT"
+                    },
+                    {
+                      "property": "LOC_PICK",
+                      "title": "LOC PICK"
+                    },
+                    {
+                      "property": "LOC_STAGE",
+                      "title": "LOC STAGE"
+                    },
+                    {
+                      "property": "LOC_DEL",
+                      "title": "LOC DEL"
+                    },
+                    {
+                      "property": "SU_ID",
+                      "title": "SU ID"
+                    },
+                    {
+                      "property": "COUNT_DATE",
+                      "title": "COUNT DATE"
+                    },
+                    {
+                      "property": "REMARK",
+                      "title": "REMARK"
+                    },
+                    {
+                      "property": "TRN_USER",
+                      "title": "TRN USER"
+                    },
+                    {
+                      "property": "TRN_DATE",
+                      "title": "TRN DATE"
+                    },
+                    {
+                      "filterable": false,
+                      "sortable": false,
+                      "width": "70px",
+                      "textAlign": "center",
+                      "template": [
+                        {
+                          "attributes": [
+                            {
+                              "name": "@onclick:stopPropagation",
+                              "value": true
+                            }
+                          ],
+                          "buttonStyle": "danger",
+                          "icon": "close",
+                          "name": "gridDeleteButton",
+                          "text": "",
+                          "size": "sm",
+                          "type": "button",
+                          "events": {
+                            "click": [
+                              {
+                                "condition": "await DialogService.Confirm(\"Are you sure you want to delete this record?\") == true",
+                                "error": [
+                                  {
+                                    "detail": "Unable to delete LocMst",
+                                    "severity": "error",
+                                    "summary": "Error",
+                                    "type": "notify"
+                                  }
+                                ],
+                                "name": "MARK10_SQLEXPRESS04.deleteLocMst",
+                                "parameters": [
+                                  {
+                                    "name": "WHSE_NO",
+                                    "value": "${data.WHSE_NO}"
+                                  },
+                                  {
+                                    "name": "LOC_NO",
+                                    "value": "${data.LOC_NO}"
+                                  },
+                                  {
+                                    "name": "ZONE_NO",
+                                    "value": "${data.ZONE_NO}"
+                                  }
+                                ],
+                                "then": [
+                                  {
+                                    "code": "await grid0.Reload();",
+                                    "condition": "result != null",
+                                    "type": "execute"
+                                  }
+                                ],
+                                "type": "invoke"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "RadzenDh5.Models.Mark10Sqlexpress04.LocMst"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "MARK10_SQLEXPRESS04.getLocMsts",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getLocMstsResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.LocMst>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Loc Msts",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

@@ -1,0 +1,58 @@
+﻿@*@page "/m2"*@
+@using System.IO
+@using Microsoft.EntityFrameworkCore
+@*@using RadzenBlazorDemos.Models.Northwind
+    @inject RadzenBlazorDemos.Data.NorthwindContext Northwind*@
+@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment HostEnvironment
+@inject NavigationManager NavManager
+@using Radzen.Blazor
+@inject RadzenDh5.Data.Mark10Sqlexpress04Context AppDb
+
+@using RadzenDh5.Models;
+@using RadzenDh5.Pages;
+@inject Microsoft.Extensions.Localization.IStringLocalizer<MainLayout> L
+
+@inject BlazorApp1.Data.PageService pageService;
+@*<table class="gridtable">
+        @if (vRights != null)
+        {
+    @foreach (var x in vRights)
+    {
+    <tr><td>@x.user_id</td><td>@x.PROG_ID</td><td>@x.TW_NAME</td></tr>}}
+
+    </table>*@
+
+<ol>
+    @if (vRights != null)
+    {
+@foreach (var x in vRights)
+{
+<li>
+    <a href="/@x.PROG_ID">
+        @x.PROG_ID&nbsp; @pageService.GetDhAppStatusLatest_ByDev(@x.PROG_ID)
+
+
+
+    </a>
+</li>}}
+
+</ol>
+
+
+@code { // The value of a RadzenTree component must be of type "object" as different levels could be of different type.
+
+    [Parameter] public string USER { get; set; }
+    [Parameter] public string CAT { get; set; }
+    [Parameter] public string LANG { get; set; }
+
+
+    IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.VRight> vRights;
+
+
+
+
+    protected override void OnInitialized()
+    {
+
+        vRights = AppDb.VRights.Where(a => a.user_id == USER && a.PARENT_ID == CAT).OrderBy(a => a.PROG_ID);
+    } }

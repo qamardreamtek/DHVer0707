@@ -1,0 +1,182 @@
+﻿
+@layout MainLayout
+@inherits RadzenDh5.Pages.P030CoreComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using RadzenDh5.Models.Mark10Sqlexpress04
+
+<DhAppHeadingAuthMsgOpt IsShowAuth=@IsShowAuth AuthMsg="@AuthMsg" Culture="@Culture" DhUser="@DhUser" DhUsername="@DhUsername"
+                        PROG_ID="@PROG_ID" PROG_NAME_BY_CULTURE="@PROG_NAME_BY_CULTURE"
+                        progWrt="@progWrt" progMst="@progMst" GoodMsg="@GoodMsg" ErrMsg="@ErrMsg" />
+
+<div class="row">
+    <RadzenButton style="margin-bottom: 10px;margin-left:12px" Text=@Lang("Query") Click="@ButtonQueryClick" />
+
+    <RadzenButton style="margin-bottom: 10px;margin-left:12px" Text=@Lang("Execute") Click="@ButtonExecuteClick" />
+    <RadzenButton style="margin-bottom: 10px;margin-left:12px" Text=@Lang("Refresh") Click="@ButtonRefreshClick" />
+
+
+</div>
+
+<div id="P030_filters_20210607_141847" class="row" style="margin-bottom:4px;">
+    <DhTextBox Label=@Lang("OUT_NO")  MaxLength="20" style="display: block; width:100% " @bind-Value="@txtOUT_NO" /> 
+    <DhTextBox Label=@Lang("SHIP_TO")  MaxLength="20" style="display: block; width:100% " @bind-Value="@txtSHIP_TO" /> 
+    <DhTextBox Label=@Lang("SHIP_TO_NAME")  MaxLength="20" style="display: block; width:100% " @bind-Value="@txtSHIP_TO_NAME" /> 
+    <DhTextBox Label=@Lang("SKU_NO")  MaxLength="20" style="display: block; width:100% " @bind-Value="@txtSKU_NO" /> 
+    <DhTextBox Label=@Lang("REQM_NO")  MaxLength="20" style="display: block; width:100% " @bind-Value="@txtREQM_NO" /> 
+    <DhTextBox Label=@Lang("CREATEUSER")  MaxLength="20" style="display: block; width:100% " @bind-Value="@txtCREATEUSER" /> 
+    <DhTextBox Label=@Lang("CAR_LIC")  MaxLength="20" style="display: block; width:100% " @bind-Value="@txtCAR_LIC" /> 
+    <DhTextBox Label=@Lang("WHSE_DOOR")  MaxLength="20" style="display: block; width:100% " @bind-Value="@txtWHSE_DOOR" /> 
+</div>
+
+<RadzenTabs RenderMode="TabRenderMode.Client" id="RadzenTabs_P030_Vp030S_20210607_220828" @bind-SelectedIndex=@selectedTabIndex Change=@OnTabChange style="height: 880px" >
+    <Tabs>
+        <RadzenTabsItem Text="Order Items.">
+            @*@if (SelectedVp030 != null)
+                            {
+                <span>【OUT_NO = @SelectedVp030.OUT_NO】</span>
+                                       }*@
+            <RadzenGrid @ref="grid0"
+                        @bind-Value="ObjTab0Selected"
+                        ColumnWidth="125px" AllowColumnResize="true" PagerPosition="PagerPosition.Top"
+                        AllowFiltering="false" FilterMode="FilterMode.Advanced" AllowPaging="true" AllowSorting="false"
+                        Data="@GetVp030sResult" TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030"
+                        RowSelect="@Grid0RowSelect" RowDoubleClick="Grid0RowDoubleClick">
+                <Columns>
+
+                    <RadzenGridColumn Width="50px" TItem="Vp030" Title="" Filterable="false" Sortable="false" TextAlign="TextAlign.Center">
+                        <Template>
+                            @(GetVp030sResult.ToList().IndexOf(context) +1)
+                        </Template>
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030" Property="WHSE_NO" Title="WHSE NO">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030" Property="OUT_NO" Title="OUT NO">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030" Property="OUT_LINE" Title="OUT LINE">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030" Property="PLANT" Title=@Lang("PLANT")>
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030" Property="STGE_LOC" Title="STGE LOC">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030" Property="SKU_NO" Title="SKU NO">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030" Property="BATCH_NO" Title="BATCH NO">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030" Property="STK_CAT" Title="STK CAT">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030" Property="STK_SPECIAL_IND" Title="STK SPECIAL IND">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030" Property="STK_SPECIAL_NO" Title="STK SPECIAL NO">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030" Property="GTIN_UNIT" Title="GTIN UNIT">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030" Property="GTIN_OUT_QTY" Title="GTIN OUT QTY">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030" Property="GTIN_ALO_QTY" Title="GTIN ALO QTY">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030" Property="SKU_UNIT" Title="SKU UNIT">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030" Property="SKU_OUT_QTY" Title="SKU OUT QTY">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030" Property="SKU_ALO_QTY" Title="SKU ALO QTY">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030" Property="GROSS_WEIGHT" Title="GROSS WEIGHT">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030" Property="NET_WEIGHT" Title="NET WEIGHT">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030" Property="WEIGHT_UNIT" Title="WEIGHT UNIT">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030" Property="VOLUME" Title=@Lang("VOLUME")>
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030" Property="VOLUME_UNIT" Title="VOLUME UNIT">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030" Property="GTIN_DESC" Title="GTIN DESC">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030" Property="GTIN_NO" Title="GTIN NO">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030" Property="GTIN_NUMERATOR" Title="GTIN NUMERATOR">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030" Property="GTIN_DENOMINATOR" Title="GTIN DENOMINATOR">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030" Property="REQM_NO" Title="REQM NO">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030" Property="REQM_LINE" Title="REQM LINE">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030" Property="DOC_NO" Title="DOC NO">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030" Property="DOC_LINE" Title="DOC LINE">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030" Property="MOVM_TYPE" Title="MOVM TYPE">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030" Property="SKU_GROUP" Title="SKU GROUP">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030" Property="TP_GROUP" Title="TP GROUP">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030" Property="DD_LINE" Title="DD LINE">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030" Property="CREATEUSER" Title=@Lang("CREATEUSER")>
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030" Property="CREATEDATE" Title=@Lang("CREATEDATE")>
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030" Property="CREATETIME" Title=@Lang("CREATETIME")>
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030" Property="SKU_AVAIL_QTY" Title="SKU AVAIL QTY">
+                    </RadzenGridColumn>
+                </Columns>
+            </RadzenGrid>
+        </RadzenTabsItem>
+
+        <RadzenTabsItem Text="Stock Items.">
+            <RadzenGrid @bind-Value="ObjTab1Selected"
+                        ColumnWidth="125px" AllowColumnResize="true" PagerPosition="PagerPosition.Top"
+                        AllowFiltering="false" FilterMode="FilterMode.Advanced" AllowPaging="true" AllowSorting="false"
+                        Data="@GetVp030SubsResult" TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030Sub"
+                        RowDoubleClick="Grid1RowDoubleClick">
+                <Columns>
+                    <RadzenGridColumn Width="50px" TItem="Vp030Sub" Title="" Filterable="false" Sortable="false" TextAlign="TextAlign.Center">
+                        <Template>
+                            @(GetVp030SubsResult.ToList().IndexOf(context) +1)
+                        </Template>
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030Sub" Property="STGE_TYPE" Title="STGE TYPE">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030Sub" Property="STGE_BIN" Title="STGE BIN">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030Sub" Property="SU_ID" Title="SU ID">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030Sub" Property="LOC_NO" Title="LOC NO">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030Sub" Property="WHSE_NO" Title="WHSE NO">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030Sub" Property="PLANT" Title=@Lang("PLANT")>
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030Sub" Property="STGE_LOC" Title="STGE LOC">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030Sub" Property="SKU_NO" Title="SKU NO">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030Sub" Property="BATCH_NO" Title="BATCH NO">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030Sub" Property="STK_CAT" Title="STK CAT">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030Sub" Property="STK_SPECIAL_IND" Title="STK SPECIAL IND">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030Sub" Property="STK_SPECIAL_NO" Title="STK SPECIAL NO">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030Sub" Property="SKU_UNIT" Title="SKU UNIT">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030Sub" Property="SKU_QTY" Title="SKU QTY">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030Sub" Property="SKU_ALO_QTY" Title="SKU ALO QTY">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030Sub" Property="EXPIRE_DATE" Title="EXPIRE DATE">
+                    </RadzenGridColumn>
+                    <RadzenGridColumn TItem="RadzenDh5.Models.Mark10Sqlexpress04.Vp030Sub" Property="GR_DATE" Title="GR DATE">
+                    </RadzenGridColumn>
+                </Columns>
+            </RadzenGrid>
+        </RadzenTabsItem>
+    </Tabs>
+</RadzenTabs>
+

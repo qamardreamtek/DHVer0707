@@ -1,0 +1,208 @@
+﻿@*@page "/doc/{id?}"*@
+@*@inject IStringLocalizer<App> Localizer*@
+@using System.Globalization;
+@layout CleanLayout
+@inject NavigationManager NavigationManager
+@*@attribute [Authorize]*@
+@using Microsoft.AspNetCore.Hosting;
+@inject IWebHostEnvironment WebEnvironment;
+@using RadzenDh5.Shared
+@using BlazorApp1.Data
+@using BlazorApp1.Shared
+@inject PageService pageService;
+@using BlazorApp1;
+
+
+@if (StrId != null)
+{
+    <span>【@PageTitle】</span>
+    @strHtml
+}
+
+
+@code{
+    string selectedTab = "MENU";
+
+    private void OnSelectedTabChanged(string name)
+    {
+        selectedTab = name;
+        //if (name != "SELECTED")
+        //{
+        //    NavigationManager.NavigateTo("/doc3");
+        //  //  UpdateData();
+
+        //}
+
+        //if (name == "MENU")
+        //{
+        //    ToggleNavMenu();
+        //}
+
+    }
+
+    [Parameter]
+    public string Id { get; set; }
+
+    public string PageTitle { get; set; }
+
+    //    public string dir = "menu";
+    public string dir = "";
+
+
+    public List<BlazorApp1.IdName> PageList;
+    public List<BlazorApp1.IdName> PageListC;
+    public List<BlazorApp1.IdName> PageListM;
+    public List<BlazorApp1.IdName> PageListP;
+    public List<BlazorApp1.IdName> PageListQ;
+    public List<BlazorApp1.IdName> PageListR;
+    public List<BlazorApp1.IdName> PageListS;
+
+    public string NO_PARAMETER = "LIST";
+
+    public string StrId { get; set; }
+    public string StrEnId { get; set; }
+
+    public string StrIdC { get; set; }
+    public string StrEnIdC { get; set; }
+    public string StrIdM { get; set; }
+    public string StrIdP { get; set; }
+    public string StrIdQ { get; set; }
+    public string StrIdR { get; set; }
+    public string StrIdS { get; set; }
+
+    MarkupString strHtml;
+    MarkupString strHtmlEn;
+    MarkupString strHtmlZh;
+    MarkupString strHtmlTh;
+    protected override void OnInitialized()
+    {
+        if (StrId != null)
+        {
+
+            if (StrId.StartsWith("Q"))
+            {
+                expandSubMenuX[4] = true;
+            }
+            StateHasChanged();
+        }
+
+
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        UpdateData();
+
+    }
+    private void UpdateData()
+    {
+        var x = Id;
+
+        if (Id != null)
+        {
+            StrId = Id;
+
+
+
+
+            //    selectedTab = "SELECTED";
+            StrIdC = null;
+            StrIdM = null;
+            StrIdP = null;
+            StrIdQ = null;
+            StrIdR = null;
+            StrIdS = null;
+
+
+
+            if (Id.StartsWith("C")) StrIdC = Id;
+            if (Id.StartsWith("M")) StrIdM = Id;
+            if (Id.StartsWith("P")) StrIdP = Id;
+            if (Id.StartsWith("Q")) StrIdQ = Id;
+            if (Id.StartsWith("R")) StrIdR = Id;
+            if (Id.StartsWith("S")) StrIdS = Id;
+
+
+
+        }
+        else
+        {
+            StrId = null;
+            StrIdC = Id;
+            StrIdM = Id;
+            StrIdP = Id;
+            StrIdQ = Id;
+            StrIdR = Id;
+            StrIdS = Id;
+
+
+
+        }
+        //if (StrId != null)
+        //{
+
+        //    if (StrId.StartsWith("Q"))
+        //    {
+        //        expandSubMenuX[4] = true;
+        //    }
+        //    StateHasChanged();
+        //}
+        StateHasChanged();
+        var wwwroot = WebEnvironment.WebRootPath;
+
+        //            strHtml = (MarkupString)Util.GetHtmlStringExtAll(wwwroot, "Q080");
+        strHtml = (MarkupString)Util.GetHtmlStringExtAll(wwwroot, StrId);
+        strHtmlEn = (MarkupString)Util.GetHtmlStringExtAllLang(wwwroot, StrId, "en");
+        strHtmlZh = (MarkupString)Util.GetHtmlStringExtAllLang(wwwroot, StrId, "zh");
+        strHtmlTh = (MarkupString)Util.GetHtmlStringExtAllLang(wwwroot, StrId, "th");
+
+        //        PageTitle = Util.GetPageTitle(wwwroot, StrId);
+        PageTitle = pageService.GetPageTitle(StrId);
+
+        PageList = pageService.GetPageList();
+        PageListC = pageService.GetPageList("C");
+        PageListM = pageService.GetPageList("M");
+        PageListP = pageService.GetPageList("P");
+        PageListQ = pageService.GetPageList("Q");
+        PageListR = pageService.GetPageList("R");
+        PageListS = pageService.GetPageList("S");
+        //   StateHasChanged();
+
+
+
+    }
+
+    // NOTE by Mark, 2021-01-08
+    private bool expandSubMenu = false;
+    private void ToggleSubMenu()
+    {
+        expandSubMenu = !expandSubMenu;
+    }
+
+    private bool collapseNavMenu = true;
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private bool[] expandSubMenuX = new bool[7];
+
+    private void ToggleSubMenuX(int seq)
+    {
+
+        expandSubMenuX[seq] = !expandSubMenuX[seq];
+    }
+    private void ToggleNavMenu()
+    {
+        //collapseNavMenu = !collapseNavMenu;
+        //foreach (bool x in expandSubMenuX.Select)
+        //{
+        //    x = false;
+        //}
+        collapseNavMenu = !collapseNavMenu;
+
+        for (int i = 0; i < expandSubMenuX.Count(); i++)
+        {
+            // Do something...
+            expandSubMenuX[i] = collapseNavMenu;
+        }
+    }
+
+}

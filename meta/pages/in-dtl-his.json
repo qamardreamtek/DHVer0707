@@ -1,0 +1,364 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "In Dtl His"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "events": {
+                    "click": [
+                      {
+                        "condition": "${event?.Value == \"csv\"}",
+                        "fileName": "In Dtl His",
+                        "name": "MARK10_SQLEXPRESS04.getInDtlHis",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "WHSE_NO,IN_NO,IN_LINE,MOVM_TYPE,TRN_NO,TRN_LINE,ITEM_STS,SKU_NO,GTIN_NO,REQM_NO,REQM_TYPE,STK_SEGMENT,PLANT,STGE_LOC,BATCH_NO,STK_CAT,STK_SPECIAL_IND,STK_SPECIAL_NO,EXPIRE_DATE,INSP_LOT,GR_DATE,SKU_IN_QTY,SKU_ALO_QTY,SKU_FIN_QTY,SKU_UNIT,GTIN_IN_QTY,GTIN_ALO_QTY,GTIN_FIN_QTY,GTIN_UNIT,GTIN_NUMERATOR,GTIN_DENOMINATOR,GROSS_WEIGHT,NET_WEIGHT,WEIGHT_UNIT,VOLUME,VOLUME_UNIT,TO_NO,TO_DATE,TO_SKU_QTY,TO_GTIN_QTY,DATE_CODE,START_DATE,END_DATE,IN_USER,IN_DATE,IN_LOC,IN_STS,SOURCE,APPROVE_IND,REMARK,TRN_USER,TRN_DATE,CRT_USER,CRT_DATE,LOG_DATE,LOG_USER"
+                          }
+                        ],
+                        "type": "export"
+                      },
+                      {
+                        "condition": "${event == null || event.Value == \"xlsx\"}",
+                        "fileName": "In Dtl His",
+                        "format": "xlsx",
+                        "name": "MARK10_SQLEXPRESS04.getInDtlHis",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "WHSE_NO,IN_NO,IN_LINE,MOVM_TYPE,TRN_NO,TRN_LINE,ITEM_STS,SKU_NO,GTIN_NO,REQM_NO,REQM_TYPE,STK_SEGMENT,PLANT,STGE_LOC,BATCH_NO,STK_CAT,STK_SPECIAL_IND,STK_SPECIAL_NO,EXPIRE_DATE,INSP_LOT,GR_DATE,SKU_IN_QTY,SKU_ALO_QTY,SKU_FIN_QTY,SKU_UNIT,GTIN_IN_QTY,GTIN_ALO_QTY,GTIN_FIN_QTY,GTIN_UNIT,GTIN_NUMERATOR,GTIN_DENOMINATOR,GROSS_WEIGHT,NET_WEIGHT,WEIGHT_UNIT,VOLUME,VOLUME_UNIT,TO_NO,TO_DATE,TO_SKU_QTY,TO_GTIN_QTY,DATE_CODE,START_DATE,END_DATE,IN_USER,IN_DATE,IN_LOC,IN_STS,SOURCE,APPROVE_IND,REMARK,TRN_USER,TRN_DATE,CRT_USER,CRT_DATE,LOG_DATE,LOG_USER"
+                          }
+                        ],
+                        "type": "export"
+                      }
+                    ]
+                  },
+                  "icon": "get_app",
+                  "items": [
+                    {
+                      "icon": "",
+                      "text": "Excel",
+                      "value": "xlsx"
+                    },
+                    {
+                      "icon": "",
+                      "text": "CSV",
+                      "value": "csv"
+                    }
+                  ],
+                  "name": "splitbutton0",
+                  "style": {
+                    "marginLeft": "0px",
+                    "marginBottom": "10px"
+                  },
+                  "text": "Export",
+                  "type": "splitbutton"
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "filterMode": "advanced",
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getInDtlHisResult}",
+                  "events": {
+                    "loadData": []
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "WHSE_NO",
+                      "title": "WHSE NO"
+                    },
+                    {
+                      "property": "IN_NO",
+                      "title": "IN NO"
+                    },
+                    {
+                      "property": "IN_LINE",
+                      "title": "IN LINE"
+                    },
+                    {
+                      "property": "MOVM_TYPE",
+                      "title": "MOVM TYPE"
+                    },
+                    {
+                      "property": "TRN_NO",
+                      "title": "TRN NO"
+                    },
+                    {
+                      "property": "TRN_LINE",
+                      "title": "TRN LINE"
+                    },
+                    {
+                      "property": "ITEM_STS",
+                      "title": "ITEM STS"
+                    },
+                    {
+                      "property": "SKU_NO",
+                      "title": "SKU NO"
+                    },
+                    {
+                      "property": "GTIN_NO",
+                      "title": "GTIN NO"
+                    },
+                    {
+                      "property": "REQM_NO",
+                      "title": "REQM NO"
+                    },
+                    {
+                      "property": "REQM_TYPE",
+                      "title": "REQM TYPE"
+                    },
+                    {
+                      "property": "STK_SEGMENT",
+                      "title": "STK SEGMENT"
+                    },
+                    {
+                      "property": "PLANT",
+                      "title": "PLANT"
+                    },
+                    {
+                      "property": "STGE_LOC",
+                      "title": "STGE LOC"
+                    },
+                    {
+                      "property": "BATCH_NO",
+                      "title": "BATCH NO"
+                    },
+                    {
+                      "property": "STK_CAT",
+                      "title": "STK CAT"
+                    },
+                    {
+                      "property": "STK_SPECIAL_IND",
+                      "title": "STK SPECIAL IND"
+                    },
+                    {
+                      "property": "STK_SPECIAL_NO",
+                      "title": "STK SPECIAL NO"
+                    },
+                    {
+                      "property": "EXPIRE_DATE",
+                      "title": "EXPIRE DATE"
+                    },
+                    {
+                      "property": "INSP_LOT",
+                      "title": "INSP LOT"
+                    },
+                    {
+                      "property": "GR_DATE",
+                      "title": "GR DATE"
+                    },
+                    {
+                      "property": "SKU_IN_QTY",
+                      "title": "SKU IN QTY"
+                    },
+                    {
+                      "property": "SKU_ALO_QTY",
+                      "title": "SKU ALO QTY"
+                    },
+                    {
+                      "property": "SKU_FIN_QTY",
+                      "title": "SKU FIN QTY"
+                    },
+                    {
+                      "property": "SKU_UNIT",
+                      "title": "SKU UNIT"
+                    },
+                    {
+                      "property": "GTIN_IN_QTY",
+                      "title": "GTIN IN QTY"
+                    },
+                    {
+                      "property": "GTIN_ALO_QTY",
+                      "title": "GTIN ALO QTY"
+                    },
+                    {
+                      "property": "GTIN_FIN_QTY",
+                      "title": "GTIN FIN QTY"
+                    },
+                    {
+                      "property": "GTIN_UNIT",
+                      "title": "GTIN UNIT"
+                    },
+                    {
+                      "property": "GTIN_NUMERATOR",
+                      "title": "GTIN NUMERATOR"
+                    },
+                    {
+                      "property": "GTIN_DENOMINATOR",
+                      "title": "GTIN DENOMINATOR"
+                    },
+                    {
+                      "property": "GROSS_WEIGHT",
+                      "title": "GROSS WEIGHT"
+                    },
+                    {
+                      "property": "NET_WEIGHT",
+                      "title": "NET WEIGHT"
+                    },
+                    {
+                      "property": "WEIGHT_UNIT",
+                      "title": "WEIGHT UNIT"
+                    },
+                    {
+                      "property": "VOLUME",
+                      "title": "VOLUME"
+                    },
+                    {
+                      "property": "VOLUME_UNIT",
+                      "title": "VOLUME UNIT"
+                    },
+                    {
+                      "property": "TO_NO",
+                      "title": "TO NO"
+                    },
+                    {
+                      "property": "TO_DATE",
+                      "title": "TO DATE"
+                    },
+                    {
+                      "property": "TO_SKU_QTY",
+                      "title": "TO SKU QTY"
+                    },
+                    {
+                      "property": "TO_GTIN_QTY",
+                      "title": "TO GTIN QTY"
+                    },
+                    {
+                      "property": "DATE_CODE",
+                      "title": "DATE CODE"
+                    },
+                    {
+                      "property": "START_DATE",
+                      "title": "START DATE"
+                    },
+                    {
+                      "property": "END_DATE",
+                      "title": "END DATE"
+                    },
+                    {
+                      "property": "IN_USER",
+                      "title": "IN USER"
+                    },
+                    {
+                      "property": "IN_DATE",
+                      "title": "IN DATE"
+                    },
+                    {
+                      "property": "IN_LOC",
+                      "title": "IN LOC"
+                    },
+                    {
+                      "property": "IN_STS",
+                      "title": "IN STS"
+                    },
+                    {
+                      "property": "SOURCE",
+                      "title": "SOURCE"
+                    },
+                    {
+                      "property": "APPROVE_IND",
+                      "title": "APPROVE IND"
+                    },
+                    {
+                      "property": "REMARK",
+                      "title": "REMARK"
+                    },
+                    {
+                      "property": "TRN_USER",
+                      "title": "TRN USER"
+                    },
+                    {
+                      "property": "TRN_DATE",
+                      "title": "TRN DATE"
+                    },
+                    {
+                      "property": "CRT_USER",
+                      "title": "CRT USER"
+                    },
+                    {
+                      "property": "CRT_DATE",
+                      "title": "CRT DATE"
+                    },
+                    {
+                      "property": "LOG_DATE",
+                      "title": "LOG DATE"
+                    },
+                    {
+                      "property": "LOG_USER",
+                      "title": "LOG USER"
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "RadzenDh5.Models.Mark10Sqlexpress04.InDtlHi"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "MARK10_SQLEXPRESS04.getInDtlHis",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getInDtlHisResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.InDtlHi>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "In Dtl His",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

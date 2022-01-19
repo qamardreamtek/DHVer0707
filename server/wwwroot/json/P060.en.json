@@ -1,0 +1,23 @@
+﻿{
+  "intItem1": 794,
+  "intItem2": 798,
+  "intItem3": 802,
+  "intItem4": 806,
+  "intItem5": 810,
+  "intItem6": 814,
+  "intItem7": 818,
+  "intItem8": 824,
+  "intItem9": 834,
+  "intItem10": 838,
+  "id": "P060",
+  "item1": "Transfer of pallet goods from the warehouse due to a certain demand",
+  "item2": "May be because of the need to check the problem or organize the goods or change the goods storage pallets, etc., remove the pallet goods from the warehouse",
+  "item3": "Warehouse operator",
+  "item4": "Pallet article are in inventory status<br>",
+  "item5": "Pallet article storage data",
+  "item6": "Transfer out command",
+  "item7": "If there is no matching picking data, the system will prompt to check that no picking information is available, and the user can perform Data Inquire-> Q080 Inventory Data Query to query the tray data;",
+  "item8": "Enter query conditions and click Query",
+  "item9": "After WCS executes the out-of-warehousing command, P070 Pallet Inventory Adjustment is performed manually to rebind the relationship between the goods and the pallet.",
+  "item10": "        5.4. P070 Pallet Inventory Adjustment"
+}

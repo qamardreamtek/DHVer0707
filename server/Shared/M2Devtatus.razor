@@ -1,0 +1,219 @@
+﻿
+@using System.IO
+@using Microsoft.EntityFrameworkCore
+@*@using RadzenBlazorDemos.Models.Northwind
+    @inject RadzenBlazorDemos.Data.NorthwindContext Northwind*@
+@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment HostEnvironment
+@inject NavigationManager NavManager
+@using Radzen.Blazor
+@inject RadzenDh5.Data.Mark10Sqlexpress04Context AppDb
+
+@using RadzenDh5.Models;
+@using RadzenDh5.Pages;
+@inject Microsoft.Extensions.Localization.IStringLocalizer<MainLayout> L
+@inject SecurityService Security
+
+@inject Microsoft.JSInterop.IJSRuntime JSRuntime
+@attribute [Authorize]
+
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor httpContextAccessor
+@inject CaotunSpring.DH.Tools.DhGlobalsService DhGlobals
+@inject BlazorApp1.Data.PageService pageService;
+
+@if (IS_USER_ENABLE)
+{
+<div class="row">
+    <div class="col-md-4">
+        @if (vRightsCat1 != null && vRightsCat1.Count() > 0)
+@foreach (var x in vRightsCat1)
+{
+        <div>
+            @x.PROG_ID   &nbsp;  @pageService.GetDhAppStatusLatest(@x.PROG_ID)
+          
+
+            <M2StatusDetail USER="@UserName" CAT="@x.PROG_ID" LANG="@LANG"></M2StatusDetail>
+
+        </div>}
+    </div>
+
+    <div class="col-md-4">
+        @if (vRightsCat2 != null && vRightsCat2.Count() > 0)
+@foreach (var x in vRightsCat2)
+{
+        <div>
+            @x.PROG_ID  &nbsp;  @pageService.GetDhAppStatusLatest(@x.PROG_ID)
+      
+
+            <M2StatusDetail USER="@UserName" CAT="@x.PROG_ID" LANG="@LANG"></M2StatusDetail>
+
+        </div>}
+    </div>
+
+    <div class="col-md-4">
+        @if (vRightsCat3 != null && vRightsCat3.Count() > 0)
+@foreach (var x in vRightsCat3)
+{
+        <div>
+            @x.PROG_ID   &nbsp;  @pageService.GetDhAppStatusLatest(@x.PROG_ID)
+    
+            <M2StatusDetail USER="@UserName" CAT="@x.PROG_ID" LANG="@LANG"></M2StatusDetail>
+
+        </div>}
+    </div>
+
+</div>
+
+
+
+                @if (vRightsCat == null || vRightsCat.Count() == 0)
+                {
+<h3>
+    @*   User @UserName doesn't have any authorized PROGRAM.*@
+    @*<button @onclick="GetMenu">
+            Please reolad or check your authorization list
+        </button>*@
+
+    You don't have any authorization programs.
+
+</h3>} }
+            else
+            {
+<h3>User is not enable or not in list</h3>}
+
+
+
+
+
+
+@code { // NOTE by Mark, 04/24
+    // get culture
+
+    public bool IS_USER_ENABLE = true;
+
+    public string UserName;
+
+    protected override async Task OnInitializedAsync()
+    {
+        UserName = httpContextAccessor.HttpContext.User.Identity.Name;
+    }
+
+
+    string _Culture;
+    protected string Culture
+    {
+        get
+        {
+            return _Culture;
+        }
+        set
+        {
+            if (!object.Equals(_Culture, value))
+            {
+                _Culture = value;
+                InvokeAsync(() => { StateHasChanged(); });
+            }
+        }
+    }
+
+    protected async Task GetMenu()
+    {
+
+        await Load();
+
+
+    }
+
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await Load();
+        }
+
+    }
+
+    //protected override async System.Threading.Tasks.Task OnInitializedAsync()
+    //{
+    //    await Load();
+    //}
+    protected async System.Threading.Tasks.Task Load()
+    {
+        Culture = "en-US";
+
+        Culture = await JSRuntime.InvokeAsync<string>("Radzen.getCulture");
+
+        OnInitialized();
+
+        //     USER_ID = Security.User.UserName;
+
+        // vRights = AppDb.VRights.Where(a => a.user_id == UserName).OrderBy(a => a.PROG_ID);
+
+    }
+
+    [Parameter] public string ProgID { get; set; }
+
+
+
+
+    //    public string USER_ID = "admin";
+    //public string USER_ID;
+    public string LANG { get { return Culture; } }
+
+
+
+
+    //https://blazor.radzen.com/tree
+    //object selectedCategory = null;
+
+    protected override void OnInitialized()
+    {
+
+
+        vRightsCat = AppDb.VRights.Where(a => a.user_id == UserName && a.PARENT_ID == "0").OrderBy(a => a.PROG_SNO);
+
+
+        vRightsCat1 = AppDb.VRights.Where(a => a.user_id == UserName && a.PARENT_ID == "0").OrderBy(a => a.PROG_SNO).Skip(0).Take(2);
+        vRightsCat2 = AppDb.VRights.Where(a => a.user_id == UserName && a.PARENT_ID == "0").OrderBy(a => a.PROG_SNO).Skip(2).Take(2);
+        vRightsCat3 = AppDb.VRights.Where(a => a.user_id == UserName && a.PARENT_ID == "0").OrderBy(a => a.PROG_SNO).Skip(4).Take(2);
+
+    }
+
+
+    //IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.ProgMst>
+    //rootProgMsts;
+    //IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.ProgMst>
+    //    progMsts;
+    //IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.UserMst>
+    //    userMsts;
+    IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.VRight>
+        vRights;
+    IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.VRight>
+        vRightsCat;
+    IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.VRight>
+        vRightsCat1;
+    IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.VRight>
+        vRightsCat2;
+    IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.VRight>
+        vRightsCat3;
+
+
+    private void UpdateHeading()
+    {
+        vRights = AppDb.VRights.Where(a => a.user_id == UserName).OrderBy(a => a.PROG_ID);
+        StateHasChanged();
+    }
+
+    void Test()
+    {
+        //  UpdateContent();
+        //  USER_ID
+        vRights = AppDb.VRights.Where(a => a.user_id == UserName).OrderBy(a => a.PROG_ID);
+        vRightsCat = vRights.Where(a => a.PARENT_ID == "0").OrderBy(a => a.PROG_SNO);
+
+
+
+        StateHasChanged();
+    }}

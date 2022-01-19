@@ -1,0 +1,292 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Pic Dtl His"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "events": {
+                    "click": [
+                      {
+                        "condition": "${event?.Value == \"csv\"}",
+                        "fileName": "Pic Dtl His",
+                        "name": "MARK10_SQLEXPRESS04.getPicDtlHis",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "WHSE_NO,PIC_NO,PIC_LINE,STGE_TYPE,STGE_BIN,SU_ID,PLANT,STGE_LOC,SKU_NO,BATCH_NO,COUNT_USER,COUNT_QTY,COUNT_UNIT,WMSLOC_IND,REASON1,REASON2,REASON3,REASON4,REASON5,REASON6,REASON7,REASON8,REASON9,REASON10,BATCH_IND,SERIAL_IND,START_DATE,END_DATE,PIC_STS,REMARK,SOURCE,APPROVE_IND,TRN_USER,TRN_DATE,CRT_USER,CRT_DATE,LOG_DATE,LOG_USER"
+                          }
+                        ],
+                        "type": "export"
+                      },
+                      {
+                        "condition": "${event == null || event.Value == \"xlsx\"}",
+                        "fileName": "Pic Dtl His",
+                        "format": "xlsx",
+                        "name": "MARK10_SQLEXPRESS04.getPicDtlHis",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "WHSE_NO,PIC_NO,PIC_LINE,STGE_TYPE,STGE_BIN,SU_ID,PLANT,STGE_LOC,SKU_NO,BATCH_NO,COUNT_USER,COUNT_QTY,COUNT_UNIT,WMSLOC_IND,REASON1,REASON2,REASON3,REASON4,REASON5,REASON6,REASON7,REASON8,REASON9,REASON10,BATCH_IND,SERIAL_IND,START_DATE,END_DATE,PIC_STS,REMARK,SOURCE,APPROVE_IND,TRN_USER,TRN_DATE,CRT_USER,CRT_DATE,LOG_DATE,LOG_USER"
+                          }
+                        ],
+                        "type": "export"
+                      }
+                    ]
+                  },
+                  "icon": "get_app",
+                  "items": [
+                    {
+                      "icon": "",
+                      "text": "Excel",
+                      "value": "xlsx"
+                    },
+                    {
+                      "icon": "",
+                      "text": "CSV",
+                      "value": "csv"
+                    }
+                  ],
+                  "name": "splitbutton0",
+                  "style": {
+                    "marginLeft": "0px",
+                    "marginBottom": "10px"
+                  },
+                  "text": "Export",
+                  "type": "splitbutton"
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "filterMode": "advanced",
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getPicDtlHisResult}",
+                  "events": {
+                    "loadData": []
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "WHSE_NO",
+                      "title": "WHSE NO"
+                    },
+                    {
+                      "property": "PIC_NO",
+                      "title": "PIC NO"
+                    },
+                    {
+                      "property": "PIC_LINE",
+                      "title": "PIC LINE"
+                    },
+                    {
+                      "property": "STGE_TYPE",
+                      "title": "STGE TYPE"
+                    },
+                    {
+                      "property": "STGE_BIN",
+                      "title": "STGE BIN"
+                    },
+                    {
+                      "property": "SU_ID",
+                      "title": "SU ID"
+                    },
+                    {
+                      "property": "PLANT",
+                      "title": "PLANT"
+                    },
+                    {
+                      "property": "STGE_LOC",
+                      "title": "STGE LOC"
+                    },
+                    {
+                      "property": "SKU_NO",
+                      "title": "SKU NO"
+                    },
+                    {
+                      "property": "BATCH_NO",
+                      "title": "BATCH NO"
+                    },
+                    {
+                      "property": "COUNT_USER",
+                      "title": "COUNT USER"
+                    },
+                    {
+                      "property": "COUNT_QTY",
+                      "title": "COUNT QTY"
+                    },
+                    {
+                      "property": "COUNT_UNIT",
+                      "title": "COUNT UNIT"
+                    },
+                    {
+                      "property": "WMSLOC_IND",
+                      "title": "WMSLOC IND"
+                    },
+                    {
+                      "property": "REASON1",
+                      "title": "REASON 1"
+                    },
+                    {
+                      "property": "REASON2",
+                      "title": "REASON 2"
+                    },
+                    {
+                      "property": "REASON3",
+                      "title": "REASON 3"
+                    },
+                    {
+                      "property": "REASON4",
+                      "title": "REASON 4"
+                    },
+                    {
+                      "property": "REASON5",
+                      "title": "REASON 5"
+                    },
+                    {
+                      "property": "REASON6",
+                      "title": "REASON 6"
+                    },
+                    {
+                      "property": "REASON7",
+                      "title": "REASON 7"
+                    },
+                    {
+                      "property": "REASON8",
+                      "title": "REASON 8"
+                    },
+                    {
+                      "property": "REASON9",
+                      "title": "REASON 9"
+                    },
+                    {
+                      "property": "REASON10",
+                      "title": "REASON 10"
+                    },
+                    {
+                      "property": "BATCH_IND",
+                      "title": "BATCH IND"
+                    },
+                    {
+                      "property": "SERIAL_IND",
+                      "title": "SERIAL IND"
+                    },
+                    {
+                      "property": "START_DATE",
+                      "title": "START DATE"
+                    },
+                    {
+                      "property": "END_DATE",
+                      "title": "END DATE"
+                    },
+                    {
+                      "property": "PIC_STS",
+                      "title": "PIC STS"
+                    },
+                    {
+                      "property": "REMARK",
+                      "title": "REMARK"
+                    },
+                    {
+                      "property": "SOURCE",
+                      "title": "SOURCE"
+                    },
+                    {
+                      "property": "APPROVE_IND",
+                      "title": "APPROVE IND"
+                    },
+                    {
+                      "property": "TRN_USER",
+                      "title": "TRN USER"
+                    },
+                    {
+                      "property": "TRN_DATE",
+                      "title": "TRN DATE"
+                    },
+                    {
+                      "property": "CRT_USER",
+                      "title": "CRT USER"
+                    },
+                    {
+                      "property": "CRT_DATE",
+                      "title": "CRT DATE"
+                    },
+                    {
+                      "property": "LOG_DATE",
+                      "title": "LOG DATE"
+                    },
+                    {
+                      "property": "LOG_USER",
+                      "title": "LOG USER"
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "RadzenDh5.Models.Mark10Sqlexpress04.PicDtlHi"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "MARK10_SQLEXPRESS04.getPicDtlHis",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getPicDtlHisResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.PicDtlHi>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Pic Dtl His",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

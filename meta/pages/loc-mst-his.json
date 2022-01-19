@@ -1,0 +1,280 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Loc Mst His"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "events": {
+                    "click": [
+                      {
+                        "condition": "${event?.Value == \"csv\"}",
+                        "fileName": "Loc Mst His",
+                        "name": "MARK10_SQLEXPRESS04.getLocMstHis",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "WHSE_NO,LOC_NO,LOC_NAME,ZONE_NO,LANE_NO,EQU_NO,ROW_X,BAY_Y,LVL_Z,LOC_ASRS,LOC_STS,LOC_OSTS,AVAIL,DEPTH,LOC_SIZE,LOC_TYPE,LOC_ABC,LOC_SPECIAL,LOC_HOT,LOC_RCV,LOC_STOCK,LOC_QC,LOC_NG,LOC_RETURN,LOC_SORT,LOC_PICK,LOC_STAGE,LOC_DEL,SU_ID,COUNT_DATE,REMARK,TRN_USER,TRN_DATE,LOG_DATE,LOG_USER"
+                          }
+                        ],
+                        "type": "export"
+                      },
+                      {
+                        "condition": "${event == null || event.Value == \"xlsx\"}",
+                        "fileName": "Loc Mst His",
+                        "format": "xlsx",
+                        "name": "MARK10_SQLEXPRESS04.getLocMstHis",
+                        "parameters": [
+                          {
+                            "name": "$filter",
+                            "value": "${grid0.Query.Filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${grid0.Query.OrderBy}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": ""
+                          },
+                          {
+                            "name": "$select",
+                            "value": "WHSE_NO,LOC_NO,LOC_NAME,ZONE_NO,LANE_NO,EQU_NO,ROW_X,BAY_Y,LVL_Z,LOC_ASRS,LOC_STS,LOC_OSTS,AVAIL,DEPTH,LOC_SIZE,LOC_TYPE,LOC_ABC,LOC_SPECIAL,LOC_HOT,LOC_RCV,LOC_STOCK,LOC_QC,LOC_NG,LOC_RETURN,LOC_SORT,LOC_PICK,LOC_STAGE,LOC_DEL,SU_ID,COUNT_DATE,REMARK,TRN_USER,TRN_DATE,LOG_DATE,LOG_USER"
+                          }
+                        ],
+                        "type": "export"
+                      }
+                    ]
+                  },
+                  "icon": "get_app",
+                  "items": [
+                    {
+                      "icon": "",
+                      "text": "Excel",
+                      "value": "xlsx"
+                    },
+                    {
+                      "icon": "",
+                      "text": "CSV",
+                      "value": "csv"
+                    }
+                  ],
+                  "name": "splitbutton0",
+                  "style": {
+                    "marginLeft": "0px",
+                    "marginBottom": "10px"
+                  },
+                  "text": "Export",
+                  "type": "splitbutton"
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "filterMode": "advanced",
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getLocMstHisResult}",
+                  "events": {
+                    "loadData": []
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "WHSE_NO",
+                      "title": "WHSE NO"
+                    },
+                    {
+                      "property": "LOC_NO",
+                      "title": "LOC NO"
+                    },
+                    {
+                      "property": "LOC_NAME",
+                      "title": "LOC NAME"
+                    },
+                    {
+                      "property": "ZONE_NO",
+                      "title": "ZONE NO"
+                    },
+                    {
+                      "property": "LANE_NO",
+                      "title": "LANE NO"
+                    },
+                    {
+                      "property": "EQU_NO",
+                      "title": "EQU NO"
+                    },
+                    {
+                      "property": "ROW_X",
+                      "title": "ROW X"
+                    },
+                    {
+                      "property": "BAY_Y",
+                      "title": "BAY Y"
+                    },
+                    {
+                      "property": "LVL_Z",
+                      "title": "LVL Z"
+                    },
+                    {
+                      "property": "LOC_ASRS",
+                      "title": "LOC ASRS"
+                    },
+                    {
+                      "property": "LOC_STS",
+                      "title": "LOC STS"
+                    },
+                    {
+                      "property": "LOC_OSTS",
+                      "title": "LOC OSTS"
+                    },
+                    {
+                      "property": "AVAIL",
+                      "title": "AVAIL"
+                    },
+                    {
+                      "property": "DEPTH",
+                      "title": "DEPTH"
+                    },
+                    {
+                      "property": "LOC_SIZE",
+                      "title": "LOC SIZE"
+                    },
+                    {
+                      "property": "LOC_TYPE",
+                      "title": "LOC TYPE"
+                    },
+                    {
+                      "property": "LOC_ABC",
+                      "title": "LOC ABC"
+                    },
+                    {
+                      "property": "LOC_SPECIAL",
+                      "title": "LOC SPECIAL"
+                    },
+                    {
+                      "property": "LOC_HOT",
+                      "title": "LOC HOT"
+                    },
+                    {
+                      "property": "LOC_RCV",
+                      "title": "LOC RCV"
+                    },
+                    {
+                      "property": "LOC_STOCK",
+                      "title": "LOC STOCK"
+                    },
+                    {
+                      "property": "LOC_QC",
+                      "title": "LOC QC"
+                    },
+                    {
+                      "property": "LOC_NG",
+                      "title": "LOC NG"
+                    },
+                    {
+                      "property": "LOC_RETURN",
+                      "title": "LOC RETURN"
+                    },
+                    {
+                      "property": "LOC_SORT",
+                      "title": "LOC SORT"
+                    },
+                    {
+                      "property": "LOC_PICK",
+                      "title": "LOC PICK"
+                    },
+                    {
+                      "property": "LOC_STAGE",
+                      "title": "LOC STAGE"
+                    },
+                    {
+                      "property": "LOC_DEL",
+                      "title": "LOC DEL"
+                    },
+                    {
+                      "property": "SU_ID",
+                      "title": "SU ID"
+                    },
+                    {
+                      "property": "COUNT_DATE",
+                      "title": "COUNT DATE"
+                    },
+                    {
+                      "property": "REMARK",
+                      "title": "REMARK"
+                    },
+                    {
+                      "property": "TRN_USER",
+                      "title": "TRN USER"
+                    },
+                    {
+                      "property": "TRN_DATE",
+                      "title": "TRN DATE"
+                    },
+                    {
+                      "property": "LOG_DATE",
+                      "title": "LOG DATE"
+                    },
+                    {
+                      "property": "LOG_USER",
+                      "title": "LOG USER"
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "RadzenDh5.Models.Mark10Sqlexpress04.LocMstHi"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "MARK10_SQLEXPRESS04.getLocMstHis",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getLocMstHisResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<RadzenDh5.Models.Mark10Sqlexpress04.LocMstHi>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Loc Mst His",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

@@ -1,0 +1,23 @@
+﻿{
+  "intItem1": 741,
+  "intItem2": 745,
+  "intItem3": 749,
+  "intItem4": 753,
+  "intItem5": 757,
+  "intItem6": 761,
+  "intItem7": 765,
+  "intItem8": 771,
+  "intItem9": 781,
+  "intItem10": 785,
+  "id": "P030",
+  "item1": "Automatically allocates inventory storage for delivery order that shipping condition is 20 or 90",
+  "item2": "Manually select the delivery order to start the automatic warehouse move out the allocated pallet",
+  "item3": "Warehouse operator",
+  "item4": "SAP download related delivery data<br>",
+  "item5": "Executable Delivery Data",
+  "item6": "Picking data, updating Delivery data status",
+  "item7": "If there is no eligible Delivery data, the system will prompt to check that no Delivery information is available. The user can run the Data Inquire-> Q050 Delivery Order Data Query job to query the Delivery data and status; or select the specified Delivery No.",
+  "item8": "Enter the query conditions or select Delivery No and click Query to pick the Delivery header and detailed list.",
+  "item9": "AS/RS move out the pallet",
+  "item10": "This job automatically allocates inventory based on logic such as FEFO & FIFO. One pallet cannot have multiple TO allocated out of the warehouse at the same time.<br>"
+}

@@ -1,0 +1,23 @@
+﻿{
+  "intItem1": 842,
+  "intItem2": 846,
+  "intItem3": 850,
+  "intItem4": 854,
+  "intItem5": 858,
+  "intItem6": 862,
+  "intItem7": 866,
+  "intItem8": 872,
+  "intItem9": 882,
+  "intItem10": 886,
+  "id": "P070",
+  "item1": "Rearrange the pallets to which the article are bound",
+  "item2": "Rearrange the pallets to which the article are bound, can consolidate scattered goods in one pallet",
+  "item3": "Warehouse operator",
+  "item4": "Article pallets have been transferred out of the warehouse<br>",
+  "item5": "Serial number or original pallet number and destination pallet number",
+  "item6": "Change pallet article binding relationship",
+  "item7": "If there is no qualified pallet detail data, the system will prompt to check that there is no available pallet detail information. The user can run the Data Inquire-> Q080 Inventory Data Query job to query the pallet detail data;",
+  "item8": "Enter query conditions and click Query",
+  "item9": "The finished article pallets can be re-placed into the warehouse by the forklift and stored in the conveyor.",
+  "item10": ""
+}
